@@ -14,7 +14,7 @@ mvn eclipse:eclipse
 mvn idea:idea
 ----
 
-*NetBeans doesn't need to have special project files
+* NetBeans doesn't need to have special project files
 
 After executing the plugin corresponding with your IDE run
 ----
