@@ -3,11 +3,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>JavaCuriosities</name>
+	<name>Java Advanced</name>
 	<url>https://github.com/ldebello</url>
 
 	<organization>
-		<name>JavaCuriosities.</name>
+		<name>JavaCuriosities Inc.</name>
 		<url>http://javacuriosities.blogspot.com.ar</url>
 	</organization>
 
@@ -25,8 +25,8 @@
 	</properties>
 
 	<modules>
-		<module>ar.com.javacuriosities.java_advanced.threads</module>
-    	<module>ar.com.javacuriosities.java_advanced.sockets</module>
+		<module>Threads</module>
+    	<module>Sockets</module>
   	</modules>
 
   	<build>
