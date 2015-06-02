@@ -2,4 +2,5 @@
 .classpath
 .wtpmodules
 .settings
+lib/
 target/
