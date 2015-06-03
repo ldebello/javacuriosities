@@ -1,9 +1,21 @@
-.project
+# Eclipse
 .classpath
+.project
 .wtpmodules
-.settings
-.iml
-.ipr
-.iws
-lib/
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
 target/
+
+# Dependencies
+lib/
