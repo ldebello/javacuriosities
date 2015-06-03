@@ -2,5 +2,8 @@
 .classpath
 .wtpmodules
 .settings
+.iml
+.ipr
+.iws
 lib/
 target/
