@@ -9,7 +9,7 @@
 
   <parent>
     <groupId>ar.com.javacuriosities</groupId>
-    <artifactId>ar.com.javacuriosities.java_advanced</artifactId>
+    <artifactId>JavaAdvanced</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
