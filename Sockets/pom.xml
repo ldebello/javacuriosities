@@ -14,6 +14,6 @@
   </parent>
 
   <groupId>ar.com.javacuriosities</groupId>
-  <artifactId>ar.com.javacuriosities.java_advanced.sockets</artifactId>
+  <artifactId>Sockets</artifactId>
   <version>1.0-SNAPSHOT</version>
 </project>
