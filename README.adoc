@@ -22,3 +22,10 @@ After executing the plugin corresponding with your IDE run
 ----
 mvn clean install
 ----
+
+== Presentations
+
+You can find some useful presentations about thread in the following URLs
+
+* http://es.slideshare.net/luisdebello/thread-01
+* http://es.slideshare.net/luisdebello/thread-02
