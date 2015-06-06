@@ -27,7 +27,8 @@
 	<modules>
 		<module>Threads</module>
     	<module>Sockets</module>
-  	</modules>
+    	<module>ConcurrencyAPI</module>
+  </modules>
 
   	<build>
     <plugins>
