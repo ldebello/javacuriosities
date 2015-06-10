@@ -37,9 +37,9 @@ public class Step11WaitAndNotify {
 
 			// Start boss
 			boss.start();
-		} catch (InterruptedException ex) {
-			Logger.getLogger(Step11WaitAndNotify.class.getName()).log(
-					Level.SEVERE, null, ex);
+		} catch (InterruptedException e) {
+			// Log and Handle exception
+			e.printStackTrace();
 		}
 	}
 

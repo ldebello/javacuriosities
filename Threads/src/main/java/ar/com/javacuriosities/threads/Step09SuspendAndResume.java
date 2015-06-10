@@ -41,10 +41,9 @@ public class Step09SuspendAndResume {
 			 * Es importante notar que los métodos suspend() y resume() por lo cual
 			 * no deberían usarse debido a que son Deadlock-prone
 			 */
-		} catch (InterruptedException ex) {
-			System.out.println("error");
-			Logger.getLogger(Step09SuspendAndResume.class.getName()).log(
-					Level.SEVERE, null, ex);
+		} catch (InterruptedException e) {
+			// Log and Handle exception
+			e.printStackTrace();
 		}
 	}
 

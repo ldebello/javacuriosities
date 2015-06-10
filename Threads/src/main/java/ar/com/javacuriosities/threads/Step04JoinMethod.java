@@ -35,8 +35,8 @@ public class Step04JoinMethod {
 			worker02.join();
 			worker03.join();
 		} catch (Exception e) {
-			Logger.getLogger(Step04JoinMethod.class.getName()).log(Level.SEVERE,
-					null, e);
+			// Log and Handle exception
+			e.printStackTrace();
 		}
 	}
 

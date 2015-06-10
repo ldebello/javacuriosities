@@ -74,6 +74,7 @@ public class Step08Synchronized {
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
+				// Log and Handle exception
 				e.printStackTrace();
 			}
 		}

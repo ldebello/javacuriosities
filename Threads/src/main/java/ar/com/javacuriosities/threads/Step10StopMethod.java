@@ -24,8 +24,9 @@ public class Step10StopMethod {
              * Como se puede ver el ciclo no siempre llega a ejecutarse completamente
              */
             counter.stop();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Step10StopMethod.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException e) {
+        	// Log and Handle exception
+        	e.printStackTrace();
         }
     }
     

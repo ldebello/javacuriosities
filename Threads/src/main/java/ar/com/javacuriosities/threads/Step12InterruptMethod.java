@@ -11,9 +11,9 @@ public class Step12InterruptMethod {
 		thread.start();
 		try {
 			Thread.sleep(2000);
-		} catch (InterruptedException ex) {
-			Logger.getLogger(Step12InterruptMethod.class.getName()).log(
-					Level.SEVERE, null, ex);
+		} catch (InterruptedException e) {
+			// Log and Handle exception
+			e.printStackTrace();
 		}
 		System.out.println("Main Thread interrupting another Thread");
 		thread.interrupt();
@@ -27,7 +27,9 @@ public class Step12InterruptMethod {
 				System.out.println("Before running - work()");
 				work();
 				System.out.println("After running -  work()");
-			} catch (InterruptedException x) {
+			} catch (InterruptedException e) {
+				// Log and Handle exception
+				// e.printStackTrace();
 				System.out.println("work() Method has been interrupted");
 				return;
 			}

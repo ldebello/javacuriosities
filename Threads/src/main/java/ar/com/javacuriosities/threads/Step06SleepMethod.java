@@ -43,6 +43,7 @@ public class Step06SleepMethod {
 					 * esta exception la cual es chequeada para que dejemos 
 					 * los datos de forma consistente
 					 */
+					// Log and Handle exception
 					e.printStackTrace();
 				}
 			}
