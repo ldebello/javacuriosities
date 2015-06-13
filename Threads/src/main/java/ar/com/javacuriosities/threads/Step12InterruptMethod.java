@@ -1,7 +1,5 @@
 package ar.com.javacuriosities.threads;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Step12InterruptMethod {
 
