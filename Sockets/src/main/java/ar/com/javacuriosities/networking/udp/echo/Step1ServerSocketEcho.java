@@ -20,9 +20,8 @@ public class Step1ServerSocketEcho {
 	 */
 	public static final int SERVICE_PORT = 1025;
 
-	// Tamaño máximo del paquete, lo suficientemente largo para casi cualquier
-	// cliente
-	public static final int BUFSIZE = 4096;
+	// Tamaño máximo del paquete, este es un valor común para utilizar como buffer
+	public static final int BUFSIZE = 8192;
 
 	// Socket usado para leer y escribir paquetes UDP
 	private DatagramSocket socket;

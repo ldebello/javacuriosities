@@ -13,18 +13,18 @@ public class Step2ClientSocketEcho {
      * comunicación óptima se sugiere que sea  el MSS (Maximum Segment Size)
      * MSS: Tamaño máximo de segmento, este se calcula (MTU - Size Cabecera UDP/TCP - Cabecera IP)
      * 
-     * MTU (Maximum Transmission Unit): Los valores típicos son 576 o 1500 (Redes IPv4 o IPv6)
+     * MTU (Maximum Transmission Unit): Los valores típicos son 576 o 1500
      * Cabecera UDP: 8 + Payload (Datos)
      * Cabecera TCP: 20 + Payload (Datos)
      * Cabecera IP: Usualmente 20 hasta 60 por encabezados adicionales
      * 
-     * Size: 576 - 60 - 8
+     * Size: 1500 - 60 - 8
      *  
      * El valor calculado arriba es un valor con el cual podremos confiar que no tendremos
      * fragmentación (La fragmentación es maneja por el protocolo IP), esto incrementa nuestras chances de recibir el paquete, dado que si 
      * el size es mayor que nuestro MTU se produce la fragmentación y si un fragmento es perdido todo el paquete será perdido.
      */
-    public static final int BUFSIZE = 508;
+    public static final int BUFSIZE = 1432;
 
     public static void main(String args[]) {
         InetAddress inetAddress = null;
