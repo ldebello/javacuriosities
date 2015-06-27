@@ -25,6 +25,27 @@ import java.net.Socket;
  * - No garantiza un servicio extremo a extremo fiable
  * - No controla la pérdida de paquetes, los errores o la duplicidad
  * 
+ * La cabecera usada por el protocolo TCP incluye 6 flags
+ * SYN (Synchronize), ACK (Acknowledgement), RST (Reset), PSH (Push), URG (Urgent) y FIN (Urgent)
+ * 
+ * Cada vez que iniciamos una conexión con un cliente se establece lo que se conoce como Handshake,
+ * esto consta de los siguientes paso: 
+ * 
+ * Paso 1:
+ * Aplicación A --> Envía un paquete con el flag SYN al puerto X de la aplicación B con un numero de secuencia
+ * 
+ * A ------ [SYN secuencia:X] ----------------> B
+ * 
+ * Paso 2:
+ * Si el puerto esta abierto la aplicación B responde con los flag SYN y ACK también define un numero de secuencia inicial y envía el ACK con el
+ * numero de secuencia de A mas 1. Si el puerto esta cerrado nos responden con RST y ACK.
+ * 
+ * B ------ [SYN+ACK secuencia:Y ack:X+1] ----> A
+ * 
+ * Paso 3:
+ * La aplicación responde con un tercer paquete para confirmar la conexión con otro flag ACK
+ * 
+ * A ------ [ACK secuencia:X+1 ack:Y+1] ------> B
  * 
  */
 public class Step1ServerSocketTCP {
