@@ -23,7 +23,7 @@ public class Step13DaemonThread {
 		thread02.start();
 	}
 
-	private static class Task extends Thread {
+	private static final class Task extends Thread {
 
 		@Override
 		public void run() {
