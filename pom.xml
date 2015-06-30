@@ -28,6 +28,7 @@
 		<module>Threads</module>
     	<module>Sockets</module>
     	<module>ConcurrencyAPI</module>
+    	<module>ReferenceTypes</module>
   </modules>
 
   	<build>
