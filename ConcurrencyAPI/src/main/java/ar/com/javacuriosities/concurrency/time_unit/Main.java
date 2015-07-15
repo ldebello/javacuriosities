@@ -14,7 +14,7 @@ public class Main {
         try {
             System.out.println("Sleeping 2 seconds...");
             
-            // Hacemos un sleep por el Time Unit que estemos usando
+            // Usando algún tipo del Enum TimeUnit ejecutamos un sleep
             SECONDS.sleep(2);
             
             System.out.println("Continue");
