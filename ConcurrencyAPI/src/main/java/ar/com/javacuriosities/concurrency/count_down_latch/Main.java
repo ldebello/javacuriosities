@@ -2,8 +2,6 @@ package ar.com.javacuriosities.concurrency.count_down_latch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /*
  * CountDownLatch: Nos permitirá establecer el número de eventos que deseamos que ocurran,  antes de continuar con la ejecución. 
@@ -23,8 +21,9 @@ public class Main {
             
             // Esperamos que el contador llegue a cero
             countDownLatch.await();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException e) {
+        	// Log and Handle exception
+			e.printStackTrace();
         }
         System.out.println("Finish");
     }

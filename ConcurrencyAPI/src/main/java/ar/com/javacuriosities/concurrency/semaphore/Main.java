@@ -30,7 +30,8 @@ public class Main {
 	}
 
 	/*
-	 * Clase que representa un Escritor el cual necesita la exclusividad sobre el recurso para escribir
+	 * Clase que representa un Escritor el cual necesita la exclusividad sobre
+	 * el recurso para escribir
 	 */
 	private static final class Writer extends Thread {
 
@@ -80,8 +81,9 @@ public class Main {
 
 		@Override
 		public void run() {
-			System.out.println(getName() + ": Trying to read");
 			try {
+				System.out.println(getName() + ": Trying to read");
+
 				// Solicitamos un ticket
 				semaphore.acquire();
 
