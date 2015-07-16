@@ -33,4 +33,4 @@ You can find some useful presentations in the following URLs
 * http://www.slideshare.net/luisdebello/sockets-tcp-49338990[Sockets TCP]
 * http://es.slideshare.net/luisdebello/sockets-udp[Sockets UDP]
 
-* http://es.slideshare.net/luisdebello/administracin-de-memoria-en-java [Java Memory Management]
+* http://es.slideshare.net/luisdebello/administracin-de-memoria-en-java[Java Memory Management]
