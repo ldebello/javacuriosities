@@ -6,7 +6,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
 /*
- * El framework Fork/Join es una implementación de ExecutorService con mejoras para el multiproceso. 
+ * El framework Fork/Join (Incluido en Java 1.7) es una implementación de ExecutorService con mejoras para el multiproceso. 
  * Está diseñado para dividir una tarea grande en varias pequeñas. El objetivo es aprovechar mejor 
  * toda la capacidad de procesamiento y mejorar el rendimiento de las aplicaciones. 
  * Al igual que con ExecutorService, tendremos un pool de Threads con una cola de tareas asociada, 
