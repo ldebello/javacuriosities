@@ -4,6 +4,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/*
+ * Un LiveLock es similar a un Deadlock en sentido de que dos o mas threads se están bloqueando entre si, pero con un Livelock cada thread esta esperando "activamente", 
+ * intentando resolver su problema, como por ejemplo librando sus locks y reintentando su tarea
+ */
 public class LiveLock {
 
 	public static void main(String[] args) {

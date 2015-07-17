@@ -2,6 +2,10 @@ package ar.com.javacuriosities.threads.liveness;
 
 import java.util.concurrent.TimeUnit;
 
+/*
+ * Nos referimos a un deadlock cuando un thread espera por otro que esta utilizando un recurso (File, DB Table, etc), 
+ * mientras que el otro thread también esta esperando por el primer thread que esta utilizando el recurso que este necesita
+ */
 public class Deadlock {
 
 	public static void main(String[] args) {
