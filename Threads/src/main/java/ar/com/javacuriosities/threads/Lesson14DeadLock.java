@@ -10,7 +10,7 @@ package ar.com.javacuriosities.threads;
  * Independientemente de las herramientas que usemos lo ideal sera conseguir un Thread Dump lo cual es un volcado con las información de lo que estaba haciendo cada Thread.
  * Para esto podemos usar alguna de las herramientas solicitadas o jstack la cual viene incluida en el JDK y genera esta información
  */
-public class Step14DeadLock {
+public class Lesson14DeadLock {
 
 	// Definimos dos objetos que vamos a usar como candados
 	private final Object mutex1 = new Object();
@@ -18,7 +18,7 @@ public class Step14DeadLock {
 
 	public static void main(String[] args) {
 		// Creamos la clase que ejecuta un proceso que genera un Deadlock
-		Step14DeadLock test = new Step14DeadLock();
+		Lesson14DeadLock test = new Lesson14DeadLock();
 
 		// Ejecutamos el método que genera el DeadLock
 		test.deadLock();
@@ -76,9 +76,9 @@ public class Step14DeadLock {
 
 	private static final class Locking12 implements Runnable {
 
-		private Step14DeadLock deadLock;
+		private Lesson14DeadLock deadLock;
 
-		public Locking12(Step14DeadLock deadLock) {
+		public Locking12(Lesson14DeadLock deadLock) {
 			this.deadLock = deadLock;
 		}
 
@@ -90,9 +90,9 @@ public class Step14DeadLock {
 
 	private static final class Locking21 implements Runnable {
 
-		private Step14DeadLock deadLock;
+		private Lesson14DeadLock deadLock;
 
-		public Locking21(Step14DeadLock deadLock) {
+		public Locking21(Lesson14DeadLock deadLock) {
 			this.deadLock = deadLock;
 		}
 

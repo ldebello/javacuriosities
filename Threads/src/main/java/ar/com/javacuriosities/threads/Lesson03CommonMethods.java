@@ -1,7 +1,7 @@
 package ar.com.javacuriosities.threads;
 
 
-public class Step03CommonMethods {
+public class Lesson03CommonMethods {
 
     public static void main(String[] args) {
         // Creamos un thread sobre el cual vamos a trabajar

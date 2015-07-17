@@ -27,7 +27,7 @@ package ar.com.javacuriosities.threads;
  * 3- También podemos hacer sincronizados métodos que sean estáticos aunque ahí la diferencia radica que no se usa el candado
  * de la instancia sino de la clase
  */
-public class Step08Synchronized {
+public class Lesson08Synchronized {
 
 	public static void main(String[] args) {
 		BankAccount bankAccount = new BankAccount();

@@ -1,6 +1,6 @@
 package ar.com.javacuriosities.threads;
 
-public class Step02StartThread {
+public class Lesson02StartThread {
 
 	public static void main(String[] args) {
 		Thread thread01 = new MyThread();

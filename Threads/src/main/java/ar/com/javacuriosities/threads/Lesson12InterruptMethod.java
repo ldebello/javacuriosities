@@ -1,7 +1,7 @@
 package ar.com.javacuriosities.threads;
 
 
-public class Step12InterruptMethod {
+public class Lesson12InterruptMethod {
 
 	public static void main(String[] args) {
 		Runnable heavyTask = new Task();

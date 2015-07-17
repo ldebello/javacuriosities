@@ -1,6 +1,6 @@
 package ar.com.javacuriosities.threads;
 
-public class Step06SleepMethod {
+public class Lesson06SleepMethod {
 
 	public static void main(String[] args) {
 		/*

@@ -1,6 +1,6 @@
 package ar.com.javacuriosities.threads;
 
-public class Step13DaemonThread {
+public class Lesson13DaemonThread {
 
 	public static void main(String[] args) {
 		Thread thread01 = new Task();

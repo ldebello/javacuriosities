@@ -1,6 +1,6 @@
 package ar.com.javacuriosities.threads;
 
-public class Step17ThreadGroup {
+public class Lesson17ThreadGroup {
 
 	public static void main(String[] args) {
 		// Creamos un Thread Group

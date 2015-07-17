@@ -1,7 +1,7 @@
 package ar.com.javacuriosities.threads;
 
 
-public class Step11WaitAndNotify {
+public class Lesson11WaitAndNotify {
 
 	public static void main(String[] args) {
 		try {

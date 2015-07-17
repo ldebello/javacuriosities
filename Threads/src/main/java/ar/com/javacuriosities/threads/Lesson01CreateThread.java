@@ -28,7 +28,7 @@ package ar.com.javacuriosities.threads;
  * Durante la ejecución de un thread se le asigna un quantum o time slice para que el thread se ejecute, luego de ese tiempo o si el thread es bloqueado o dormido, se cambiara
  * a otro thread o al mismo, esto es manejado por el scheduler del sistema operativo
  */
-public class Step01CreateThread {
+public class Lesson01CreateThread {
 
 	public static void main(String[] args) {
 		// Creamos un thread usando una clase la cual extiende Thread

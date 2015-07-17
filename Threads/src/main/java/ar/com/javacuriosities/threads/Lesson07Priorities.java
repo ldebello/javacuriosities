@@ -3,7 +3,7 @@ package ar.com.javacuriosities.threads;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Step07Priorities {
+public class Lesson07Priorities {
 
 	public static void main(String[] args) {
 		/*

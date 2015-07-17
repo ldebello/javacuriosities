@@ -1,7 +1,7 @@
 package ar.com.javacuriosities.threads;
 
 
-public class Step09SuspendAndResume {
+public class Lesson09SuspendAndResume {
 
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {

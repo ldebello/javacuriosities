@@ -1,7 +1,7 @@
 package ar.com.javacuriosities.threads;
 
 
-public class Step10StopMethod {
+public class Lesson10StopMethod {
 
     @SuppressWarnings("deprecation")
 	public static void main(String[] args) {

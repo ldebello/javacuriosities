@@ -1,7 +1,7 @@
 package ar.com.javacuriosities.threads;
 
 
-public class Step15ThreadLocal {
+public class Lesson15ThreadLocal {
 
     public static void main(String[] args) {
         try {

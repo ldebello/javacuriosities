@@ -1,7 +1,7 @@
 package ar.com.javacuriosities.threads;
 
 
-public class Step04JoinMethod {
+public class Lesson04JoinMethod {
 
 	public static void main(String[] args) {
 		// Creamos 3 threads
