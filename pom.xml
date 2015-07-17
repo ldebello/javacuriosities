@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-eclipse-plugin-version>2.10</maven-eclipse-plugin-version>
 		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
+		<maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
 	</properties>
 
 	<modules>
@@ -29,6 +30,7 @@
     	<module>Sockets</module>
     	<module>ConcurrencyAPI</module>
     	<module>ReferenceTypes</module>
+    	<module>Lambdas</module>
   </modules>
 
   	<build>
@@ -63,6 +65,15 @@
           		<downloadJavadocs>true</downloadJavadocs>
         	</configuration>
       	</plugin>
+
+      	<plugin>
+        	<artifactId>maven-compiler-plugin</artifactId>
+        	<version>${maven-compiler-plugin-version}</version>
+        	<configuration>
+            	<source>1.7</source>
+            	<target>1.7</target>
+        	</configuration>
+    	</plugin>
     </plugins>
   </build>
 </project>
