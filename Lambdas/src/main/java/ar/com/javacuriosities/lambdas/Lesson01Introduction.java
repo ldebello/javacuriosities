@@ -38,5 +38,23 @@ public class Lesson01Introduction {
 		numbers.sort((left, right) -> left.compareTo(right));
 		
 		System.out.println("Final State: " + numbers);
+		
+		/*
+		 * Ahora podemos revisar otro detalle sobre los lambda dado que cuando
+		 * compilamos nuestra clase no vemos ninguna clase anónima o algo similar surge la duda
+		 * como los lambdas están definido
+		 * Para esto podemos usar el comando "javap -p <ClassName>.class"
+		 * Si hacemos esto veremos que nuestra clase tiene métodos del estilo
+		 * 
+		 * private static void lambda$X$Y()
+		 * 	- Donde x representa el nombre del método que contiene el lambda
+		 * 	- Donde y representa un numero de secuencia iniciado en 0
+		 * 
+		 * Luego en tiempo de ejecuccion esto de resuelve con una instrucción a nivel de bytecode,
+		 * llamada invokedynamic, esta fue incluida en Java 1.7
+		 */
+		Runnable lambda = () -> System.out.println("Hello World");
+		
+		lambda.run();
 	}
 }
