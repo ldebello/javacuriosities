@@ -15,7 +15,7 @@ import java.util.function.UnaryOperator;
  * bien definido de Functional Interfaces.
  * Muchas de estas nuevas interfaces son usadas por el nuevo API de Streams
  */
-public class Lesson3FunctionalInterfaces {
+public class Lesson03FunctionalInterfaces {
 	public static void main(String[] args) {
 		// Consumer<T>: Esta interfaz solo toma un valor y no retorna valor
 		Consumer<String> consumer = (String message) -> System.out.println(message);
