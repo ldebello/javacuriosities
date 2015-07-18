@@ -2,7 +2,9 @@ package ar.com.javacuriosities.lambdas;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /*
@@ -52,5 +54,55 @@ public class Lesson06NewMethods {
 		
 		// En este caso la concatenación de los String solo será realizada si el logger esta configurado en nivel INFO o alguno inferior
 		logger.info(()->"Hello" + " " + "World");
+		
+		/*
+		 * Map interface:
+		 * 	- Se agrego el método compute, computeIfAbsent, computeIfPresent, estos métodos sirven generalmente cuando queremos tomar un valor del Map hacer algo con el y guardar un nuevo valor para esa key
+		 * 	- Se agrego el método forEach
+		 * 	- Se agrego el método merge
+		 * 	- Se agrego el método getOrDefault
+		 * 	- Se agrego el método putIfAbsent, que antes solo estaba presente para ConcurrentHashMap
+		 * 	- Se agrego el método remove para un key-value especifico
+		 * 	- Se agrego el método replace para un key simple y también para un key-value especifico
+		 */
+		Map<String, Integer> keyValuePairs = new HashMap<>();
+		
+		keyValuePairs.computeIfAbsent("FirstKey", (key) -> 99);
+		keyValuePairs.computeIfAbsent("FirstKey", (key) -> 11);
+		
+		System.out.println(keyValuePairs);
+		
+		keyValuePairs.computeIfPresent("FirstKey", (key, value) -> 33);
+		
+		System.out.println(keyValuePairs);
+		
+		// Aca si la key existe podemos cambiar su valor sino estamos creando un nuevo entry en el Map
+		keyValuePairs.compute("SecondKey", (key, value) -> 66);
+		
+		System.out.println(keyValuePairs);
+		
+		keyValuePairs.forEach((key, value) -> System.out.println(key + "=" + value));
+		
+		// Si la key no existe la función no es ejecutada
+		keyValuePairs.merge("ThirdKey", 77, (currentValue, suggestValue) -> currentValue + suggestValue);
+		
+		System.out.println(keyValuePairs);
+		
+		// Si la key existe se ejecuta la función para hacer merge de los valores
+		keyValuePairs.merge("ThirdKey", 33, (currentValue, suggestValue) -> currentValue + suggestValue);
+		
+		System.out.println(keyValuePairs);
+		
+		// El método getOrDefault busca la key o sino retorna el segundo parámetro
+		System.out.println(keyValuePairs.getOrDefault("ForthKey", 100));
+		
+		keyValuePairs.remove("ThirdKey", 100);
+		System.out.println(keyValuePairs);
+		
+		keyValuePairs.remove("ThirdKey", 110);
+		System.out.println(keyValuePairs);
+		
+		keyValuePairs.replace("FirstKey", 99);
+		System.out.println(keyValuePairs);
 	}
 }
