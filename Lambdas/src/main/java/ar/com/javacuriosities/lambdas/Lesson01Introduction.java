@@ -52,6 +52,9 @@ public class Lesson01Introduction {
 		 * 
 		 * Luego en tiempo de ejecuccion esto de resuelve con una instrucción a nivel de bytecode,
 		 * llamada invokedynamic, esta fue incluida en Java 1.7
+		 * Durante el runtime se genera bytecode on the fly para ejecutar estos métodos, eso hace uso
+		 * de sun.misc.Unsafe.defineAnonymousClass() y podemos ver las clases generadas con el siguiente 
+		 * parámetro "-Djdk.internal.lambda.dumpProxyClasses=<path>"
 		 */
 		Runnable lambda = () -> System.out.println("Hello World");
 		
