@@ -49,6 +49,5 @@ public class Lesson02PrimitiveStreams {
 		public int getNumberOfCourses() {
 			return numberOfCourses;
 		}
-
 	}
 }
