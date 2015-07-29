@@ -1,6 +1,6 @@
-= Java Advanced
+= Java Curiosities
 
-It contains different projects/modules with implementations of Threads/Sockets and some extras topics
+This repository contains several examples and summaries about different Java topics
 
 == Configuration
 
