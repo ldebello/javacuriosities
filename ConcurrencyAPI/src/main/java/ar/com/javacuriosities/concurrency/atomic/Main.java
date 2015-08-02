@@ -22,7 +22,24 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 
  * Por ende para lograr que esto se maneje de forma atómica debemos usar sincronización o alguna otra técnica, las clases del paquete atomic
  * hacen uso de técnicas como CAS (Compare-And-Swap) lo cual evita la sincronización y asegura la atomicidad
+ *  
+ * CAS Loop:
+ * for (;;) {
+ * 	int current = get();
+ * 	int next = current + 1;
+ * 	if (compareAndSet(current, next)) {
+ * 		return next;
+ * 	}
+ * }
  * 
+ * Nota: Es importante notar que a partir de Java 1.8 se modificaron algunas de estas clases para no usar CAS y utilizar XADD (Fetch and Add)
+ * 
+ * Update Java 1.8:
+ * En Java 1.8 se agregaron clases como 
+ * 	- LongAdder: Esta clase es la alternativa a AtomicLong cuando varios thread actualizan un mismo valor, dado que el algoritmo que utiliza es mas eficiente, continua usando el algoritmo
+ * 	CAS pero cuando falla almacena los valores pendientes en un objeto Cell que luego será utilizado
+ * 
+ * 	- LongAccumulator: Esta clase es una version mas especializada de LongAdder la cual nos permite trabajar con lambdas del tipo LongBinaryOperator
  */
 public class Main {
 

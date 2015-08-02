@@ -6,8 +6,10 @@ import java.util.stream.Stream;
 
 /*
  * Llamamos operaciones intermedias a aquellas que retornan otro Stream, estas operaciones
- * no son ejecutadas hasta que no hay una operación final. Podemos definir multiples parallel or sequencial
+ * no son ejecutadas hasta que no hay una operación final. Podemos definir multiples parallel or sequential
  * streams pero dado que las intermediate operations no se ejecutan el ultimo llamado prevalece.
+ * 
+ * Todas las operaciones intermedias retornan LazyStreams
  */
 public class Lesson04IntermediateOperation {
 	public static void main(String[] args) {
