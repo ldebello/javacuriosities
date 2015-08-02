@@ -56,12 +56,10 @@ public class Lesson04IntermediateOperation {
 		Stream<Integer> sorted = unordered.sorted();
 		
 		System.out.println("Applying peek operation");
-		// Esta operación retorna el mismo Stream de entrada, es util para debugging
+		// En cualquier momento podemos agregar esta operación llamada peek, la cual toma un Consumer y no espera resultado, esta operación es muy útil para debugging
 		Stream<Integer> peek = sorted.peek(System.out::println);
 		
 		// Ninguna de estas operaciones es ejecutada hasta que no haya una operación final
 		System.out.println("Sum: " + peek.mapToInt(n-> n).sum());
-		
-		
 	}
 }
