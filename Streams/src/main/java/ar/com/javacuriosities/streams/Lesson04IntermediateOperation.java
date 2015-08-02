@@ -23,7 +23,6 @@ public class Lesson04IntermediateOperation {
 		numbers.add(88);
 		numbers.add(22);
 		
-		
 		Stream<Integer> stream = numbers.stream();
 		
 		System.out.println("Applying distinct operation");

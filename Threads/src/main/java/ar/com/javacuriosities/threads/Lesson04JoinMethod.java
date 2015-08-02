@@ -38,7 +38,7 @@ public class Lesson04JoinMethod {
 		}
 	}
 
-	private static class Worker extends Thread {
+	private static final class Worker extends Thread {
 
 		public Worker(String name) {
 			super(name);

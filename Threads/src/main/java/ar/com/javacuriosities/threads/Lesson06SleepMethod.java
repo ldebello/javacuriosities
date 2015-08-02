@@ -8,8 +8,8 @@ public class Lesson06SleepMethod {
 		 * de un boolean en su constructor si esta cansado o no, si
 		 * esta cansado el thread se dormirá por 5000 ms o sea 5 segundos
 		 */
-		Thread energeticMan = new Worker("Worker-01", true);
-		Thread tiredMan = new Worker("Worker-02", false);
+		Thread worker01 = new Worker("Worker-01", true);
+		Thread worker02 = new Worker("Worker-02", false);
 
 		/*
 		 * Iniciamos los dos threads, dado que el energetic man empieza
@@ -17,23 +17,23 @@ public class Lesson06SleepMethod {
 		 * que esta cansado ese thread se dormirá por 5 segundos y eso afecta directamente 
 		 * cuando termina
 		 */
-		energeticMan.start();
-		tiredMan.start();
+		worker01.start();
+		worker02.start();
 	}
 
-	private static class Worker extends Thread {
+	private static final class Worker extends Thread {
 
-		private boolean isTired;
+		private boolean needSleep;
 
-		public Worker(String name, boolean isTired) {
+		public Worker(String name, boolean needSleep) {
 			super(name);
-			this.isTired = isTired;
+			this.needSleep = needSleep;
 		}
 
 		@Override
 		public void run() {
-			System.out.println("I am " + getName());
-			if (isTired) {
+			System.out.println("Thread Name: " + getName());
+			if (needSleep) {
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
