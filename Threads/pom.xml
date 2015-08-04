@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <name>Threads</name>
-  <url>https://github.com/ldebello/java-advanced/tree/master/Threads</url>
+  <url>https://github.com/ldebello/javacuriosities/tree/master/Threads</url>
 
   <parent>
     <groupId>ar.com.javacuriosities</groupId>
-    <artifactId>JavaAdvanced</artifactId>
+    <artifactId>JavaCuriosities</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
