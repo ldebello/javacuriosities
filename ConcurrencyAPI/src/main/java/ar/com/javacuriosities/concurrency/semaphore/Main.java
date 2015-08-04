@@ -4,8 +4,8 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 /*
- * La clase Semaphore permite definir un semáforo para el acceso a un recurso compartido. 
- * Debemos indicarle al constructor cuantos permits podrán ser usados al mismo tiempo.
+ * La clase Semaphore permite definir un numero acotado de permits para el acceso a un recurso compartido. 
+ * Debemos indicarle al constructor cuantos permits (tickets) podrán ser usados al mismo tiempo.
  *  
  * Semaphore(10) = Crea diez tickets disponibles
  */
