@@ -3,11 +3,16 @@ package ar.com.javacuriosities.threads;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * En algunas JVM dependiendo del sistema operativo puede suceder que no se tome en cuenta
+ * las prioridades asignadas, podemos indicarle a la JVM que use las prioridades por medio
+ * de un parámetro "-XX:+UseThreadPriorities"
+ */
 public class Lesson07Priorities {
 
 	public static void main(String[] args) {
 		/*
-		 * Iniciamos la cantidad maxima de thread que se pueden ejecutar en
+		 * Iniciamos la cantidad máxima de thread que se pueden ejecutar en
 		 * paralelo, mas dos adicionales para lograr que cuando se haga el
 		 * yield() existan hilos a los cuales ceder el contexto
 		 */
