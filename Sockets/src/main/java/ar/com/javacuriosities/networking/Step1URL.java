@@ -33,7 +33,7 @@ import java.net.URL;
  * La definición proviene de la RFC 2396
  * 
  * Hay una distinción entre URL y URI. Los URI definen recursos sintácticos de Internet. 
- * Esos recursos no tienen necesidad de poseer datos para localizar, esa es su diferencia. 
+ * Esos recursos no tienen necesidad de poseer datos que sean localizables, esa es su diferencia. 
  * De hecho una URL es una caso de URI en el que los datos son localizables (es decir una URL hace referencia 
  * a datos que existen, una URI es teórica, los datos podrían no existir).
  */
@@ -63,8 +63,7 @@ public class Step1URL {
             System.out.println("File: " + url2.getFile());
 
             /*
-             * Por medio de una URL podemos solicitar el flujo de información
-             * Dado que es un flujo de entrada usaremos nos referimos a un InputStream
+             * Por medio de una URL podemos establecer una conexión y consumir su flujo de información
              */
             URL googleURL = new URL("http://www.google.com.ar");
 
