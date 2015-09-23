@@ -1,0 +1,215 @@
+/*
+ * Las especificación JLex están organizadas en tres secciones, separadas por la directiva "%%",
+ * como se muestra a continuación:
+ * 
+ * Código Java propio 
+ * %%
+ * Directivas JLex
+ * %%
+ * Reglas de expresiones regulares
+ *
+ * La directiva "%%" distingue las diferentes secciones y debe ser ubicada en al comienzo de la línea, 
+ * y esa line debe permanecer en blanco.
+ *
+ *
+ * Código Java propio
+ * Esta sección nos permite agregar nuestro propio código Java, el código se agregara al comienzo del archivo
+ * de salida, podemos incluir cosas como el paquete de la clase de salida, clases que importaremos, implementaciones
+ * de clases auxiliares o creación de tipos de datos personalizados que usaremos.
+ */
+
+package ar.com.javacuriosities.lexer;
+
+import java.lang.System;
+
+/*
+ * Definimos la clase Yytoken, esta es casi siempre necesaria porque el método yylex() 
+ * retorna un objeto de este tipo, podemos agregar tantos parámetros y datos como quisiéramos.
+ * Si queremos evitar esto podemos usar la directiva "%integer" la cual hace que el método yylex()
+ * retorne un int o usar "%intwrap" para un Integer.
+ * Dado que queremos que nuestro token sea visible desde otros paquete usaremos la directiva %type
+ * para customizar el tipo de token retornado, mas adelante veremos que esta es la forma de integrar cup
+ * con JLex
+ */
+class Yytoken {
+
+	// Definimos los atributos del token
+	public int numToken;
+	public String text;
+	public String type;
+	public int lineBegin;
+	public int charBegin;
+
+	public Yytoken(int numToken, String text, String type, int lineBegin, int charBegin) {
+		super();
+		this.numToken = numToken;
+		this.text = text;
+		this.type = type;
+		this.lineBegin = lineBegin;
+		this.charBegin = charBegin;
+	}
+
+	@Override
+	public String toString() {
+		return "Yytoken [numToken=" + numToken + ", text=" + text + ", type=" + type + ", lineBegin=" + lineBegin + ", charBegin=" + charBegin + "]";
+	}
+}
+
+%%
+
+%{
+	// La directiva "%{ ... %}" nos permite agregar código Java, en nuestro ejemplo la usamos para agregar comentarios sobre otras directivas y definir un atributo
+	private int counter;
+%}
+
+%init{
+	// La directiva "%init ... %init" nos permite definir código Java que será agregado en el constructor de nuestra clase
+	counter = 0;
+%init}
+
+%eof{
+	// La directiva "%eof ... %eof" nos permite definir código Java que será ejecutado al alcanzar el fin de archivo
+	System.out.println("No more data to read");
+%eof}
+
+%eofval{
+	// Aquí podemos generar un token personalizado para el EOF
+	return null;
+%eofval}
+
+%{
+	// Esta directiva permite que la clase generada sea publica
+%}
+%public
+
+%{
+	// Esta directiva nos permite cambiar el nombre de la clase del analizador léxico, por defecto su nombre es Yylex
+%}
+%class ExpressionLexer
+
+%{
+	// Esta directiva nos permite cambiar el nombre del método que retorna los tokens, por defecto su nombre es yylex
+%}
+%function nextToken
+
+%{
+	// Esta directiva activa el contador de líneas, se utiliza la variable yyline para almacenar el índice de la primera línea del token reconocido, esto es zero-based
+%}
+%line
+
+%{
+	// Esta directiva activa el contador de caracteres, que por defecto se encuentra desactivado, se utiliza la variable yychar para almacenar el índice del primer carácter del token reconocido, esto es zero-based
+%}
+%char
+
+%{
+	// Esta directiva permite especificar el tipo de dato del token
+%}
+%type CustomToken
+
+%{
+	// Podemos definir macros, las cuales se componen de un nombre y una REGEX (Regular Expression)
+%}
+NUMBER = [1-9][0-9]*
+
+%{
+	/* 
+	 * Usando la directiva %state, podemos definir distintos estados, por defecto todas las macro 
+	 * aplican al estado YYINITIAL.
+	 * 
+	 * Ejemplos
+	 * %state STATE0, STATE1
+	 *
+	 * Es igual que:
+	 * %state STATE0
+	 * %state STATE1
+	 */	 
+%} 
+%state COMMENTS
+
+%{
+	/*
+	 * Algunas directivas adicionales que no usaremos pero existen son:	
+	 * La directiva "%full" nos permite usar un alfabeto de 8-bits por defecto usa de 7-bits.
+	 * La directiva "%unicode" puede ser usada para incluir un alfabeto completo de 16-bits
+	 * La directiva "%ignorecase" puede ser usada para generar un analizador del tipo case-insensitive
+	 * La directiva "%implements" nos permite hacer que nuestro lexer implemente una interfaz
+	 */
+%}
+
+%{
+	/*
+	 * La siguiente sección es la tercera parte donde defineiremós las reglas para partir el Input Stream en
+	 * tokens, cada regla puede tener asociada una acción la cual ejecuta un bloque de código Java.
+	 * Podemos definir tres partes en una regla
+	 * [<STATE>] <EXPRESSION> { <ACTION> }
+	 * Ahora defineiremós cada parte
+	 * Si tenemos una parte del input que hace matching con mas de una regla, siempre se tomara la mas larga, y si las dos tuvieran 
+	 * el mismo largo se toma la que se encuentra definida primero, o sea la posición nos brinda la prioridad de esa regla
+	 * El bloque de input siempre debe coincidir con al menos una regla sino se arroja un error por eso siempre agregaremos la siguiente regla
+	 * al final de todo.
+	 *
+	 * . { java.lang.System.out.println("Unmatched input: " + yytext()); }
+	 */
+%}
+%%
+{NUMBER} {
+	counter++;
+	// El método yytext() retorna el texto matcheado por esa 
+	return new CustomToken(counter, yytext(),"Number", yyline, yychar); 
+}
+
+"+" {
+	// Si la acción no retorna un token el lexer continua buscando el siguiente match
+	System.out.println("Addition");
+} 
+
+"-" {
+	System.out.println("Subtraction");
+} 
+
+"*" {
+	System.out.println("Multiplication");
+} 
+
+"/" {
+	System.out.println("Division");
+} 
+
+"(" {
+	System.out.println("Open Parenthesis");
+} 
+
+")" {
+	System.out.println("Close Parenthesis");
+} 
+
+";" {
+	System.out.println("Semicolon");
+} 
+
+"//" {
+	// Cuando encontramos el token "//" pasamos al estado COMMENTS
+	System.out.println("Starting comment");
+	yybegin(COMMENTS);
+}
+
+<COMMENTS> .* {
+	return new CustomToken(counter, yytext(),"Comment", yyline, yychar);
+}
+
+<COMMENTS> [\r|\n] {
+	System.out.println("Ending comment");
+	yybegin(YYINITIAL);
+}
+
+[" "|\t] {
+	System.out.println("Whitespace");
+}
+
+[\r|\n] {
+}
+
+. { 
+	System.out.println("Unmatched input: " + yytext()); 
+}

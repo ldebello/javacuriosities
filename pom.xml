@@ -32,6 +32,7 @@
     	<module>ReferenceTypes</module>
     	<module>Lambdas</module>
     	<module>Streams</module>
+    	<module>JLex</module>
   </modules>
 
   	<build>

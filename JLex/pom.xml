@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <name>JLex</name>
+  <url>https://github.com/ldebello/javacuriosities/tree/master/JLex</url>
+
+  <parent>
+    <groupId>ar.com.javacuriosities</groupId>
+    <artifactId>JavaCuriosities</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>ar.com.javacuriosities</groupId>
+  <artifactId>JLex</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.sourceforge.maven-jlex</groupId>
+        <artifactId>maven-jlex-plugin</artifactId>
+        <configuration>
+          <files>
+            <filePair>
+              <inputFile>${project.basedir}/src/main/resources/lexer.jlex</inputFile>
+              <outputFile>${project.build.sourceDirectory}/ar/com/javacuriosities/lexer/ExpressionLexer.java</outputFile>
+            </filePair>
+          </files>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+  </dependencies>
+</project>
