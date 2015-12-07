@@ -42,14 +42,14 @@ Derivación izquierda (Left Most Derivation)
 Derivación derecha (Right Most Derivation)
 
 <Asignacion> => <Id> = <Expresion>
-			=> <Id> = <Expresion> + <Term>
-			=> <Id> = <Expresion> + <Term> * <Factor>
-			=> <Id> = <Expresion> + <Term> * <Id>
-			=> <Id> = <Expresion> + <Term> * A
-			=> <Id> = <Expresion> + <Factor> * A
-			=> <Id> = <Expresion> + <Id> * A
-			=> <Id> = <Expresion> + C * A
-			=> <Id> = <Term> + C * A
-			=> <Id> = <Id> + C * A
-			=> <Id> = B + C * A
-			=>  A = B + C * C
+		=> <Id> = <Expresion> + <Term>
+		=> <Id> = <Expresion> + <Term> * <Factor>
+		=> <Id> = <Expresion> + <Term> * <Id>
+		=> <Id> = <Expresion> + <Term> * A
+		=> <Id> = <Expresion> + <Factor> * A
+		=> <Id> = <Expresion> + <Id> * A
+		=> <Id> = <Expresion> + C * A
+		=> <Id> = <Term> + C * A
+		=> <Id> = <Id> + C * A
+		=> <Id> = B + C * A
+		=>  A = B + C * C
