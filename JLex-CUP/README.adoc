@@ -34,7 +34,7 @@ Derivación izquierda (Left Most Derivation)
               	=> A = B + <Term> * <Factor>
               	=> A = B + <Factor> * <Factor>
               	=> A = B + <Id> * <Factor>
-              	=> A = B + C * < Term>
+              	=> A = B + C * <Term>
               	=> A = B + C * <Factor>
               	=> A = B + C * <Id>
               	=> A = B + C * A
