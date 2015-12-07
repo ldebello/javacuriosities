@@ -277,7 +277,7 @@ public class ArithmeticLexer implements java_cup.runtime.Scanner {
 					case -4:
 						break;
 					case 4:
-						{ return new Symbol(ArithmeticSymbols.SUBTRACTION); }
+						{ return new Symbol(ArithmeticSymbols.SUBTRACT); }
 					case -5:
 						break;
 					case 5:
