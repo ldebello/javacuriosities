@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.net.URL;
 
 import ar.com.javacuriosities.calculator.lexer.ArithmeticLexer;
+import ar.com.javacuriosities.calculator.model.Document;
 import ar.com.javacuriosities.calculator.parser.ArithmeticParser;
 import java_cup.runtime.DefaultSymbolFactory;
 import java_cup.runtime.Symbol;
@@ -19,6 +20,8 @@ public class Main {
 			ArithmeticParser parser = new ArithmeticParser(lexer, symbolFactory);
 			// Se puede usar el método debug_parse para obtener información útil como los token procesados y reglas aplicadas
 			Symbol root = parser.parse();
+			Document document = (Document) root.value;
+			document.evaluate();
 		} catch (Exception e) {
 			// Log and Handle exception
 			e.printStackTrace();

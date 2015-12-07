@@ -13,4 +13,9 @@ public class NumberExpression extends Expression {
 	public Integer evaluate() {
 		return value;
 	}
+	
+	@Override
+	public String toString() {
+		return value.toString();
+	}
 }

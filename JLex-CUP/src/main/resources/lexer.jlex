@@ -25,7 +25,7 @@ NUMBER  = [1-9][0-9]*
 
 "+" { return new Symbol(ArithmeticSymbols.PLUS); }
 
-"-" { return new Symbol(ArithmeticSymbols.SUBTRACTION); }
+"-" { return new Symbol(ArithmeticSymbols.SUBTRACT); }
 
 "*" { return new Symbol(ArithmeticSymbols.MULTIPLICATION); }
 

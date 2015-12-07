@@ -13,11 +13,11 @@ parser code {:
 terminal Integer NUMBER;
 
 // Aquí definimos terminales, que luego usaremos en las reglas de producción
-terminal PLUS, SUBTRACTION, MULTIPLICATION, DIVISION, L_PARENTHESIS, R_PARENTHESIS, SEMICOLON;
-
-non terminal Expression ExpressionLine, MathExpression, NumberExpression;
+terminal PLUS, SUBTRACT, MULTIPLICATION, DIVISION, L_PARENTHESIS, R_PARENTHESIS, SEMICOLON;
 
 non terminal Document Document;
+
+non terminal Expression ExpressionLine, PlusOrSubtractExpression, MultiplicationOrDivisionExpression, NumberExpression;
 
 start with Document;
 
@@ -36,22 +36,45 @@ Document ::=
 		:};
 		
 ExpressionLine ::= 
-	MathExpression:expr SEMICOLON
+	PlusOrSubtractExpression:expr SEMICOLON
 		{:
 			RESULT = expr;
 		:};
 
-MathExpression ::= 
-	MathExpression:lhs PLUS NumberExpression:rhs 
+PlusOrSubtractExpression ::= 
+	PlusOrSubtractExpression:lhs PLUS MultiplicationOrDivisionExpression:rhs 
 		{:
   			RESULT = new PlusExpression(lhs, rhs); 
 		:} |
-	NumberExpression:value 
+	PlusOrSubtractExpression:lhs SUBTRACT MultiplicationOrDivisionExpression:rhs 
 		{:
-			RESULT = value;
+  			RESULT = new SubtractExpression(lhs, rhs); 
+		:} |
+	MultiplicationOrDivisionExpression:expr
+		{:
+			RESULT = expr;
 		:};
 
-NumberExpression::= NUMBER:value 
-	{:
-		RESULT = new NumberExpression(value); 
-	:};
+MultiplicationOrDivisionExpression ::= 
+	MultiplicationOrDivisionExpression:lhs MULTIPLICATION NumberExpression:rhs 
+		{:
+  			RESULT = new MultiplicationExpression(lhs, rhs); 
+		:} |
+	MultiplicationOrDivisionExpression:lhs DIVISION NumberExpression:rhs 
+		{:
+  			RESULT = new DivisionExpression(lhs, rhs); 
+		:} |
+	NumberExpression:expr
+		{:
+			RESULT = expr;
+		:};
+		
+NumberExpression::= 
+	L_PARENTHESIS PlusOrSubtractExpression:expr R_PARENTHESIS
+		{:
+			RESULT = new EnclosedExpression(expr); 
+		:} |
+	NUMBER:value 
+		{:
+			RESULT = new NumberExpression(value); 
+		:};

@@ -10,12 +10,12 @@ public class ArithmeticSymbols {
   /* terminals */
   public static final int NUMBER = 2;
   public static final int L_PARENTHESIS = 7;
-  public static final int SUBTRACTION = 4;
   public static final int EOF = 0;
   public static final int PLUS = 3;
   public static final int error = 1;
   public static final int SEMICOLON = 9;
   public static final int DIVISION = 6;
+  public static final int SUBTRACT = 4;
   public static final int R_PARENTHESIS = 8;
   public static final int MULTIPLICATION = 5;
   public static final String[] terminalNames = new String[] {
@@ -23,7 +23,7 @@ public class ArithmeticSymbols {
   "error",
   "NUMBER",
   "PLUS",
-  "SUBTRACTION",
+  "SUBTRACT",
   "MULTIPLICATION",
   "DIVISION",
   "L_PARENTHESIS",

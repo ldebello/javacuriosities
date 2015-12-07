@@ -16,4 +16,11 @@ public class Document {
 	public void addExpression(Expression expr) {
 		expressions.add(expr);
 	}
+
+	public void evaluate() {
+		System.out.println("Number of expressions: " + expressions.size());
+		for (Expression expression : expressions) {
+			System.out.println(expression.toString() + " --> " + expression.evaluate());
+		}
+	}
 }

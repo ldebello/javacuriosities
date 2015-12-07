@@ -1,8 +1,8 @@
 package ar.com.javacuriosities.calculator.model;
 
-public class PlusExpression extends BinaryExpression {
+public class MultiplicationExpression extends BinaryExpression {
 
-	public PlusExpression(Expression lhs, Expression rhs) {
+	public MultiplicationExpression(Expression lhs, Expression rhs) {
 		super(lhs, rhs);
 	}
 
@@ -10,11 +10,11 @@ public class PlusExpression extends BinaryExpression {
 	public Object evaluate() {
 		Integer left = (Integer) lhs.evaluate();
 		Integer right = (Integer) rhs.evaluate();
-		return left + right;
+		return left * right;
 	}
 	
 	@Override
 	public String toString() {
-		return lhs.toString() + " + " + rhs.toString();
+		return lhs.toString() + " * " + rhs.toString();
 	}
 }
