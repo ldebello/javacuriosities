@@ -1,0 +1,57 @@
+// Importamos los paquetes de JavaCup
+import java_cup.runtime.*;
+import ar.com.javacuriosities.calculator.model.*;
+
+// Aqui podemos agregar codigo especifico para el parser
+parser code {:
+	// public static void main(String args[]) throws Exception {
+	// new parser(new ArithmeticLexer(System.in)).parse();
+	// }
+:}
+
+// Tanto los terminal como los non terminal pueden definir un nombre de clase (Igualmente esto es opcional) para asociar a ese token
+terminal Integer NUMBER;
+
+// Aquí definimos terminales, que luego usaremos en las reglas de producción
+terminal PLUS, SUBTRACTION, MULTIPLICATION, DIVISION, L_PARENTHESIS, R_PARENTHESIS, SEMICOLON;
+
+non terminal Expression ExpressionLine, MathExpression, NumberExpression;
+
+non terminal Document Document;
+
+start with Document;
+
+Document ::= 
+	Document:prevDocument ExpressionLine:expr 
+		{:
+			Document document = new Document(prevDocument);
+			document.addExpression(expr);
+			RESULT = document;
+		:}| 
+	ExpressionLine:expr
+		{:
+			Document document = new Document();
+			document.addExpression(expr);
+			RESULT = document;
+		:};
+		
+ExpressionLine ::= 
+	MathExpression:expr SEMICOLON
+		{:
+			RESULT = expr;
+		:};
+
+MathExpression ::= 
+	MathExpression:lhs PLUS NumberExpression:rhs 
+		{:
+  			RESULT = new PlusExpression(lhs, rhs); 
+		:} |
+	NumberExpression:value 
+		{:
+			RESULT = value;
+		:};
+
+NumberExpression::= NUMBER:value 
+	{:
+		RESULT = new NumberExpression(value); 
+	:};

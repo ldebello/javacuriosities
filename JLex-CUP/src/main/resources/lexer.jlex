@@ -1,0 +1,41 @@
+package ar.com.javacuriosities.calculator.lexer;
+
+// Agregamos el import de java cup porque vamos a trabajar de forma colaborativa con JavaCup
+import java_cup.runtime.Symbol;
+
+// Agregamos este import para usar los Symbols que genera JavaCup
+import ar.com.javacuriosities.calculator.parser.ArithmeticSymbols;
+
+%%
+
+%{
+	// En una directiva de JLex indica que vamos a trabajar conjuntamente con JavaCup
+%}
+%cup
+
+%public
+
+%class ArithmeticLexer
+
+NUMBER  = [1-9][0-9]*
+%%
+{NUMBER} {
+	return new Symbol(ArithmeticSymbols.NUMBER, new Integer(yytext())); 
+}
+
+"+" { return new Symbol(ArithmeticSymbols.PLUS); }
+
+"-" { return new Symbol(ArithmeticSymbols.SUBTRACTION); }
+
+"*" { return new Symbol(ArithmeticSymbols.MULTIPLICATION); }
+
+"/" { return new Symbol(ArithmeticSymbols.DIVISION); }
+
+"(" { return new Symbol(ArithmeticSymbols.L_PARENTHESIS); } 
+
+")" { return new Symbol(ArithmeticSymbols.R_PARENTHESIS); } 
+
+";" { return new Symbol(ArithmeticSymbols.SEMICOLON); } 
+
+.|\n {
+}

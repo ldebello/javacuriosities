@@ -1,0 +1,5 @@
+= JLex-CUP
+
+* En este proyecto utilizaremos JLex y CUP para construir un analizador léxico y sintáctico para un lenguaje sencillo, con el cual se podrán hacer operaciones aritméticas como sumar, restar, multiplicar y dividir.
+* En nuestro proyecto JLex usamos un plugin de Maven para ejecutar JLex ahora vamos a ejecutarlo de forma manual tanto JLex como JavaCup.
+* JavaCUP genera parsers que utilizan el algoritmo LALR (Look ahead left right), o sea la lectura se hace de izquierda a derecha y las derivaciones a derecha, en este tipo de algoritmos el árbol de derivación desde las hojas, hacia la raíz

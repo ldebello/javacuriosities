@@ -33,6 +33,7 @@
     	<module>Lambdas</module>
     	<module>Streams</module>
     	<module>JLex</module>
+    	<module>JLex-CUP</module>
   </modules>
 
   	<build>
