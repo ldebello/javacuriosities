@@ -22,8 +22,8 @@ Utilizando la gramática anterior vamos a analizar ambos tipos de derivaciones p
 
 A = B + C * A
 
+----
 Derivación izquierda (Left Most Derivation)
-+++++++++++++++++++++++++++++++++++++++++++
 
 <Asignacion> => <Id> = <Expresion>
 				=> A = <Expresion> + <Term>
@@ -40,7 +40,6 @@ Derivación izquierda (Left Most Derivation)
               	=> A = B + C * A
               	
 Derivación derecha (Right Most Derivation)
-+++++++++++++++++++++++++++++++++++++++++++
 
 <Asignacion> => <Id> = <Expresion>
 				=> <Id> = <Expresion> + <Term>
@@ -53,4 +52,4 @@ Derivación derecha (Right Most Derivation)
       			=> <Id> = <Term> + C * A
       			=> <Id> = <Id> + C * A
       			=> <Id> = B + C * A
-      			=>  A = B + C * C  
+      			=>  A = B + C * C
