@@ -34,6 +34,7 @@
     	<module>Streams</module>
     	<module>JLex</module>
     	<module>JLex-CUP</module>
+    	<module>DateAPI</module>
   </modules>
 
   	<build>

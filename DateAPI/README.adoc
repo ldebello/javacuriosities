@@ -1,0 +1,10 @@
+= Java 8 Date and Time API
+
+En Java 8 se creo una nueva API para el manejo de fechas, la misma esta en el paquete `java.time`. Esta API esta basada en la librería Open Source [Joda-Time](http://www.joda.org/joda-time/), partiendo de esta base se hicieron mejoras sobre la misma.
+
+Toda la API utiliza una serie de convenciones para el nombre de los métodos
+
+[frame="topbot",options="Prefix,Method Type,Use"]
+|===
+|of			|Estatico	|Explicacion
+|===
