@@ -42,7 +42,7 @@ Repetición: Esta operación también es conocida como cerradura (de Kleene) y s
  
 === Cuadro de metacarácteres en ANTLR
 
-[options="header"]
+[options="header,footer,autowidth"]
 |===
 |Carácter	|Significado	|Ejemplo		|Explicación
 |\|		 	|Or Lógico		|'a'\|'b'		|Es valida cuando la cadena es 'a' o 'b' 
