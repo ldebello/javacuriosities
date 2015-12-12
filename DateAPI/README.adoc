@@ -1,4 +1,4 @@
-= Java 8 Date and Time API
+= Java 8 - New Date and Time API
 
 En Java 8 se creo una nueva API para el manejo de fechas, la misma esta en el paquete `java.time`. Esta API esta basada en la librería Open Source http://www.joda.org/joda-time/[Joda-Time], partiendo de esta base se hicieron mejoras sobre la misma.
 
@@ -7,6 +7,15 @@ Toda la API utiliza una serie de convenciones para el nombre de los métodos
 [options="header"]
 |===
 |Prefijo	|Tipo		|Uso
-|of			|Estático	|Crea una instancia donde el método valida los parametros sin hacer ningún tipo de conversion
+|of			|Estático	|Crea una instancia donde el método valida los parámetros sin hacer ningún tipo de conversion
+|from		|Estático	|Convierte los parámetros de entrada a una instancia de la clase a la cual pertenece el método estático, lo que puede generar perdida de información desde el input
+|parse		|Estático	|Parseo el parámetro de entrada y genera un objeto de la clase a la cual pertenece el método estático
 |format		|Instancia	|Usa el formatter especificado para representar los temporal object en un String
+|get		|Instancia	|Retorna una parte del estado del objeto 
+|is			|Instancia	|Consulta el estado del objeto
+|with		|Instancia	|Retorna una copia del objeto con un elemento cambiado
+|plus		|Instancia	|Retorna una copia del objeto con cierto tiempo modificado
+|minus		|Instancia	|Retorna una copia del objeto con cierto tiempo modificado
+|to			|Instancia	|Convierte el objeto a otro tipo
+|at			|Instancia	|Combina esta objeto con otro
 |===
