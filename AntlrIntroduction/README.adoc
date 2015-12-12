@@ -1,0 +1,54 @@
+= Antlr Introduction
+
+* La idea de este proyecto es crear un simple parser de archivos CSV, para esto usaremos ANTLR 3 para aprender algunos conceptos básicos de esta herramienta, la cual nos permite definir una gramática que luego puede generar lexers y parsers en alguno de los lenguajes soportados, cabe aclarar que este parser no cumplirá con toda la https://tools.ietf.org/html/rfc4180[RFC-4180]
+
+== Definiciones
+
+Antes de continuar vamos a pensar en los distintos elementos que nos podemos encontrar en un archivo CSV
+Dentro de un archivo CSV podemos tener varias líneas separadas por un salto de línea(CRLF), al mismo tiempo cada línea/fila puede tener valores separados por comas, aquí podemos detectar dos tipos de valores, los simples y los quoted.
+
+Valor simple: O sea uno o mas caracteres distintos de coma, salto de línea y comillas
+Valor quoted: Aca hablamos de valores formados por una comilla doble, seguido por cero o mas caracteres y terminados en comilla doble
+
+== Terminales y No Terminales
+
+Cuando hablamos de símbolos terminales nos referimos a aquellos que ya representa la mínima unidad en nuestro lenguaje, en cambio los no terminales son construidos como bloques de varios símbolos terminales, en nuestro parser tendremos los siguientes símbolos
+
+Terminales:
+
+* Coma
+* Salto de línea
+* Comillas dobles
+* Otro carácter que no sea ni coma, salto de línea o comillas dobles
+
+== Lexer Vs Parser
+
+Dependiendo como realicemos nuestro parser deberemos o no crear un lexer, dado que estamos usando ANTLR tendremos dos fases distintas una para la parte léxica y otra la sintáctica.
+
+Lexer: Podemos definir al lexer como el encargado de procesar el input y separarlo en distintos tokens, en general el lexer ira leyendo el input y obteniendo tokens (basado en expresiones regulares) y se los pasara al parser.
+
+Parser: Los parser van un nivel mas y toman los token producidos por el lexer y tratan de determinar si las sucesión de tokens provista es valida, esto lo hace por medio de una gramática.
+
+== Expresiones regulares
+
+Las expresiones regulares o regex, son secuencias de caracteres que forman un patron de búsqueda, además pueden contener caracteres que tengan un significado especial, estos se conocen como metacarácteres o metasímbolos, si queremos usarlos debemos también agregar un carácter de escape que "desactiva" el significado especial. 
+Es importante que existen tres operaciones básicas
+
+Alternativas: Si r y s son expresiones regulares entonces r|s es una expresión que es valida cuando la cadena concuerda con r o con s, esto se conoce como union L(r|s) = L(r) ∪ L(s)
+
+Concatenación: Teniendo en cuenta r y s, podemos decir que rs es correspondiente a la concatenación de dos cadenas donde la primera valida r y la segunda valida s. L(rs) = L(r) L(s)
+
+Repetición: Esta operación también es conocida como cerradura (de Kleene) y se escribe r*, donde r es valida para cualquiera de las cadenas ε (Cadena vacia), r, rr, rrr, .... La representación de esta operación es r* = {ε} ∪ {r} ∪ {rr} ∪ ...
+ 
+=== Cuadro de metacarácteres en ANTLR
+
+[options="header"]
+|===
+Carácter	|Significado	|Ejemplo		|Explicación
+\|		 	|Or Lógico		|'a'\|'b'		|Es valida cuando la cadena es 'a' o 'b' 
+\?		 	|Opcional		|'a''b'			|Es valida cuando la cadena es 'a' o 'ab'
+\*		 	|Cero o mas		|'a'\*			|Es valida cuando la cadena es vacía, 'a', 'aa', 'aaa', ...
+\+		 	|Uno o mas		|'a'\+			|Es valida cuando la cadena es 'a', 'aa', 'aaa', ...
+~		 	|Negacion		|~('a'\|'b')	|Es valida cuando la cadena esta formada de cualquier carácter entre \\u0000..\\uFFFF menos 'a' o 'b'
+(...)	 	|Grupos			|('a' 'b')\+	|Es valida cuando la cadena es 'ab', 'abab', 'ababab', ...
+|===
