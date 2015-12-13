@@ -42,7 +42,7 @@ Repetición: Esta operación también es conocida como cerradura (de Kleene) y s
  
 === Cuadro de metacarácteres en ANTLR
 
-[options="header,footer,autowidth"]
+[options="header"]
 |===
 |Carácter	|Significado	|Ejemplo		|Explicación
 |\|		 	|Or Lógico		|'a'\|'b'		|Es valida cuando la cadena es 'a' o 'b' 
@@ -52,3 +52,7 @@ Repetición: Esta operación también es conocida como cerradura (de Kleene) y s
 |~		 	|Negación		|~('a'\|'b')	|Es valida cuando la cadena esta formada de cualquier carácter entre \u0000..\uFFFF menos 'a' o 'b'
 |(...)	 	|Grupos			|('a' 'b')+		|Es valida cuando la cadena es 'ab', 'abab', 'ababab', ...
 |===
+
+== Hands on - Lexer
+
+Vamos a empezar construyendo el lexer de nuestro proyecto, para esto vamos a ir al archivo CSVLexer.g
