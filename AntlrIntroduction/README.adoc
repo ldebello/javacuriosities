@@ -77,11 +77,11 @@ LONG: 'abcabc'
 
 Por defecto el lexer intentara consumir la mayor cantidad posibles para un determinado token, pero en ciertas ocasiones vamos a querer cambiar esto.
 
-COMMENT: '/*' (.)* '*/'
+COMMENT: '/\*' (.)* '*/'
 
 Aquí vemos una regla que indica que los comentarios tienen cualquier contenido entre los delimitadores, pero el (.)* genera un ciclo en Antlr los cuales siempre intentan consumir el carácter para continuar su ejecuccion y nunca seríamos capaces de detectar el '*/', para esto podemos usar la opción greedy
 
-COMMENT: '/*' ( options {greedy=false;}: .)* '*/'
+COMMENT: '/\*' ( options {greedy=false;}: .)* '*/'
 
 Ahora antes de iniciar una nueva iteración se comprobara si se puede finalizar ese token.
 
