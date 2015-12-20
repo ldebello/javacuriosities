@@ -79,7 +79,7 @@ Por defecto el lexer intentara consumir la mayor cantidad posibles para un deter
 
 COMMENT: '/\*' (.)* '*/'
 
-Aquí vemos una regla que indica que los comentarios tienen cualquier contenido entre los delimitadores, pero el (.)\* genera un ciclo en Antlr los cuales siempre intentan consumir el carácter para continuar su ejecuccion y nunca seríamos capaces de detectar el '*/', para esto podemos usar la opción greedy
+Aquí vemos una regla que indica que los comentarios tienen cualquier contenido entre los delimitadores, pero el (.)* genera un ciclo en Antlr los cuales siempre intentan consumir el carácter para continuar su ejecuccion y nunca seríamos capaces de detectar el '*/', para esto podemos usar la opción greedy
 
 COMMENT: '/\*' ( options {greedy=false;}: .)* '*/'
 
