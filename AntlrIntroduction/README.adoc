@@ -65,13 +65,13 @@ Una forma simple de entender el algoritmo aplicado por el Lexer es teniendo en c
 
 Si dos reglas del lexer coinciden con el input se selecciona la mas larga.
 
-CHAR: 'a'
-SHORT: 'abc'
-LONG: 'abcabc'
+CHAR: 'a' +
+SHORT: 'abc' +
+LONG: 'abcabc' +
 
-** Si ingresamos el input "abc", se seleccionara el token SHORT porque coincide exactamente 
-** Si ingresamos el input "abcabc", se seleccionara el token LONG y no dos token SHORT
-** Si ingresamos el input "abca", se seleccionara el token LONG y se marcara error porque es un token incompleto
+Si ingresamos el input "abc", se seleccionara el token SHORT porque coincide exactamente 
+Si ingresamos el input "abcabc", se seleccionara el token LONG y no dos token SHORT
+Si ingresamos el input "abca", se seleccionara el token LONG y se marcara error porque es un token incompleto
 
 * Greedy Token Matching
 
@@ -79,7 +79,7 @@ Por defecto el lexer intentara consumir la mayor cantidad posibles para un deter
 
 COMMENT: '/\*' (.)* '*/'
 
-Aquí vemos una regla que indica que los comentarios tienen cualquier contenido entre los delimitadores, pero el (.)* genera un ciclo en Antlr los cuales siempre intentan consumir el carácter para continuar su ejecuccion y nunca seríamos capaces de detectar el '*/', para esto podemos usar la opción greedy
+Aquí vemos una regla que indica que los comentarios tienen cualquier contenido entre los delimitadores, pero el (.)\* genera un ciclo en Antlr los cuales siempre intentan consumir el carácter para continuar su ejecuccion y nunca seríamos capaces de detectar el '*/', para esto podemos usar la opción greedy
 
 COMMENT: '/\*' ( options {greedy=false;}: .)* '*/'
 
