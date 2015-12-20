@@ -56,3 +56,41 @@ Repetición: Esta operación también es conocida como cerradura (de Kleene) y s
 == Hands on - Lexer
 
 Vamos a empezar construyendo el lexer de nuestro proyecto, para esto vamos a ir al archivo CSVLexer.g
+
+=== Lexer Reglas 
+
+Una forma simple de entender el algoritmo aplicado por el Lexer es teniendo en cuenta tres reglas
+
+* First Longest Matching Rule
+
+Si dos reglas del lexer coinciden con el input se selecciona la mas larga.
+
+CHAR: 'a'
+SHORT: 'abc'
+LONG: 'abcabc'
+
+** Si ingresamos el input "abc", se seleccionara el token SHORT porque coincide exactamente 
+** Si ingresamos el input "abcabc", se seleccionara el token LONG y no dos token SHORT
+** Si ingresamos el input "abca", se seleccionara el token LONG y se marcara error porque es un token incompleto
+
+* Greedy Token Matching
+
+Por defecto el lexer intentara consumir la mayor cantidad posibles para un determinado token, pero en ciertas ocasiones vamos a querer cambiar esto.
+
+COMMENT: '/*' (.)* '*/'
+
+Aquí vemos una regla que indica que los comentarios tienen cualquier contenido entre los delimitadores, pero el (.)* genera un ciclo en Antlr los cuales siempre intentan consumir el carácter para continuar su ejecuccion y nunca seríamos capaces de detectar el '*/', para esto podemos usar la opción greedy
+
+COMMENT: '/*' ( options {greedy=false;}: .)* '*/'
+
+Ahora antes de iniciar una nueva iteración se comprobara si se puede finalizar ese token.
+
+* Decision Finality
+
+Esta regla indica que luego que el lexer selecciono un token no se arrepiente de su elección e intentara matchear su contenido sin hacer ningún tipo de backtracking, algunas veces podemos
+implicar una especie de backtracking selectivo por medio de un predicado sintáctico.
+
+SHORT: 'aaa'
+LONG: 'aaaa'
+
+** Si ingresamos el input "aaaa", se seleccionara el token LONG aunque si vemos es totalmente valido tener dos token SHORT y convertir todo el input en tokens
