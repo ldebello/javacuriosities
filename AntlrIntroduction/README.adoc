@@ -94,3 +94,21 @@ SHORT: 'aaa'
 LONG: 'aaaa'
 
 ** Si ingresamos el input "aaaa", se seleccionara el token LONG aunque si vemos es totalmente valido tener dos token SHORT y convertir todo el input en tokens
+
+== Hands on - Parser
+
+Podemos empezar a trabajar en nuestro parser en el archivo CSVParser.g + 
+
+Luego que tenemos nuestro lexer podemos continuar con la construcción de nuestro parser, dado que el lexer funciona como nuestra fuente de tokens para el parser.
+Se dice que el parser efectúa el análisis sintáctico y el lexer el análisis léxico, una fuente puede ser léxicamente valida pero no sintácticamente
+
+Ejemplo: + 
+
+Input: Value1\n\nValue2 +
+Análisis léxico: Esto es valido léxicamente y emite cuatro tokens (SimpleValue, LineBreak, LineBreak, SimpleValue) +
+Análisis sintáctico: Esto no es valido porque un archivo CSV no acepta filas en blanco + 
+
+=== Parser Actions
+
+Una vez que definimos nuestras reglas para el parser podemos indicar el tipo de objeto retornado por cada regla y además podemos indicar bloques de inicialización para ellas junto
+con código Java para indicar la acción a ejecutar en caso de que la regla aplique

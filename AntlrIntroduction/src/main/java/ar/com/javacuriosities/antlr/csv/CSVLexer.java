@@ -1,4 +1,4 @@
-// $ANTLR 3.4 ar/com/javacuriosities/antlr/csv/CSVLexer.g 2015-12-13 18:01:16
+// $ANTLR 3.4 ar/com/javacuriosities/antlr/csv/CSVLexer.g 2015-12-26 13:09:52
 
 	package ar.com.javacuriosities.antlr.csv;
 

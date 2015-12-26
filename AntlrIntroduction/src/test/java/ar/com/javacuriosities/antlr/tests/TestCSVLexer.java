@@ -20,6 +20,6 @@ public class TestCSVLexer extends TestCase {
 				System.out.println(token);
 				token = lexer.nextToken();
 			}
-		}	
+		}
 	}
 }
