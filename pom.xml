@@ -36,6 +36,7 @@
     	<module>JLex-CUP</module>
     	<module>DateAPI</module>
     	<module>AntlrIntroduction</module>
+    	<module>TinyLanguage</module>
   </modules>
 
   	<build>
