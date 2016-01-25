@@ -53,6 +53,11 @@ Repetición: Esta operación también es conocida como cerradura (de Kleene) y s
 |(...)	 	|Grupos			|('a' 'b')+		|Es valida cuando la cadena es 'ab', 'abab', 'ababab', ...
 |===
 
+El metacarácter "." tiene dos significados dependiendo donde lo usemos:
+
+* En el lexer este matchea cualquier carácter en el rango \u0000..\u0FFFF 
+* En el parser este matchea cualquier regla del lexer
+
 == Hands on - Lexer
 
 Vamos a empezar construyendo el lexer de nuestro proyecto, para esto vamos a ir al archivo CSVLexer.g
