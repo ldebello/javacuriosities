@@ -41,8 +41,8 @@ public class Server {
 			 * las clases stub y skeleton que se encargan de la comunicación, hasta antes de Java 1.5 era necesario
 			 * ejecutar rmic sobre la implementación del servicio para generar estas clases.
 			 * 
-			 * Stub: Es la representacion del lado cliente
-			 * Skeleton: Es la representacion del lado server
+			 * Stub: Es la representación del lado cliente
+			 * Skeleton: Es la representación del lado server
 			 */
 			HelloService skeleton = (HelloService) UnicastRemoteObject.exportObject(serviceImpl, 0);
 
