@@ -1,4 +1,4 @@
-// $ANTLR 3.4 ar/com/javacuriosities/tiny/grammar/Tiny.g 2016-01-24 21:44:56
+// $ANTLR 3.4 ar/com/javacuriosities/tiny/grammar/Tiny.g 2016-05-14 20:29:20
 
 	package ar.com.javacuriosities.tiny.grammar;
 
@@ -83,8 +83,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Println;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:27:10: ( 'println' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:27:12: 'println'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:165:10: ( 'println' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:165:12: 'println'
             {
             match("println"); 
 
@@ -106,8 +106,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Print;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:28:10: ( 'print' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:28:12: 'print'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:166:10: ( 'print' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:166:12: 'print'
             {
             match("print"); 
 
@@ -129,8 +129,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Assert;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:29:10: ( 'assert' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:29:12: 'assert'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:167:10: ( 'assert' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:167:12: 'assert'
             {
             match("assert"); 
 
@@ -152,8 +152,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Size;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:30:10: ( 'size' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:30:12: 'size'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:168:10: ( 'size' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:168:12: 'size'
             {
             match("size"); 
 
@@ -175,8 +175,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Def;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:33:10: ( 'def' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:33:12: 'def'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:171:10: ( 'def' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:171:12: 'def'
             {
             match("def"); 
 
@@ -198,8 +198,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = If;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:34:10: ( 'if' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:34:12: 'if'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:172:10: ( 'if' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:172:12: 'if'
             {
             match("if"); 
 
@@ -221,8 +221,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Else;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:35:10: ( 'else' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:35:12: 'else'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:173:10: ( 'else' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:173:12: 'else'
             {
             match("else"); 
 
@@ -244,8 +244,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Return;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:36:10: ( 'return' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:36:12: 'return'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:174:10: ( 'return' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:174:12: 'return'
             {
             match("return"); 
 
@@ -267,8 +267,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = For;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:37:10: ( 'for' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:37:12: 'for'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:175:10: ( 'for' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:175:12: 'for'
             {
             match("for"); 
 
@@ -290,8 +290,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = While;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:38:10: ( 'while' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:38:12: 'while'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:176:10: ( 'while' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:176:12: 'while'
             {
             match("while"); 
 
@@ -313,8 +313,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = To;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:39:10: ( 'to' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:39:12: 'to'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:177:10: ( 'to' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:177:12: 'to'
             {
             match("to"); 
 
@@ -336,8 +336,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Do;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:40:10: ( 'do' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:40:12: 'do'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:178:10: ( 'do' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:178:12: 'do'
             {
             match("do"); 
 
@@ -359,8 +359,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = End;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:41:10: ( 'end' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:41:12: 'end'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:179:10: ( 'end' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:179:12: 'end'
             {
             match("end"); 
 
@@ -382,8 +382,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = In;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:42:10: ( 'in' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:42:12: 'in'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:180:10: ( 'in' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:180:12: 'in'
             {
             match("in"); 
 
@@ -405,8 +405,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Null;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:43:10: ( 'null' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:43:12: 'null'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:181:10: ( 'null' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:181:12: 'null'
             {
             match("null"); 
 
@@ -428,8 +428,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Or;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:45:10: ( '||' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:45:12: '||'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:183:10: ( '||' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:183:12: '||'
             {
             match("||"); 
 
@@ -451,8 +451,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = And;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:46:10: ( '&&' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:46:12: '&&'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:184:10: ( '&&' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:184:12: '&&'
             {
             match("&&"); 
 
@@ -474,8 +474,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Equals;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:47:10: ( '==' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:47:12: '=='
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:185:10: ( '==' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:185:12: '=='
             {
             match("=="); 
 
@@ -497,8 +497,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = NEquals;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:48:10: ( '!=' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:48:12: '!='
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:186:10: ( '!=' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:186:12: '!='
             {
             match("!="); 
 
@@ -520,8 +520,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = GTEquals;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:49:10: ( '>=' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:49:12: '>='
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:187:10: ( '>=' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:187:12: '>='
             {
             match(">="); 
 
@@ -543,8 +543,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = LTEquals;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:50:10: ( '<=' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:50:12: '<='
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:188:10: ( '<=' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:188:12: '<='
             {
             match("<="); 
 
@@ -566,8 +566,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Pow;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:51:10: ( '^' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:51:12: '^'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:189:10: ( '^' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:189:12: '^'
             {
             match('^'); 
 
@@ -587,8 +587,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Excl;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:52:10: ( '!' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:52:12: '!'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:190:10: ( '!' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:190:12: '!'
             {
             match('!'); 
 
@@ -608,8 +608,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:53:10: ( '>' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:53:12: '>'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:191:10: ( '>' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:191:12: '>'
             {
             match('>'); 
 
@@ -629,8 +629,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:54:10: ( '<' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:54:12: '<'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:192:10: ( '<' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:192:12: '<'
             {
             match('<'); 
 
@@ -650,8 +650,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Add;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:55:10: ( '+' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:55:12: '+'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:193:10: ( '+' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:193:12: '+'
             {
             match('+'); 
 
@@ -671,8 +671,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Subtract;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:56:10: ( '-' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:56:12: '-'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:194:10: ( '-' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:194:12: '-'
             {
             match('-'); 
 
@@ -692,8 +692,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Multiply;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:57:10: ( '*' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:57:12: '*'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:195:10: ( '*' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:195:12: '*'
             {
             match('*'); 
 
@@ -713,8 +713,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Divide;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:58:10: ( '/' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:58:12: '/'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:196:10: ( '/' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:196:12: '/'
             {
             match('/'); 
 
@@ -734,8 +734,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Modulus;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:59:10: ( '%' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:59:12: '%'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:197:10: ( '%' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:197:12: '%'
             {
             match('%'); 
 
@@ -755,8 +755,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = OBrace;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:60:10: ( '{' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:60:12: '{'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:198:10: ( '{' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:198:12: '{'
             {
             match('{'); 
 
@@ -776,8 +776,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = CBrace;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:61:10: ( '}' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:61:12: '}'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:199:10: ( '}' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:199:12: '}'
             {
             match('}'); 
 
@@ -797,8 +797,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = OBracket;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:62:10: ( '[' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:62:12: '['
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:200:10: ( '[' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:200:12: '['
             {
             match('['); 
 
@@ -818,8 +818,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = CBracket;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:63:10: ( ']' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:63:12: ']'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:201:10: ( ']' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:201:12: ']'
             {
             match(']'); 
 
@@ -839,8 +839,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = OParen;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:64:10: ( '(' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:64:12: '('
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:202:10: ( '(' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:202:12: '('
             {
             match('('); 
 
@@ -860,8 +860,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = CParen;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:65:10: ( ')' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:65:12: ')'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:203:10: ( ')' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:203:12: ')'
             {
             match(')'); 
 
@@ -881,8 +881,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = SColon;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:66:10: ( ';' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:66:12: ';'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:204:10: ( ';' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:204:12: ';'
             {
             match(';'); 
 
@@ -902,8 +902,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Assign;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:67:10: ( '=' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:67:12: '='
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:205:10: ( '=' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:205:12: '='
             {
             match('='); 
 
@@ -923,8 +923,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Comma;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:68:10: ( ',' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:68:12: ','
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:206:10: ( ',' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:206:12: ','
             {
             match(','); 
 
@@ -944,8 +944,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = QMark;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:69:10: ( '?' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:69:12: '?'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:207:10: ( '?' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:207:12: '?'
             {
             match('?'); 
 
@@ -965,8 +965,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Colon;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:70:10: ( ':' )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:70:12: ':'
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:208:10: ( ':' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:208:12: ':'
             {
             match(':'); 
 
@@ -986,7 +986,7 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Bool;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:73:2: ( 'true' | 'false' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:211:2: ( 'true' | 'false' )
             int alt1=2;
             switch ( input.LA(1) ) {
             case 't':
@@ -1009,7 +1009,7 @@ public class TinyLexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:73:4: 'true'
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:211:4: 'true'
                     {
                     match("true"); 
 
@@ -1018,7 +1018,7 @@ public class TinyLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:74:4: 'false'
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:212:4: 'false'
                     {
                     match("false"); 
 
@@ -1042,13 +1042,13 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Number;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:78:2: ( Int ( '.' ( Digit )* )? )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:78:4: Int ( '.' ( Digit )* )?
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:216:2: ( Int ( '.' ( Digit )* )? )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:216:4: Int ( '.' ( Digit )* )?
             {
             mInt(); 
 
 
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:78:8: ( '.' ( Digit )* )?
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:216:8: ( '.' ( Digit )* )?
             int alt3=2;
             switch ( input.LA(1) ) {
                 case '.':
@@ -1060,11 +1060,11 @@ public class TinyLexer extends Lexer {
 
             switch (alt3) {
                 case 1 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:78:9: '.' ( Digit )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:216:9: '.' ( Digit )*
                     {
                     match('.'); 
 
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:78:13: ( Digit )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:216:13: ( Digit )*
                     loop2:
                     do {
                         int alt2=2;
@@ -1131,8 +1131,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Identifier;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:82:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )* )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:82:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:220:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )* )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:220:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1144,7 +1144,7 @@ public class TinyLexer extends Lexer {
             }
 
 
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:82:32: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:220:32: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | Digit )*
             loop4:
             do {
                 int alt4=2;
@@ -1258,7 +1258,7 @@ public class TinyLexer extends Lexer {
         try {
             int _type = String;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:89:2: ( '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"' | '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\'' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:227:2: ( '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"' | '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\'' )
             int alt7=2;
             switch ( input.LA(1) ) {
             case '\"':
@@ -1281,11 +1281,11 @@ public class TinyLexer extends Lexer {
 
             switch (alt7) {
                 case 1 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:89:4: '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"'
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:227:4: '\"' (~ ( '\"' | '\\\\' ) | '\\\\' . )* '\"'
                     {
                     match('\"'); 
 
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:89:9: (~ ( '\"' | '\\\\' ) | '\\\\' . )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:227:9: (~ ( '\"' | '\\\\' ) | '\\\\' . )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1301,7 +1301,7 @@ public class TinyLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:89:10: ~ ( '\"' | '\\\\' )
+                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:227:10: ~ ( '\"' | '\\\\' )
                     	    {
                     	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
                     	        input.consume();
@@ -1316,7 +1316,7 @@ public class TinyLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:89:27: '\\\\' .
+                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:227:27: '\\\\' .
                     	    {
                     	    match('\\'); 
 
@@ -1336,11 +1336,11 @@ public class TinyLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:90:6: '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\''
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:228:6: '\\'' (~ ( '\\'' | '\\\\' ) | '\\\\' . )* '\\''
                     {
                     match('\''); 
 
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:90:11: (~ ( '\\'' | '\\\\' ) | '\\\\' . )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:228:11: (~ ( '\\'' | '\\\\' ) | '\\\\' . )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1356,7 +1356,7 @@ public class TinyLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:90:12: ~ ( '\\'' | '\\\\' )
+                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:228:12: ~ ( '\\'' | '\\\\' )
                     	    {
                     	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
                     	        input.consume();
@@ -1371,7 +1371,7 @@ public class TinyLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:90:29: '\\\\' .
+                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:228:29: '\\\\' .
                     	    {
                     	    match('\\'); 
 
@@ -1409,8 +1409,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = HexChar;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:94:2: ( '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:94:4: '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:232:2: ( '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:232:4: '\\\\' 'u' HexDigit HexDigit HexDigit HexDigit
             {
             match('\\'); 
 
@@ -1444,7 +1444,7 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Comment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:99:2: ( '//' (~ ( '\\r' | '\\n' ) )* | '/*' ( . )* '*/' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:237:2: ( '//' (~ ( '\\r' | '\\n' ) )* | '/*' ( . )* '*/' )
             int alt10=2;
             switch ( input.LA(1) ) {
             case '/':
@@ -1480,13 +1480,13 @@ public class TinyLexer extends Lexer {
 
             switch (alt10) {
                 case 1 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:99:4: '//' (~ ( '\\r' | '\\n' ) )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:237:4: '//' (~ ( '\\r' | '\\n' ) )*
                     {
                     match("//"); 
 
 
 
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:99:9: (~ ( '\\r' | '\\n' ) )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:237:9: (~ ( '\\r' | '\\n' ) )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1525,13 +1525,13 @@ public class TinyLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:100:4: '/*' ( . )* '*/'
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:238:4: '/*' ( . )* '*/'
                     {
                     match("/*"); 
 
 
 
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:100:9: ( . )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:238:9: ( . )*
                     loop9:
                     do {
                         int alt9=2;
@@ -1556,7 +1556,7 @@ public class TinyLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:100:9: .
+                    	    // ar/com/javacuriosities/tiny/grammar/Tiny.g:238:9: .
                     	    {
                     	    matchAny(); 
 
@@ -1593,8 +1593,8 @@ public class TinyLexer extends Lexer {
         try {
             int _type = Space;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:104:2: ( ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' ) )
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:104:4: ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:242:2: ( ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' ) )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:242:4: ( ' ' | '\\t' | '\\r' | '\\n' | '\\u000C' )
             {
             if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -1622,7 +1622,7 @@ public class TinyLexer extends Lexer {
     // $ANTLR start "Int"
     public final void mInt() throws RecognitionException {
         try {
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:113:2: ( '1' .. '9' ( Digit )* | '0' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:251:2: ( '1' .. '9' ( Digit )* | '0' )
             int alt12=2;
             switch ( input.LA(1) ) {
             case '1':
@@ -1653,11 +1653,11 @@ public class TinyLexer extends Lexer {
 
             switch (alt12) {
                 case 1 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:113:4: '1' .. '9' ( Digit )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:251:4: '1' .. '9' ( Digit )*
                     {
                     matchRange('1','9'); 
 
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:113:13: ( Digit )*
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:251:13: ( Digit )*
                     loop11:
                     do {
                         int alt11=2;
@@ -1705,7 +1705,7 @@ public class TinyLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:114:6: '0'
+                    // ar/com/javacuriosities/tiny/grammar/Tiny.g:252:6: '0'
                     {
                     match('0'); 
 
@@ -1724,7 +1724,7 @@ public class TinyLexer extends Lexer {
     // $ANTLR start "Digit"
     public final void mDigit() throws RecognitionException {
         try {
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:118:2: ( '0' .. '9' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:256:2: ( '0' .. '9' )
             // ar/com/javacuriosities/tiny/grammar/Tiny.g:
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1750,7 +1750,7 @@ public class TinyLexer extends Lexer {
     // $ANTLR start "HexDigit"
     public final void mHexDigit() throws RecognitionException {
         try {
-            // ar/com/javacuriosities/tiny/grammar/Tiny.g:122:2: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // ar/com/javacuriosities/tiny/grammar/Tiny.g:260:2: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             // ar/com/javacuriosities/tiny/grammar/Tiny.g:
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'F')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {

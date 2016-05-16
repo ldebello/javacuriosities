@@ -1,4 +1,4 @@
-// $ANTLR 3.4 ar/com/javacuriosities/antlr/csv/CSVLexer.g 2015-12-26 13:09:52
+// $ANTLR 3.4 ar/com/javacuriosities/antlr/csv/CSVLexer.g 2016-05-14 20:29:19
 
 	package ar.com.javacuriosities.antlr.csv;
 
@@ -38,8 +38,8 @@ public class CSVLexer extends Lexer {
         try {
             int _type = Comma;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:25:2: ( ',' )
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:25:4: ','
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:26:2: ( ',' )
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:26:4: ','
             {
             match(','); 
 
@@ -59,7 +59,7 @@ public class CSVLexer extends Lexer {
         try {
             int _type = LineBreak;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:29:2: ( ( '\\r' )? '\\n' | '\\r' )
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:30:2: ( ( '\\r' )? '\\n' | '\\r' )
             int alt2=2;
             switch ( input.LA(1) ) {
             case '\r':
@@ -91,9 +91,9 @@ public class CSVLexer extends Lexer {
 
             switch (alt2) {
                 case 1 :
-                    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:29:5: ( '\\r' )? '\\n'
+                    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:30:5: ( '\\r' )? '\\n'
                     {
-                    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:29:5: ( '\\r' )?
+                    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:30:5: ( '\\r' )?
                     int alt1=2;
                     switch ( input.LA(1) ) {
                         case '\r':
@@ -105,7 +105,7 @@ public class CSVLexer extends Lexer {
 
                     switch (alt1) {
                         case 1 :
-                            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:29:5: '\\r'
+                            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:30:5: '\\r'
                             {
                             match('\r'); 
 
@@ -120,7 +120,7 @@ public class CSVLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:30:7: '\\r'
+                    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:31:7: '\\r'
                     {
                     match('\r'); 
 
@@ -142,10 +142,10 @@ public class CSVLexer extends Lexer {
         try {
             int _type = SimpleValue;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:34:4: ( (~ ( ',' | '\\r' | '\\n' | '\"' ) )+ )
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:34:7: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:35:4: ( (~ ( ',' | '\\r' | '\\n' | '\"' ) )+ )
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:35:7: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
             {
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:34:7: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:35:7: (~ ( ',' | '\\r' | '\\n' | '\"' ) )+
             int cnt3=0;
             loop3:
             do {
@@ -200,12 +200,12 @@ public class CSVLexer extends Lexer {
         try {
             int _type = QuotedValue;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:38:2: ( '\"' ( '\"\"' |~ '\"' )* '\"' )
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:38:5: '\"' ( '\"\"' |~ '\"' )* '\"'
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:39:2: ( '\"' ( '\"\"' |~ '\"' )* '\"' )
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:39:5: '\"' ( '\"\"' |~ '\"' )* '\"'
             {
             match('\"'); 
 
-            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:38:9: ( '\"\"' |~ '\"' )*
+            // ar/com/javacuriosities/antlr/csv/CSVLexer.g:39:9: ( '\"\"' |~ '\"' )*
             loop4:
             do {
                 int alt4=3;
@@ -229,7 +229,7 @@ public class CSVLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:38:10: '\"\"'
+            	    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:39:10: '\"\"'
             	    {
             	    match("\"\""); 
 
@@ -238,7 +238,7 @@ public class CSVLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:38:17: ~ '\"'
+            	    // ar/com/javacuriosities/antlr/csv/CSVLexer.g:39:17: ~ '\"'
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
