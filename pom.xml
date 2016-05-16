@@ -37,6 +37,7 @@
     	<module>DateAPI</module>
     	<module>AntlrIntroduction</module>
     	<module>TinyLanguage</module>
+    	<module>NIO</module>
   </modules>
 
   	<build>
