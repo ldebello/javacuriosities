@@ -38,6 +38,7 @@
     	<module>AntlrIntroduction</module>
     	<module>TinyLanguage</module>
     	<module>NIO</module>
+    	<module>NIOServer</module>
   </modules>
 
   	<build>
