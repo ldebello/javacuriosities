@@ -8,7 +8,7 @@ import ar.com.javacuriosities.nio.server.message.processor.IMessageProcessor;
 import ar.com.javacuriosities.nio.server.message.writer.WriteProxy;
 
 /*
- * Esta es la implementación básica de un Server implementado con NIO.
+ * Esta es la implementación básica de un Server implementado con NIO (Basado en https://github.com/jjenkov/java-nio-server).
  * La idea solo es entender los conceptos dados que ya hay frameworks que implementan esto
  * 	- Netty
  * 	- Grizzly
