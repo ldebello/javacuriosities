@@ -39,6 +39,7 @@
     	<module>TinyLanguage</module>
     	<module>NIO</module>
     	<module>NIOServer</module>
+    	<module>JDBC</module>
   </modules>
 
   	<build>
