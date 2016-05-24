@@ -2,14 +2,15 @@
 
 En Java 8 se creo una nueva API para el manejo de fechas, la misma esta en el paquete `java.time`. Esta API esta basada en la librería Open Source http://www.joda.org/joda-time/[Joda-Time], partiendo de esta base se hicieron mejoras sobre la misma.
 
-Toda la API utiliza una serie de convenciones para el nombre de los métodos
+- El API el standard http://www.iso.org/iso/home/standards/iso8601.htm[ISO-8601]
+- Toda la API utiliza una serie de convenciones para el nombre de los métodos
 
 [options="header"]
 |===
 |Prefijo	|Tipo		|Uso
 |of			|Estático	|Crea una instancia donde el método valida los parámetros sin hacer ningún tipo de conversion
 |from		|Estático	|Convierte los parámetros de entrada a una instancia de la clase a la cual pertenece el método estático, lo que puede generar perdida de información desde el input
-|parse		|Estático	|Parseo el parámetro de entrada y genera un objeto de la clase a la cual pertenece el método estático
+|parse		|Estático	|Parsea el parámetro de entrada y genera un objeto de la clase a la cual pertenece el método estático
 |format		|Instancia	|Usa el formatter especificado para representar los temporal object en un String
 |get		|Instancia	|Retorna una parte del estado del objeto 
 |is			|Instancia	|Consulta el estado del objeto
@@ -19,3 +20,42 @@ Toda la API utiliza una serie de convenciones para el nombre de los métodos
 |to			|Instancia	|Convierte el objeto a otro tipo
 |at			|Instancia	|Combina esta objeto con otro
 |===
+
+== Overview
+
+Hay dos formas básicas de representar el tiempo, una en "human terms" o "machine terms".
+
+- Human terms: Basado en años, meses, días, horas, minutos y segundos
+- Machine terms: Midiendo el tiempo en una línea de tiempo empezando desde un punto llamado "epoch" usando el nanosegundo como unidad
+
+Basándonos en nuestra necesidades usaremos unas o otras clases, en la siguiente tabla podemos ver la información almacenada por cada una de las clases del API
+
+[options="header"]
+|===
+|Class or Enum	|Year	|Month	|Day	|Hours	|Minutes	|Seconds*	|Zone Offset	|Zone ID	|toString Output
+|Instant		|		|		|		|		|			|X			|				|			|2013-08-20T15:16:26.355Z
+|LocalDate		|X		|X		|X		|		|			|			|				|			|2013-08-20
+|LocalDateTime	|X		|X		|X		|X		|X			|X			|				|			|2013-08-20T08:16:26.937
+|ZonedDateTime	|X		|X		|X		|X		|X			|X			|X				|X			|2013-08-21T00:16:26.941+09:00[Asia/Tokyo]
+|LocalTime		|		|		|		|X		|X			|X			|				|			|08:16:26.943
+|MonthDay		|		|X		|X		|		|			|			|				|			|--08-20
+|Year			|X		|		|		|		|			|			|				|			|2013
+|YearMonth		|X		|X		|		|		|			|			|				|			|2013-08
+|Month			|		|X		|		|		|			|			|				|			|AUGUST
+|OffsetDateTime	|X		|X		|X		|X		|X			|X			|X				|			|2013-08-20T08:16:26.954-07:00
+|OffsetTime		|		|		|		|X		|X			|X			|X				|			|08:16:26.957-07:00
+|Duration		|		|		|**		|**		|**			|X			|				|			|PT20H (20 hours)
+|Period			|X		|X		|X		|		|			|			|***			|***		|P10D (10 days)
+|===
+
+
+\*   Los segundos son capturados con precision de nanosegundos
+\**  La clase no almacena esta información, pero provee métodos para el manejo de estas unidades
+\*** Cuando agregamos timezone a un periodo, se puede observar el cambio en base al "daylight saving time"
+
+
+
+
+
+
+
