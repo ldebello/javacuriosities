@@ -7,6 +7,7 @@ import static ar.com.javacuriosities.jdbc.util.Constants.USER;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 /*
@@ -54,6 +55,18 @@ public class Lesson03ResultSet {
 				Statement statement = connection.createStatement();
 				
 				try (ResultSet rs = statement.executeQuery(sql)) {
+					// Podemos obtener metadata sobre el ResultSet
+					ResultSetMetaData resultSetMetaData = rs.getMetaData();
+					
+					System.out.println("Number of columns: " + resultSetMetaData.getColumnCount());
+					
+					/* 
+					 * Cada vez que se ejecuta el método next() sobre el ResultSet este verifica si tiene
+					 * datos y si no tiene, intenta recuperar mas datos desde la DB, los datos son van
+					 * recuperando en conjunto, el tamaño de este conjunto esta delimitado por el método
+					 * "setFetchSize()", usualmente este valor ya viene configurado en el valor óptimo, pero
+					 * en algunos casos puede ser útil cambiarlo
+					 */
 					while (rs.next()) {
 						// Podemos acceder por nombre o por índice, empezando desde 1
 						String name = rs.getString("nombre");

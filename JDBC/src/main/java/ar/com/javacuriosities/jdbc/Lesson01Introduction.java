@@ -44,6 +44,15 @@ import java.sql.SQLException;
  * 	- DB2: jdbc:db2:hostname:port Number/databaseName
  * 	- Sybase: jdbc:sybase:Tds:hostname: port Number/databaseName
  * 
+ * SQLException:
+ * Se utiliza para notificar detalles sobre los errores de la base de datos resultantes. 
+ * Esta clase es iterable para que podamos ver toda la cadena de errores, y tiene tres métodos para obtener
+ * Información de la exception (getSQLState, getErrorCode, getMessage)
+ * 
+ * JDBC Closing resources:
+ * A la hora de trabajar con los recursos de la base de datos podemos tomar dos approach distintos, o cerrar la conexión al final luego de haberla usado
+ * lo cual genera se cierren todos los objetos (Statement, ResultSet) pero esto no es óptimo porque los recursos no se liberan conviene cerrar cada uno de ellos
+ *
  * Nota:
  * Para los ejemplos se va a usar MySQL, asi que el motor debe estar instalado y corriendo, por defecto se usara user="root" password="root" en caso de ser
  * distinta hay que cambiarlo, si el motor fuera otro habría que cambiar el connector y la URL para la conexión
@@ -59,7 +68,7 @@ public class Lesson01Introduction {
 			try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
 				System.out.println("Connection open");
 				
-				// Por medio de la conexion podemos obtener metadata de la base y ejecutar algunas consultas
+				// Por medio de la conexión podemos obtener metadata de la base y ejecutar algunas consultas
 				DatabaseMetaData databaseMetaData = connection.getMetaData();
 				
 				int majorVersion = databaseMetaData.getDatabaseMajorVersion();
@@ -77,6 +86,7 @@ public class Lesson01Introduction {
 				listingColumnFromTable(databaseMetaData);
 				primaryKeyFortable(databaseMetaData);
 				checkSupportedFeatures(databaseMetaData);
+				checkSQLANSI92(databaseMetaData);
 			}
 		} catch (Exception e) {
 			// Log and Handle exception
@@ -127,5 +137,16 @@ public class Lesson01Introduction {
 		System.out.println("Supports Get Generated Keys: " + databaseMetaData.supportsGetGeneratedKeys());
 		System.out.println("Supports Group By: " + databaseMetaData.supportsGroupBy());
 		System.out.println("Supports Outer Joins: " + databaseMetaData.supportsOuterJoins());
+	}
+	
+	/*
+	 * La mayoría de las bases de datos soportan un juego estándar de semántica y 
+	 * sintaxis SQL descrita por la especificación de nivel de entrada SQL-92 de ANSI 
+	 * (American National Standards Institute).
+	 */
+	private static void checkSQLANSI92(DatabaseMetaData databaseMetaData) throws SQLException {
+		System.out.println("Supports ANSI 92 Entry Level SQL: " + databaseMetaData.supportsANSI92EntryLevelSQL());
+		System.out.println("Supports ANSI 92 Intermediate SQL: " + databaseMetaData.supportsANSI92IntermediateSQL());
+		System.out.println("Supports ANSI 92 Full SQL: " + databaseMetaData.supportsANSI92FullSQL());
 	}
 }
