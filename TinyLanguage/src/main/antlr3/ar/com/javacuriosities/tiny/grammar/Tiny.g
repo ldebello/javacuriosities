@@ -1,5 +1,26 @@
 grammar Tiny;
 
+options {
+  output=AST;
+}
+
+/*
+ * Algunas veces una parser rule no tiene un candidato obvio para ser el root
+ * de la regla, por lo cual podemos definir algun nodo ficticio como root
+ * block
+ * :  (statement | functionDecl)* (Return expression ';')?
+ * ;
+ *
+ * Un bloque puede contener 0 o mas statements y opcionalmente una expression de return
+ * si asignamos la primer expression como root quedaria raro, por lo cual podemos crear
+ * un nodo ficticio 
+ */
+tokens {
+	BLOCK;
+	RETURN;
+  	STATEMENTS;
+}
+
 @lexer::header {
 	package ar.com.javacuriosities.tiny.grammar;
 }
