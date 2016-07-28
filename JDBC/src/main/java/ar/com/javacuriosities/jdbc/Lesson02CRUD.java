@@ -55,8 +55,19 @@ public class Lesson02CRUD {
 
 			String sql = "INSERT INTO alumnos (nombre, apellido, dni, fecha_nacimiento) VALUES ('" + "Name" + "', '" + "LastName" + "', '" + "12345678" + "', '1985-06-05')";
 
-			int rowsAffected = statement.executeUpdate(sql);
+			/*
+			 * Cuando ejecutamos el query podemos pasar el segundo parámetro como "Statement.RETURN_GENERATED_KEYS" 
+			 * para obtener el ID auto-generado, siempre y cuando el motor soporte esto, podemos verificar esto
+			 * por medio de DatabaseMetaData, si no pasamos el segundo parámetro no podemos obtener
+			 * el ID auto-generado
+			 */
+			int rowsAffected = statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			ResultSet generatedKeys = statement.getGeneratedKeys();
 			System.out.println(rowsAffected + " Row Inserted");
+			while (generatedKeys.next()) {
+				System.out.println("Last Id: " + generatedKeys.getInt(1));
+			}
 		}
 	}
 	
