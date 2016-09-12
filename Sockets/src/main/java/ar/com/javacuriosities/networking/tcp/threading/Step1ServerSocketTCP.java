@@ -44,7 +44,7 @@ public class Step1ServerSocketTCP {
 				 * bloqueo hasta que llega una conexión
 				 */
 				while (true) {
-					// Aquí podremos utilizar un thread pool utilizando el concurrency package agreado en 1.5 o ir creando nuestros propios hilos
+					// Aquí podremos utilizar un thread pool utilizando el concurrency package agregado en 1.5 o ir creando nuestros propios hilos
 					threadPool.execute(new ClientHandler(serverSocket.accept()));
 					
 					// Thread thread = new Thread(new ClientHandler(serverSocket.accept()));
