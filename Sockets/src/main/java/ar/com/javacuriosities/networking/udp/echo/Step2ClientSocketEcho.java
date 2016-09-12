@@ -8,23 +8,7 @@ public class Step2ClientSocketEcho {
     // Puerto UDP al cual se enlaza el servicio
     public static final int SERVICE_PORT = 1025;
     
-    /*
-     * El tamaño  máximo del paquete del paquete puede variar pero para
-     * comunicación óptima se sugiere que sea  el MSS (Maximum Segment Size)
-     * MSS: Tamaño máximo de segmento, este se calcula (MTU - Size Cabecera UDP/TCP - Cabecera IP)
-     * 
-     * MTU (Maximum Transmission Unit): Los valores típicos son 576 o 1500
-     * Cabecera UDP: 8 + Payload (Datos)
-     * Cabecera TCP: 20 + Payload (Datos)
-     * Cabecera IP: Usualmente 20 hasta 60 por encabezados adicionales
-     * 
-     * Size: 1500 - 60 - 8
-     *  
-     * El valor calculado arriba es un valor con el cual podremos confiar que no tendremos
-     * fragmentación (La fragmentación es maneja por el protocolo IP), esto incrementa nuestras chances de recibir el paquete, dado que si 
-     * el size es mayor que nuestro MTU se produce la fragmentación y si un fragmento es perdido todo el paquete será perdido.
-     */
-    public static final int BUFSIZE = 1432;
+    public static final int BUFFER_SIZE = 1500;
 
     public static void main(String args[]) {
         InetAddress inetAddress = null;
@@ -45,7 +29,7 @@ public class Step2ClientSocketEcho {
                 // Copiamos algunos datos a nuestro paquete
                 String message = "Number of passage " + i;
                 char[] contentAsArray = message.toCharArray();
-                byte[] sendBuffer = new byte[BUFSIZE];
+                byte[] sendBuffer = new byte[BUFFER_SIZE];
                 
                 for (int offset = 0; offset < contentAsArray.length; offset++) {
                     sendBuffer[offset] = (byte) contentAsArray[offset];
@@ -60,8 +44,8 @@ public class Step2ClientSocketEcho {
                 System.out.println("Waiting for package");
                 
                 // Creamos un pequeño paquete para recibir paquetes UDP 
-                byte[] recbuf = new byte[BUFSIZE];
-                DatagramPacket receivedPacket = new DatagramPacket(recbuf, BUFSIZE);
+                byte[] recbuf = new byte[BUFFER_SIZE];
+                DatagramPacket receivedPacket = new DatagramPacket(recbuf, BUFFER_SIZE);
                 
                 
                 boolean timeout = false;
