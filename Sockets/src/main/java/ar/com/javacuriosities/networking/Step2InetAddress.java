@@ -62,9 +62,9 @@ public class Step2InetAddress {
 			 * si es negativo significa que su valor es mas alto que 127
 			 */
 			for (int currentByte = 0; currentByte < bytes.length; currentByte++) {
-				int uByte = bytes[currentByte] < 0 ? bytes[currentByte] + 256
+				int fixingConvertion = bytes[currentByte] < 0 ? bytes[currentByte] + 256
 						: bytes[currentByte];
-				System.out.print(uByte + " ");
+				System.out.print(fixingConvertion + ".");
 			}
 
 			// InetAddress.getByName("www.no_existo.com.ar");
