@@ -10,7 +10,7 @@ package ar.com.javacuriosities.threads;
  * Paralelismo:
  * 		Hay paralelismo cuando varias tareas se ejecutan al mismo tiempo, o sea la concurrencia es necesaria para el paralelismo.
  * 
- * Nuestras PC pueden ejecutar de forma paralela hasta la cantidad maxima de nucleos que tengamos
+ * Nuestras PC pueden ejecutar de forma paralela hasta la cantidad máxima de núcleos que tengamos
  * ya sean físicos o virtuales.
  * 
  * Podemos obtener la cantidad de procesadores disponible por medio de 
@@ -20,13 +20,26 @@ package ar.com.javacuriosities.threads;
  * tiene uno o mas núcleo, luego en base a si el chip provee tecnología de virtualización esos núcleos se pueden
  * duplicar creando virtuales.
  * 
- * O sea cada nucleo puede ejecutar un hilo a la vez, dependiendo del tipo de tarea que estemos ejecutando convendrá
+ * O sea cada núcleo puede ejecutar un hilo a la vez, dependiendo del tipo de tarea que estemos ejecutando convendrá
  * usar diferente cantidad de hilos, en general si son tareas largas CPU Intensive intentaremos mantener el numero de hilos
  * bajos, y si son tareas con mucho I/O podremos crear mas hilos ya que se pueden seguir procesando cosas mientras se espera por el I/O.
  * Si tuviéramos que hacer performance de nuestra aplicación habrá que hacer mediciones y ajustar la configuración acorde al caso, vale aclarar que no existe a rule of thumb
  * 
  * Durante la ejecución de un thread se le asigna un quantum o time slice para que el thread se ejecute, luego de ese tiempo o si el thread es bloqueado o dormido, se cambiara
  * a otro thread o al mismo, esto es manejado por el scheduler del sistema operativo
+ * 
+ * Una pregunta típica que suele surgir es How many threads?
+ * 
+ * Esto no es fácil de responder y depende del tipo de tarea que estemos haciendo, o sea CPU Intensive o con mucho IO. Pero también es común escuchar sobre Little’s Law, el cual enuncia
+ * 
+ * L = λ W
+ * 
+ * L = Numero promedio de tareas en curso
+ * λ = Tiempo promedio de arribo de cada tarea
+ * W = Tiempo promedio de cada tarea
+ * 
+ * Si tenemos 10 tareas por segundo y cada una toma 1 segundo, necesitaríamos de 10 Threads (L = 10 * 1 = 10)
+ * Si tenemos 10 tareas por segundo y cada una toma 2 segundos, necesitaríamos de 10 Threads (L = 10 * 2 = 20)
  */
 public class Lesson01CreateThread {
 
