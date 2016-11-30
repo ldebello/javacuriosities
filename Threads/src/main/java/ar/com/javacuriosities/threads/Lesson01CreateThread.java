@@ -30,7 +30,13 @@ package ar.com.javacuriosities.threads;
  * 
  * Una pregunta típica que suele surgir es How many threads?
  * 
- * Esto no es fácil de responder y depende del tipo de tarea que estemos haciendo, o sea CPU Intensive o con mucho IO. Pero también es común escuchar sobre Little’s Law, el cual enuncia
+ * Esto no es fácil de responder y depende del tipo de tarea que estemos haciendo, o sea CPU Intensive o IO Intensive. 
+ * 
+ * CPU Bound: Significa que una tarea es limitada por la velocidad del CPU. Una tarea que hace cálculos sobre un grupo pequeño de numeros, por ejemplo una multiplicación de matrices, puede ser limitada por el CPU.
+ * 
+ * I/O Bound: significa que una tarea es limitada por la velocidad de I/O. Una tarea que necesita leer datos del disco, por ejemplo contar las líneas de un archivo, puede ser limitada por I/O.
+ * 
+ * Cuando empezamos a investigar suele ser común encontrar información sobre Little’s Law, el cual enuncia
  * 
  * L = λ W
  * 
@@ -40,6 +46,8 @@ package ar.com.javacuriosities.threads;
  * 
  * Si tenemos 10 tareas por segundo y cada una toma 1 segundo, necesitaríamos de 10 Threads (L = 10 * 1 = 10)
  * Si tenemos 10 tareas por segundo y cada una toma 2 segundos, necesitaríamos de 10 Threads (L = 10 * 2 = 20)
+ * 
+ * Es importante recordar que estas son cosas generales y para nuestro sistema la mejor herramienta es medir y poder analizar que numero de Threads se ajusta mejor a nuestra solución
  */
 public class Lesson01CreateThread {
 
