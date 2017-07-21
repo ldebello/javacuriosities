@@ -28,8 +28,7 @@ public class Lesson11WaitAndNotify {
 			 * algunos casos se podría generar un deadlock porque el jefe llega
 			 * antes y notifica a todos pero no todos están esperando.
 			 * 
-			 * Para resolver esto podríamos usar un wait con tiempo dentro de un ciclo que verifique si ya llego el jefe o no
-			 * Homework :)
+			 * Una forma elegante de resolver esto seria utilizando un CountDownLatch
 			 */
 			Thread.sleep(2000);
 
