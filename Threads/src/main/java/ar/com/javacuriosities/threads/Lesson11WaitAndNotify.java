@@ -1,6 +1,16 @@
 package ar.com.javacuriosities.threads;
 
-
+/**
+ * Spurious Wakeup:
+ *
+ * Por norma general esperariamos que un thread deje de estar en estado wait debigo a que otro
+ * thread ejecuto notify o notifyAll, aunque es importante marcar que esos no son el unico caso.
+ * Dependiendo el sistema operativo y la primitiva que use el mismo, cuando usamos un wait podemos
+ * sufrir de algo llamado "spurious wakeup" lo cual quiere decir que un thread puede dejar de estar
+ * en estado wait sin razon aparente, por lo cual es responsabilidad utilizarlo en un loop y validar
+ * que se cumple cierta invariante antes de continuar. Esto tambien se puede ver en el JavaDoc de {@link Thread#wait()}
+ *
+ */
 public class Lesson11WaitAndNotify {
 
 	public static void main(String[] args) {

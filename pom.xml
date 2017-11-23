@@ -36,6 +36,7 @@
     	<module>NIO</module>
     	<module>NIOServer</module>
     	<module>JDBC</module>
+		<module>SignalHandling</module>
   </modules>
 
   	<build>
