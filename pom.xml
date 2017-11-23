@@ -32,11 +32,7 @@
     	<module>ReferenceTypes</module>
     	<module>Lambdas</module>
     	<module>Streams</module>
-    	<module>JLex</module>
-    	<module>JLex-CUP</module>
     	<module>DateAPI</module>
-    	<module>AntlrIntroduction</module>
-    	<module>TinyLanguage</module>
     	<module>NIO</module>
     	<module>NIOServer</module>
     	<module>JDBC</module>
