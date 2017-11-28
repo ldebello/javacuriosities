@@ -1,6 +1,9 @@
 package ar.com.javacuriosities.threads;
 
-
+/**
+ * Algunas veces nos vemos en la necesidad de tener variables que estan asociadas a un Thread especifico,
+ * esto es posible utilizando un objecto del tipo {@link ThreadLocal}
+ */
 public class Lesson15ThreadLocal {
 
     public static void main(String[] args) {

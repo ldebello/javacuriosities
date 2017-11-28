@@ -2,7 +2,7 @@ package ar.com.javacuriosities.threads;
 
 import java.util.Random;
 
-public class Lesson16ThreadExceptionHandler {
+public class Lesson17ThreadExceptionHandler {
 
     public static void main(String[] args) {
         // Creamos 3 threads los cuales pueden arrojar exception 
