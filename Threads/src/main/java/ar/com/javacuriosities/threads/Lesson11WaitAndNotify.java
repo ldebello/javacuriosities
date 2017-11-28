@@ -67,6 +67,11 @@ public class Lesson11WaitAndNotify {
 		public synchronized void waitBoss(String name) {
 			try {
 				System.out.println(name + " is waiting");
+				/*
+				 * A modo de ejemplo podemos utilizar un wait de esta forma, pero debemos recordar que siempre
+				 * que usemos un wait debemos hacerlo dentro de un loop chequeando una invariante, de modo que nuestro
+				 * código pueda manejar "spurious wakeups".
+				 */
 				wait();
 				System.out.println(name + ": Good Morning boss");
 			} catch (InterruptedException ex) {
