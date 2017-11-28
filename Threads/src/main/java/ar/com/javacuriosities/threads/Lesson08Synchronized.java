@@ -19,10 +19,10 @@ package ar.com.javacuriosities.threads;
  * Existen varias formas de sincronización:
  * 
  * 1- Sincronizando el recurso que estamos usando, esto lo podemos hacer con synchronized en la firma del método o 
- * synchronized(this) lo cual es exactamente lo mismo, ponerla en la firma es simplemente azúcar sintáctico
+ * synchronized(this) lo cual genera el mismo efecto, pero el bytecode generado es distinto.
  * 
  * 2- Sincronizando por medio de un mutex (Nombre típico de la variable que viene de Mutual Exclusion), que se refiere
- * a usar del candado de ese objeto haciendo synchronized(mutex) 
+ * a usar el monitor de ese objeto haciendo synchronized(mutex)
  * 
  * 3- También podemos hacer sincronizados métodos que sean estáticos aunque ahí la diferencia radica que no se usa el candado
  * de la instancia sino de la clase
