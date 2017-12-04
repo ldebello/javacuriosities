@@ -7,10 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /*
- * URL (Uniform Resource Locator), esto es una referencia a nuestros recursos.
- * Esta formada por el schema/protocolo.
- * Los objetos URL luego de ser creados no pueden cambiar sus valores (protocol, host name, file, port)
- * 
+ * URL (Uniform Resource Locator)
+ *
  * Formato de una URL
  * 
  * <protocol>://<username>:<password>@<host>:<port>/<path>;<parameters>?<query>#<fragment>
@@ -30,23 +28,21 @@ import java.net.URL;
  * Fragment
  * 	Una referencia hacia un nombre dentro del recurso
  * 
- * La definición proviene de la RFC 2396
- * 
- * Hay una distinción entre URL y URI. Los URI definen recursos sintácticos de Internet. 
- * Esos recursos no tienen necesidad de poseer datos que sean localizables, esa es su diferencia. 
- * De hecho una URL es una caso de URI en el que los datos son localizables (es decir una URL hace referencia 
+ * La definición proviene de la RFC 2396.
+ *
+ * Una URL es un caso especifico de URI, en el cual los datos son localizables (es decir una URL hace referencia
  * a datos que existen, una URI es teórica, los datos podrían no existir).
  */
 public class Step1URL {
 	public static void main(String[] args) {
         try {
         	// Creamos una URL desde un String que será parseado
-            URL url1 = new URL("http://www.yahoo.com/resource/index.html?parameter1=value1&parameter1=value1#reference");
+            URL url1 = new URL("http://www.google.com/resource/index.html?parameter1=value1&parameter1=value1#reference");
 
             // Creamos una URL indicando cada una de sus partes
-            URL url2 = new URL("http", "www.yahoo.com", 80, "index.html");
+            URL url2 = new URL("http", "www.google.com", 80, "index.html");
 
-            System.out.println("Informacion URL 1");
+            System.out.println("URL 1");
             System.out.println("Protocol: " + url1.getProtocol());
             System.out.println("Authority: " + url1.getAuthority());
             System.out.println("Host: " + url1.getHost());
@@ -55,7 +51,7 @@ public class Step1URL {
             System.out.println("Query: " + url1.getQuery());
             System.out.println("File: " + url1.getFile());
 
-            System.out.println("Informacion URL 2");
+            System.out.println("URL 2");
             System.out.println("Protocol: " + url2.getProtocol());
             System.out.println("Host: " + url2.getHost());
             System.out.println("Port: " + url2.getPort());
@@ -81,17 +77,7 @@ public class Step1URL {
                     System.out.println(inputLine);
                 }
             }
-
-            /*
-             * Otra opción para leer todo el input es usar la clase Scanner mas Pattern
-             * 
-             */
-			// try(Scanner scanner = new Scanner(googleURL.openStream())) {
-			// String data = scanner.useDelimiter("\\A").next();
-			// System.out.println(data);
-			// }
         } catch (MalformedURLException e) {
-        	// Esta exception se arroja cuando se usa un protocolo no conocido o la URL no puede ser parseada
 			// Log and Handle exception
 			e.printStackTrace();
         } catch (IOException e) {

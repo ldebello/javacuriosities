@@ -22,7 +22,6 @@ import java.net.UnknownHostException;
  * -1 --> Cache forever
  * 
  * Dependiendo si es IPv6 el objeto retornado es Inet6Address y si es IPv4 retorna Inet4Address
- *  
  */
 public class Step2InetAddress {
 
