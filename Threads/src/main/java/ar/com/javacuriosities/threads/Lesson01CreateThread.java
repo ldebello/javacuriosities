@@ -47,7 +47,15 @@ package ar.com.javacuriosities.threads;
  * Si tenemos 10 tareas por segundo y cada una toma 1 segundo, necesitaríamos de 10 Threads (L = 10 * 1 = 10)
  * Si tenemos 10 tareas por segundo y cada una toma 2 segundos, necesitaríamos de 10 Threads (L = 10 * 2 = 20)
  * 
- * Es importante recordar que estas son cosas generales y para nuestro sistema la mejor herramienta es medir y poder analizar que numero de Threads se ajusta mejor a nuestra solución
+ * Es importante recordar que estas son cosas generales y para nuestro sistema la mejor herramienta es medir y poder analizar que numero de Threads se ajusta mejor a nuestra solución.
+ *
+ * La JVM tiene alguno hilos por default que veremos a la hora de hacer un Thread Dump:
+ *
+ * - DestroyJavaVM: Es el thread encargado de descargar nuestra JVM cuando el programa termine.
+ * - Signal Dispatcher: Es el thread que manejas las signals nativas enviadas por el OS a la JVM
+ * - Finalizer: Thread que hace pull de los objetos desde la finalization queue y ejecuta su método finalize.
+ * - Reference Handler: Es un thread de alta prioridad que se encarga de ir encolando las referencias pendientes.
+ *
  */
 public class Lesson01CreateThread {
 
