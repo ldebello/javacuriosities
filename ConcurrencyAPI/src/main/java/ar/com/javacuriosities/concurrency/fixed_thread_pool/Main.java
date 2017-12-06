@@ -25,7 +25,7 @@ public class Main {
 		}
 
 		/*
-         * Esto hará que el executor no acepte nuevas tareas y que finalice cuando  el thread haya acabado con las 50 tareas
+         * Esto hará que el executor no acepte nuevas tareas y que finalice cuando el thread haya acabado con las 50 tareas
          */
         executor.shutdown();
        
