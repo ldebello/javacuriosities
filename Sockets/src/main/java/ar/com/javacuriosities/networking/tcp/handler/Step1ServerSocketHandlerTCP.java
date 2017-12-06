@@ -8,49 +8,42 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Step1ServerSocketHandlerTCP {
-	public static void main(String[] args) {
-		try {
-			// Creamos el Server Socket
-			ServerSocket serverSocket = new ServerSocket(4444);
 
-			// Aceptamos peticiones
-			Socket clientSocket = serverSocket.accept();
+    public static void main(String[] args) {
+        // Creamos el Server Socket
+        try (ServerSocket server = new ServerSocket(4444)) {
 
-			// Input y Output
-			PrintWriter clientSocketOutput = new PrintWriter(
-					clientSocket.getOutputStream(), true);
-			BufferedReader clientSocketInput = new BufferedReader(
-					new InputStreamReader(clientSocket.getInputStream()));
+            // Aceptamos peticiones
+            try (Socket socket = server.accept()) {
+                // Input y Output
+                PrintWriter socketOutput = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader socketInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-			// Variables auxiliares
-			String inputLine, outputLine;
+                // Variables auxiliares
+                String inputLine, outputLine;
 
-			/*
-			 * Usamos un handler que responde en base al mensaje recibido
-			 */
-			ServerSocketInputHandler handler = new ServerSocketInputHandler();
-			outputLine = handler.processInput(null);
-			clientSocketOutput.println(outputLine);
+                /*
+                 * Usamos un handler que responde en base al mensaje recibido
+                 */
+                ServerSocketInputHandler handler = new ServerSocketInputHandler();
+                outputLine = handler.processInput(null);
+                socketOutput.println(outputLine);
 
-			/*
-			 * Verificamos contra null porque si cierran el buffer recibimos un
-			 * NULL como lectura
-			 */
-			while ((inputLine = clientSocketInput.readLine()) != null) {
-				outputLine = handler.processInput(inputLine);
-				clientSocketOutput.println(outputLine);
-				if (outputLine.equals("Bye")) {
-					break;
-				}
-			}
-
-			clientSocketOutput.close();
-			clientSocketInput.close();
-			clientSocket.close();
-			serverSocket.close();
-		} catch (IOException e) {
-			// Log and Handle exception
-			e.printStackTrace();
-		}
-	}
+                /*
+                 * Verificamos contra null porque si cierran el buffer recibimos un
+                 * NULL como lectura
+                 */
+                while ((inputLine = socketInput.readLine()) != null) {
+                    outputLine = handler.processInput(inputLine);
+                    socketOutput.println(outputLine);
+                    if (outputLine.equals("Bye")) {
+                        break;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            // Log and Handle exception
+            e.printStackTrace();
+        }
+    }
 }

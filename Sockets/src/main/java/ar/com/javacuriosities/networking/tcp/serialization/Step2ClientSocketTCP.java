@@ -8,8 +8,7 @@ import java.net.Socket;
 public class Step2ClientSocketTCP {
 
 	public static void main(String[] args) {
-		try (Socket socket = new Socket(InetAddress.getByName("127.0.0.1"),
-				6000)) {
+		try (Socket socket = new Socket(InetAddress.getByName("127.0.0.1"), 6000)) {
 
 			// Solicitamos el input stream para leer el objeto desde el server
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());

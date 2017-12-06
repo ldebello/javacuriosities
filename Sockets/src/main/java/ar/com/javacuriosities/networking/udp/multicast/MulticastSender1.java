@@ -7,6 +7,8 @@ import java.net.InetAddress;
 
 public class MulticastSender1 {
 
+	public static volatile boolean isRunning = true;
+
 	public static void main(String[] args) {
 		// Creamos el MulticastSocket sin especificar ningún puerto
 		try (DatagramSocket datagramSocket = new DatagramSocket()) {
@@ -14,7 +16,7 @@ public class MulticastSender1 {
 			// Buscamos el grupo multicast al cual queremos enviar mensajes
 			InetAddress group = InetAddress.getByName("231.0.0.1");
 
-			while (true) {
+			while (isRunning) {
 				// Mensaje
 				String mensaje = "Welcome from server 1";
 				byte[] data = mensaje.getBytes();

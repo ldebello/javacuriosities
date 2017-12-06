@@ -1,6 +1,5 @@
 package ar.com.javacuriosities.networking.tcp;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetAddress;
@@ -49,18 +48,23 @@ import java.net.Socket;
  * 
  */
 public class Step1ServerSocketTCP {
+
+	public static volatile boolean isRunning = true;
+
 	public static void main(String[] args) {
 		try {
 			/*
 			 * Creamos un socket el cual va a estar esperando conexiones
-			 * Parámetros: Parámetro 1 --> Indica el puerto que vamos a estar
-			 * escuchando Parámetro 2 --> Indica el tamaño máximo de la queue de
-			 * conexiones Parámetro 3 --> Indica la dirección IP del server
+			 * Parámetros:
+			 *
+			 * Parámetro 1 --> Indica el puerto que vamos a estar escuchando.
+			 * Parámetro 2 --> Indica el tamaño máximo de la queue de conexiones.
+			 * Parámetro 3 --> Indica la dirección IP del server.
 			 * 
 			 * Otra opción es crear un socket unbound y luego asociarlo usando
 			 * el método bind()
 			 */
-			try (ServerSocket serverSocket = new ServerSocket(4000, 50,
+			try (ServerSocket server = new ServerSocket(4000, 50,
 					InetAddress.getLocalHost())) {
 
 				/*
@@ -69,29 +73,31 @@ public class Step1ServerSocketTCP {
 				 * timeout es alcanzado se arroja la exception
 				 * "java.net.SocketTimeoutException: Accept timed out"
 				 */
-				serverSocket.setSoTimeout(0);
+				server.setSoTimeout(0);
 
 				/*
 				 * El método accept() es bloqueante por lo cual genera un
 				 * bloqueo hasta que llega una conexión
 				 */
-				while (true) {
-					Socket clientSocket = serverSocket.accept();
+				while (isRunning) {
+					try (Socket socket = server.accept()) {
 
-					// Pedimos el output stream para enviar mensajes al cliente
-					OutputStream os = clientSocket.getOutputStream();
+						/**
+						 * Por medio de este método podemos desactivar el Nagle's Algorithm. Que controla el envió de datos
+						 * para poder enviar segmentos completos por medio de esperar los writes necesarios para llenar los
+						 * segmentos.
+						 */
+						socket.setTcpNoDelay(true);
 
-					// Usamos un wrapper el cual nos permite escribir valores
-					// primitivos de forma simple
-					DataOutputStream dos = new DataOutputStream(os);
+						// Pedimos el output stream para enviar mensajes al cliente
+						OutputStream os = socket.getOutputStream();
 
-					// Write message
-					dos.writeUTF("Hi!!!");
-
-					// Close output stream and client
-					dos.close();
-					os.close();
-					clientSocket.close();
+						os.write('h');
+						os.write('e');
+						os.write('l');
+						os.write('l');
+						os.write('o');
+					}
 				}
 			}
 		} catch (IOException e) {

@@ -1,5 +1,6 @@
 package ar.com.javacuriosities.networking.udp.streaming;
 
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -22,6 +23,8 @@ import javax.sound.sampled.TargetDataLine;
 public class AudioSender {
 
 	private static final int PORT = 8888;
+
+	public static volatile boolean isRunning = true;
 
 	public static void main(String[] args) {
 		// Pedimos los mixers de nuestro sistema
@@ -52,7 +55,7 @@ public class AudioSender {
 				// El start permite que la línea empiece a usar I/O
 				targetDataLine.start();
 
-				while (true) {
+				while (isRunning) {
 					// Creamos un buffer para leer los datos (Usamos 32000 porque el sample lo pusimos en 8000 y 2 bytes por sample = 16000 por segundo)
 					byte[] buffer = new byte[32000];
 					
@@ -72,7 +75,7 @@ public class AudioSender {
 	private static void sendAudio(DatagramSocket socket, InetAddress address, byte soundpacket[]) {
 		try {
 			socket.send(new DatagramPacket(soundpacket, soundpacket.length, address, PORT));
-		} catch (Exception e) {
+		} catch (IOException e) {
 			// Log and Handle exception (Unable to send soundpacket using UDP)
 			e.printStackTrace();
 		}

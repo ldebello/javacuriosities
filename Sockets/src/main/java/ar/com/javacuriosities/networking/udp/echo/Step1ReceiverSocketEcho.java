@@ -11,7 +11,9 @@ import java.io.*;
  * siguiente página se encuentran muchas RFC traducidas al español
  * http://www.rfc-es.org/index.php
  */
-public class Step1ServerSocketEcho {
+public class Step1ReceiverSocketEcho {
+
+	public static volatile boolean isRunning = true;
 
 	/*
 	 * Puerto UDP al cual se enlaza el servicio
@@ -21,12 +23,12 @@ public class Step1ServerSocketEcho {
 	public static final int SERVICE_PORT = 1025;
 
 	// Tamaño máximo del paquete, este es un valor común para utilizar como buffer
-	public static final int BUFSIZE = 8192;
+	public static final int BUFFER_SIZE = 8192;
 
 	// Socket usado para leer y escribir paquetes UDP
 	private DatagramSocket socket;
 
-	public Step1ServerSocketEcho() {
+	public Step1ReceiverSocketEcho() {
 		try {
 			// Enlazarse al puerto UDP especificado para escuchar paquetes de
 			// datos entrantes
@@ -38,15 +40,14 @@ public class Step1ServerSocketEcho {
 		}
 	}
 
-	public void serviceClients() {
+	public void startEchoService() {
 		// Creamos un buffer suficientemente largo para los paquetes entrantes
-		byte[] buffer = new byte[BUFSIZE];
+		byte[] buffer = new byte[BUFFER_SIZE];
 		try {
-			while (true) {
+			while (isRunning) {
 
 				// Creamos un DatagramPacket para leer paquetes UDP
-				DatagramPacket inputPacket = new DatagramPacket(buffer,
-						BUFSIZE);
+				DatagramPacket inputPacket = new DatagramPacket(buffer, BUFFER_SIZE);
 
 				// Recibimos los paquetes entrantes
 				socket.receive(inputPacket);
@@ -58,7 +59,6 @@ public class Step1ServerSocketEcho {
 
 				// Volvemos a enviar el mensaje recibido
 				socket.send(inputPacket);
-
 			}
 		} catch (IOException e) {
 			// Log and Handle exception
@@ -67,7 +67,7 @@ public class Step1ServerSocketEcho {
 	}
 
 	public static void main(String args[]) {
-		Step1ServerSocketEcho server = new Step1ServerSocketEcho();
-		server.serviceClients();
+		Step1ReceiverSocketEcho receiver = new Step1ReceiverSocketEcho();
+		receiver.startEchoService();
 	}
 }

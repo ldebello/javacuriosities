@@ -12,6 +12,8 @@ import java.net.MulticastSocket;
  */
 public class MulticastReceiver {
 
+	public static volatile boolean isRunning = true;
+
 	public static void main(String[] args) {
 		MulticastSocket multicastSocket = null;
 
@@ -30,7 +32,7 @@ public class MulticastReceiver {
 			multicastSocket.joinGroup(group1);
 			multicastSocket.joinGroup(group2);
 
-			while (true) {
+			while (isRunning) {
 				// Recibimos el paquete del socket:
 				byte[] buffer = new byte[100];
 

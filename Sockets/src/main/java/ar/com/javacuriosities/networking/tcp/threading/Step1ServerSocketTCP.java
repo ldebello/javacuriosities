@@ -15,6 +15,9 @@ import java.util.concurrent.Executors;
  * 
  */
 public class Step1ServerSocketTCP {
+
+	public static volatile boolean isRunning = true;
+
 	public static void main(String[] args) {
 		ExecutorService threadPool = Executors.newFixedThreadPool(2);
 		try {
@@ -43,7 +46,7 @@ public class Step1ServerSocketTCP {
 				 * El método accept() es bloqueante por lo cual genera un
 				 * bloqueo hasta que llega una conexión
 				 */
-				while (true) {
+				while (isRunning) {
 					// Aquí podremos utilizar un thread pool utilizando el concurrency package agregado en 1.5 o ir creando nuestros propios hilos
 					threadPool.execute(new ClientHandler(serverSocket.accept()));
 					
@@ -61,18 +64,18 @@ public class Step1ServerSocketTCP {
 
 	private static final class ClientHandler implements Runnable {
 
-		private Socket clientSocket;
+		private Socket socket;
 
-		public ClientHandler(Socket clientSocket) {
+		public ClientHandler(Socket socket) {
 			super();
-			this.clientSocket = clientSocket;
+			this.socket = socket;
 		}
 
 		@Override
 		public void run() {
 			try {
 				// Pedimos el output stream para enviar mensajes al cliente
-				OutputStream os = clientSocket.getOutputStream();
+				OutputStream os = socket.getOutputStream();
 
 				// Usamos un wrapper el cual nos permite escribir valores
 				// primitivos de forma simple
@@ -83,8 +86,7 @@ public class Step1ServerSocketTCP {
 
 				// Close output stream and client
 				dos.close();
-				os.close();
-				clientSocket.close();
+				socket.close();
 			} catch (IOException e) {
 				// Log and Handle exception
 				e.printStackTrace();

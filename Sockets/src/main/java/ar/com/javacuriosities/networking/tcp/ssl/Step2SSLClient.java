@@ -16,19 +16,16 @@ public class Step2SSLClient {
 			
 			SocketFactory socketFactory = SSLSocketFactory.getDefault();
 			
-			Socket socketToConnect = socketFactory.createSocket(InetAddress.getLocalHost(), 4000);
+			try (Socket socket = socketFactory.createSocket(InetAddress.getLocalHost(), 4000)) {
+				// Obtenemos el input stream para leer datos
+				InputStream is = socket.getInputStream();
+				DataInputStream dis = new DataInputStream(is);
 
-			// Obtenemos el input stream para leer datos
-			InputStream is = socketToConnect.getInputStream();
-			DataInputStream dis = new DataInputStream(is);
+				System.out.println(dis.readUTF());
 
-			String dataFromServer = new String(dis.readUTF());
-			System.out.println(dataFromServer);
-
-			// Luego cerramos los stream y el socket
-			dis.close();
-			is.close();
-			socketToConnect.close();
+				// Cerramos el input stream
+				dis.close();
+			}
 		} catch (Exception e) {
 			// Log and Handle exception
 			e.printStackTrace();

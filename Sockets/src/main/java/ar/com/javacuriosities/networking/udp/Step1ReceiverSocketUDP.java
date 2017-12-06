@@ -11,11 +11,14 @@ import java.net.InetAddress;
  * Source Port|Destination Port|Length|UDP Checksum|Data
  * 
  */
-public class Step1ServerSocketUDP {
+public class Step1ReceiverSocketUDP {
+
+	public static volatile boolean isRunning = true;
+
 	public static void main(String[] args) throws InterruptedException {
 		// Definimos un socket
-		try (DatagramSocket serverSocket = new DatagramSocket(4000, InetAddress.getLocalHost())){
-			DatagramPacket inputPacket = new DatagramPacket(new byte[100], 100);
+		try (DatagramSocket socket = new DatagramSocket(4000, InetAddress.getLocalHost())){
+			DatagramPacket packet = new DatagramPacket(new byte[100], 100);
 
 			// Podemos asignar un timeout para el método receive
 			// socket.setSoTimeout(1000);
@@ -28,13 +31,13 @@ public class Step1ServerSocketUDP {
 			 *  al ultimo asignado
 			 */
 			// socket.connect(InetAddress.getLocalHost(), 5000);
-			while (true) {
-				serverSocket.receive(inputPacket);
+			while (isRunning) {
+				socket.receive(packet);
 
-				System.out.println("Remote Address:" + inputPacket.getAddress());
-				System.out.println("Remote Port:" + inputPacket.getPort());
+				System.out.println("Remote Address:" + packet.getAddress());
+				System.out.println("Remote Port:" + packet.getPort());
 
-				System.out.println(new String(inputPacket.getData()));
+				System.out.println(new String(packet.getData()));
 			}
 		} catch (Exception e) {
 			// Log and Handle exception

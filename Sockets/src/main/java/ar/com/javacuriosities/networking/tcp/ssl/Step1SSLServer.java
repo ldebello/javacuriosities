@@ -82,6 +82,9 @@ import javax.net.ssl.SSLServerSocketFactory;
  * 
  */
 public class Step1SSLServer {
+
+	public static volatile boolean isRunning = true;
+
 	public static void main(String[] args) {
 		try {
 			// Aquí agregamos la properties desde el código lo ideal es pasarla como parámetros o leerlas de una locación externa
@@ -101,29 +104,27 @@ public class Step1SSLServer {
 			// Utilizamos un SocketFactory de SSL el cual maneja la creacion por nosotros
 			ServerSocketFactory serverSocketFactory = SSLServerSocketFactory.getDefault();
 			
-			try (ServerSocket serverSocket = serverSocketFactory.createServerSocket(4000, 50, InetAddress.getLocalHost())) {
+			try (ServerSocket server = serverSocketFactory.createServerSocket(4000, 50, InetAddress.getLocalHost())) {
 
 				/*
 				 * El método accept() es bloqueante por lo cual genera un
 				 * bloqueo hasta que llega una conexión
 				 */
-				while (true) {
-					Socket clientSocket = serverSocket.accept();
+				while (isRunning) {
+					try (Socket socket = server.accept()) {
+						// Pedimos el output stream para enviar mensajes al cliente
+						OutputStream os = socket.getOutputStream();
 
-					// Pedimos el output stream para enviar mensajes al cliente
-					OutputStream os = clientSocket.getOutputStream();
+						// Usamos un wrapper el cual nos permite escribir valores
+						// primitivos de forma simple
+						DataOutputStream dos = new DataOutputStream(os);
 
-					// Usamos un wrapper el cual nos permite escribir valores
-					// primitivos de forma simple
-					DataOutputStream dos = new DataOutputStream(os);
+						// Write message
+						dos.writeUTF("Hi!!!");
 
-					// Write message
-					dos.writeUTF("Hi!!!");
-
-					// Close output stream and client
-					dos.close();
-					os.close();
-					clientSocket.close();
+						// Close output stream
+						dos.close();
+					}
 				}
 			}
 		} catch (Exception e) {

@@ -14,19 +14,16 @@ public class Step2ClientSocketTCP {
 			 * Si ejecutamos el cliente antes que el server obtendremos la exception
 			 * "java.net.ConnectException: Connection refused"
 			 */
-			Socket socketToConnect = new Socket(InetAddress.getLocalHost(), 5000);
-			
-			// Obtenemos el input stream para leer datos
-			InputStream is = socketToConnect.getInputStream();
-			DataInputStream dis = new DataInputStream(is);
-			
-			String dataFromServer = new String(dis.readUTF());
-			System.out.println(dataFromServer);
-			
-			// Luego cerramos los stream y el socket
-			dis.close();
-			is.close();
-			socketToConnect.close();
+			try (Socket socket = new Socket(InetAddress.getLocalHost(), 5000)) {
+				// Obtenemos el input stream para leer datos
+				InputStream is = socket.getInputStream();
+				DataInputStream dis = new DataInputStream(is);
+
+				System.out.println(dis.readUTF());
+
+				// Cerramos el input stream
+				dis.close();
+			}
 		} catch (IOException e) {
 			// Log and Handle exception
 			e.printStackTrace();
