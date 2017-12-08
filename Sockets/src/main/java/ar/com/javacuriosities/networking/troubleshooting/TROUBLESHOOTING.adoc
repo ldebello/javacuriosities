@@ -1,0 +1,7 @@
+= Troubleshooting
+
+The idea of this document is to have some very simple examples about typical issues that we can face doing networking.
+
+== Issues
+
+* close_wait/Server.java[Close Wait]
