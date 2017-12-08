@@ -1,9 +1,8 @@
-package ar.com.javacuriosities.networking.troubleshooting.close_wait;
+package ar.com.javacuriosities.networking.troubleshooting.tcp.close_wait;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -13,8 +12,7 @@ public class Server {
 
     public static void main(String[] args) {
         try {
-            try (ServerSocket server = new ServerSocket(9100, 50, InetAddress.getLocalHost())) {
-
+            try (ServerSocket server = new ServerSocket(9100)) {
                 while (isRunning) {
                     Socket socket = server.accept();
 

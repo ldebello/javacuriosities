@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.networking.troubleshooting.close_wait;
+package ar.com.javacuriosities.networking.troubleshooting.tcp.close_wait;
 
 import java.io.DataInputStream;
 import java.io.IOException;

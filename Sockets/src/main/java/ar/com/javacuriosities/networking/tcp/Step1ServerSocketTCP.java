@@ -7,8 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /*
- * Un socket representa un extremo (Endpoint) en una comunicación entre dos programas
- * corriendo en la red.
+ * Un socket representa un extremo (endpoint) en una comunicación entre dos programas corriendo en una red.
  * 
  * Dependiendo del protocolo que usemos tendremos distintas capacidades
  * 
@@ -23,25 +22,33 @@ import java.net.Socket;
  * - Protocolo de transporte no orientado a la conexión
  * - No garantiza un servicio extremo a extremo fiable
  * - No controla la pérdida de paquetes, los errores o la duplicidad
- * 
- * La cabecera usada por el protocolo TCP incluye 6 flags
+ *
+ * TC States:
+ * Cuando utilizamos el protocolo TCP los sockets tienen distintos estados, y las operaciones pueden ser activas o pasivas.
+ *
+ * - CLOSED: No hay conexión.
+ * - LISTEN: El endpoint local esta esperando por una conexión de un endpoint remoto. i.e. Un open pasivo fue ejecutado.
+ * - SYN-SENT: El primer step del 3-Way Handshake fue realizado, un pedido de conexión fue enviado al remote endpoint. i.e. Un open activo fue ejecutado.
+ *
+ * 3-Way Handshake:
+ * Antes de establecer una conexión con un cliente, debemos ejecutar el proceso de Handshake el cual se encarga de esto mismo enviando/recibiendo
+ * ciertos paquetes. Cada paquete del protocolo TCP puede incluir alguno de sus 6 flags
+ *
  * SYN (Synchronize), ACK (Acknowledgement), RST (Reset), PSH (Push), URG (Urgent) y FIN (Urgent)
- * 
- * Cada vez que iniciamos una conexión con un cliente se establece lo que se conoce como Handshake,
- * esto consta de los siguientes paso: 
- * 
- * Paso 1:
+ *
+ * 3-Way Handshake Steps:
+ * Step 1:
  * Aplicación A --> Envía un paquete con el flag SYN al puerto X de la aplicación B con un numero de secuencia
  * 
  * A ------ [SYN secuencia:X] ----------------> B
  * 
- * Paso 2:
+ * Step 2:
  * Si el puerto esta abierto la aplicación B responde con los flag SYN y ACK también define un numero de secuencia inicial y envía el ACK con el
  * numero de secuencia de A mas 1. Si el puerto esta cerrado nos responden con RST y ACK.
  * 
  * B ------ [SYN+ACK secuencia:Y ack:X+1] ----> A
  * 
- * Paso 3:
+ * Step 3:
  * La aplicación responde con un tercer paquete para confirmar la conexión con otro flag ACK
  * 
  * A ------ [ACK secuencia:X+1 ack:Y+1] ------> B
