@@ -4,4 +4,4 @@ The idea of this document is to have some very simple examples about typical iss
 
 == Issues
 
-* close_wait/Server.java[Close Wait]
+* link:close_wait/Server.java[Close Wait]
