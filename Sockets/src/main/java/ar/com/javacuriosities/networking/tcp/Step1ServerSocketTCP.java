@@ -24,15 +24,25 @@ import java.net.Socket;
  * - No controla la pérdida de paquetes, los errores o la duplicidad
  *
  * TC States:
- * Cuando utilizamos el protocolo TCP los sockets tienen distintos estados, y las operaciones pueden ser activas o pasivas.
+ * Cuando utilizamos el protocolo TCP los sockets tienen distintos estados, y las operaciones pueden ser active o passive.
  *
+ * - LISTEN: El endpoint local esta esperando por una conexión de un endpoint remoto. i.e. Un passive open fue ejecutado.
+ * - SYN-SENT: El primer step del 3-Way Handshake fue realizado, un pedido de conexión fue enviado al remote endpoint. i.e. Un active open fue ejecutado.
+ * - SYN-RECEIVED: El segundo step del 3-Way Handshake fue realizado. Un ACK para el connection request y un SYN fueron enviados al remote endpoint.
+ * - ESTABLISHED: El ultimo step del 3-Way Handshake fue realizado. i.e. La conexión esta abierta.
+ * - FIN-WAIT-1: El primer step en un active close (4-way handshake) fue realizado. El local endpoint envió el request de connection termination al remote endpoint.
+ * - CLOSE-WAIT: El local endpoint recibió un request de connection termination y envió su ACK. e.g. a passive close fue ejecutado y el local endpoint necesita ejecutar un active close para dejar este estado.
+ * - FIN-WAIT-2: El remote endpoint envió el ACK para el request de connection termination. El local endpoint espera por un active connection termination request desde el remote endpoint.
+ * - LAST-ACK: El local endpoint ejecuto un passive close e inicio un active close enviando un request de connection termination al remote endpoint.
+ * - CLOSING: El local endpoint esta esperando el ACK para el request de connection termination antes de pasar al estado de TIME-WAIT.
+ * - TIME-WAIT: El local endpoint espera por el doble de tiempo del MSL (Maximum Segment Lifetime) antes de pasar al estado de CLOSED para estar seguro de que el remote endpoint recibió el ACK.
  * - CLOSED: No hay conexión.
- * - LISTEN: El endpoint local esta esperando por una conexión de un endpoint remoto. i.e. Un open pasivo fue ejecutado.
- * - SYN-SENT: El primer step del 3-Way Handshake fue realizado, un pedido de conexión fue enviado al remote endpoint. i.e. Un open activo fue ejecutado.
+ *
+ * CLOSE_WAIT.png: Contiene un ejemplo del cambio de estado para el cierre de la conexión.
  *
  * 3-Way Handshake:
- * Antes de establecer una conexión con un cliente, debemos ejecutar el proceso de Handshake el cual se encarga de esto mismo enviando/recibiendo
- * ciertos paquetes. Cada paquete del protocolo TCP puede incluir alguno de sus 6 flags
+ * Antes de establecer una conexión con un cliente, debemos ejecutar un proceso llamado Handshake enviando/recibiendo ciertos paquetes.
+ * Cada paquete del protocolo TCP puede incluir alguno de sus 6 flags
  *
  * SYN (Synchronize), ACK (Acknowledgement), RST (Reset), PSH (Push), URG (Urgent) y FIN (Urgent)
  *

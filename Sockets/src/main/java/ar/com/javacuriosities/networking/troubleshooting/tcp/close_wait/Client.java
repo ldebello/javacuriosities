@@ -8,15 +8,16 @@ import java.net.Socket;
 
 public class Client {
 
-    private static int MAX_CLIENTS = 1000;
+    private static final int PORT = 9100;
+    private static final int CONNECTIONS = 1000;
 
     public static void main(String[] args) {
-        for (int clientId = 0; clientId < MAX_CLIENTS; clientId++) {
-            try (Socket socket = new Socket(InetAddress.getLocalHost(), 9100)) {
+        for (int connectionId = 0; connectionId < CONNECTIONS; connectionId++) {
+            try (Socket socket = new Socket(InetAddress.getLocalHost(), PORT)) {
                 InputStream is = socket.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
 
-                System.out.println("Client #" + clientId + " - Received Message: " + dis.readUTF());
+                System.out.println("Connection #" + connectionId + " - Received Message: " + dis.readUTF());
             } catch (IOException e) {
                 // Log and Handle exception
                 e.printStackTrace();
