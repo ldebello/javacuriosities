@@ -1,7 +1,8 @@
 = Troubleshooting
 
-The idea of this document is to have some very simple examples about typical issues that we can face doing networking.
+The idea of this document is to show some very simple examples about typical issues that we can face doing networking.
 
 == Issues
 
 * link:tcp/close_wait/Server.java[Close Wait]
+* link:tcp/time_wait/Server.java[Time Wait]

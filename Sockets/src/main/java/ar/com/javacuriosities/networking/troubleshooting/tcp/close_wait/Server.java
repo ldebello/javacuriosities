@@ -13,6 +13,9 @@ import java.net.Socket;
  * Una alternativa para ver el estado de los sockets es usar el comando netstat
  *
  * netstat -an | grep CLOSE_WAIT
+ *
+ * Solución:
+ * Para solucionar esto ambos lados tiene que ejecutar el método close.
  */
 public class Server {
 
@@ -31,6 +34,8 @@ public class Server {
                     DataOutputStream dos = new DataOutputStream(os);
 
                     dos.writeUTF("CloseWait Issue");
+
+                    dos.close();
                 }
             }
         } catch (IOException e) {
