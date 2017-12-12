@@ -30,12 +30,15 @@ public class Server {
                         OutputStream os = socket.getOutputStream();
                         DataOutputStream dos = new DataOutputStream(os);
 
-                        dos.writeUTF("Time Wait Example");
+                        dos.writeUTF("TimeWait Example");
+
+                        /* Configuramos el tiempo que estaremos en TIME_WAIT el maximo valor depende del SO.
+                         * Podemos verificar si este flag esta activado por medio de getSoLinger(), si retorna -1 significa
+                         * que no esta disponible.
+                         */
+                        socket.setSoLinger(true, 60);
 
                         dos.close();
-
-                        // Configuramos el tiempo que estaremos en TIME_WAIT el maximo valor depende del SO.
-                        socket.setSoLinger(true, 60);
                     }
                 }
             }
