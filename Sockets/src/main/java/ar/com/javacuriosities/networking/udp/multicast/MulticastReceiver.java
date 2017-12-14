@@ -27,20 +27,23 @@ public class MulticastReceiver {
 			group1 = InetAddress.getByName("231.0.0.1");
 			group2 = InetAddress.getByName("231.0.0.2");
 
-			// Nos unimos al grupo: (No podemos unirnos dos veces al mismo
-			// grupo)
+			// Nos unimos al grupo: (No podemos unirnos dos veces al mismo grupo)
 			multicastSocket.joinGroup(group1);
 			multicastSocket.joinGroup(group2);
 
 			while (isRunning) {
-				// Recibimos el paquete del socket:
+				// Recibimos el paquete del socket
 				byte[] buffer = new byte[100];
 
-				DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);
-				multicastSocket.receive(datagramPacket);
+				DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
-				System.out.println(new String(datagramPacket.getData()));
-				System.out.println("Port: " + datagramPacket.getPort());
+				multicastSocket.receive(packet);
+
+				System.out.println(new String(packet.getData(), 0, packet.getLength()));
+
+				System.out.println("Remote Port:" + packet.getPort());
+				System.out.println("Remote Address:" + packet.getAddress());
+				System.out.println("Remote Socket Address:" + packet.getSocketAddress());
 			}
 		} catch (IOException e) {
 			// Log and Handle exception

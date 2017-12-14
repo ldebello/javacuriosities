@@ -47,18 +47,18 @@ public class Step1ReceiverSocketEcho {
 			while (isRunning) {
 
 				// Creamos un DatagramPacket para leer paquetes UDP
-				DatagramPacket inputPacket = new DatagramPacket(buffer, BUFFER_SIZE);
+				DatagramPacket packet = new DatagramPacket(buffer, BUFFER_SIZE);
 
 				// Recibimos los paquetes entrantes
-				socket.receive(inputPacket);
+				socket.receive(packet);
 				
 				System.out.println("Packet coming from "
-						+ inputPacket.getAddress() + ":"
-						+ inputPacket.getPort() + " length: "
-						+ inputPacket.getLength());
+						+ packet.getAddress() + ":"
+						+ packet.getPort() + " length: "
+						+ packet.getLength());
 
 				// Volvemos a enviar el mensaje recibido
-				socket.send(inputPacket);
+				socket.send(packet);
 			}
 		} catch (IOException e) {
 			// Log and Handle exception

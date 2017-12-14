@@ -27,17 +27,18 @@ public class Step1ReceiverSocketUDP {
 			 *  Aunque el protocolo UDP no es orientado a la conexión podemos usar
 			 *  el método connect() para restringir la llegada de paquetes desde una
 			 *  IP + Port.
-			 *  Si ejecutamos le método connect() varias veces solo queda restringido
+			 *  Si ejecutamos el método connect() varias veces solo queda restringido
 			 *  al ultimo asignado
 			 */
 			// socket.connect(InetAddress.getLocalHost(), 5000);
 			while (isRunning) {
 				socket.receive(packet);
 
-				System.out.println("Remote Address:" + packet.getAddress());
 				System.out.println("Remote Port:" + packet.getPort());
+				System.out.println("Remote Address:" + packet.getAddress());
+				System.out.println("Remote Socket Address:" + packet.getSocketAddress());
 
-				System.out.println(new String(packet.getData()));
+				System.out.println("Message: " + new String(packet.getData(), 0, packet.getLength()));
 			}
 		} catch (Exception e) {
 			// Log and Handle exception

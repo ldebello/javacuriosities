@@ -22,6 +22,7 @@ public class Step2SenderSocketUDP {
 
 			while (isRunning) {
 				socket.send(packet);
+				socket.send(packet);
 				Thread.sleep(TimeUnit.SECONDS.toMillis(2));
 			}
 		} catch (Exception e) {
