@@ -20,28 +20,28 @@
 	<properties>
 		<lib-dir>lib</lib-dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven-eclipse-plugin-version>2.10</maven-eclipse-plugin-version>
-		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
 		<maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
+		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
 	</properties>
 
 	<modules>
 		<module>Threads</module>
-    	<module>Sockets</module>
-    	<module>ConcurrencyAPI</module>
-    	<module>ReferenceTypes</module>
-    	<module>Lambdas</module>
-    	<module>Streams</module>
-    	<module>DateAPI</module>
-    	<module>NIO</module>
-    	<module>NIOServer</module>
-    	<module>JDBC</module>
+		<module>Sockets</module>
+		<module>ConcurrencyAPI</module>
+		<module>ReferenceTypes</module>
+		<module>Lambdas</module>
+		<module>Streams</module>
+		<module>DateAPI</module>
+		<module>NIO</module>
+		<module>NIOServer</module>
+		<module>JDBC</module>
 		<module>SignalHandling</module>
+		<module>Basics</module>
   </modules>
 
   	<build>
-    <plugins>
-		<plugin>
+    	<plugins>
+				<plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-dependency-plugin</artifactId>
 	        <version>${maven-dependency-plugin-version}</version>
@@ -60,16 +60,6 @@
 	            </configuration>
 	          </execution>
 	        </executions>
-      	</plugin>
-
-      	<plugin>
-        	<groupId>org.apache.maven.plugins</groupId>
-        	<artifactId>maven-eclipse-plugin</artifactId>
-        	<version>${maven-eclipse-plugin-version}</version>
-        	<configuration>
-          		<downloadSources>true</downloadSources>
-          		<downloadJavadocs>true</downloadJavadocs>
-        	</configuration>
       	</plugin>
 
       	<plugin>
