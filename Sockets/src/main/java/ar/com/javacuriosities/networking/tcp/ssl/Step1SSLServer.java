@@ -16,24 +16,24 @@ import javax.net.ssl.SSLServerSocketFactory;
  * - Proporciona cifrado y autenticación
  * 
  * Este protocolo es usado en Hipertext Transfer Protocol Secure (HTTPS)
- * - Es una version de HTTP que se base en SSL
- * - Proporciona aspectos de seguridad en HTTP
+ * - Es una version de HTTP que se basa en SSL
+ * - Proporciona aspectos de seguridad sobre HTTP
  * - Es usado para identificación y confidencialidad de la información que envían los usuarios
  * 
  * Podremos encontrar que existe SSL 3.0 y luego el Internet Engineering Task Force (IETF) lo actualizo ligeramente y lo llamo TLS 1.0
  * 
  * Java soporta SSL 3.0 y TLS 1.0
  * 
- * SSL permite usar distintos algoritmos de cifrados pero lo mas habitual es usar RSA
+ * SSL permite usar distintos algoritmos de cifrados
  * 
  * Explicación:
  * 	En el mundo SSL los servidores deben autenticarse usando certificados (Para confirmar ser quien dicen ser), habitualmente los clientes no tienen que autenticarse
  * 	- Certificados:
  * 		Un servidor debe enviar su certificado al cliente
- * 		El cliente debe verificar el certificado del servidor con una CA
+ * 		El cliente debe verificar el certificado del servidor con una CA (Certificate Authority)
  * 		Opcionalmente el cliente tambien se autenticara con un certificado al servidor
  * 
- * En el contexto de SSL, se utilizan de varios ficheros de keystore
+ * En el contexto de SSL, se utilizan dos tipos de archivos
  * - Truststore
  * 	Es un keystore que tiene el cliente y contiene los certificado de aquellas personas u organizaciones en las que confía el usuario
  * 
@@ -42,7 +42,7 @@ import javax.net.ssl.SSLServerSocketFactory;
  * 
  * Validación de los certificados de los servidores:
  * 	Por defecto se usa el truststore
- * 		$JREHOME/lib/security/cacerts
+ * 		$JRE_HOME/lib/security/cacerts
  * 	Podemos configurar uno con la propiedad
  * 		javax.net.ssl.trustStore
  * 
