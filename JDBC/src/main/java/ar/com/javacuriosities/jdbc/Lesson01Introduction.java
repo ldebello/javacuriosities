@@ -61,7 +61,7 @@ import java.sql.SQLException;
 public class Lesson01Introduction {
 	public static void main(String[] args) {
 		try {
-			// Usamos Reflection para cargar la clase del Driver la cual tiene un bloque estático que registra el Driver
+			// Usamos Reflection para cargar la clase del Driver la cual tiene un bloque estático que registra el Driver, esto es necesario en algunos Driver que no utilizan SPI ( Service Provider Interfaces) para registrar el driver.
 			Class.forName("com.mysql.jdbc.Driver");
 
 			// Nos conectamos con la base de datos
