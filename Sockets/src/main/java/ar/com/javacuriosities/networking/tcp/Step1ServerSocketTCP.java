@@ -62,7 +62,12 @@ import java.net.Socket;
  * La aplicación responde con un tercer paquete para confirmar la conexión con otro flag ACK
  * 
  * A ------ [ACK secuencia:X+1 ack:Y+1] ------> B
- * 
+ *
+ * Terminología:
+ *
+ * Segment: Transport Layer Header(TCP/UDP Header) + Data
+ * Packet: Network Layer Header(IP Header) + Data
+ * Frame: Data Link Header(Ethernet Header) + Data
  */
 public class Step1ServerSocketTCP {
 
