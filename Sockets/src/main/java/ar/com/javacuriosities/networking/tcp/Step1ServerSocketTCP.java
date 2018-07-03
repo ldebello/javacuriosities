@@ -44,7 +44,7 @@ import java.net.Socket;
  * Antes de establecer una conexión con un cliente, debemos ejecutar un proceso llamado Handshake enviando/recibiendo ciertos paquetes.
  * Cada paquete del protocolo TCP puede incluir alguno de sus 6 flags
  *
- * SYN (Synchronize), ACK (Acknowledgement), RST (Reset), PSH (Push), URG (Urgent) y FIN (Urgent)
+ * SYN (Synchronize), ACK (Acknowledgement), RST (Reset), PSH (Push), URG (Urgent) y FIN (Fin)
  *
  * 3-Way Handshake Steps:
  * Step 1:
