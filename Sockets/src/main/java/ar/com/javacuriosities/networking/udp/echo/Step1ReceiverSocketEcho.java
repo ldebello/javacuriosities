@@ -17,7 +17,6 @@ public class Step1ReceiverSocketEcho {
 
 	/*
 	 * Puerto UDP al cual se enlaza el servicio
-	 * Para poder utilizar algún puerto menor a 1023 debemos tener permiso de root
 	 * en caso contrario arrojara una exception "java.net.BindException: Permission denied"
 	 */
 	public static final int SERVICE_PORT = 1025;

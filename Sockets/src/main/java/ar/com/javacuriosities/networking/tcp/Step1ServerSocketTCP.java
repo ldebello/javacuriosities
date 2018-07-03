@@ -68,6 +68,26 @@ import java.net.Socket;
  * Segment: Transport Layer Header(TCP/UDP Header) + Data
  * Packet: Network Layer Header(IP Header) + Data
  * Frame: Data Link Header(Ethernet Header) + Data
+ *
+ * MSS (Maximum Segment Size): Es una opción especifica de TCP y sirve para indicar cual debería ser el tamaño maximo del payload de un segmento.
+ * Es común ver un valor de 1460 ya que que si a eso le sumamos 20 bytes de TCP Header y 20 bytes de IP Header, nos da un total de 1500 bytes que suele
+ * ser el valor normal para el MTU.
+ *
+ * MTU (Maximum Transmission Unit): Es el maximo valor de un Packet y es independiente del protocolo. Idealmente queremos no superar el MTU para evitar
+ * que nuestro packets se fragmenten (La fragmentación es manejada por la capa 3 - Network).
+ *
+ * Ports:
+ * Contamos con 65535 puertos, lo cuales están clasificados en tres grupos
+ *
+ * 1) Well-known: Van del 0 al 1023 y son puertos conocidos o del sistema, algunos de ellos son:
+ * 	- HTTP -> 80
+ * 	- DNS -> 53
+ * 	- SMTP -> 25
+ * 	- TELNET -> 23
+ *
+ * 2) Registered: Van del 1024 al 49151 y pueden estar registrados de forma oficial en The Internet Assigned Numbers Authority (IANA) o no.
+ *
+ * 3) Ephemeral: Van del 49152 al 65535 y suelen ser usados por los clientes de forma indistintamente.
  */
 public class Step1ServerSocketTCP {
 
