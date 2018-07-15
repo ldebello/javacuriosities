@@ -20,6 +20,7 @@
 
 	<modules>
 		<module>HibernateBasics</module>
+		<module>HibernateQueries</module>
 		<module>HibernateHierarchy</module>
 		<module>HibernateAssociations</module>
 	</modules>
