@@ -6,7 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_basics</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_cascade_and_fetch</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">123456</property>
 
@@ -22,11 +22,8 @@
 
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
-        <mapping class="ar.com.javacuriosities.hibernate.model.Product"/>
-        <mapping class="ar.com.javacuriosities.hibernate.model.Invoice"/>
-        <mapping class="ar.com.javacuriosities.hibernate.model.InvoicePK"/>
-
-        <mapping class="ar.com.javacuriosities.hibernate.model.User"/>
-        <mapping class="ar.com.javacuriosities.hibernate.model.PersistentEntity"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.Person"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.Address"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.MobilePhone"/>
     </session-factory>
 </hibernate-configuration>

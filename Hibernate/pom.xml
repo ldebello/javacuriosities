@@ -23,5 +23,6 @@
 		<module>HibernateQueries</module>
 		<module>HibernateHierarchy</module>
 		<module>HibernateAssociations</module>
+		<module>HibernateCascadeAndFetch</module>
 	</modules>
 </project>
