@@ -25,43 +25,23 @@
 	</properties>
 
 	<modules>
+		<module>Basics</module>
+		<module>JDBC</module>
+		<module>DateAPI</module>
+		<module>Lambdas</module>
+		<module>Streams</module>		
 		<module>Threads</module>
 		<module>Sockets</module>
 		<module>ConcurrencyAPI</module>
 		<module>ReferenceTypes</module>
-		<module>Lambdas</module>
-		<module>Streams</module>
-		<module>DateAPI</module>
+		<module>SignalHandling</module>
 		<module>NIO</module>
 		<module>NIOServer</module>
-		<module>JDBC</module>
-		<module>SignalHandling</module>
-		<module>Basics</module>
-  </modules>
+		<module>Hibernate</module>
+	</modules>
 
   	<build>
     	<plugins>
-				<plugin>
-	        <groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-dependency-plugin</artifactId>
-	        <version>${maven-dependency-plugin-version}</version>
-	        <executions>
-	          <execution>
-	            <id>copy-dependencies</id>
-	            <phase>package</phase>
-	            <goals>
-	              <goal>copy-dependencies</goal>
-	            </goals>
-	            <configuration>
-	              <outputDirectory>./${lib-dir}</outputDirectory>
-	              <overWriteReleases>false</overWriteReleases>
-	              <overWriteSnapshots>false</overWriteSnapshots>
-	              <overWriteIfNewer>true</overWriteIfNewer>
-	            </configuration>
-	          </execution>
-	        </executions>
-      	</plugin>
-
       	<plugin>
         	<artifactId>maven-compiler-plugin</artifactId>
         	<version>${maven-compiler-plugin-version}</version>

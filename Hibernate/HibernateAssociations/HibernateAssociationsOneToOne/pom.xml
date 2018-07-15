@@ -4,20 +4,25 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>JDBC</name>
-	<url>https://github.com/ldebello/javacuriosities/tree/master/JDBC</url>
+	<name>HibernateAssociationsOneToOne</name>
+	<url>https://github.com/ldebello/javacuriosities/tree/master/Hibernate/HibernateAssociations/HibernateAssociationsOneToOne</url>
 
 	<parent>
 		<groupId>ar.com.javacuriosities</groupId>
-		<artifactId>JavaCuriosities</artifactId>
+		<artifactId>HibernateAssociations</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>ar.com.javacuriosities</groupId>
-	<artifactId>JDBC</artifactId>
+	<artifactId>HibernateAssociationsOneToOne</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.3.2.Final</version>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

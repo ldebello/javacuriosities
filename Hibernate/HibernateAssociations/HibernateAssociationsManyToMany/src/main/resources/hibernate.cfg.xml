@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_associations_many_to_many</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">123456</property>
+
+        <property name="hibernate.show_sql">true</property>
+
+        <!--
+            validate: Valida el esquema no hace cambios.
+            update: Crea o actualiza el esquema.
+            create: Crea el esquema destruye datos previos.
+            create-drop: Crea el esquema pero después hace drop del mismo.
+        -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Client"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Company"/>
+
+        <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional.Project"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional.Employee"/>
+    </session-factory>
+</hibernate-configuration>
