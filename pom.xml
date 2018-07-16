@@ -38,7 +38,11 @@
 		<module>NIO</module>
 		<module>NIOServer</module>
 		<module>Hibernate</module>
-	</modules>
+        <module>Spring</module>
+		<module>Reflection</module>
+		<module>Annotations</module>
+		<module>DynamicProxies</module>
+    </modules>
 
   	<build>
     	<plugins>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 	               http://www.springframework.org/schema/beans/spring-beans.xsd
+		 	               http://www.springframework.org/schema/context
+		 	               http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        Simple bean with primitive values
+    -->
+    <bean id="simpleBean"
+          class="ar.com.javacuriosities.spring.model.xml.SimpleBean">
+        <property name="message">
+            <value>Hello World</value>
+        </property>
+    </bean>
+
+    <!--
+        Simple bean reference another beans
+    -->
+    <bean id="simpleBeanContainer"
+          class="ar.com.javacuriosities.spring.model.xml.SimpleBeanContainer">
+        <property name="bean1" ref="simpleBean"/>
+        <property name="bean2">
+            <bean class="ar.com.javacuriosities.spring.model.xml.SimpleBean"/>
+        </property>
+    </bean>
+
+    <!--
+        Simple bean with constructor parameters
+    -->
+    <bean id="simpleBeanWithParameters"
+          class="ar.com.javacuriosities.spring.model.xml.SimpleBeanWithParameters">
+        <constructor-arg>
+            <map>
+                <entry key="1" value="Cosme Fulanito"/>
+                <entry key="2" value="Pedro Picapiedra"/>
+                <entry key="3" value="Sancho Panza"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg value="1.2"/>
+    </bean>
+
+    <!--
+        Component Scan to specific a package to scan for entities with annotations
+    -->
+    <context:component-scan base-package="ar.com.javacuriosities.spring.model.annotations" />
+
+    <!--
+        Simple bean with collection
+    -->
+    <bean id="simpleBeanCollections"
+        class="ar.com.javacuriosities.spring.model.xml.SimpleBeanCollections">
+
+        <property name="students">
+            <list>
+                <value>Cosme Fulanito</value>
+                <value>Pedro Picapiedra</value>
+                <value>Sancho Panza</value>
+            </list>
+        </property>
+
+        <property name="courses">
+            <set>
+                <value>Java</value>
+                <value>Spring</value>
+                <value>Hibernate</value>
+            </set>
+        </property>
+    </bean>
+
+    <!--
+        Simple bean with life cycle
+    -->
+    <bean id="simpleBeanLifeCycle"
+          init-method="initialize"
+          destroy-method="destroy"
+          class="ar.com.javacuriosities.spring.model.xml.SimpleBeanLifeCycle" />
+
+    <!--
+        Simple bean prototype scope
+    -->
+    <bean id="simpleBeanPrototype"
+          scope="prototype"
+          class="ar.com.javacuriosities.spring.model.xml.SimpleBeanPrototype" />
+</beans>
