@@ -21,5 +21,6 @@
     <modules>
         <module>SpringBasics</module>
         <module>SpringHibernate</module>
+        <module>SpringJDBCTemplate</module>
     </modules>
 </project>
