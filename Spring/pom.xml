@@ -20,5 +20,6 @@
 
     <modules>
         <module>SpringBasics</module>
+        <module>SpringHibernate</module>
     </modules>
 </project>
