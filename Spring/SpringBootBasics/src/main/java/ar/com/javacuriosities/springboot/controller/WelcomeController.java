@@ -10,6 +10,6 @@ public class WelcomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String welcome() {
-        return "Hello World! Spring Boot is so simple.";
+        return "Welcome to Spring Boot";
     }
 }

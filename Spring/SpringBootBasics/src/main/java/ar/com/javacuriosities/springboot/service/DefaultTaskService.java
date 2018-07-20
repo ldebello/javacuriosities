@@ -28,4 +28,9 @@ public class DefaultTaskService implements TaskService {
     public Iterable<Task> findAll() {
         return taskRepository.findAll();
     }
+
+    @Override
+    public Iterable<Task> findByDescription(String description) {
+        return taskRepository.findByDescription(description);
+    }
 }

@@ -7,4 +7,6 @@ public interface TaskService {
     Task save(TaskRequest taskRequest);
 
     Iterable<Task> findAll();
+
+    Iterable<Task> findByDescription(String description);
 }

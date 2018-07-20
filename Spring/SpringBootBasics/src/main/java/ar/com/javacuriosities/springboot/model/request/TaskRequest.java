@@ -1,12 +1,12 @@
 package ar.com.javacuriosities.springboot.model.request;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class TaskRequest {
 
     private String description;
 
-    private Date effectiveDate;
+    private LocalDate effectiveDate;
 
     public TaskRequest() {
     }
@@ -19,11 +19,11 @@ public class TaskRequest {
         this.description = description;
     }
 
-    public Date getEffectiveDate() {
+    public LocalDate getEffectiveDate() {
         return effectiveDate;
     }
 
-    public void setEffectiveDate(Date effectiveDate) {
+    public void setEffectiveDate(LocalDate effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 }
