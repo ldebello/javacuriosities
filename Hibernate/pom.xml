@@ -19,6 +19,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>HibernateJPA</module>
 		<module>HibernateBasics</module>
 		<module>HibernateQueries</module>
 		<module>HibernateHierarchy</module>
