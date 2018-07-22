@@ -21,6 +21,7 @@
     <modules>
         <module>SpringBasics</module>
         <module>SpringHibernate</module>
+        <module>SpringHibernateJPA</module>
         <module>SpringJDBCTemplate</module>
         <module>SpringBootBasics</module>
     </modules>
