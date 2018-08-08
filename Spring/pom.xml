@@ -24,5 +24,6 @@
         <module>SpringHibernateJPA</module>
         <module>SpringJDBCTemplate</module>
         <module>SpringBootBasics</module>
+        <module>SpringMVCArchitecture</module>
     </modules>
 </project>
