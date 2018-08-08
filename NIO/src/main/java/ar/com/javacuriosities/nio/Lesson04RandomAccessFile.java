@@ -25,11 +25,11 @@ public class Lesson04RandomAccessFile {
 	}
 
 	private static void randomAccessFileUsingIO() throws IOException {
-		RandomAccessFile raf = new RandomAccessFile("message.txt", "rw");
-		raf.seek(6);
-		int currentByte = raf.read();
-		System.out.println((char) currentByte);
-		raf.close();
+		try (RandomAccessFile raf = new RandomAccessFile("message.txt", "rw")) {
+			raf.seek(6);
+			int currentByte = raf.read();
+			System.out.println((char) currentByte);
+		}
 	}
 	
 	private static void randomAccessFileUsingNIO() throws IOException {

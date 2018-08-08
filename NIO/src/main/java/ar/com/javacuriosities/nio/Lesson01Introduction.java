@@ -82,73 +82,68 @@ public class Lesson01Introduction {
 		}
 	}
 
-	private static void readChannel() throws FileNotFoundException, IOException {
+	private static void readChannel() throws IOException {
 		// Usamos la clase File perteneciente al paquete IO, luego pasaremos a usar Path que pertenece a NIO
 		File file = new File("message.txt");
 
-		FileInputStream fis = new FileInputStream(file);
-		
-		FileChannel channel = fis.getChannel();
-		
-		// El buffer puede estar almacenado en el Heap o fuera del mismo si usamos el método "allocateDirect"
-		ByteBuffer buffer = ByteBuffer.allocate(5);
-		
-		int bytesRead = channel.read(buffer);
-		while (bytesRead != -1) {
-		  System.out.println("Number of bytes read " + bytesRead);
-		  
-		  // El método flip modifica el estado interno para asignar los indices de forma correcta
-		  buffer.flip();
+		try (FileInputStream fis = new FileInputStream(file)) {
 
-		  System.out.println("Current data");
-		  while(buffer.hasRemaining()){
-		      System.out.print((char) buffer.get());
-		  }
+			FileChannel channel = fis.getChannel();
 
-		  System.out.println();
-		  
-		  // Posiciona el índice al principio para sobreescribir los datos, otra opción es usar el método compact el cual mueve al principio los datos que no han sido leídos
-		  buffer.clear();
+			// El buffer puede estar almacenado en el Heap o fuera del mismo si usamos el método "allocateDirect"
+			ByteBuffer buffer = ByteBuffer.allocate(5);
 
-		  bytesRead = channel.read(buffer);
+			int bytesRead = channel.read(buffer);
+			while (bytesRead != -1) {
+				System.out.println("Number of bytes read " + bytesRead);
+
+				// El método flip modifica el estado interno para asignar los indices de forma correcta
+				buffer.flip();
+
+				System.out.println("Current data");
+				while (buffer.hasRemaining()) {
+					System.out.print((char) buffer.get());
+				}
+
+				System.out.println();
+
+				// Posiciona el índice al principio para sobreescribir los datos, otra opción es usar el método compact el cual mueve al principio los datos que no han sido leídos
+				buffer.clear();
+
+				bytesRead = channel.read(buffer);
+			}
 		}
-		
-		// Si cerramos el IS también se cierra el channel asociado
-		fis.close();
 	}
 	
-	private static void writeChannel() throws FileNotFoundException, IOException {
+	private static void writeChannel() throws IOException {
 		File file = new File("output.txt");
 		if (file.exists()) {
 			file.delete();
 		}
-		
-		FileOutputStream fos = new FileOutputStream(file);
-		FileChannel channel = fos.getChannel();
-		
-		String message = "Content written using FileChannel";
-		
-		channel.write(ByteBuffer.wrap(message.getBytes()));
-		
-		fos.close();
+
+		try (FileOutputStream fos = new FileOutputStream(file)) {
+			FileChannel channel = fos.getChannel();
+
+			String message = "Content written using FileChannel";
+
+			channel.write(ByteBuffer.wrap(message.getBytes()));
+		}
 	}
 	
-	private static void readIntoMultiplesBuffers() throws FileNotFoundException, IOException {
+	private static void readIntoMultiplesBuffers() throws IOException {
 		File file = new File("data.txt");
 
-		FileInputStream fis = new FileInputStream(file);
-		
-		FileChannel channel = fis.getChannel();
-		
-		ByteBuffer header = ByteBuffer.allocate(6);
-		ByteBuffer body   = ByteBuffer.allocate(4);
+		try (FileInputStream fis = new FileInputStream(file)) {
+			FileChannel channel = fis.getChannel();
 
-		ByteBuffer[] bufferArray = { header, body };
+			ByteBuffer header = ByteBuffer.allocate(6);
+			ByteBuffer body = ByteBuffer.allocate(4);
 
-		// Este método recibe multiples buffers y los va llenando de acuerdo al orden en que los recibió
-		channel.read(bufferArray);
+			ByteBuffer[] bufferArray = {header, body};
 
-		fis.close();
+			// Este método recibe multiples buffers y los va llenando de acuerdo al orden en que los recibió
+			channel.read(bufferArray);
+		}
 	}
 	
 	private static void writeChannelFromMultiplesBuffers() throws FileNotFoundException, IOException {
@@ -156,26 +151,25 @@ public class Lesson01Introduction {
 		if (file.exists()) {
 			file.delete();
 		}
-		
-		FileOutputStream fos = new FileOutputStream(file);
-		FileChannel channel = fos.getChannel();
-		
-		byte[] headerBytes = ("Header" + System.lineSeparator()).getBytes();
-		byte[] bodyBytes = ("Body" + System.lineSeparator()).getBytes();
-		
-		ByteBuffer header = ByteBuffer.allocate(headerBytes.length);
-		ByteBuffer body   = ByteBuffer.allocate(bodyBytes.length);
 
-		header.put(headerBytes);
-		body.put(bodyBytes);
-		
-		ByteBuffer[] bufferArray = { header, body };
+		try (FileOutputStream fos = new FileOutputStream(file)) {
+			FileChannel channel = fos.getChannel();
 
-		header.flip();
-		body.flip();
-		
-		channel.write(bufferArray);
-		
-		fos.close();
+			byte[] headerBytes = ("Header" + System.lineSeparator()).getBytes();
+			byte[] bodyBytes = ("Body" + System.lineSeparator()).getBytes();
+
+			ByteBuffer header = ByteBuffer.allocate(headerBytes.length);
+			ByteBuffer body = ByteBuffer.allocate(bodyBytes.length);
+
+			header.put(headerBytes);
+			body.put(bodyBytes);
+
+			ByteBuffer[] bufferArray = {header, body};
+
+			header.flip();
+			body.flip();
+
+			channel.write(bufferArray);
+		}
 	}
 }

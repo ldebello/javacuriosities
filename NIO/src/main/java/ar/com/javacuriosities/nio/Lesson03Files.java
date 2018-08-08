@@ -123,7 +123,6 @@ public class Lesson03Files {
 			}
 		}
 	}
-	
 
 	private static void writingFileUsingIO() throws IOException {
 		String message = "IO Example";
@@ -144,7 +143,6 @@ public class Lesson03Files {
 			}
 		}
 	}
-	
 
 	private static void writingFileUsingNIO() throws IOException {
 		String message = "NIO Example";

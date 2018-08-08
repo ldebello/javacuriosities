@@ -32,45 +32,45 @@ public class Lesson05AsynchronousIO {
 	private static void readFileAsynchronous() throws Exception {
 		Path path = Paths.get("message.txt");
 
-		AsynchronousFileChannel channel = AsynchronousFileChannel.open(path, StandardOpenOption.READ);
+		try (AsynchronousFileChannel channel = AsynchronousFileChannel.open(path, StandardOpenOption.READ)) {
+			ByteBuffer buffer = ByteBuffer.allocate(1024);
+			long position = 0;
 
-		ByteBuffer buffer = ByteBuffer.allocate(1024);
-		long position = 0;
+			// Podemos usar un Future para ejecutar la operación
+			Future<Integer> operation = channel.read(buffer, position);
 
-		// Podemos usar un Future para ejecutar la operación
-		Future<Integer> operation = channel.read(buffer, position);
-
-		// Esperamos que la operación termine, esto no es eficiente pero es una
-		// forma
-		while (!operation.isDone())
-			;
-
-		buffer.flip();
-		byte[] data = new byte[buffer.limit()];
-		buffer.get(data);
-		System.out.println(new String(data));
-		buffer.clear();
-
-		// Otra forma mas eficiente es usando un Callback
-		channel.read(buffer, position, buffer, new CompletionHandler<Integer, ByteBuffer>() {
-			@Override
-			public void completed(Integer result, ByteBuffer attachment) {
-				System.out.println("Result: " + result);
-
-				attachment.flip();
-				byte[] data = new byte[attachment.limit()];
-				attachment.get(data);
-				System.out.println(new String(data));
-				attachment.clear();
+			// Esperamos que la operación termine, esto no es eficiente pero es una
+			// forma
+			while (!operation.isDone()) {
 			}
 
-			@Override
-			public void failed(Throwable exc, ByteBuffer attachment) {
-			}
-		});
-		
-		// Esperamos un segundo para ver el resultado del callback porque sino nuestro programa puede terminar antes
-		TimeUnit.SECONDS.sleep(1);
+			buffer.flip();
+			byte[] data = new byte[buffer.limit()];
+			buffer.get(data);
+			System.out.println(new String(data));
+			buffer.clear();
+
+			// Otra forma mas eficiente es usando un Callback
+			channel.read(buffer, position, buffer, new CompletionHandler<Integer, ByteBuffer>() {
+				@Override
+				public void completed(Integer result, ByteBuffer attachment) {
+					System.out.println("Result: " + result);
+
+					attachment.flip();
+					byte[] data = new byte[attachment.limit()];
+					attachment.get(data);
+					System.out.println(new String(data));
+					attachment.clear();
+				}
+
+				@Override
+				public void failed(Throwable exc, ByteBuffer attachment) {
+				}
+			});
+
+			// Esperamos un segundo para ver el resultado del callback porque sino nuestro programa puede terminar antes
+			TimeUnit.SECONDS.sleep(1);
+		}
 	}
 	
 	private static void writeFileAsynchronous() throws Exception {
@@ -79,39 +79,40 @@ public class Lesson05AsynchronousIO {
 		Files.deleteIfExists(path);
 		
 		Files.createFile(path);
-		
-		AsynchronousFileChannel channel =  AsynchronousFileChannel.open(path, StandardOpenOption.WRITE);
 
-		ByteBuffer buffer = ByteBuffer.allocate(1024);
-		long position = 0;
+		try (AsynchronousFileChannel channel = AsynchronousFileChannel.open(path, StandardOpenOption.WRITE)) {
+			ByteBuffer buffer = ByteBuffer.allocate(1024);
+			long position = 0;
 
-		buffer.put("Asynchronous message".getBytes());
-		buffer.flip();
+			buffer.put("Asynchronous message".getBytes());
+			buffer.flip();
 
-		Future<Integer> operation = channel.write(buffer, position);
-		buffer.clear();
+			Future<Integer> operation = channel.write(buffer, position);
+			buffer.clear();
 
-		while(!operation.isDone());
+			while (!operation.isDone()) {
+			}
 
-		ByteBuffer bufferForHandler = ByteBuffer.allocate(1024);
-		bufferForHandler.put("Asynchronous message".getBytes());
-		bufferForHandler.flip();
-		
-		channel.write(bufferForHandler, position, null, new CompletionHandler<Integer, ByteBuffer>() {
+			ByteBuffer bufferForHandler = ByteBuffer.allocate(1024);
+			bufferForHandler.put("Asynchronous message".getBytes());
+			bufferForHandler.flip();
 
-		    @Override
-		    public void completed(Integer result, ByteBuffer attachment) {
-		        System.out.println("Bytes written: " + result);
-		    }
+			channel.write(bufferForHandler, position, null, new CompletionHandler<Integer, ByteBuffer>() {
 
-		    @Override
-		    public void failed(Throwable e, ByteBuffer attachment) {
-		        System.out.println("Write failed");
-		        e.printStackTrace();
-		    }
-		});
-		
-		// Esperamos un segundo para ver el resultado del callback porque sino nuestro programa puede terminar antes
-		TimeUnit.SECONDS.sleep(1);
+				@Override
+				public void completed(Integer result, ByteBuffer attachment) {
+					System.out.println("Bytes written: " + result);
+				}
+
+				@Override
+				public void failed(Throwable e, ByteBuffer attachment) {
+					System.out.println("Write failed");
+					e.printStackTrace();
+				}
+			});
+
+			// Esperamos un segundo para ver el resultado del callback porque sino nuestro programa puede terminar antes
+			TimeUnit.SECONDS.sleep(1);
+		}
 	}
 }
