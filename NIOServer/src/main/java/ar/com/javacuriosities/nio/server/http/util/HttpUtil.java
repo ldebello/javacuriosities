@@ -50,7 +50,7 @@ public class HttpUtil {
     private static void findContentLength(byte[] src, int startIndex, int endIndex, HttpHeaders httpHeaders) throws UnsupportedEncodingException {
         int indexOfColon = findNext(src, startIndex, endIndex, (byte) ':');
 
-        // Skip espacios despues del ";"
+        // Skip espacios después del ";"
         int index = indexOfColon +1;
         while(src[index] == ' '){
             index++;
@@ -63,23 +63,14 @@ public class HttpUtil {
 		while (index < endIndex && !endOfValueFound) {
 			switch (src[index]) {
 			case '0':
-				;
 			case '1':
-				;
 			case '2':
-				;
 			case '3':
-				;
 			case '4':
-				;
 			case '5':
-				;
 			case '6':
-				;
 			case '7':
-				;
 			case '8':
-				;
 			case '9': {
 				index++;
 				break;

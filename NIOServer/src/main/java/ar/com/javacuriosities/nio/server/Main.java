@@ -1,6 +1,7 @@
 package ar.com.javacuriosities.nio.server;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import ar.com.javacuriosities.nio.server.http.reader.HttpMessageReaderFactory;
 import ar.com.javacuriosities.nio.server.message.Message;
@@ -12,7 +13,6 @@ import ar.com.javacuriosities.nio.server.message.writer.WriteProxy;
  * La idea solo es entender los conceptos dados que ya hay frameworks que implementan esto
  * 	- Netty
  * 	- Grizzly
- * 
  */
 public class Main {
 
@@ -31,7 +31,7 @@ public class Main {
 			try {
 				System.out.println("Message Received from socket: " + message.socketId);
 				
-				byte[] httpResponseBytes = HTTP_RESPONSE.getBytes("UTF-8");
+				byte[] httpResponseBytes = HTTP_RESPONSE.getBytes(StandardCharsets.UTF_8.name());
 
 				Message responseMessage = writeProxy.getMessage();
 				responseMessage.socketId = message.socketId;

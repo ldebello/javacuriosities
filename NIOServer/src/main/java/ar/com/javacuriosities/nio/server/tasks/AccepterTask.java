@@ -14,33 +14,36 @@ import ar.com.javacuriosities.nio.server.clients.ClientSocket;
 public class AccepterTask implements Runnable {
 
 	private int port = 0;
-	private ServerSocketChannel serverSocket = null;
 
-	private Queue<ClientSocket> clientSocketQueue = null;
+	private ServerSocketChannel serverChannel = null;
 
-	public AccepterTask(Queue<ClientSocket> clientSocketQueue, int port) {
+	private Queue<ClientSocket> clientsQueue = null;
+
+	public AccepterTask(Queue<ClientSocket> clientsQueue, int port) {
 		this.port = port;
-		this.clientSocketQueue = clientSocketQueue;
+		this.clientsQueue = clientsQueue;
 	}
 
 	public void run() {
 		try {
-			this.serverSocket = ServerSocketChannel.open();
-			this.serverSocket.bind(new InetSocketAddress(port));
+			this.serverChannel = ServerSocketChannel.open();
+			this.serverChannel.bind(new InetSocketAddress(port));
 		} catch (IOException e) {
+			// Log and Handle exception
 			e.printStackTrace();
 			return;
 		}
 
-		while (true) {
+		while (!Thread.currentThread().isInterrupted()) {
 			try {
-				SocketChannel channel = this.serverSocket.accept();
+				SocketChannel channel = this.serverChannel.accept();
 				
 				System.out.println("Client Socket accepted: " + channel);
 
-				// TODO Deberíamos chequear si la queue acepta mas conexiones
-				clientSocketQueue.add(new ClientSocket(channel));
+				// TODO: Deberíamos chequear si la queue acepta mas conexiones
+				clientsQueue.add(new ClientSocket(channel));
 			} catch (IOException e) {
+				// Log and Handle exception
 				e.printStackTrace();
 			}
 		}

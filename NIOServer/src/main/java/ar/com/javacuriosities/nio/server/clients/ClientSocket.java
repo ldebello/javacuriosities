@@ -22,9 +22,6 @@ public class ClientSocket {
 
     public boolean endOfStreamReached = false;
 
-    public ClientSocket() {
-    }
-
     public ClientSocket(SocketChannel socketChannel) {
         this.socketChannel = socketChannel;
     }

@@ -5,5 +5,5 @@ package ar.com.javacuriosities.nio.server.message.reader;
  */
 public interface IMessageReaderFactory {
 
-    public IMessageReader createMessageReader();
+    IMessageReader createMessageReader();
 }

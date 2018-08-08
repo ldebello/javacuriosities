@@ -13,9 +13,9 @@ import ar.com.javacuriosities.nio.server.message.MessageBuffer;
  */
 public interface IMessageReader {
 
-    public void init(MessageBuffer readMessageBuffer);
+    void init(MessageBuffer readMessageBuffer);
 
-    public void read(ClientSocket socket, ByteBuffer byteBuffer) throws IOException;
+    void read(ClientSocket socket, ByteBuffer byteBuffer) throws IOException;
 
-    public List<Message> getMessages();
+    List<Message> getMessages();
 }

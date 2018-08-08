@@ -21,7 +21,7 @@ import ar.com.javacuriosities.nio.server.message.writer.WriteProxy;
  */
 public class ProcessorTask implements Runnable {
 
-	private Queue<ClientSocket> clientSocketQueue = null;
+	private Queue<ClientSocket> clientsQueue = null;
 
 	private MessageBuffer readMessageBuffer = null;  
 	private IMessageReaderFactory messageReaderFactory = null;
@@ -43,10 +43,10 @@ public class ProcessorTask implements Runnable {
 	private Set<ClientSocket> emptyToNonEmptySockets = new HashSet<>();
 	private Set<ClientSocket> nonEmptyToEmptySockets = new HashSet<>();
 
-	public ProcessorTask(Queue<ClientSocket> clientSocketQueue, MessageBuffer readMessageBuffer,
-			MessageBuffer writeMessageBuffer, IMessageReaderFactory messageReaderFactory,
-			IMessageProcessor messageProcessor) throws IOException {
-		this.clientSocketQueue = clientSocketQueue;
+	public ProcessorTask(Queue<ClientSocket> clientsQueue, MessageBuffer readMessageBuffer,
+						 MessageBuffer writeMessageBuffer, IMessageReaderFactory messageReaderFactory,
+						 IMessageProcessor messageProcessor) throws IOException {
+		this.clientsQueue = clientsQueue;
 
 		this.readMessageBuffer = readMessageBuffer;
 		
@@ -60,16 +60,19 @@ public class ProcessorTask implements Runnable {
 	}
 
 	public void run() {
-		while (true) {
+		while (!Thread.currentThread().isInterrupted()) {
 			try {
 				executeCycle();
 			} catch (IOException e) {
+				// Log and Handle exception
 				e.printStackTrace();
 			}
 
 			try {
 				TimeUnit.MILLISECONDS.sleep(100);
 			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+				// Log and Handle exception
 				e.printStackTrace();
 			}
 		}
@@ -82,7 +85,7 @@ public class ProcessorTask implements Runnable {
 	}
 
 	public void takeNewSockets() throws IOException {
-		ClientSocket clientSocket = this.clientSocketQueue.poll();
+		ClientSocket clientSocket = this.clientsQueue.poll();
 
 		while (clientSocket != null) {
 			clientSocket.socketId = this.nextSocketId++;
@@ -98,14 +101,14 @@ public class ProcessorTask implements Runnable {
 			SelectionKey key = clientSocket.socketChannel.register(this.readSelector, SelectionKey.OP_READ);
 			key.attach(clientSocket);
 
-			clientSocket = this.clientSocketQueue.poll();
+			clientSocket = this.clientsQueue.poll();
 		}
 	}
 
 	public void readFromSockets() throws IOException {
-		int readReady = this.readSelector.selectNow();
+		int selectorsReady = this.readSelector.selectNow();
 
-		if (readReady > 0) {
+		if (selectorsReady > 0) {
 			Set<SelectionKey> selectedKeys = this.readSelector.selectedKeys();
 			Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
 
@@ -153,8 +156,7 @@ public class ProcessorTask implements Runnable {
 			selectionKeys.clear();
 		}
 	}
-	
-	
+
 	private void readFromSocket(SelectionKey key) throws IOException {
 		ClientSocket socket = (ClientSocket) key.attachment();
 		socket.messageReader.read(socket, this.readByteBuffer);

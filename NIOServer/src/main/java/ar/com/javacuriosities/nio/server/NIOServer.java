@@ -17,10 +17,6 @@ import ar.com.javacuriosities.nio.server.tasks.ProcessorTask;
 public class NIOServer {
 
 	private int port = 0;
-	
-	// Runnables que maneja el server
-    private AccepterTask  accepterTask  = null;
-    private ProcessorTask processorTask = null;
 
     private IMessageReaderFactory messageReaderFactory = null;
     private IMessageProcessor     messageProcessor = null;
@@ -35,15 +31,12 @@ public class NIOServer {
     	MessageBuffer readBuffer  = new MessageBuffer();
         MessageBuffer writeBuffer = new MessageBuffer();
         
-    	Queue<ClientSocket> clientSocketQueue = new ArrayBlockingQueue<ClientSocket>(1024);
+    	Queue<ClientSocket> clientsQueue = new ArrayBlockingQueue<ClientSocket>(1024);
 
-        accepterTask  = new AccepterTask(clientSocketQueue, port);
-        processorTask = new ProcessorTask(clientSocketQueue, readBuffer, writeBuffer, messageReaderFactory, messageProcessor);
+        Thread accepter  = new Thread(new AccepterTask(clientsQueue, port));
+        Thread processor = new Thread(new ProcessorTask(clientsQueue, readBuffer, writeBuffer, messageReaderFactory, messageProcessor));
 
-        Thread accepterThread  = new Thread(this.accepterTask);
-        Thread processorThread = new Thread(this.processorTask);
-
-        accepterThread.start();
-        processorThread.start();
+        accepter.start();
+        processor.start();
     }
 }

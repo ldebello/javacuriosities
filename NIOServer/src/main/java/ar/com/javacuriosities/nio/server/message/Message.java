@@ -14,7 +14,7 @@ public class Message {
 	
 	public int offset = 0; // Offset dentro del shared buffer
 	public int capacity = 0; // Tamaño de la sección dentro del shared buffer
-	public int length = 0; // Numeros de bytes alocados en la sección
+	public int length = 0; // Números de bytes alocados en la sección
 
     public Object metaData    = null;
 

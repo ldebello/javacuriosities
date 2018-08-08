@@ -8,5 +8,5 @@ import ar.com.javacuriosities.nio.server.message.writer.WriteProxy;
  */
 public interface IMessageProcessor {
 
-    public void process(Message message, WriteProxy writeProxy);
+    void process(Message message, WriteProxy writeProxy);
 }
