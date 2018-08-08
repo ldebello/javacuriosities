@@ -42,7 +42,7 @@ import java.nio.channels.FileChannel;
  * Los datos son siempre leídos desde un channel al buffer o escritos del buffer al channel
  * 
  * Channels:
- * 	- FileChannel: No soporta el modo Non-blocking, dado que Unix no soporta non-locking I/O para archivos, pero en Java 7 se agrego AsynchronousFileChannel, el cual provee soporte ya sea de forma nativa si lo soporta o con multiples threads
+ * 	- FileChannel: No soporta el modo Non-blocking, dado que Unix no soporta non-blocking I/O para archivos, pero en Java 7 se agrego AsynchronousFileChannel, el cual provee soporte ya sea de forma nativa si lo soporta o con multiples threads
  * 	- DatagramChannel
  * 	- SocketChannel
  * 	- ServerSocketChannel
