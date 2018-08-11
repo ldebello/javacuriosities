@@ -1,0 +1,80 @@
+= IO Models
+:toc: macro
+:sectnumlevels: 4
+
+La idea de este documento es revisar los distintos modelos de IO.
+
+toc::[]
+== Why?
+
+Antes de empezar a entender los distintos modelos de IO, seria bueno saber por que
+podríamos estar interesado en ellos.
+
+Cuando desarrollamos una aplicación, esta realiza distintas tareas, realizar cálculos,
+leer archivos, enviar emails, etc. Dependiendo del tipo de tarea que ejecutemos podremos
+decir que nuestro proceso es *CPU-bound* o *I/O-bound*.
+
+=== CPU-bound vs I/O-bound
+
+Se dice que nuestro proceso es CPU-bound si el bottlenecked es el CPU o IO-bound
+si el bottlenecked son las operaciones de IO, como leer o escribir archivos o operaciones
+de networking.
+
+Cuando nos encontramos desarrollando aplicaciones IO-bound nos resulta util conocer y entender
+los distintos modelos de IO. Por ejemplo podríamos analizar el caso de cualquier
+servidor de alta performance (Netty, Grizzly, etc).
+
+== IO
+
+Si pensamos en algún servidor web, veremos que la parte de IO resulta fundamental a la hora
+de manejar multiples requests. Estamos leyendo request data por medio de la red, enviando el
+response para esa request e incluso leyendo archivos desde disco para servir contenido estático.
+
+*Es util pensar a las operaciones de IO en dos etapas*
+
+* No hay datos o están en el controller -> Los *_datos están disponibles_* para el kernel.
+* Datos en los buffers del kernel -> Datos en la memoria de la aplicación.
+
+*La primera etapa de chequeo del dispositivo puede ser blocking o non-blocking, y la segunda de transmicion de
+los datos puede ser synchronous o asynchronous.*
+
+Otra aclaración importante es que significa que los *_datos están disponibles_* y esto va
+a depender de la información que estemos leyendo.
+
+* UDP: Un datagrama entero fue recibido.
+* TCP: Datos recibidos que desde la ultima watermark.
+
+=== User mode vs Kernel mode
+
+Un proceso ejecuta instrucciones en dos modos distintos, ya sea a nivel de aplicación o a nivel de kernel, ya
+que ciertas acciones necesitan mas privilegios que otras. Esto para el usuario es transparente pero hacer el switch
+de un modo al otro es costo.
+
+* *Kernel mode:* El código que se esta ejecutando tiene acceso completo e ilimitado al hardware subyacente.
+Este puede ejecutar cualquier instrucción y referenciar cualquier dirección de memoria. Este modo es reservado
+funciones de bajo nivel del sistema operativo. Cualquier crash en este nivel seria catastrófico y detendría la PC.
+
+* *User Mode:* El código que se esta ejecutando no tiene la capacidad de acceder a hardware o memoria sin delegar estas
+acciones en una llamado a un API del sistema (system call). Debido a esta separación los crash a este nivel son
+recuperables, la mayoría del código se ejecuta en este nivel.
+
+image::images/ProtectionRings.png[]
+
+== Models
+
+Iremos explicando cada modelo junto con una imagen y las descripción de lo que sucede.
+
+_Nota: Las imágenes son de un ejemplo de socket UDP ya que el concepto de data being "ready" es mas simple_
+
+=== 1. Blocking I/O
+
+El modelo más frecuente de IO es el blocking IO, este es el utilizado por las clases del paquete java.io.
+Además todos los sockets son blocking por defecto.
+
+image::images/BlockingIO.png[]
+
+En la imagen se ve que el proceso llama a _recvfrom_ y la system call no retorna hasta que el datagrama llega y es
+copiado al buffer de la aplicación o ocurre un error.
+Decimos que nuestro proceso esta _blocked_ durante todo el tiempo hasta que la system call retorna.
+
+=== 2. Non Blocking IO
