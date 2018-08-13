@@ -92,18 +92,18 @@ Cuando una aplicación se encuentra en un loop invocando alguna operación nonbl
 La aplicación esta continuamente haciendo polling para ver si el kernel le indica que hay datos listos. Esto generalmente es un desperdicio de CPU, aunque puede ser
 util en algunos escenarios específicos.
 
-== 3. I/O MULTIPLEXING (select/poll/epoll/kqueue)
+=== 3. I/O MULTIPLEXING (select/poll/epoll/kqueue)
 
-=== What is I/O multiplexing?
+==== What is I/O multiplexing?
 
 Es la capacidad para indicarle al kernel que queremos ser notificados si uno o mas operaciones de IO están listas.
 Algunas funciones como select, poll, epoll (linux) and kqueue (bsd) nos proveen esta funcionalidad.
 
-=== Why Multiplexing?
+==== Why Multiplexing?
 
 Cuando una aplicación necesita manejar multiples descriptores de IO al mismo tiempo. e.g. file y socket descriptors o multiples socket descriptors.
 
-=== I/O MULTIPLEXING
+==== I/O MULTIPLEXING
 
 Cuando usamos IO Multiplexing podemos utilizar alguna de las funciones provistas por el kernel (select, poll, epoll, kqueue) y hacer el block
 en una de esas operaciones, en lugar de la system call de IO. +
@@ -115,15 +115,40 @@ En el ejemplo de arriba hacemos el block en el llamado al _select_, esperando a 
 Cuando el _select_ retorna esto indica que el socket es "readable", entonces podemos llamar a _recvfrom_ para copiar el datagrama
 en el buffer de nuestra aplicación.
 
-==== Comparing to the blocking I/O model
+===== Comparing to the blocking I/O model
 Si comparamos la figura del modelo 1 y la del 3:
 
 * Ventajas: Podemos monitorear mas de un descriptor hasta que este listo
 * Desventajas: Usando el _select_ requiere dos system calls _(select y recvfrom)_ en lugar de un solo llamado.
 
-==== Multithreading with blocking I/O
+===== Multithreading with blocking I/O
 
 Otro modelo muy relacionado es el de _Multithreading con blocking IO_. Ese modelo se asemeja mucho al anterior, excepto que en lugar de usar
 _select_ para bloquear multiples descriptores utiliza multiples hilos, o sea uno por descriptor.
 
 
+=== 4. Signal-Driven I/O Model (SIGIO)
+
+Tambien podemos decirle al kernel que nos notifique por medio de la señal _SIGIO_ cuando el descriptor esta listo.
+
+image::images/SignalDrivenIO.png[]
+
+* Primero instruimos al socket para enviar señales e instalamos un _signal handler_ por medio de la system call _sigaction_.
+El retorno de este system call es inmediato y nuestro proceso continua; esto no es bloqueante.
+
+* Cuando el datagrama esta listo, la señal _SIGIO_ es generada para nuestro proceso. Podemos:
+
+** Leer el datagrama desde el _signal handler_ llamando a _recvfrom_ y luego notificar al loop principal que los datos estan listo en el buffer de la aplicación.
+
+** Notificar al loop principal y dejar que este lea el datagrama.
+
+Sin importar como manejamos la señal, la ventaja de este modelo es que no estamos bloqueados mientras esperamos que el datagrama este llegue. El loop
+principal puede continuar ejecutando y solo esperar a ser notificado por el _signal handler_ que hay mas datos para ser procesados o leídos.
+
+=== 5. Asynchronous I/O (AIO)
+
+image::images/AsynchronousIO.png[]
+
+== Comparison of the I/O Models
+
+image::images/ComparisonIO.png[]
