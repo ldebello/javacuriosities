@@ -78,3 +78,52 @@ copiado al buffer de la aplicación o ocurre un error.
 Decimos que nuestro proceso esta _blocked_ durante todo el tiempo hasta que la system call retorna.
 
 === 2. Non Blocking IO
+
+Cuando realizamos una operación de IO, esta se encuentra asociada a un FD (File Descriptor) el cual podemos configurar
+para ser Non-Blocking, de esta forma le estamos indicando al kernel que _"Cuando una operación de IO no pueda ser completada arroje un error
+en lugar de pasar al proceso al estado de sleep"_
+
+image::images/NonBlockingIO.png[]
+
+* Para los tres primeros llamados a _recvfrom_ no hay datos y el kernel retorna de forma inmediata con el error _EWOULDBLOCK_.
+* Para el cuarto llamado, el datagrama esta listo y es copiado en el buffer de la aplicación, ahora _recvfrom_ retorna de forma exitosa. Luego los datos son procesados.
+
+Cuando una aplicación se encuentra en un loop invocando alguna operación nonblocking sin obtener datos, esto se lo conoce como pooling (busy waiting).
+La aplicación esta continuamente haciendo polling para ver si el kernel le indica que hay datos listos. Esto generalmente es un desperdicio de CPU, aunque puede ser
+util en algunos escenarios específicos.
+
+== 3. I/O MULTIPLEXING (select/poll/epoll/kqueue)
+
+=== What is I/O multiplexing?
+
+Es la capacidad para indicarle al kernel que queremos ser notificados si uno o mas operaciones de IO están listas.
+Algunas funciones como select, poll, epoll (linux) and kqueue (bsd) nos proveen esta funcionalidad.
+
+=== Why Multiplexing?
+
+Cuando una aplicación necesita manejar multiples descriptores de IO al mismo tiempo. e.g. file y socket descriptors o multiples socket descriptors.
+
+=== I/O MULTIPLEXING
+
+Cuando usamos IO Multiplexing podemos utilizar alguna de las funciones provistas por el kernel (select, poll, epoll, kqueue) y hacer el block
+en una de esas operaciones, en lugar de la system call de IO. +
+En lugar de trabajar sobre un único file descriptor, podemos monitorear cambios en varios de ellos.
+
+image::images/IOMultiplexing.png[]
+
+En el ejemplo de arriba hacemos el block en el llamado al _select_, esperando a que el datagrama esta listo para ser leído.
+Cuando el _select_ retorna esto indica que el socket es "readable", entonces podemos llamar a _recvfrom_ para copiar el datagrama
+en el buffer de nuestra aplicación.
+
+==== Comparing to the blocking I/O model
+Si comparamos la figura del modelo 1 y la del 3:
+
+* Ventajas: Podemos monitorear mas de un descriptor hasta que este listo
+* Desventajas: Usando el _select_ requiere dos system calls _(select y recvfrom)_ en lugar de un solo llamado.
+
+==== Multithreading with blocking I/O
+
+Otro modelo muy relacionado es el de _Multithreading con blocking IO_. Ese modelo se asemeja mucho al anterior, excepto que en lugar de usar
+_select_ para bloquear multiples descriptores utiliza multiples hilos, o sea uno por descriptor.
+
+
