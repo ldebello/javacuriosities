@@ -92,9 +92,9 @@ Cuando una aplicación se encuentra en un loop invocando alguna operación nonbl
 La aplicación esta continuamente haciendo polling para ver si el kernel le indica que hay datos listos. Esto generalmente es un desperdicio de CPU, aunque puede ser
 util en algunos escenarios específicos.
 
-=== 3. I/O MULTIPLEXING (select/poll/epoll/kqueue)
+=== 3. I/O Multiplexing (select/poll/epoll/kqueue)
 
-==== What is I/O multiplexing?
+==== What is I/O Multiplexing?
 
 Es la capacidad para indicarle al kernel que queremos ser notificados si uno o mas operaciones de IO están listas.
 Algunas funciones como select, poll, epoll (linux) and kqueue (bsd) nos proveen esta funcionalidad.
@@ -175,8 +175,8 @@ La principal diferencia entre los primeros cuatro modelos es la primera fase, ya
 
 POSIX define estos dos términos de la siguiente manera:
 
-* Synchronous: Si la operación de IO es sincrónica el proceso esta bloqueado hasta que la operación de IO este completa.
-* Asynchronous: Si la operación de IO es asincrónica el proceso no queda bloqueado esperando por el fin de la operación.
+* *Synchronous:* Si la operación de IO es sincrónica el proceso esta bloqueado hasta que la operación de IO este completa.
+* *Asynchronous:* Si la operación de IO es asincrónica el proceso no queda bloqueado esperando por el fin de la operación.
 
 Usando estas definiciones, los cuatros primeros modelos (Blocking, Non Blocking, I/O Multiplexing y Signal-Driven I/O) son sincrónicos, porque la llamada a _recvfrom_ bloquea el proceso. Solo el ultimo modelo se considera asincrónico.
 
