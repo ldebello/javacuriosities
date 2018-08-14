@@ -85,7 +85,7 @@ en lugar de pasar al proceso al estado de sleep"_
 
 image::images/NonBlockingIO.png[]
 
-* Para los tres primeros llamados a _recvfrom_ no hay datos y el kernel retorna de forma inmediata con el error _EWOULDBLOCK_.
+* Para los tres primeros llamados a _recvfrom_ no hay datos y el kernel retorna de forma inmediata con el error _EAGAIN o EWOULDBLOCK_.
 * Para el cuarto llamado, el datagrama esta listo y es copiado en el buffer de la aplicación, ahora _recvfrom_ retorna de forma exitosa. Luego los datos son procesados.
 
 Cuando una aplicación se encuentra en un loop invocando alguna operación nonblocking sin obtener datos, esto se lo conoce como pooling (busy waiting).
@@ -129,7 +129,7 @@ _select_ para bloquear multiples descriptores utiliza multiples hilos, o sea uno
 
 === 4. Signal-Driven I/O Model (SIGIO)
 
-Tambien podemos decirle al kernel que nos notifique por medio de la señal _SIGIO_ cuando el descriptor esta listo.
+También podemos decirle al kernel que nos notifique por medio de la señal _SIGIO_ cuando el descriptor esta listo.
 
 image::images/SignalDrivenIO.png[]
 
@@ -147,8 +147,35 @@ principal puede continuar ejecutando y solo esperar a ser notificado por el _sig
 
 === 5. Asynchronous I/O (AIO)
 
+*Asynchronous I/O* esta definido en la especificación POSIX _(Portable Operating System Interface)_. La idea es indicarle al kernel
+que comience una operación de IO y que este nos notifique cuando toda la operación haya finalizado (Incluyendo la copia de los datos
+del buffer del kernel a la aplicación).
+
++++<u>La principal diferencia entre este modelo y el <i>signal-driven I/O</i>, es que el kernel nos indica que la operación de IO puede ser iniciada, pero con AIO el kernel nos indica que la operación esta completa.</u>+++
+
 image::images/AsynchronousIO.png[]
+
+* En este ejemplo llamamos a _aio_read_ (Las funciones del standard POSIX para asynchronous I/O empiezan con aio_ o lio_) y le envía al kernel las siguientes cosas:
+
+** descriptor, buffer pointer, buffer size (Los mismos argumentos que le enviamos al _read_).
+** file offset (Similar a _lseek_).
+** Cómo notificarnos cuando se complete toda la operación.
+
+* En este ejemplo asumimos que el kernel va a generar una señal para indicarnos que la operación esta completa. Esta señal no es generada hasta que los datos hayan sido copiados al buffer de la aplicación, lo cual es distinto al _signal-driven I/O model_.
+
+*Nota:* Al parecer pocos SO soportan POSIX asynchronous I/O. Al parecer es mas común verlo en disk IO en lugar de un uso para sockets.
 
 == Comparison of the I/O Models
 
 image::images/ComparisonIO.png[]
+
+La principal diferencia entre los primeros cuatro modelos es la primera fase, ya que la segunda fase en los primeros cuatro modelos es la misma: el proceso se bloquea en una llamada a _recvfrom_ mientras los datos se copian desde el kernel al buffer de la aplicación. Sin embargo, Asynchronous I/O maneja ambas fases y esto es distinto a los primeros cuatro modelos.
+
+=== Synchronous I/O vs Asynchronous I/O
+
+POSIX define estos dos términos de la siguiente manera:
+
+* Synchronous: Si la operación de IO es sincrónica el proceso esta bloqueado hasta que la operación de IO este completa.
+* Asynchronous: Si la operación de IO es asincrónica el proceso no queda bloqueado esperando por el fin de la operación.
+
+Usando estas definiciones, los cuatros primeros modelos (blocking, nonblocking, I/O multiplexing y signal-driven I/O) son sincrónicos, porque la llamada a _recvfrom_ bloquea el proceso. Solo el ultimo modelo se considera asincrónico.
