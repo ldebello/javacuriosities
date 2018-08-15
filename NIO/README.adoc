@@ -10,7 +10,7 @@ toc::[]
 Antes de empezar a entender los distintos modelos de IO, seria bueno saber por que
 podríamos estar interesado en ellos.
 
-Cuando desarrollamos una aplicación, esta realiza distintas tareas, realizar cálculos,
+Cuando desarrollamos una aplicación, esta puede realizar distintas tareas, cálculos,
 leer archivos, enviar emails, etc. Dependiendo del tipo de tarea que ejecutemos podremos
 decir que nuestro proceso es *CPU-bound* o *I/O-bound*.
 
@@ -27,18 +27,18 @@ servidor de alta performance (Netty, Grizzly, etc).
 == IO
 
 Si pensamos en algún servidor web, veremos que la parte de IO resulta fundamental a la hora
-de manejar multiples requests. Estamos leyendo request data por medio de la red, enviando el
-response para esa request e incluso leyendo archivos desde disco para servir contenido estático.
+de manejar multiples requests. Al estar leyendo los datos de esa request por medio de la red, enviando el
+response de la misma o incluso leyendo archivos desde disco para servir contenido estático.
 
 *Es util pensar a las operaciones de IO en dos etapas*
 
 * No hay datos o están en el controller -> Los *_datos están disponibles_* para el kernel.
 * Datos en los buffers del kernel -> Datos en la memoria de la aplicación.
 
-*La primera etapa de chequeo del dispositivo puede ser blocking o non-blocking, y la segunda de transmicion de
+*La primera etapa de chequeo del dispositivo puede ser blocking o non-blocking, y la segunda de transmisión de
 los datos puede ser synchronous o asynchronous.*
 
-Otra aclaración importante es que significa que los *_datos están disponibles_* y esto va
+Una aclaración importante es que significa que los *_datos están disponibles_* y esto va
 a depender de la información que estemos leyendo.
 
 * UDP: Un datagrama entero fue recibido.
@@ -48,21 +48,21 @@ a depender de la información que estemos leyendo.
 
 Un proceso ejecuta instrucciones en dos modos distintos, ya sea a nivel de aplicación o a nivel de kernel, ya
 que ciertas acciones necesitan mas privilegios que otras. Esto para el usuario es transparente pero hacer el switch
-de un modo al otro es costo.
+de un modo al otro es costoso.
 
 * *Kernel mode:* El código que se esta ejecutando tiene acceso completo e ilimitado al hardware subyacente.
 Este puede ejecutar cualquier instrucción y referenciar cualquier dirección de memoria. Este modo es reservado
-funciones de bajo nivel del sistema operativo. Cualquier crash en este nivel seria catastrófico y detendría la PC.
+para funciones de bajo nivel del sistema operativo. Cualquier crash en este nivel seria catastrófico y detendría la PC.
 
 * *User Mode:* El código que se esta ejecutando no tiene la capacidad de acceder a hardware o memoria sin delegar estas
-acciones en una llamado a un API del sistema (system call). Debido a esta separación los crash a este nivel son
+acciones en una llamada a un API del sistema (system call). Debido a esta separación los crashes a este nivel son
 recuperables, la mayoría del código se ejecuta en este nivel.
 
 image::images/ProtectionRings.png[]
 
 == Models
 
-Iremos explicando cada modelo junto con una imagen y las descripción de lo que sucede.
+Iremos explicando cada modelo junto con una imagen y la descripción de lo que sucede.
 
 _Nota: Las imágenes son de un ejemplo de socket UDP ya que el concepto de data being "ready" es mas simple_
 
@@ -96,7 +96,7 @@ util en algunos escenarios específicos.
 
 ==== What is I/O Multiplexing?
 
-Es la capacidad para indicarle al kernel que queremos ser notificados si uno o mas operaciones de IO están listas.
+Es la capacidad para indicarle al kernel que queremos ser notificados si una o mas operaciones de IO están listas.
 Algunas funciones como select, poll, epoll (linux) and kqueue (bsd) nos proveen esta funcionalidad.
 
 ==== Why Multiplexing?
@@ -111,14 +111,14 @@ En lugar de trabajar sobre un único file descriptor, podemos monitorear cambios
 
 image::images/IOMultiplexing.png[]
 
-En el ejemplo de arriba hacemos el block en el llamado al _select_, esperando a que el datagrama esta listo para ser leído.
+En el ejemplo de arriba hacemos el block en el llamado al _select_, esperando a que el datagrama este listo para ser leído.
 Cuando el _select_ retorna esto indica que el socket es "readable", entonces podemos llamar a _recvfrom_ para copiar el datagrama
 en el buffer de nuestra aplicación.
 
 ===== Comparing to the blocking I/O model
 Si comparamos la figura del modelo 1 y la del 3:
 
-* Ventajas: Podemos monitorear mas de un descriptor hasta que este listo
+* Ventajas: Podemos monitorear mas de un descriptor hasta que alguno este listo.
 * Desventajas: Usando el _select_ requiere dos system calls _(select y recvfrom)_ en lugar de un solo llamado.
 
 ===== Multithreading with blocking I/O
@@ -138,18 +138,18 @@ El retorno de este system call es inmediato y nuestro proceso continua; esto no 
 
 * Cuando el datagrama esta listo, la señal _SIGIO_ es generada para nuestro proceso. Podemos:
 
-** Leer el datagrama desde el _signal handler_ llamando a _recvfrom_ y luego notificar al loop principal que los datos estan listo en el buffer de la aplicación.
+** Leer el datagrama desde el _signal handler_ llamando a _recvfrom_ y luego notificar al loop principal de que los datos estan listo en el buffer de la aplicación.
 
 ** Notificar al loop principal y dejar que este lea el datagrama.
 
-Sin importar como manejamos la señal, la ventaja de este modelo es que no estamos bloqueados mientras esperamos que el datagrama este llegue. El loop
+Sin importar como manejamos la señal, la ventaja de este modelo es que no estamos bloqueados mientras esperamos que el datagrama llegue. El loop
 principal puede continuar ejecutando y solo esperar a ser notificado por el _signal handler_ que hay mas datos para ser procesados o leídos.
 
 === 5. Asynchronous I/O (AIO)
 
 *Asynchronous I/O* esta definido en la especificación POSIX _(Portable Operating System Interface)_. La idea es indicarle al kernel
 que comience una operación de IO y que este nos notifique cuando toda la operación haya finalizado (Incluyendo la copia de los datos
-del buffer del kernel a la aplicación).
+del buffer del kernel al buffer de la aplicación).
 
 +++<u>La principal diferencia entre este modelo y el <i>signal-driven I/O</i>, es que el kernel nos indica que la operación de IO puede ser iniciada, pero con AIO el kernel nos indica que la operación esta completa.</u>+++
 
@@ -163,7 +163,7 @@ image::images/AsynchronousIO.png[]
 
 * En este ejemplo asumimos que el kernel va a generar una señal para indicarnos que la operación esta completa. Esta señal no es generada hasta que los datos hayan sido copiados al buffer de la aplicación, lo cual es distinto al _signal-driven I/O model_.
 
-*Nota:* Al parecer pocos SO soportan POSIX asynchronous I/O. Al parecer es mas común verlo en disk IO en lugar de un uso para sockets.
+*Nota:* Al parecer pocos SO soportan POSIX asynchronous I/O. Es mas común verlo en disk IO en lugar de un uso para sockets.
 
 == Comparison of the I/O Models
 
