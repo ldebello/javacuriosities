@@ -13,10 +13,8 @@ public class Main {
 
             WebAppContext webapp = new WebAppContext();
 
+            webapp.setContextPath("/");
             webapp.setResourceBase(Main.class.getProtectionDomain().getCodeSource().getLocation().toString());
-            webapp.setContextPath("/mvc");
-            webapp.setDefaultsDescriptor("web.xml");
-
             handlers.addHandler(webapp);
 
             server.setHandler(handlers);
