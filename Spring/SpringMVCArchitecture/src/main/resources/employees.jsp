@@ -14,9 +14,9 @@
         List<Employee> employees = (List<Employee>) request.getAttribute("employees");
 
         for (Employee employee : employees) {
-            out.print("Name:" + employee.getName());
+            out.print("Name: " + employee.getName());
             out.print("<br>");
-            out.print("Age:" + employee.getAge());
+            out.print("Age: " + employee.getAge());
             out.print("<br>");
             out.print("<hr>");
         }

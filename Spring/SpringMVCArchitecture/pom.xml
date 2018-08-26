@@ -23,6 +23,11 @@
 			<artifactId>jetty-webapp</artifactId>
 			<version>9.4.12.RC1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>apache-jsp</artifactId>
+			<version>9.4.12.RC1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

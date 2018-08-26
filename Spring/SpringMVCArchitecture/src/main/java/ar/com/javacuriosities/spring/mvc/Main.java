@@ -2,6 +2,7 @@ package ar.com.javacuriosities.spring.mvc;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.webapp.Configuration;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 public class Main {
@@ -15,6 +16,12 @@ public class Main {
 
             webapp.setContextPath("/");
             webapp.setResourceBase(Main.class.getProtectionDomain().getCodeSource().getLocation().toString());
+
+            // Adding JSP support
+            Configuration.ClassList classlist = Configuration.ClassList.setServerDefault(server);
+            classlist.addBefore("org.eclipse.jetty.webapp.JettyWebXmlConfiguration","org.eclipse.jetty.annotations.AnnotationConfiguration");
+            webapp.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern",".*/[^/]*jstl.*\\.jar$");
+
             handlers.addHandler(webapp);
 
             server.setHandler(handlers);

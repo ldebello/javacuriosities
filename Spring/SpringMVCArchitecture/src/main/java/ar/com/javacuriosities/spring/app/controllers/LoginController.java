@@ -16,7 +16,7 @@ public class LoginController extends AbstractController {
         User user = new User();
 
         user.setId(Integer.valueOf(1));
-        user.setName("Cosme Fulanito");
+        user.setName(request.getParameter("txtUser"));
 
         modelAndView.addObject("user", user);
 
