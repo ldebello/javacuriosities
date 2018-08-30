@@ -4,8 +4,8 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>SpringHibernateJPA</name>
-	<url>https://github.com/ldebello/javacuriosities/tree/master/Spring/SpringHibernateJPA</url>
+	<name>SpringAOP</name>
+	<url>https://github.com/ldebello/javacuriosities/tree/master/Spring/SpringAOP</url>
 
 	<parent>
 		<groupId>ar.com.javacuriosities</groupId>
@@ -14,7 +14,7 @@
 	</parent>
 
 	<groupId>ar.com.javacuriosities</groupId>
-	<artifactId>SpringHibernateJPA</artifactId>
+	<artifactId>SpringAOP</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<dependencies>
@@ -24,17 +24,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<artifactId>spring-aop</artifactId>
 		</dependency>
 	</dependencies>
 
