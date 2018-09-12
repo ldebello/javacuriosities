@@ -24,7 +24,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>apache-jsp</artifactId>
+			<artifactId>jetty-jsp</artifactId>
 		</dependency>
 	</dependencies>
 
