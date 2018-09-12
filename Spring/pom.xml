@@ -9,12 +9,12 @@
     <parent>
         <groupId>ar.com.javacuriosities</groupId>
         <artifactId>JavaCuriosities</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>ar.com.javacuriosities</groupId>
     <artifactId>Spring</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -85,5 +85,6 @@
         <module>SpringJDBCTemplate</module>
         <module>SpringBootBasics</module>
         <module>SpringMVCArchitecture</module>
+        <module>SpringMVCBasics</module>
     </modules>
 </project>
