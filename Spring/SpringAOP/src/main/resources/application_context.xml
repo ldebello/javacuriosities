@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="business" class="ar.com.javacuriosities.spring.services.Business" />
+
+    <bean id="afterReturnInterceptor" class="ar.com.javacuriosities.spring.interceptors.AfterReturnInterceptor" />
+    <bean id="aroundInterceptor" class="ar.com.javacuriosities.spring.interceptors.AroundInterceptor" />
+    <bean id="beforeInterceptor" class="ar.com.javacuriosities.spring.interceptors.BeforeInterceptor" />
+    <bean id="throwsInterceptor" class="ar.com.javacuriosities.spring.interceptors.ThrowsInterceptor" />
+
+    <bean id="businessWithAfterReturnInterceptor" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="business" />
+        <property name="interceptorNames">
+            <list>
+                <value>afterReturnInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="businessWithAroundInterceptor" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="business" />
+        <property name="interceptorNames">
+            <list>
+                <value>aroundInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="businessWithBeforeInterceptor" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="business" />
+        <property name="interceptorNames">
+            <list>
+                <value>beforeInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="businessWithThrowsInterceptor" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="business" />
+        <property name="interceptorNames">
+            <list>
+                <value>throwsInterceptor</value>
+            </list>
+        </property>
+    </bean>
 </beans>
