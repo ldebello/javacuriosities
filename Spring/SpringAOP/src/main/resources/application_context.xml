@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <bean id="business" class="ar.com.javacuriosities.spring.services.Business" />
 
@@ -46,4 +48,38 @@
             </list>
         </property>
     </bean>
+
+    <bean id="installation" class="ar.com.javacuriosities.spring.services.Installation" />
+    <bean id="installationAspect" class="ar.com.javacuriosities.spring.aspect.xml.InstallationAspect" />
+
+    <aop:config>
+        <aop:aspect id="installationWithXMLAspect" ref="installationAspect" >
+            <aop:pointcut expression="execution(* ar.com.javacuriosities.spring.services.Installation.*())" id="installationPointcut"/>
+            <aop:pointcut expression="execution(* ar.com.javacuriosities.spring.services.Installation.*(..))" id="installationPointcutMultiplesParameters"/>
+
+            <!-- A before advice definition -->
+            <aop:before pointcut-ref = "installationPointcut" method = "beforeAdvice"/>
+
+            <!-- An after advice definition -->
+            <aop:after pointcut-ref = "installationPointcut" method = "afterAdvice"/>
+
+            <!-- An after-returning advice definition -->
+            <!-- The afterReturningAdvice method must have parameter named retVal -->
+            <aop:after-returning pointcut-ref = "installationPointcut" method = "afterReturningAdvice" returning = "retVal"/>
+
+            <!-- An after-throwing advice definition -->
+            <!-- The afterThrowingAdvice method must have parameter named ex -->
+            <aop:after-throwing pointcut-ref = "installationPointcut" method = "afterThrowingAdvice" throwing = "ex"/>
+
+            <!-- An around advice definition -->
+            <aop:around pointcut-ref = "installationPointcut" method = "aroundAdvice"/>
+
+            <aop:around pointcut-ref = "installationPointcutMultiplesParameters" method = "aroundAdvice"/>
+        </aop:aspect>
+    </aop:config>
+
+    <aop:aspectj-autoproxy />
+
+    <bean id="configuration" class="ar.com.javacuriosities.spring.services.Configuration" />
+    <bean id="configurationAspect" class="ar.com.javacuriosities.spring.aspect.annotations.ConfigurationAspect" />
 </beans>

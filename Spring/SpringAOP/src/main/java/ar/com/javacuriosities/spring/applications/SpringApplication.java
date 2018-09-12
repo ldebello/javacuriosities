@@ -1,10 +1,12 @@
 package ar.com.javacuriosities.spring.applications;
 
 import ar.com.javacuriosities.spring.services.Business;
+import ar.com.javacuriosities.spring.services.Configuration;
+import ar.com.javacuriosities.spring.services.Installation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringXMLApplication {
+public class SpringApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("application_context.xml");
@@ -19,6 +21,7 @@ public class SpringXMLApplication {
         businessWithAroundInterceptor.execute();
 
         businessWithBeforeInterceptor.execute();
+
         try {
             businessWithThrowsInterceptor.executeWithException();
         } catch (Exception e) {
@@ -26,5 +29,18 @@ public class SpringXMLApplication {
             e.printStackTrace();
         }
 
+        Installation installation = context.getBean ("installation", Installation.class);
+
+        installation.start();
+        installation.start("Hello World");
+        installation.startWithError();
+        installation.startWithReturn();
+
+        Configuration configuration = context.getBean ("configuration", Configuration.class);
+
+        configuration.configure();
+        configuration.configure("Hello World");
+        configuration.configureWithError();
+        configuration.configureWithReturn();
     }
 }
