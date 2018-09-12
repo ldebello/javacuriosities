@@ -10,7 +10,7 @@ public class Installation {
         System.out.println("Starting " + message);
     }
 
-    public void startWithError() {
+    public void startWithError() throws Exception {
         System.out.println("Starting with error");
         int result = 1 / 0;
     }

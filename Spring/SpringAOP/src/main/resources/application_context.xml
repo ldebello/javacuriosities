@@ -77,9 +77,4 @@
             <aop:around pointcut-ref = "installationPointcutMultiplesParameters" method = "aroundAdvice"/>
         </aop:aspect>
     </aop:config>
-
-    <aop:aspectj-autoproxy />
-
-    <bean id="configuration" class="ar.com.javacuriosities.spring.services.Configuration" />
-    <bean id="configurationAspect" class="ar.com.javacuriosities.spring.aspect.annotations.ConfigurationAspect" />
 </beans>

@@ -1,5 +1,7 @@
 package ar.com.javacuriosities.spring.services;
 
+import ar.com.javacuriosities.spring.annotations.Loggable;
+
 public class Configuration {
 
     public void configure() {
@@ -10,7 +12,7 @@ public class Configuration {
         System.out.println("Configuring " + message);
     }
 
-    public void configureWithError() {
+    public void configureWithError() throws Exception {
         System.out.println("Configuring with error");
         int result = 1 / 0;
     }
@@ -18,5 +20,10 @@ public class Configuration {
     public boolean configureWithReturn() {
         System.out.println("Configuring with return");
         return true;
+    }
+
+    @Loggable
+    public void configureWithAnnotation() {
+        System.out.println("Configuring with annotation");
     }
 }
