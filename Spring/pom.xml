@@ -45,6 +45,16 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>5.0.8.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>5.0.8.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>5.0.8.RELEASE</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.aspectj</groupId>
@@ -108,5 +118,6 @@
         <module>SpringBootBasics</module>
         <module>SpringMVCArchitecture</module>
         <module>SpringMVCBasics</module>
+        <module>SpringSecurityBasics</module>
     </modules>
 </project>
