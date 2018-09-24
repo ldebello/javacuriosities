@@ -17,6 +17,9 @@
             <user-service>
                 <user name="admin" password="{noop}1234" authorities="ROLE_ADMIN" />
             </user-service>
+            <!--<jdbc-user-service data-source-ref="dataSource"
+               users-by-username-query="select username,password, enabled from users where username=?"
+               authorities-by-username-query="select username, role from user_roles where username =? " />-->
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

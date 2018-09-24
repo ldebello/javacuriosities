@@ -15,6 +15,7 @@ public class WebController {
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String visitAdministratorPage(ModelMap modelObject) {
+
         modelObject.addAttribute("title", "Administrator Control Panel");
         modelObject.addAttribute("message", "This Page Demonstrates How To Use Spring Security!");
 

@@ -119,5 +119,6 @@
         <module>SpringMVCArchitecture</module>
         <module>SpringMVCBasics</module>
         <module>SpringSecurityBasics</module>
+        <module>SpringSecurityJDBCBasics</module>
     </modules>
 </project>
