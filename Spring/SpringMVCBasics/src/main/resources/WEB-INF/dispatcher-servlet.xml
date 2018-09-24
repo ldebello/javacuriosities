@@ -17,4 +17,5 @@
           p:prefix="/WEB-INF/pages/"
           p:suffix=".jsp" />
 
+    <bean name="/bean.do" class="ar.com.javacuriosities.spring.mvc.controller.BeanController" />
 </beans>
