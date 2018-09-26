@@ -107,6 +107,12 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>5.1.46</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.thymeleaf</groupId>
+                <artifactId>thymeleaf-spring5</artifactId>
+                <version>3.0.9.RELEASE</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <modules>
@@ -119,6 +125,7 @@
         <module>SpringMVCArchitecture</module>
         <module>SpringMVCBasics</module>
         <module>SpringSecurityBasics</module>
-        <module>SpringSecurityJDBCBasics</module>
+        <module>SpringSecurityAnnotationsBasics</module>
+        <module>SpringMVCThymeleaf</module>
     </modules>
 </project>
