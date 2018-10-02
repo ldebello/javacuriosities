@@ -26,16 +26,15 @@ public class Main {
                 session.save(new Event("Nuestro primer evento", new Date()));
                 session.save(new Event("Un segundo evento", new Date()));
                 session.getTransaction().commit();
-                session.close();
+            }
 
-                try (Session innerSession = sessionFactory.openSession()) {
-                    innerSession.beginTransaction();
-                    List<Event> result = innerSession.createQuery("from Event").list();
-                    for (Event event : result) {
-                        System.out.println("Event (" + event.getDate() + ") : " + event.getTitle());
-                    }
-                    innerSession.getTransaction().commit();
+            try (Session session = sessionFactory.openSession()) {
+                session.beginTransaction();
+                List<Event> result = session.createQuery("from Event").list();
+                for (Event event : result) {
+                    System.out.println("Event (" + event.getDate() + ") : " + event.getTitle());
                 }
+                session.getTransaction().commit();
             }
         } catch (Exception e) {
             // Log and Handle exception
