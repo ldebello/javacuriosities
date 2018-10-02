@@ -18,11 +18,32 @@
 
 	<packaging>pom</packaging>
 
+	<properties>
+		<hibernate.core>5.3.6.Final</hibernate.core>
+		<mysql.connector.java>5.1.46</mysql.connector.java>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.core}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.connector.java}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<modules>
 		<module>HibernateJPA</module>
 		<module>HibernateBasics</module>
 		<module>HibernateQueries</module>
 		<module>HibernateHierarchy</module>
+		<module>HibernateBootstrap</module>
 		<module>HibernateAssociations</module>
 		<module>HibernateCascadeAndFetch</module>
 	</modules>
