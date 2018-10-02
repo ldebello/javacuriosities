@@ -21,6 +21,7 @@
 
 	<modules>
 		<module>HibernateNativeXML</module>
+		<module>HibernateNativeJPA</module>
 		<module>HibernateNativeAnnotations</module>
 	</modules>
 </project>
