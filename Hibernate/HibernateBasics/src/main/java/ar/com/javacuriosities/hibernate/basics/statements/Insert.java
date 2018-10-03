@@ -24,19 +24,22 @@ public class Insert {
 
             // Iniciamos una transacción
             Transaction tx = session.beginTransaction();
+            try {
+                // Salvamos los productos
+                session.save(firstProduct);
+                session.save(secondProduct);
+                session.save(thirdProduct);
 
-            // Salvamos los productos
-            session.save(firstProduct);
-            session.save(secondProduct);
-            session.save(thirdProduct);
+                // Hacemos commit sobre la transacción
+                tx.commit();
 
-            // Hacemos commit sobre la transacción
-            tx.commit();
+                System.out.println("Products inserted...");
+            } catch (Exception e) {
+                // Log and Handle exception
+                e.printStackTrace();
 
-            System.out.println("Products inserted...");
-        } catch (Exception e) {
-            // Log and Handle exception
-            e.printStackTrace();
+                tx.rollback();
+            }
         } finally {
             HibernateUtil.shutdown();
         }

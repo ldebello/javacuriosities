@@ -25,16 +25,20 @@ public class Delete {
             // Iniciamos una transacción
             Transaction tx = session.beginTransaction();
 
-            // Eliminamos el producto
-            session.delete(product);
+            try {
+                // Eliminamos el producto
+                session.delete(product);
 
-            // Hacemos commit sobre la transacción
-            tx.commit();
+                // Hacemos commit sobre la transacción
+                tx.commit();
 
-            System.out.println("Product deleted...");
-        } catch (Exception e) {
-            // Log and Handle exception
-            e.printStackTrace();
+                System.out.println("Product deleted...");
+            } catch (Exception e) {
+                // Log and Handle exception
+                e.printStackTrace();
+
+                tx.rollback();
+            }
         } finally {
             HibernateUtil.shutdown();
         }

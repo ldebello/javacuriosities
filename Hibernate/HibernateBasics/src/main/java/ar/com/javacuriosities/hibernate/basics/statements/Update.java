@@ -22,16 +22,21 @@ public class Update {
             // Iniciamos una transacción
             Transaction tx = session.beginTransaction();
 
-            // Modificamos el producto
-            session.update(product);
+            try {
+                // Modificamos el producto
+                session.update(product);
 
-            // Hacemos commit sobre la transacción
-            tx.commit();
+                // Hacemos commit sobre la transacción
+                tx.commit();
 
-            System.out.println("Product updated...");
-        } catch (Exception e) {
-            // Log and Handle exception
-            e.printStackTrace();
+                System.out.println("Product updated...");
+
+            } catch (Exception e) {
+                // Log and Handle exception
+                e.printStackTrace();
+
+                tx.rollback();
+            }
         } finally {
             HibernateUtil.shutdown();
         }
