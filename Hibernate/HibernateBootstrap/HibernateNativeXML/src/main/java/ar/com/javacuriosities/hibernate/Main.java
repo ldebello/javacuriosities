@@ -1,6 +1,9 @@
 package ar.com.javacuriosities.hibernate;
 
 import ar.com.javacuriosities.hibernate.model.Event;
+import ar.com.javacuriosities.hibernate.model.EventHistory;
+import ar.com.javacuriosities.hibernate.model.EventProperty;
+import ar.com.javacuriosities.hibernate.model.EventSubscriber;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -23,7 +26,29 @@ public class Main {
 
             try (Session session = sessionFactory.openSession()) {
                 session.beginTransaction();
-                session.save(new Event("First Event", new Date()));
+
+                Event event = new Event("First Event", new Date());
+                event.getEventData().setUser("Cosme Fulanito");
+
+                EventHistory eventHistory1 = new EventHistory(new Date(), "Initial Version");
+                EventHistory eventHistory2 = new EventHistory(new Date(), "Second Version");
+
+                event.getEventHistory().add(eventHistory1);
+                event.getEventHistory().add(eventHistory2);
+
+                EventSubscriber eventSubscriber1 = new EventSubscriber("Pablo Marmol");
+                EventSubscriber eventSubscriber2 = new EventSubscriber("Pedro Picapiedra");
+
+                event.getEventSubscribers().add(eventSubscriber1);
+                event.getEventSubscribers().add(eventSubscriber2);
+
+                EventProperty eventProperty1 = new EventProperty("First Property");
+                EventProperty eventProperty2 = new EventProperty("Second Property");
+
+                event.getEventProperties().put("Property1", eventProperty1);
+                event.getEventProperties().put("Property2", eventProperty2);
+
+                session.save(event);
                 session.save(new Event("Second Event", new Date()));
                 session.getTransaction().commit();
             }

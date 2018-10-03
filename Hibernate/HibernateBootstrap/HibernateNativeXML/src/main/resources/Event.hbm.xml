@@ -18,7 +18,35 @@ Valores posibles para el tag generator
         <id name="id" column="event_id">
             <generator class="increment"/>
         </id>
-        <property name="date" type="timestamp" column="event_date"/>
+        <property name="date" type="date" column="event_date"/>
         <property name="title"/>
+
+        <component name="eventData">
+            <property name="user"/>
+        </component>
+
+        <set name="eventHistory" table="events_history">
+            <key column="event_id"></key>
+            <composite-element class="EventHistory">
+                <property name="entryTime" column="entry_time"/>
+                <property name="entry"/>
+            </composite-element>
+        </set>
+
+        <list name="eventSubscribers" table="event_subscribers">
+            <key column="event_id"></key>
+            <list-index column="subscriber_index"/>
+            <composite-element class="EventSubscriber">
+                <property name="subscriber"/>
+            </composite-element>
+        </list>
+
+        <map name="eventProperties" table="event_properties">
+            <key column="event_id"></key>
+            <map-key type="string" column="property_key" />
+            <composite-element class="EventProperty">
+                <property name="propertyValue"/>
+            </composite-element>
+        </map>
     </class>
 </hibernate-mapping>
