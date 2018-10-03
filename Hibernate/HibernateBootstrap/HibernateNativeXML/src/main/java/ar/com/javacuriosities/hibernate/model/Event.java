@@ -6,7 +6,10 @@ public class Event {
     private Long id;
 
     private String title;
+
     private Date date;
+
+    private EventData eventData = new EventData();
 
     public Event() {
     }
