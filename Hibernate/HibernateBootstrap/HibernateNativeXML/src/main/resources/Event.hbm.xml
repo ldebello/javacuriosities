@@ -3,6 +3,16 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
+<!--
+Valores posibles para el tag generator
+    Increment (increment): [long, int, short] Crea un identificador que es único si no hay otros procesos trabajando sobre la tabla. Osea no se recomienda en un ambiente concurrente.
+    Native (native): Elije entre los tipos Identity, sequence o hilo, dependiendo de las capacidades del motor que estemos usando.
+    Identity (identity): [long, int, short] (Solo en: DB2, MySQL, SQL Server, Sybase y HSQL) Son para los motores que funcionan con claves primarias del tipo identity. No soporta transacciones, si hay rollback perdes la secuencia y el número.
+    Sequence (sequence): [long, int, short] (Solo en: DB2, PostgreSQL, Oracle, SAP DB o McKoi) Usa una secuencia para generar los números.
+    Hilo (hilo): [long, short or int] Utiliza el algoritmo hi/lo para definir el id, es muy eficiente, pero solo genera ids únicos para una BD en particular.
+    Foreign (foreign): Utiliza el id de otro objeto, es muy útil para hacer asociaciones one-to-one
+    Assigned (assigned): Esta es muy importante, ya que permite que sea nuestra aplicación la que defina el id del objeto y se lo pase antes de llamar a save() , es un generador que no genera nada.
+-->
 <hibernate-mapping package="ar.com.javacuriosities.hibernate.model">
     <class name="Event" table="events">
         <id name="id" column="event_id">
