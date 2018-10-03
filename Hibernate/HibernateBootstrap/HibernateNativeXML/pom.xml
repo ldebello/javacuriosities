@@ -4,8 +4,8 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>HibernateNativeXMl</name>
-	<url>https://github.com/ldebello/javacuriosities/tree/master/Hibernate/HibernateBootstrap/HibernateNativeXMl</url>
+	<name>HibernateNativeXML</name>
+	<url>https://github.com/ldebello/javacuriosities/tree/master/Hibernate/HibernateBootstrap/HibernateNativeXML</url>
 
 	<parent>
 		<groupId>ar.com.javacuriosities</groupId>
@@ -14,7 +14,7 @@
 	</parent>
 
 	<groupId>ar.com.javacuriosities</groupId>
-	<artifactId>HibernateNativeXMl</artifactId>
+	<artifactId>HibernateNativeXML</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<dependencies>
