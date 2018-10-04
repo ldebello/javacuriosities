@@ -24,7 +24,7 @@ public class FactorialTask extends RecursiveTask<BigInteger> {
     @Override
     protected BigInteger compute() {
         if ((n - start) >= THRESHOLD) {
-            return ForkJoinTask.invokeAll(createSubtasks())
+            return invokeAll(createSubtasks())
                     .stream()
                     .map(ForkJoinTask::join)
                     .reduce(BigInteger.ONE, BigInteger::multiply);

@@ -7,10 +7,20 @@ import java.util.concurrent.ForkJoinPool;
 public class Main {
 
     public static void main(String[] args) {
-        ForkJoinPool forkJoinPool = (ForkJoinPool) Executors.newWorkStealingPool();
+        ForkJoinPool pool = (ForkJoinPool) Executors.newWorkStealingPool();
 
-        BigInteger result = forkJoinPool.invoke(new FactorialTask(100));
+        forkNewTasks(pool);
+
+        forkSplittingTasks(pool);
+    }
+
+    public static void forkSplittingTasks(ForkJoinPool pool) {
+        BigInteger result = pool.invoke(new FactorialTask(100));
 
         System.out.println("Result: " + result);
+    }
+
+    public static void forkNewTasks(ForkJoinPool pool) {
+        pool.invoke(new NewUserTask());
     }
 }
