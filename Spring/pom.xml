@@ -122,6 +122,7 @@
         <module>SpringHibernateJPA</module>
         <module>SpringJDBCTemplate</module>
         <module>SpringBootBasics</module>
+        <module>SpringBootAdvanced</module>
         <module>SpringMVCArchitecture</module>
         <module>SpringMVCBasics</module>
         <module>SpringSecurityBasics</module>
