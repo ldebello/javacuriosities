@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <title>Admin Page</title>
@@ -24,7 +25,16 @@
             <div class="panel-heading">
                 <span th:utext="${userName}"></span>
             </div>
-            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+            </div>
+
+            Logged user:
+            <p sec:authentication="name" />
+
+            Authorities:
+            <p sec:authentication="principal.authorities" />
         </div>
     </div>
 
