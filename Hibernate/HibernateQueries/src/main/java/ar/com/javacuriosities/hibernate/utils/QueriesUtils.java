@@ -446,6 +446,30 @@ public class QueriesUtils {
                 System.out.println("Count: " + data[1]);
                 System.out.println("*************************");
             }
+
+            System.out.println("HQL Pagination");
+            int pageSize = 2;
+            String countQ = "SELECT COUNT(b.id) FROM Brand b";
+            Query countQuery = session.createQuery(countQ);
+            Long countResults = (Long) countQuery.uniqueResult();
+            int lastPageNumber = (int) (Math.ceil(countResults / pageSize));
+
+            System.out.println("Number of records: " + countResults);
+            System.out.println("Page Size: " + pageSize);
+            System.out.println("Last Page: " + lastPageNumber);
+
+            for (int page = 0; page <= lastPageNumber; page++) {
+                System.out.println("Query Page: " + page);
+                query = session.createQuery("FROM Brand ");
+                query.setFirstResult(page * pageSize);
+                query.setMaxResults(pageSize);
+
+                brands = query.list();
+
+                for (Brand brand : brands) {
+                    System.out.println("Brand : " + brand);
+                }
+            }
         } catch (Exception e) {
             // Log and Handle exception
             e.printStackTrace();
