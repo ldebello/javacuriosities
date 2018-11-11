@@ -26,6 +26,8 @@
         <mapping class="ar.com.javacuriosities.hibernate.model.Invoice"/>
         <mapping class="ar.com.javacuriosities.hibernate.model.InvoicePK"/>
 
+        <mapping class="ar.com.javacuriosities.hibernate.model.Person"/>
+
         <mapping class="ar.com.javacuriosities.hibernate.model.User"/>
         <mapping class="ar.com.javacuriosities.hibernate.model.PersistentEntity"/>
     </session-factory>

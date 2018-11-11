@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "people")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Opcional, es el valor por defecto
 @DiscriminatorColumn(name = "discriminator", discriminatorType = DiscriminatorType.STRING) // Opcional, esta columna por defecto se llama DTYPE y es del tipo String
-@DiscriminatorValue(value = "PersonDiscriminator") // Opcional, si no se indica por defecto se usa el nombre de la clase
+@DiscriminatorValue(value = "PersonDiscriminator") // Opcional, si no se indica por defecto se usa el nombre de la clase, también podemos cambiar el name en @Entity, pero esto impactaría en los queries HQL
 public class Person {
 
     @Id

@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.jpa;
+package ar.com.javacuriosities.jpa.basic.statements;
 
 import ar.com.javacuriosities.jpa.model.Student;
 import ar.com.javacuriosities.jpa.utils.JPAUtil;
@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JPAMain {
+public class Statements {
     public static void main(String[] args) {
         insert("Cosme Fulanito", 99);
         insert("Pedro Picapiedra", 100);

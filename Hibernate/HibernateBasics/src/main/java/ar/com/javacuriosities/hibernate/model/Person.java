@@ -1,36 +1,38 @@
 package ar.com.javacuriosities.hibernate.model;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 
-@Entity
+@Entity(name = "people_entity")
 @Table(name = "people")
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "person_generator") // Aca cambiamos la generación de IDs porque sino se generarían duplicados
-    @TableGenerator(name = "person_generator")
-    @Column(name = "id_person")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private String lastName;
+    @Embedded
+    @AttributeOverrides(value = {
+            @AttributeOverride(name = "zip", column = @Column(length = 10)),
+            @AttributeOverride(name = "city", column = @Column(nullable = false))
+    })
+    private Address address;
 
     public Person() {
     }
 
-    public Person(String name, String lastName) {
+    public Person(String name, Address address) {
         this.name = name;
-        this.lastName = lastName;
+        this.address = address;
     }
 
     public Long getId() {
@@ -49,12 +51,12 @@ public class Person {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
@@ -62,7 +64,7 @@ public class Person {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", address=" + address +
                 '}';
     }
 }
