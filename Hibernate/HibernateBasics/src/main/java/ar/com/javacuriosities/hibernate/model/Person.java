@@ -5,6 +5,7 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,8 @@ import javax.persistence.Table;
 
 @Entity(name = "people_entity")
 @Table(name = "people")
-public class Person {
+@EntityListeners(AuditListener.class)
+public class Person implements Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +28,9 @@ public class Person {
             @AttributeOverride(name = "city", column = @Column(nullable = false))
     })
     private Address address;
+
+    @Embedded
+    private Audit audit;
 
     public Person() {
     }
@@ -60,11 +65,22 @@ public class Person {
     }
 
     @Override
+    public Audit getAudit() {
+        return audit;
+    }
+
+    @Override
+    public void setAudit(Audit audit) {
+        this.audit = audit;
+    }
+
+    @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address=" + address +
+                ", audit=" + audit +
                 '}';
     }
 }

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -53,6 +55,16 @@ public class Product {
     public Product(String description, Double price) {
         this.description = description;
         this.price = price;
+    }
+
+    @PrePersist
+    public void executePrePersist() {
+        System.out.println("Pre Persist");
+    }
+
+    @PreUpdate
+    public void executePreUpdate() {
+        System.out.println("Pre Update");
     }
 
     public Long getId() {
