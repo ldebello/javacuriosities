@@ -1,6 +1,5 @@
-package ar.com.javacuriosities.hibernate.model.bidirectional_shared_pk;
+package ar.com.javacuriosities.hibernate.model.bidirectional_db;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,8 +8,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "authors")
-public class Author {
+@Table(name = "employees")
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +17,10 @@ public class Author {
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "author")
-    private Biography biography;
+    @OneToOne
+    private ContactInformation contactInformation;
 
-    public Author() {
+    public Employee() {
     }
 
     public Long getId() {
@@ -40,11 +39,11 @@ public class Author {
         this.name = name;
     }
 
-    public Biography getBiography() {
-        return biography;
+    public ContactInformation getContactInformation() {
+        return contactInformation;
     }
 
-    public void setBiography(Biography biography) {
-        this.biography = biography;
+    public void setContactInformation(ContactInformation contactInformation) {
+        this.contactInformation = contactInformation;
     }
 }

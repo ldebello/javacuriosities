@@ -2,13 +2,13 @@ package ar.com.javacuriosities.hibernate.associations;
 
 import ar.com.javacuriosities.hibernate.model.bidirectional.Student;
 import ar.com.javacuriosities.hibernate.model.bidirectional.Summary;
-import ar.com.javacuriosities.hibernate.model.bidirectional_shared_pk.Author;
-import ar.com.javacuriosities.hibernate.model.bidirectional_shared_pk.Biography;
+import ar.com.javacuriosities.hibernate.model.bidirectional_db.ContactInformation;
+import ar.com.javacuriosities.hibernate.model.bidirectional_db.Employee;
 import ar.com.javacuriosities.hibernate.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class BidirectionalSharedPKOneToOne {
+public class BidirectionalDBOneToOne {
 
     public static void main(String[] args) {
         // Obtenemos una Session Factory
@@ -18,24 +18,17 @@ public class BidirectionalSharedPKOneToOne {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            Biography biography = new Biography();
-            biography.setInformation("This is the most important author");
+            Employee employee = new Employee();
+            employee.setName("Cosme Fulanito");
 
-            Author author1 = new Author();
-            author1.setName("Cosme Fulanito III");
+            ContactInformation contactInformation = new ContactInformation();
+            contactInformation.setComments("Contact Information");
 
-            Author author2 = new Author();
-            author2.setName("Cosme Fulanito IX");
+            employee.setContactInformation(contactInformation);
+            contactInformation.setEmployee(employee);
 
-            Author author3 = new Author();
-            author3.setName("Cosme Fulanito VII");
-
-            biography.setAuthor(author2);
-            author2.setBiography(biography);
-
-            session.save(author1);
-            session.save(author2);
-            session.save(author3);
+            session.save(employee);
+            session.save(contactInformation);
 
             session.getTransaction().commit();
         } catch (Exception e) {
