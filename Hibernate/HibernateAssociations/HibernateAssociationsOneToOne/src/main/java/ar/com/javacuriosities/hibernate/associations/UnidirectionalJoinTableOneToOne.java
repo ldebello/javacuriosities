@@ -1,12 +1,12 @@
 package ar.com.javacuriosities.hibernate.associations;
 
-import ar.com.javacuriosities.hibernate.model.unidirectional_shared_pk.Task;
-import ar.com.javacuriosities.hibernate.model.unidirectional_shared_pk.TaskMetadata;
+import ar.com.javacuriosities.hibernate.model.unidirectional_join_table.Task;
+import ar.com.javacuriosities.hibernate.model.unidirectional_join_table.TaskDetail;
 import ar.com.javacuriosities.hibernate.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class UnidirectionalSharedPKOneToOne {
+public class UnidirectionalJoinTableOneToOne {
 
     public static void main(String[] args) {
         // Obtenemos una Session Factory
@@ -14,21 +14,15 @@ public class UnidirectionalSharedPKOneToOne {
 
         // Abrimos y trabajamos sobre una Session
         try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-
             Task task = new Task();
-            task.setDescription("First Task");
+            task.setDescription("Initial Task");
 
-            TaskMetadata taskMetadata1 = new TaskMetadata();
-            taskMetadata1.setMetadata("Metadata 1");
+            TaskDetail details = new TaskDetail();
+            details.setDetails("Custom Details");
 
-            TaskMetadata taskMetadata2 = new TaskMetadata();
-            taskMetadata2.setMetadata("Metadata 2");
+            task.setDetails(details);
 
-            TaskMetadata taskMetadata3 = new TaskMetadata();
-            taskMetadata3.setMetadata("Metadata 3");
-
-            task.setTaskMetadata(taskMetadata3);
+            session.beginTransaction();
 
             session.save(task);
 

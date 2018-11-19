@@ -25,6 +25,9 @@
         <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Client"/>
         <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Address"/>
 
+        <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional_join_table.Task"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional_join_table.TaskDetail"/>
+
         <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional_db.Employee"/>
         <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional_db.ContactInformation"/>
 
