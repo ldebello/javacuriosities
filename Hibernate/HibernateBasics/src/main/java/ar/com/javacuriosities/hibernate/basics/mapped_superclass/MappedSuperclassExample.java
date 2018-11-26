@@ -37,7 +37,7 @@ public class MappedSuperclassExample {
 
                 Transaction tx = session.beginTransaction();
 
-                User user = (User) session.get(User.class, Long.valueOf(1));
+                User user = (User) session.get(User.class, 1L);
 
                 user.setPassword("SecuredPassword-1234");
 

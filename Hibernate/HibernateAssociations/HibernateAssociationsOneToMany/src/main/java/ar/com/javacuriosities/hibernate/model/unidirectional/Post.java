@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.hibernate.model.unidirectional_join_table;
+package ar.com.javacuriosities.hibernate.model.unidirectional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,14 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tasks_details")
-public class TaskDetail {
+@Table(name = "posts")
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String details;
+    private String title;
 
     public Long getId() {
         return id;
@@ -24,11 +24,11 @@ public class TaskDetail {
         this.id = id;
     }
 
-    public String getDetails() {
-        return details;
+    public String getTitle() {
+        return title;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

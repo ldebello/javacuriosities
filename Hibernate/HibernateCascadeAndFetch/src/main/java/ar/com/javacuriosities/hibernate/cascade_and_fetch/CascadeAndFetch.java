@@ -65,7 +65,7 @@ public class CascadeAndFetch {
             }
 
             try (Session session = sessionFactory.openSession()) {
-                Person personFromDB = (Person) session.get(Person.class, 1);
+                Person personFromDB = (Person) session.get(Person.class, 1L);
 
                 System.out.println("Getting Primary Address");
                 System.out.println(personFromDB.getPrimaryAddress());

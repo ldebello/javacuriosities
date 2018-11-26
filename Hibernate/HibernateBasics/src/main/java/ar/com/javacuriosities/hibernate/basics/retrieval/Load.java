@@ -18,7 +18,7 @@ public class Load {
         // Abrimos y trabajamos sobre una Session
         try (Session session = sessionFactory.openSession()) {
 
-            Product product = (Product) session.load(Product.class, Long.valueOf(1));
+            Product product = (Product) session.load(Product.class, 1L);
 
             System.out.println(product.getClass().getName());
             System.out.println(product.getDescription());

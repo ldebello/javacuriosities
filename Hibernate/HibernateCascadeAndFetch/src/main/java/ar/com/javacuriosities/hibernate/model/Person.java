@@ -18,7 +18,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -45,14 +45,17 @@ public class Person {
     @OneToMany(fetch = FetchType.LAZY)
     private List<MobilePhone> mobilePhones;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Task> tasks;
+
     public Person() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -86,6 +89,14 @@ public class Person {
 
     public void setMobilePhones(List<MobilePhone> mobilePhones) {
         this.mobilePhones = mobilePhones;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override

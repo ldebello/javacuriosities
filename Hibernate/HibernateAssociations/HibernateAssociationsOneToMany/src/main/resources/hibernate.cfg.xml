@@ -25,6 +25,9 @@
         <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Employee"/>
         <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Department"/>
 
+        <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Post"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.unidirectional.Comment"/>
+
         <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional.Client"/>
         <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional.MobilePhone"/>
 
