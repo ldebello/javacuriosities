@@ -1,11 +1,11 @@
-package ar.com.javacuriosities.networking.udp.multicast;
+package ar.com.javacuriosities.networking.udp.multicast.receivers;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class MulticastSender2 {
+public class MulticastSender {
 
 	public static volatile boolean isRunning = true;
 
@@ -14,17 +14,15 @@ public class MulticastSender2 {
 		try (DatagramSocket datagramSocket = new DatagramSocket()) {
 
 			// Buscamos el grupo multicast al cual queremos enviar mensajes
-			InetAddress group = InetAddress.getByName("231.0.0.2");
+			InetAddress group = InetAddress.getByName("231.0.0.1");
 
 			while (isRunning) {
 				// Mensaje
-				String mensaje = "Welcome from server 2";
+				String mensaje = "Welcome from server";
 				byte[] data = mensaje.getBytes();
 
-				// Creamos el Datagrama (mensaje, tamaño mensaje, grupo
-				// Multicast y puerto):
-				DatagramPacket dgp = new DatagramPacket(data, data.length,
-						group, 10000);
+				// Creamos el Datagrama (mensaje, tamaño mensaje, grupo Multicast y puerto):
+				DatagramPacket dgp = new DatagramPacket(data, data.length, group, 10000);
 
 				// Enviamos el paquete
 				datagramSocket.send(dgp);

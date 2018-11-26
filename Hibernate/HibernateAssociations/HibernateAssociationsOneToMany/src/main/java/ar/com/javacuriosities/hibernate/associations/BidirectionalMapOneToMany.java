@@ -23,7 +23,7 @@ public class BidirectionalMapOneToMany {
             session.beginTransaction();
 
             Execution execution1 = new Execution();
-            execution1.setName("Java-Process");
+            execution1.setDescription("Java-Process");
 
             Parameters parameter1 = new Parameters();
             parameter1.setName("-Xms");

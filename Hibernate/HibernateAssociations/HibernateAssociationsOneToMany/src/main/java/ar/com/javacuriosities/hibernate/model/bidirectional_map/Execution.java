@@ -17,7 +17,7 @@ public class Execution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String description;
 
     @OneToMany(mappedBy = "execution")
     @MapKey(name = "name")
@@ -34,12 +34,12 @@ public class Execution {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Map<String, Parameters> getParameters() {

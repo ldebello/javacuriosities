@@ -19,7 +19,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<hibernate.core>5.3.6.Final</hibernate.core>
+		<hibernate.core>5.3.7.Final</hibernate.core>
 		<mysql.connector.java>5.1.46</mysql.connector.java>
 	</properties>
 

@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.networking.udp.multicast;
+package ar.com.javacuriosities.networking.udp.multicast.senders;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

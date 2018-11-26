@@ -31,7 +31,7 @@ import javax.net.ssl.SSLServerSocketFactory;
  * 	- Certificados:
  * 		Un servidor debe enviar su certificado al cliente
  * 		El cliente debe verificar el certificado del servidor con una CA (Certificate Authority)
- * 		Opcionalmente el cliente tambien se autenticara con un certificado al servidor
+ * 		Opcionalmente el cliente también se autenticara con un certificado al servidor
  * 
  * En el contexto de SSL, se utilizan dos tipos de archivos
  * - Truststore
