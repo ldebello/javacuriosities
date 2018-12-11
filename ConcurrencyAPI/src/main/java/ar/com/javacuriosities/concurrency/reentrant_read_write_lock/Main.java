@@ -48,7 +48,9 @@ public class Main {
 	 * Creamos un Thread que van a ejecutar operaciones de escritura Un solo
 	 * escritor puede estar al mismo tiempo.
 	 */
-	private static final class Writer extends Thread {
+	private static final class Writer implements Runnable {
+
+		private String name;
 
 		/*
 		 * Usamos un WriteLock el cual tiene exclusion mutua para las escrituras
@@ -57,21 +59,21 @@ public class Main {
 		private WriteLock lock;
 
 		public Writer(String name, WriteLock lock) {
-			super(name);
+			this.name = name;
 			this.lock = lock;
 		}
 
 		@Override
 		public void run() {
 			try {
-				System.out.println(getName() + ": Trying to write");
+				System.out.println(name + ": Trying to write");
 
 				/*
 				 * Al pedir el lock() se va a comprobar que no haya nadie
 				 * escribiendo y que tampoco haya ningún lector
 				 */
 				lock.lock();
-				System.out.println(getName() + ": wrote something");
+				System.out.println(name + ": wrote something");
 
 				TimeUnit.MILLISECONDS.sleep((long) (Math.random() * 50));
 			} catch (InterruptedException e) {
@@ -87,37 +89,22 @@ public class Main {
 	 * Esta clase representa los lectores, estos puede haber ejecutar lecturas
 	 * de forma concurrente pero no pueden leer si un escritor
 	 */
-	private static final class Reader extends Thread {
+	private static final class Reader implements Runnable {
+
+		private String name;
 
 		/*
 		 * El ReadLock nos deja leer hasta detectar un Writer
 		 */
 		private ReadLock lock;
 
-		public Reader(String nombre, ReadLock lock) {
-			super(nombre);
+		public Reader(String name, ReadLock lock) {
+			this.name = name;
 			this.lock = lock;
 		}
 
 		@Override
 		public void run() {
-			try {
-				System.out.println(getName() + ": Trying to read");
-
-				/*
-				 * Obtenemos el lock() siempre y cuando no haya nadie escribiendo
-				 */
-				lock.lock();
-				System.out.println(getName() + ": Read something");
-
-				TimeUnit.MILLISECONDS.sleep((long) (Math.random() * 50));
-			} catch (InterruptedException e) {
-				// Log and Handle exception
-				e.printStackTrace();
-			} finally {
-				// Liberamos a esta lector
-				lock.unlock();
-			}
 		}
 	}
 }
