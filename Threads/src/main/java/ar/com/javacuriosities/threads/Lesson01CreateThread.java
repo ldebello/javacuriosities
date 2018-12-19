@@ -69,6 +69,10 @@ package ar.com.javacuriosities.threads;
  * 	- Cada LCPU tiene sus propios registros.
  * 	- Las memorias cache L1, L2, L3 pueden ser propias de cada LCPU o alguna puede estar compartida.
  *
+ * UMA & NUMA Memory Architecture:
+ *
+ * - Uniform Memory Access: Cada logical core tiene acceso uniforme a la memoria (Symmetric Multiprocessor - SMP). Multiples core interactúan con la memoria por medio de un bus.
+ * - Non-uniform Memory Access: El tiempo de acceso a la memoria depende de la location de los datos, el acceso local es mas rápido y es mas fácil de escalar que SMP. Un conjunto de core comparte un bus para acceder a la memoria y otro conjunto de cores comparte otro bus.
  */
 public class Lesson01CreateThread {
 
