@@ -73,8 +73,16 @@ import java.net.Socket;
  * Es común ver un valor de 1460 ya que que si a eso le sumamos 20 bytes de TCP Header y 20 bytes de IP Header, nos da un total de 1500 bytes que suele
  * ser el valor normal para el MTU.
  *
- * MTU (Maximum Transmission Unit): Es el maximo valor de un Packet y es independiente del protocolo. Idealmente queremos no superar el MTU para evitar
- * que nuestro packets se fragmenten (La fragmentación es manejada por la capa 3 - Network).
+ * MTU (Maximum Transmission Unit): Es un concepto relacionado con la capa 3, acerca de que tan grande puede ser un Packet y es independiente del protocolo.
+ * Dado que un Datagram IP es 2 bytes la teoría nos que el maximo tamaño seria 2^16-1= 65535 bytes or aproximadamente 64 KB. Sin embargo es muy común escuchar que el MTU
+ * no debería ser mayor a 1500 para evitar (IP Fragmentation), dado que en la capa 2 generalmente nos encontramos con el protocolo Ethernet que define
+ * un MTU maximo de 1526 (26 Header + 1500 Data).
+ *
+ * PDU (Protocol Data Unit): Describe como se mueven los datos de una capa a la otra. Donde el Header + Payload Data se transforma en la Data del nivel inferior y se engloba en un PDU de esa capa.
+ *
+ * Jumbo Frames: Son frames de Ethernet que el tamaño maximo es 9000 en lugar de 1500. Sin embargo solo podemos habilitar esto en equipos especiales y debemos asegurar que toda la conexion
+ * es capaz de soportar jumbo frames. Para probar eso podríamos ejecutar "ping -D -s 1473 www.google.com" -D indica que no se permita la fragmentación y -s el size del packet, al hacer ping
+ * estamos usando ICMP que tiene un header de 28 bytes por eso el maximo sin jumbo frames ni fragmentación seria de 1472 bytes.
  *
  * Ports:
  * Contamos con 65535 puertos, lo cuales están clasificados en tres grupos
