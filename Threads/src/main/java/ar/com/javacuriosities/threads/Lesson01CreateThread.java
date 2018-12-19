@@ -56,6 +56,19 @@ package ar.com.javacuriosities.threads;
  * - Finalizer: Thread que hace pull de los objetos desde la finalization queue y ejecuta su método finalize.
  * - Reference Handler: Es un thread de alta prioridad que se encarga de ir encolando las referencias pendientes.
  *
+ *
+ * Sockets vs Chips vs Core
+ *
+ * - Socket: Es el conector físico en el mother que acepta un chip físico. Muchos motherboards tienen soporte para multiples chips.
+ * - CPU chip: Se refiere al circuito integrado físico. Este contiene el System Bus que comunica a los distintos núcleos. Un CPU chip puede contener multiples núcleos.
+ * - Core: Pueden ejecutar threads de forma independiente, cada core físico tiene una ALU (Arithmetic Logic Unit).
+ * - LCPU:
+ * 	- Un core físico puede tener 1 o 2 LCPU (Logical CPU).
+ * 	- Cada LCPU puede ejecutar 1 thread.
+ * 	- Si tenemos mas de 1 LCPU por core esto es gracias al Hyper-threading.
+ * 	- Cada LCPU tiene sus propios registros.
+ * 	- Las memorias cache L1, L2, L3 pueden ser propias de cada LCPU o alguna puede estar compartida.
+ *
  */
 public class Lesson01CreateThread {
 
