@@ -14,7 +14,5 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<groupId>ar.com.javacuriosities</groupId>
 	<artifactId>NIO</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
 </project>
