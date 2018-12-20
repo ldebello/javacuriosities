@@ -20,6 +20,10 @@
 	<properties>
 		<lib-dir>lib</lib-dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
 		<maven-compiler-plugin-version>3.2</maven-compiler-plugin-version>
 		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
 	</properties>
@@ -43,17 +47,4 @@
 		<module>Annotations</module>
 		<module>DynamicProxies</module>
     </modules>
-
-  	<build>
-    	<plugins>
-      	<plugin>
-        	<artifactId>maven-compiler-plugin</artifactId>
-        	<version>${maven-compiler-plugin-version}</version>
-        	<configuration>
-            	<source>1.8</source>
-            	<target>1.8</target>
-        	</configuration>
-    	</plugin>
-    </plugins>
-  </build>
 </project>
