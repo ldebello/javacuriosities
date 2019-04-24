@@ -42,9 +42,10 @@
 		<module>NIO</module>
 		<module>NIOServer</module>
 		<module>Hibernate</module>
-        <module>Spring</module>
+		<module>Spring</module>
 		<module>Reflection</module>
 		<module>Annotations</module>
 		<module>DynamicProxies</module>
-    </modules>
+      <module>Collections</module>
+   </modules>
 </project>
