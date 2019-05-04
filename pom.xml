@@ -47,5 +47,6 @@
 		<module>Annotations</module>
 		<module>DynamicProxies</module>
       <module>Collections</module>
-   </modules>
+        <module>JMX</module>
+    </modules>
 </project>
