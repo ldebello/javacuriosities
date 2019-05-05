@@ -30,7 +30,7 @@ public class Deadlock {
 
         @Override
         public void run() {
-            System.out.println("Executing file_transfer from: " + from + " to: " + to);
+            System.out.println("Executing transfer from: " + from + " to: " + to);
             BankAccount.transfer(from, to, 10d);
         }
     }
