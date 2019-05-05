@@ -1,6 +1,6 @@
 package ar.com.javacuriosities.threads;
 
-/**
+/*
  * Spurious Wakeup:
  *
  * Por norma general esperaríamos que un thread deje de estar en estado wait debido a que otro

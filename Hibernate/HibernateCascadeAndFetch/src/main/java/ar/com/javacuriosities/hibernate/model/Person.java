@@ -22,7 +22,7 @@ public class Person {
 
     private String name;
 
-    /**
+    /*
      * CascadeType.DETACH - Cuando desenganchamos la entidad todas las entidades que contenga esta variable serán persistidas también.
      * CascadeType.PERSIST - Cuando persistamos la entidad todas las entidades que contenga esta variable serán persistidas también.
      * CascadeType.REFRESH - Cuando actualicemos la entidad todas las entidades que contenga esta variable se actualizarán.
@@ -30,7 +30,8 @@ public class Person {
      * CascadeType.MERGE - Cuando hagamos un "merge" de la entidad todas las entidades que contenga esta variable realizarán la misma operación.
      * CascadeType.ALL - Todas las operaciones citadas anteriormente.
      */
-    /**
+
+    /*
      * Las annotation @OneToOne tienen como valor por defecto Eager para el fetch
      */
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -39,7 +40,7 @@ public class Person {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Address secondaryAddress;
 
-    /**
+    /*
      * Las annotation @OneToMany tienen como valor por defecto Lazy para el fetch
      */
     @OneToMany(fetch = FetchType.LAZY)

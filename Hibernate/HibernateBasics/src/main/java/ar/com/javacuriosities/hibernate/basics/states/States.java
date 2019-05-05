@@ -19,7 +19,7 @@ public class States {
         // Siempre que salvamos, modificamos, eliminamos debemos estar dentro de una transacción
         session.beginTransaction();
 
-        /**
+        /*
          * Creamos un objeto, este se encuentra en estado Transient.
          * Un objeto estará en estado Transient cuando acabe de ser creado en Java mediante el operador new.
          * Es decir cuando este recién fue creado por nosotros. Este estado tiene la característica de que hibernate no sabe nada de nuestro objeto.
@@ -30,7 +30,7 @@ public class States {
         product.setPrice(100.5);
         product.setDate(new Date());
 
-        /**
+        /*
          * Aca el objeto pasa a estado Persistent.
          * Un objeto esta en estado Persistent cuando ya esta guardado en la base de datos y además Hibernate también es consciente de ello.
          * Es importante notar la diferencia con el estado anterior en el que el objeto podía estar persistido pero Hibernate lo desconocía.
@@ -43,7 +43,7 @@ public class States {
         // Finalizamos la transacción para persistir los datos
         session.getTransaction().commit();
 
-        /**
+        /*
          * Cuando cerramos la session los objetos pasan a estado Detached.
          * Este estado es similar al estado Transient solo que se produce cuando cerramos la sesion mediante Session.close() o
          * llamamos al método Session.evict(Object objeto) para el objeto que queremos pasar a este estado.
@@ -58,7 +58,8 @@ public class States {
         session.beginTransaction();
 
         product = (Product) session.load(Product.class, 1L);
-        /**
+
+        /*
          * Aquí el objeto pasa a estado Removed.
          * A este estado pasan los objetos que se han borrado de la base de datos mediante el método delete().
          */

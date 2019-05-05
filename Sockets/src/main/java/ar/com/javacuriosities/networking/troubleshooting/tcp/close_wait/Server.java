@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
+/*
  * El estado de CLOSE_WAIT indica que el socket esta esperando active close desde la aplicación. Un socket en este estado
  * puede permanecer indefinidamente, lo cual puede generar un file descriptor leak (En Java esto se manifiesta como "Too many open files" error)
  *

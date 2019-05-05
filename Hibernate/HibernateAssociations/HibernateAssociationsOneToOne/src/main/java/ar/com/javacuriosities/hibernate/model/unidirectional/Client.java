@@ -18,7 +18,7 @@ public class Client {
 
     private String name;
 
-    /**
+    /*
      * La annotation @OneToOne no puede ser usada con la annotation @Column, si queremos cambiar
      * datos sobre la columna debemos usar @JoinColumn
      *

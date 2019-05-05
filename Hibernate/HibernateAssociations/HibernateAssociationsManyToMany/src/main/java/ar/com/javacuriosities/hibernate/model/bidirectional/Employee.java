@@ -8,7 +8,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.List;
 
-/**
+/*
  * Esta asociación tiene dos lados, owner side y inverse side, El owner side define la tabla de union.
  */
 @Entity

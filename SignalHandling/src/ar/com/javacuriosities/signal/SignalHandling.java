@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import sun.misc.Signal;
 import sun.misc.SignalHandler;
 
-/**
+/*
  * La JVM por defecto maneja algunas señales de forma automatica o utiliza las mismas
  * para realizar ciertas optimizaciones.
  *

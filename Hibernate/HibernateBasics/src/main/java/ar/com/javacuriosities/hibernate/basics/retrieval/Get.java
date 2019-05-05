@@ -5,7 +5,7 @@ import ar.com.javacuriosities.hibernate.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-/**
+/*
  * El método get() retorna NULL cuando el objeto no existe en la DB,
  * si el objeto existe retorna el objeto desde la base sin ningún proxy
  */

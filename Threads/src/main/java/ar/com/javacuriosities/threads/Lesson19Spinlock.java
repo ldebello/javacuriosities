@@ -1,6 +1,6 @@
 package ar.com.javacuriosities.threads;
 
-/**
+/*
  * Existen varios tipos de locks, antes estuvimos usando un mutex y ahora usaremos
  * un spinlock, donde la diferencia radica en que este continua evaluando el lock (Por medio
  * de un busy waiting), y el mutex pone los threads a esperar. Esta técnica nos es util

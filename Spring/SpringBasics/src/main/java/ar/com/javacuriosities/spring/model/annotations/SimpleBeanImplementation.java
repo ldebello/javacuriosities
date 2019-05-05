@@ -19,7 +19,7 @@ public class SimpleBeanImplementation implements SimpleBeanInterface {
         System.out.println("PostConstruct method");
     }
 
-    /**
+    /*
      * Aunque usáramos AbstractApplicationContext#registerShutdownHook
      * este método no se ejecutaría, ya que los PreDestroy no son ejecutados cuando el scope
      * es prototype

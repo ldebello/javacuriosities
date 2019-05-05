@@ -1,6 +1,6 @@
 package ar.com.javacuriosities.threads;
 
-/**
+/*
  * Asi cuando usamos variables asociadas a un Thread debemos notar que si un Thread crea otro, ese no puede acceder
  * al valor de sus variables {@link ThreadLocal} ya que es uno nuevo, si quisieramos inicializar los {@link ThreadLocal} que
  * corresponden al nuevo Thread en base a los valores ya inicializados para su Thread "padre" debemos utilizar {@link InheritableThreadLocal}

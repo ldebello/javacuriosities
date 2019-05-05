@@ -265,7 +265,7 @@ public class QueriesUtils {
             System.out.println("Updated rows: " + rowCount);
             session.getTransaction().commit();
 
-            /**
+            /*
              * El insert es soportado por HQL no hay equivalente en Java Persistence Query Language (JPQL)
              */
             System.out.println("HQL Insert/Select");
@@ -333,7 +333,8 @@ public class QueriesUtils {
             Brand brandWithoutAddress = (Brand) session.createQuery("SELECT b FROM Brand b WHERE b.address IS NULL").uniqueResult();
 
             System.out.println(brandWithoutAddress);
-            /**
+
+            /*
              * Podemos usar los siguientes condicionales =, >, <, >=, <= [NOT]
              * BETWEEN [NOT] LIKE [NOT] IN IS [NOT] EMPTY IS [NOT] NULL
              */
@@ -346,7 +347,7 @@ public class QueriesUtils {
                 System.out.println(product);
             }
 
-            /**
+            /*
              * Podemos usar las siguientes funciones (Los indexes empiezan de 1)
              * CONCAT(cadena1, cadena1) SUBSTRING(cadena, initialIndex, longitud)
              * TRIM([LEADING | TRAILING | BOTH] [letra FROM] cadena) LOWER(cadena)
@@ -364,7 +365,8 @@ public class QueriesUtils {
             }
 
             System.out.println("HQL Select with alias");
-            /**
+
+            /*
              * La clausula AS es opcional
              */
             query = session.createQuery("SELECT 'Description: ' || p.description FROM Product AS p");
@@ -429,7 +431,7 @@ public class QueriesUtils {
                 System.out.println("Number of products: " + brand.getProducts().size());
             }
 
-            /**
+            /*
              * Tenemos las siguientes funciones agregadas: COUNT: Retorna un Long
              * MAX, MIN: Retorna un objeto del tipo de dato de la columna AVG:
              * Retorna Double SUM: Retorna un objeto dependiendo el tipo de la
@@ -542,7 +544,7 @@ public class QueriesUtils {
 
             System.out.println("Criteria with fetch");
 
-            /**
+            /*
              * Podemos configurar el tipo de Fetch, ahora se utiliza JOIN = EAGER
              * SELECT = LAZY
              */

@@ -132,7 +132,7 @@ public class Step1ServerSocketTCP {
 				while (isRunning) {
 					try (Socket socket = server.accept()) {
 
-						/**
+						/*
 						 * Por medio de este método podemos desactivar el Nagle's Algorithm. Que controla el envió de datos
 						 * para poder enviar segmentos completos por medio de esperar los writes necesarios para llenar los
 						 * segmentos.

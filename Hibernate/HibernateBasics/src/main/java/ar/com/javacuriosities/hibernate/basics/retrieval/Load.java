@@ -5,7 +5,7 @@ import ar.com.javacuriosities.hibernate.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-/**
+/*
  * El método load() siempre retorna un Proxy desde la base de datos
  * y recién se consulta la base de datos al momento de consumir sus datos
  */

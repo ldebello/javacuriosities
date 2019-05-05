@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
+/*
  * El estado TIME_WAIT es uno que obtiene el socket que realizo el active close, y es un estado en el
  * cual el socket va a permanecer un determinado tiempo, generalmente el doble de tiempo del MSL (Maximum Segment Lifetime).
  * Esto en si no seria un problema porque es parte del flujo normal, pero dado que si quisiéramos reutilizar ese puerto

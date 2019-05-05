@@ -17,14 +17,14 @@ import java.util.Date;
 @Table(name = "products")
 public class Product {
 
-    /**
+    /*
      * Las Annotations pueden ir sobre los atributos o sobre los getters
      * dependiendo que estrategia usemos el valor va a ser obtenido por medio de
      * los getters o directamente del atributo
      */
 
 
-    /**
+    /*
      * La estrategia puede tomar distintos valores
      *
      * GenerationType.AUTO: Se selecciona automáticamente la forma de generar
