@@ -46,10 +46,10 @@ public class Deadlock {
 
         public static void transfer(BankAccount from, BankAccount to, double amount) {
             synchronized (from) {
-                System.out.println("Lock acquired: " + from + " by" + Thread.currentThread().getName());
+                System.out.println("Lock acquired: " + from + " by " + Thread.currentThread().getName());
                 from.withdraw(amount);
                 synchronized (to) {
-                    System.out.println("Lock acquired: " + to + " by" + Thread.currentThread().getName());
+                    System.out.println("Lock acquired: " + to + " by " + Thread.currentThread().getName());
                     to.deposit(amount);
                 }
             }
@@ -79,7 +79,7 @@ public class Deadlock {
 
         @Override
         public String toString() {
-            return "BankAccount [id=" + id + ", balance=" + balance + "]";
+            return "BankAccount [id= " + id + ", balance= " + balance + "]";
         }
     }
 }

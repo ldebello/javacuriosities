@@ -38,7 +38,7 @@ public class LiveLock {
                 System.out.println(from + " is waiting for: " + to);
                 continue;
             }
-            System.out.printf(Thread.currentThread().getName() + " Finalizada");
+            System.out.printf(Thread.currentThread().getName() + " Completed");
         }
 
     }
@@ -98,7 +98,7 @@ public class LiveLock {
 
         @Override
         public String toString() {
-            return "BankAccount [id=" + id + ", balance=" + balance + "]";
+            return "BankAccount [id= " + id + ", balance= " + balance + "]";
         }
     }
 }
