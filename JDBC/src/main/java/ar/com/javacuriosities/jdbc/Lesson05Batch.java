@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
  */
 public class Lesson05Batch {
 	
-	private static final int BATCH_SIZE = 2;
+	private static final int BATCH_SIZE = 10000;
 	
 	public static void main(String[] args) {
 		try {
@@ -28,9 +28,9 @@ public class Lesson05Batch {
 				// Desactivamos el Auto-commit
 				connection.setAutoCommit(false);
 				
-				for (int count = 1; count <= 10; count++) {
+				for (int count = 1; count <= 100_000; count++) {
 					// Asignamos las variables
-					preparedStatement.setString(1, "Random Data");
+					preparedStatement.setString(1, "Random Data " + count);
 
 					// Agregamos el PreparedStatement al batch
 					preparedStatement.addBatch();
