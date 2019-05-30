@@ -45,8 +45,19 @@ package ar.com.javacuriosities.threads;
  * W = Tiempo promedio de cada tarea
  * 
  * Si tenemos 10 tareas por segundo y cada una toma 1 segundo, necesitaríamos de 10 Threads (L = 10 * 1 = 10)
- * Si tenemos 10 tareas por segundo y cada una toma 2 segundos, necesitaríamos de 10 Threads (L = 10 * 2 = 20)
- * 
+ * Si tenemos 10 tareas por segundo y cada una toma 2 segundos, necesitaríamos de 20 Threads (L = 10 * 2 = 20)
+ *
+ * Otra posible formula para calcular el numero de threads es:
+ *
+ * Nthreads = Ncpu * Ucpu * (1 + W/C)
+ *
+ * Ncpu = number of CPU cores
+ * Ucpu = desired CPU utilization, 0 < Ucpu <= 1
+ * W/C = ratio of wait time to compute time
+ *
+ * Tareas CPU Bound tendrían un numero cercano a 0 en la relación W/C (1 + 0)
+ * Tareas I/O Bound tendrían un numero mayor en la relación W/C (1 + 75/25)
+ *
  * Es importante recordar que estas son cosas generales y para nuestro sistema la mejor herramienta es medir y poder analizar que numero de Threads se ajusta mejor a nuestra solución.
  *
  * La JVM tiene alguno hilos por default que veremos a la hora de hacer un Thread Dump:
