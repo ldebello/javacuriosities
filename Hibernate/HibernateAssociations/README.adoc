@@ -1,0 +1,39 @@
+= Associations
+
+Dependiendo el tipo de relación que utilizamos algunas pueden ser mas eficientes que otras.
+
+== One-To-One
+
+* Eficientes
+** @OneToOne y @MapsId
+** @OneToOne(mappedBy=...) + BE
+
+* No tan eficientes
+** @OneToOne(mappedBy=...)
+** @OneToOne(mappedBy=..., optional=true) + BE
+
+== One-To-Many
+
+* Eficientes
+** @ManyToOne
+** @OneToMany(mappedBy=...)
+
+* No tan eficientes
+** @OneToMany y @JoinColumn
+** @OneToMany y Set<Entity>
+** @OneToMany y @OrderColumn(name=...)
+
+* Menos eficientes
+** @OneToMany y List<Entity>
+
+== Many-To-Many
+
+* Eficientes
+** @ManyToMany y Set<Entity>
+** @ManyToOne y @OneToMany
+
+* No tan eficientes
+** @ManyToMany y @OrderColumn(name=...) y List<Entity>
+
+* Menos eficientes
+** @ManyToMany y List<Entity>
