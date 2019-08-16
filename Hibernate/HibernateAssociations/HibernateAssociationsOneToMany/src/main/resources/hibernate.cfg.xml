@@ -33,5 +33,12 @@
 
         <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional_map.Execution"/>
         <mapping class="ar.com.javacuriosities.hibernate.model.bidirectional_map.Parameters"/>
+
+        <mapping class="ar.com.javacuriosities.hibernate.model.n_plus_one.Corporation"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.n_plus_one.CorporationOwner"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.n_plus_one.Owner"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.n_plus_one.Company"/>
+        <mapping class="ar.com.javacuriosities.hibernate.model.n_plus_one.Building"/>
+
     </session-factory>
 </hibernate-configuration>
