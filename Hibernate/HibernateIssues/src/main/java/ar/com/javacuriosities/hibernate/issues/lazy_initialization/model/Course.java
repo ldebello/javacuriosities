@@ -1,20 +1,24 @@
-package ar.com.javacuriosities.hibernate.model.n_plus_one;
+package ar.com.javacuriosities.hibernate.issues.lazy_initialization.model;
 
-import org.hibernate.annotations.BatchSize;
+import ar.com.javacuriosities.hibernate.issues.n_plus_one.model.Company;
+import ar.com.javacuriosities.hibernate.issues.n_plus_one.model.CorporationOwner;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "corporation_owners")
-public class CorporationOwner {
+@Table(name = "courses")
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +26,8 @@ public class CorporationOwner {
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    public Corporation corporation;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Student> students = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -41,11 +45,11 @@ public class CorporationOwner {
         this.name = name;
     }
 
-    public Corporation getCorporation() {
-        return corporation;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public void setCorporation(Corporation corporation) {
-        this.corporation = corporation;
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

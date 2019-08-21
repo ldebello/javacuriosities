@@ -1,11 +1,12 @@
-package ar.com.javacuriosities.hibernate.n_plus_one;
+package ar.com.javacuriosities.hibernate.issues.n_plus_one;
 
-import ar.com.javacuriosities.hibernate.model.n_plus_one.Building;
-import ar.com.javacuriosities.hibernate.model.n_plus_one.Company;
-import ar.com.javacuriosities.hibernate.model.n_plus_one.Corporation;
-import ar.com.javacuriosities.hibernate.model.n_plus_one.CorporationOwner;
-import ar.com.javacuriosities.hibernate.model.n_plus_one.Owner;
-import ar.com.javacuriosities.hibernate.utils.HibernateUtil;
+
+import ar.com.javacuriosities.hibernate.issues.n_plus_one.model.Building;
+import ar.com.javacuriosities.hibernate.issues.n_plus_one.model.Company;
+import ar.com.javacuriosities.hibernate.issues.n_plus_one.model.Corporation;
+import ar.com.javacuriosities.hibernate.issues.n_plus_one.model.CorporationOwner;
+import ar.com.javacuriosities.hibernate.issues.n_plus_one.model.Owner;
+import ar.com.javacuriosities.hibernate.issues.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

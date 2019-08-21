@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.hibernate.model.n_plus_one;
+package ar.com.javacuriosities.hibernate.issues.object_not_found.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "people")
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

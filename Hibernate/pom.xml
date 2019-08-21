@@ -39,6 +39,7 @@
 	<modules>
 		<module>HibernateJPA</module>
 		<module>HibernateBasics</module>
+		<module>HibernateIssues</module>
 		<module>HibernateQueries</module>
 		<module>HibernateHierarchy</module>
 		<module>HibernateBootstrap</module>

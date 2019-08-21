@@ -1,6 +1,5 @@
-package ar.com.javacuriosities.hibernate.model.n_plus_one;
+package ar.com.javacuriosities.hibernate.issues.n_plus_one.model;
 
-import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 

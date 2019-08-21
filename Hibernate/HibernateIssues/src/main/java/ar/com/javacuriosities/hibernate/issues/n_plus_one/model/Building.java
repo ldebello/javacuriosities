@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.hibernate.model.n_plus_one;
+package ar.com.javacuriosities.hibernate.issues.n_plus_one.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
