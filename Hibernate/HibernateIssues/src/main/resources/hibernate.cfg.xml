@@ -32,5 +32,11 @@
         <mapping class="ar.com.javacuriosities.hibernate.issues.lazy_initialization.model.Student"/>
 
         <mapping class="ar.com.javacuriosities.hibernate.issues.object_not_found.model.Person"/>
+
+        <mapping class="ar.com.javacuriosities.hibernate.issues.missing_update.model.User"/>
+
+        <mapping class="ar.com.javacuriosities.hibernate.issues.slow_queries.model.Server"/>
+
+        <mapping class="ar.com.javacuriosities.hibernate.issues.flush_order.model.Book"/>
     </session-factory>
 </hibernate-configuration>

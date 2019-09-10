@@ -1,18 +1,14 @@
-package ar.com.javacuriosities.hibernate.issues.lazy_initialization.model;
+package ar.com.javacuriosities.hibernate.issues.missing_update.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "courses")
-public class Course {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +16,7 @@ public class Course {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Student> students = new ArrayList<>();
+    private Long counter;
 
     public Long getId() {
         return id;
@@ -39,11 +34,11 @@ public class Course {
         this.name = name;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public Long getCounter() {
+        return counter;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setCounter(Long counter) {
+        this.counter = counter;
     }
 }
