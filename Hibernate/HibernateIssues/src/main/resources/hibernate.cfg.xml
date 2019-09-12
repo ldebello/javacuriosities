@@ -38,5 +38,8 @@
         <mapping class="ar.com.javacuriosities.hibernate.issues.slow_queries.model.Server"/>
 
         <mapping class="ar.com.javacuriosities.hibernate.issues.flush_order.model.Book"/>
+
+        <mapping class="ar.com.javacuriosities.hibernate.issues.deadlock.model.Customer"/>
+        <mapping class="ar.com.javacuriosities.hibernate.issues.deadlock.model.Profile"/>
     </session-factory>
 </hibernate-configuration>
