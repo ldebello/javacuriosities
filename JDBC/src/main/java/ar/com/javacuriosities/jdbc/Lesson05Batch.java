@@ -18,7 +18,7 @@ public class Lesson05Batch {
 	
 	public static void main(String[] args) {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
 				String SQL = "INSERT INTO bulk_table (data) " + "VALUES(?)";

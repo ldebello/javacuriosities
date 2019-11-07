@@ -46,7 +46,7 @@ import java.sql.Statement;
 public class Lesson03ResultSet {
 	public static void main(String[] args) {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
 				String sql = "SELECT * FROM alumnos";

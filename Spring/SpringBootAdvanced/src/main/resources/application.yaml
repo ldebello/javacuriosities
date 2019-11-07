@@ -5,7 +5,7 @@ spring:
     url: jdbc:mysql://localhost:3306/springboot_advanced
     username: root
     password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   queries:
     users-query: select email, password, active from users where email=?
     roles-query: select u.email, r.role from users u inner join user_roles ur on(u.user_id=ur.user_id) inner join roles r on(ur.role_id=r.role_id) where u.email=?

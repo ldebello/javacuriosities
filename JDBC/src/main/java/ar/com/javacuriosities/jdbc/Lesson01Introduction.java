@@ -31,9 +31,9 @@ import java.sql.SQLException;
  * Register JDBC Driver:
  * A la hora de usar un driver JDBC, debemos registrarlo esto se puede hacer de dos formas
  * 
- * 	- Reflection: Podemos usar "Class.forName("com.mysql.jdbc.Driver");", esto debería funcionar siempre que el Driver sea standard, si no lo es podemos probar con "Class.forName("com.mysql.jdbc.Driver").newInstance();"
+ * 	- Reflection: Podemos usar "Class.forName("com.mysql.cj.jdbc.Driver");", esto debería funcionar siempre que el Driver sea standard, si no lo es podemos probar con "Class.forName("com.mysql.cj.jdbc.Driver").newInstance();"
  * 	- Manualmente: Podemos registrar el driver de forma manual
- * 		Driver driver = new com.mysql.jdbc.Driver();
+ * 		Driver driver = new com.mysql.cj.jdbc.Driver();
  *		DriverManager.registerDriver(driver);
  * 
  * JDBC URL:
@@ -62,7 +62,7 @@ public class Lesson01Introduction {
 	public static void main(String[] args) {
 		try {
 			// Usamos Reflection para cargar la clase del Driver la cual tiene un bloque estático que registra el Driver, esto es necesario en algunos Driver que no utilizan SPI ( Service Provider Interfaces) para registrar el driver.
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// Nos conectamos con la base de datos
 			try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {

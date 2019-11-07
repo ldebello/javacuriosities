@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Insert {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // Obtenemos una Session Factory
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 

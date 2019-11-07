@@ -59,6 +59,10 @@ public class States {
 
         product = (Product) session.load(Product.class, 1L);
 
+        System.out.println("Product");
+
+        System.out.println(product);
+
         /*
          * Aquí el objeto pasa a estado Removed.
          * A este estado pasan los objetos que se han borrado de la base de datos mediante el método delete().

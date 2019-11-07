@@ -49,7 +49,7 @@ public class Persistence {
 
                 System.out.println("***** Update Method *****");
                 Product product = new Product();
-                product.setId(Long.valueOf(1));
+                product.setId(1L);
                 product.setDescription("Product Update");
 
                 /*
@@ -82,7 +82,7 @@ public class Persistence {
 
                 System.out.println("***** Persist Method *****");
                 Product product = new Product();
-                product.setId(Long.valueOf(2));
+                product.setId(2L);
                 product.setDescription("Product Save");
 
                 /*

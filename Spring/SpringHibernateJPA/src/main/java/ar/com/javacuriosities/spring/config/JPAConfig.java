@@ -34,7 +34,7 @@ public class JPAConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/spring_hibernate_jpa");
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
@@ -52,7 +52,7 @@ public class JPAConfig {
     private final Properties additionalProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
-        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
+        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57InnoDBDialect");
 
         return hibernateProperties;
     }
