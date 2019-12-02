@@ -11,6 +11,8 @@ public class SpringAnnotationApplication {
 
         Configuration configuration = context.getBean("configuration", Configuration.class);
 
+        System.out.println("****** Aspects Annotations ******");
+
         configuration.configure();
         configuration.configure("Hello World");
         try {
