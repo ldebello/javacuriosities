@@ -10,17 +10,22 @@ public class SpringXMLApplication {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("application_context.xml");
 
-        Business businessWithAfterReturnInterceptor = context.getBean("businessWithAfterReturnInterceptor", Business.class);
-        Business businessWithAroundInterceptor = context.getBean("businessWithAroundInterceptor", Business.class);
-        Business businessWithBeforeInterceptor = context.getBean("businessWithBeforeInterceptor", Business.class);
-        Business businessWithThrowsInterceptor = context.getBean("businessWithThrowsInterceptor", Business.class);
+        System.out.println("****** Proxy Bean ******");
 
+        System.out.println("**** After Return Interceptor ****");
+        Business businessWithAfterReturnInterceptor = context.getBean("businessWithAfterReturnInterceptor", Business.class);
         businessWithAfterReturnInterceptor.execute();
 
+        System.out.println("**** Around Interceptor ****");
+        Business businessWithAroundInterceptor = context.getBean("businessWithAroundInterceptor", Business.class);
         businessWithAroundInterceptor.execute();
 
+        System.out.println("**** Before Interceptor ****");
+        Business businessWithBeforeInterceptor = context.getBean("businessWithBeforeInterceptor", Business.class);
         businessWithBeforeInterceptor.execute();
 
+        System.out.println("**** Throws Interceptor ****");
+        Business businessWithThrowsInterceptor = context.getBean("businessWithThrowsInterceptor", Business.class);
         try {
             businessWithThrowsInterceptor.executeWithException();
         } catch (Exception e) {
@@ -28,16 +33,25 @@ public class SpringXMLApplication {
             e.printStackTrace();
         }
 
+        System.out.println("****** Aspects ******");
+
         Installation installation = context.getBean("installation", Installation.class);
 
+        System.out.println("**** Pointcut without parameter ****");
         installation.start();
-        installation.start("Hello World");
+
+        System.out.println("**** Pointcut multiples parameters ****");
+        installation.start("Hello World"); // Multiples parameters pointcut
+
+        System.out.println("**** Pointcut exception ****");
         try {
             installation.startWithError();
         } catch (Exception e) {
             // Log and Handle exception
             e.printStackTrace();
         }
+
+        System.out.println("**** Pointcut after return ****");
         installation.startWithReturn();
     }
 }
