@@ -16,7 +16,7 @@
         <property name="hibernate.connection.pool_size">1</property>
 
         <!-- SQL dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
 
         <!-- Disable the second-level cache  -->
         <property name="hibernate.cache.provider_class">org.hibernate.cache.internal.DisabledCaching</property>

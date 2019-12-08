@@ -1,7 +1,5 @@
 package ar.com.javacuriosities.hibernate.associations;
 
-import ar.com.javacuriosities.hibernate.model.bidirectional.Student;
-import ar.com.javacuriosities.hibernate.model.bidirectional.Summary;
 import ar.com.javacuriosities.hibernate.model.bidirectional_shared_pk.Author;
 import ar.com.javacuriosities.hibernate.model.bidirectional_shared_pk.Biography;
 import ar.com.javacuriosities.hibernate.utils.HibernateUtil;

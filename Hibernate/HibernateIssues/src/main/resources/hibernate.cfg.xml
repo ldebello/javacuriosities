@@ -20,7 +20,7 @@
         -->
         <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
 
         <mapping class="ar.com.javacuriosities.hibernate.issues.n_plus_one.model.Corporation"/>
         <mapping class="ar.com.javacuriosities.hibernate.issues.n_plus_one.model.CorporationOwner"/>

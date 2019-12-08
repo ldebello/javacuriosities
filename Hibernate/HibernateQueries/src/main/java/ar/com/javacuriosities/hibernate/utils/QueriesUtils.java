@@ -83,7 +83,7 @@ public class QueriesUtils {
             System.out.println("Native Query with transformers (To List)");
             nativeQueryAsString = "SELECT * FROM products";
             nativeQuery = session.createSQLQuery(nativeQueryAsString);
-            // El método setResultTransformer esta deprecado pero no hay ninguna alternativa, al menos hasta Hibernate 6.
+            // El método setResultTransformer esta deprecado pero no hay ninguna alternativa.
             nativeQuery.setResultTransformer(Transformers.TO_LIST);
 
             objects = nativeQuery.list();
