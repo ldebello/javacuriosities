@@ -43,7 +43,9 @@
 		<module>HibernateQueries</module>
 		<module>HibernateHierarchy</module>
 		<module>HibernateBootstrap</module>
+		<module>HibernateSavepoints</module>
 		<module>HibernateAssociations</module>
 		<module>HibernateCascadeAndFetch</module>
+
 	</modules>
 </project>
