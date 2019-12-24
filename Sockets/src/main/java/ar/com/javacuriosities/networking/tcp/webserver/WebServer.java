@@ -37,7 +37,7 @@ public class WebServer {
 
 					// Leemos los datos recibidos desde el cliente, serían los encabezados de la petición
 					String data = null;
-					while (!"".equals(data)) {
+					while (!"".equals(data) && input.ready()) {
 						data = input.readLine();
 						System.out.println(data);
 					}
