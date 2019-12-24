@@ -1,10 +1,12 @@
 package ar.com.javacuriosities.networking.tcp.ssl;
 
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.URL;
 
 import javax.net.ServerSocketFactory;
 import javax.net.ssl.SSLServerSocketFactory;
@@ -87,8 +89,10 @@ public class Step1SSLServer {
 
 	public static void main(String[] args) {
 		try {
+			String keyStoreLocation = new File(ClassLoader.getSystemResource("MyServerKeyStore").toURI()).getCanonicalPath();
+
 			// Aquí agregamos la properties desde el código lo ideal es pasarla como parámetros o leerlas de una locación externa
-			System.setProperty("javax.net.ssl.keyStore", "MyServerKeyStore");
+			System.setProperty("javax.net.ssl.keyStore", keyStoreLocation);
 			/*
 			 * Si definimos esta property la "keypass" tiene que coincidir con la "keyStorePassword"
 			 * El archivo debe estar dentro del proyecto
@@ -101,7 +105,7 @@ public class Step1SSLServer {
 			// InputStream keyStoreStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("MyServerKeyStore");
 			// keyStore.load(keyStoreStream, "123456".toCharArray());
 
-			// Utilizamos un SocketFactory de SSL el cual maneja la creacion por nosotros
+			// Utilizamos un SocketFactory de SSL el cual maneja la creación por nosotros
 			ServerSocketFactory serverSocketFactory = SSLServerSocketFactory.getDefault();
 			
 			try (ServerSocket server = serverSocketFactory.createServerSocket(4000, 50, InetAddress.getLocalHost())) {

@@ -1,6 +1,7 @@
 package ar.com.javacuriosities.networking.tcp.ssl;
 
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -11,7 +12,9 @@ import javax.net.ssl.SSLSocketFactory;
 public class Step2SSLClient {
 	public static void main(String[] args) {
 		try {
-			System.setProperty("javax.net.ssl.trustStore", "MyClientTrustStore");
+			String trustStoreLocation = new File(ClassLoader.getSystemResource("MyClientTrustStore").toURI()).getCanonicalPath();
+
+			System.setProperty("javax.net.ssl.trustStore", trustStoreLocation);
 			System.setProperty("javax.net.ssl.trustStorePassword", "123456");
 			
 			SocketFactory socketFactory = SSLSocketFactory.getDefault();
