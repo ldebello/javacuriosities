@@ -1,12 +1,9 @@
 package ar.com.javacuriosities.spring.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -17,12 +14,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource({"classpath:persistence-mysql.properties"})
 @ComponentScan(basePackages = {"ar.com.javacuriosities.hibernate.dao"})
-public class HibernateConfig {
-
-    @Autowired
-    private Environment env;
+public class HibernateConfigConnectionPool {
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
@@ -36,11 +29,12 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-        dataSource.setUrl(env.getProperty("jdbc.url"));
-        dataSource.setUsername(env.getProperty("jdbc.user"));
-        dataSource.setPassword(env.getProperty("jdbc.pass"));
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/spring_hibernate");
+        dataSource.setUsername("root");
+        dataSource.setPassword("123456");
+        dataSource.setInitialSize(20);
 
         return dataSource;
     }
@@ -54,9 +48,8 @@ public class HibernateConfig {
 
     private final Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-        hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
+        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
 
         return hibernateProperties;
     }
