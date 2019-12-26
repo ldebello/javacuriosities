@@ -8,5 +8,5 @@ import java.rmi.RemoteException;
  * Es importante ver que extendemos Remote
  */
 public interface HelloService extends Remote {
-	public String sayHello() throws RemoteException;
+    String sayHello() throws RemoteException;
 }

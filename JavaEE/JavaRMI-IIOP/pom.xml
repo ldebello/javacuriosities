@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>JavaRMI-IIOP</name>
+    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaRMI-IIOP</url>
+
+    <parent>
+        <groupId>ar.com.javacuriosities</groupId>
+        <artifactId>JavaEE</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>JavaRMI-IIOP</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.h-thurow</groupId>
+            <artifactId>simple-jndi</artifactId>
+            <version>0.21.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rmic-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>rmic-process-classes</id>
+                        <goals>
+                            <goal>rmic</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                            <sources>
+                                <source>
+                                    <includes>
+                                        <include>**/HelloServiceImpl.class</include>
+                                    </includes>
+                                    <iiop>true</iiop>
+                                </source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

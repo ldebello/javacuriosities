@@ -61,6 +61,7 @@ public class Server {
             // Esperamos por conexiones
             orb.run();
         } catch (Exception e) {
+            // Log and Handle exception
             e.printStackTrace();
         }
     }
