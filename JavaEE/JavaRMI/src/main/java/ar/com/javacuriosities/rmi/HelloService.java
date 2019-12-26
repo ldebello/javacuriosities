@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.networking.tcp.rmi;
+package ar.com.javacuriosities.rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

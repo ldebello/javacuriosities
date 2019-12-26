@@ -1,4 +1,4 @@
-package ar.com.javacuriosities.networking.tcp.rmi;
+package ar.com.javacuriosities.rmi;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -21,8 +21,7 @@ import java.rmi.server.UnicastRemoteObject;
  * esto se puede hacer por línea de comandos o desde la app, si lo hacemos por línea de comandos
  * es importante que antes de iniciar el registry el classpath este bien configurado para poder exponer
  * nuestros objetos.
- * 
- * 
+ *
  * export CLASSPATH="<Server Classpath>"
  * rmiregistry &
  */
