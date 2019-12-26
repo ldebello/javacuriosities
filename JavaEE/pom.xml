@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>JavaRMI</module>
+		<module>JavaCORBA</module>
 	</modules>
 
 </project>

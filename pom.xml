@@ -29,8 +29,9 @@
 	</properties>
 
 	<modules>
-		<module>Basics</module>
 		<module>JDBC</module>
+		<module>Basics</module>
+		<module>JavaEE</module>
 		<module>DateAPI</module>
 		<module>Lambdas</module>
 		<module>Streams</module>		

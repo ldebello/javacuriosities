@@ -19,3 +19,6 @@ target/
 
 # Dependencies
 lib/
+
+# ORB
+orb.db/
