@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>JavaWeb</name>
+    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWeb</url>
+
+    <parent>
+        <groupId>ar.com.javacuriosities</groupId>
+        <artifactId>JavaEE</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>JavaWeb</artifactId>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <tomcat.version>9.0.30</tomcat.version>
+        <configured.tomcat.directory>${project.build.directory}/apache-tomcat-${tomcat.version}
+        </configured.tomcat.directory>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>unpack</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>unpack</goal>
+                            </goals>
+                            <configuration>
+                                <artifactItems>
+                                    <artifactItem>
+                                        <groupId>org.apache.tomcat</groupId>
+                                        <artifactId>tomcat</artifactId>
+                                        <version>${tomcat.version}</version>
+                                        <type>zip</type>
+                                        <overWrite>true</overWrite>
+                                        <outputDirectory>${project.build.directory}</outputDirectory>
+                                    </artifactItem>
+                                </artifactItems>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.8</version>
+                    <executions>
+                        <execution>
+                            <id>chmod</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                            <configuration>
+                                <target>
+                                    <chmod perm="0777">
+                                        <fileset dir="${configured.tomcat.directory}">
+                                            <exclude name="**/conf/server.xml"/>
+                                            <exclude name="**/webapps/ROOT/**"/>
+                                            <exclude name="**/webapps/docs/**"/>
+                                            <exclude name="**/webapps/host-manager/**"/>
+                                            <exclude name="**/webapps/examples/**l"/>
+                                            <exclude name="**/webapps/manager/**"/>
+                                        </fileset>
+                                    </chmod>
+                                </target>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <modules>
+        <module>SessionCookies</module>
+    </modules>
+</project>

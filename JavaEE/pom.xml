@@ -17,9 +17,9 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>JavaWeb</module>
 		<module>JavaRMI</module>
 		<module>JavaCORBA</module>
 		<module>JavaRMI-IIOP</module>
 	</modules>
-
 </project>
