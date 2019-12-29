@@ -78,6 +78,6 @@
     </build>
 
     <modules>
-        <module>SessionCookies</module>
+        <module>Sessions</module>
     </modules>
 </project>
