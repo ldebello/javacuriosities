@@ -7,4 +7,4 @@ mvn clean package
 mvn cargo:run
 ```
 
-http://localhost:8080/PROJECT_NAME
+http://localhost:8080/${project.name}
