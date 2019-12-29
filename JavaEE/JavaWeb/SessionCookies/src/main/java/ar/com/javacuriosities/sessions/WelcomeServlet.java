@@ -23,7 +23,6 @@ public class WelcomeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Cookie cookie = null;
             Cookie[] cookies = request.getCookies();
             HttpSession session = request.getSession();
 
@@ -36,12 +35,12 @@ public class WelcomeServlet extends HttpServlet {
             if (cookies != null) {
                 out.println("<h2>Cookies</h2>");
                 for (int i = 0; i < cookies.length; i++) {
-                    cookie = cookies[i];
+                    Cookie cookie = cookies[i];
                     out.print("<b>Name: </b>" + cookie.getName() + ",  ");
                     out.print("<b>Value: </b>" + cookie.getValue() + " <br/>");
                 }
             } else {
-                out.println("<h2>No cookies founds</h2>");
+                out.println("<h2>No cookies found</h2>");
             }
             out.println("<br>");
             out.println("Session: " + session.getId());
