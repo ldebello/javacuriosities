@@ -3,20 +3,21 @@ package ar.com.javacuriosities.sessions;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * La técnica URL Rewriting consiste en agregar un identificador en la url para poder mantener los datos de una sesión.
+ * La técnica HTTPSession nos permite hacer tracking de la session pero la información de la sesión es persistida del lado servidor.
  *
  * Ventajas:
  *
- * - Funciona siempre ya que no depende si el browser tiene o no cookies habilitadas.
+ * - Es una técnica simple para mantener estado.
+ * - El cliente solo tiene que mantener una cookie con el ID se su sesión JSESSIONID
  *
  * Desventajas:
  *
- * - Solo funciona con links.
- * - Solo podemos mandar información en formato texto.
+ * - No funcionan si el cliente desactivo las cookies.
  */
 public class LoginServlet extends HttpServlet {
 
@@ -30,12 +31,16 @@ public class LoginServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
             // Recuperamos el nombre de usuario
             String user = request.getParameter("txtUsuario");
+
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -44,7 +49,9 @@ public class LoginServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("Bienvenido " + user);
-            out.println("<a href='" + response.encodeURL("WelcomeServlet?user=" + user) + "'>Link</a>");
+            out.println("<form action='WelcomeServlet'>");
+            out.println("<input type='submit' value='GO'>");
+            out.println("</form>");
             out.println("</body>");
             out.println("</html>");
         }

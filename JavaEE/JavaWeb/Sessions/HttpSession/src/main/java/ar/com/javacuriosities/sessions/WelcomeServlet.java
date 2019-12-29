@@ -1,6 +1,5 @@
 package ar.com.javacuriosities.sessions;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,13 +23,18 @@ public class WelcomeServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession(false);
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Welcome</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("User: " + request.getParameter("user"));
+            out.println("<br>");
+            out.println("Session: " + session.getId());
+            out.println("<br>");
+            out.println("User: " + session.getAttribute("user"));
             out.println("</body>");
             out.println("</html>");
         }

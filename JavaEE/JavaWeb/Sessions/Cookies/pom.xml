@@ -13,9 +13,9 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <packaging>war</packaging>
-
     <artifactId>Cookies</artifactId>
+
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>

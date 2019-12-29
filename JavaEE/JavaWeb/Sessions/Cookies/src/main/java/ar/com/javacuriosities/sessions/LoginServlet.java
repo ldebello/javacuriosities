@@ -8,6 +8,34 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Un cookie es un pequeño bloque de información persistido  para distintos clientes.
+ *
+ * Características:
+ *
+ * - Tiene un nombre
+ * - Tiene un valor de tipo texto
+ * - Atributos opcionales como ser comentario
+ * - Un path
+ * - Un domain qualifier
+ * - Tiene un tiempo de vida
+ * - Tiene una version
+ *
+ * Tenemos dos tipos de cookies, persistentes y no persistentes.
+ *
+ * No persistentes: Son removidas cuando el browser se cierra.
+ * Persistentes: Solo son removidas cuando el usuario hace logout.
+ *
+ * Ventajas:
+ *
+ * - Es una técnica simple para mantener estado.
+ * - Las cookies son mantenidas del lado cliente.
+ *
+ * Desventajas:
+ *
+ * - No funcionan si el cliente desactivo las cookies.
+ * - Solo información en formato texto puede ser persistida.
+ */
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -31,7 +59,7 @@ public class LoginServlet extends HttpServlet {
             // El tamaño maximo es de 4 KB (4096 caracteres) y 20 cookies por Web Server (300 cookies máximas)
             Cookie cookie = new Cookie("user", user);
             // Configuramos el tiempo a 30 minutos
-            // El valor por default es -1 o sea hasta que el browser se cierre
+            // El valor por default es -1 o sea hasta que el browser se cierre (Non-persistent Cookie)
             cookie.setMaxAge(30 * 60);
 
             // Para que el comentario funcione la version de 
