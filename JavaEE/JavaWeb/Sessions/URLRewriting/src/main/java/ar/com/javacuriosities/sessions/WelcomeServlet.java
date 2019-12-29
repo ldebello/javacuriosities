@@ -22,27 +22,19 @@ public class WelcomeServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            Cookie[] cookies = request.getCookies();
-
+        PrintWriter out = response.getWriter();
+        try {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Welcome</title>");
             out.println("</head>");
             out.println("<body>");
-            if (cookies != null) {
-                out.println("<h2>Cookies</h2>");
-                for (int i = 0; i < cookies.length; i++) {
-                    Cookie cookie = cookies[i];
-                    out.print("<b>Name: </b>" + cookie.getName() + ",  ");
-                    out.print("<b>Value: </b>" + cookie.getValue() + " <br/>");
-                }
-            } else {
-                out.println("<h2>No cookies found</h2>");
-            }
+            out.println("User: " + request.getParameter("user"));
             out.println("</body>");
             out.println("</html>");
+        } finally {
+            out.close();
         }
     }
 }

@@ -19,5 +19,6 @@
 
     <modules>
         <module>Cookies</module>
+        <module>URLRewriting</module>
     </modules>
 </project>
