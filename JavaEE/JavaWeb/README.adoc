@@ -1,0 +1,10 @@
+= Java Web
+
+Los proyectos dentro de este modulo son aplicaciones WAR por lo cual deben ser ejecutadas en un contenedor web, para facilitar la ejecución de los mismos se encuentra integrado el plugin "Cargo" que ofrece una forma simple de trabajar con estos contenedores.
+
+```
+mvn clean package
+mvn cargo:run
+```
+
+http://localhost:8080/PROJECT_NAME
