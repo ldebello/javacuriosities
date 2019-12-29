@@ -69,9 +69,6 @@
                                 <groupId>${project.groupId}</groupId>
                                 <artifactId>${project.artifactId}</artifactId>
                                 <type>war</type>
-                                <properties>
-                                    <context>/${project.name}</context>
-                                </properties>
                             </deployable>
                         </deployables>
                     </configuration>
