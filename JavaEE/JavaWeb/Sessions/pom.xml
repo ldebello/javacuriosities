@@ -22,5 +22,6 @@
         <module>URLRewriting</module>
         <module>HttpSession</module>
         <module>HiddenFormField</module>
+        <module>JWT</module>
     </modules>
 </project>
