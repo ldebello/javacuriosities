@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--
+    HTML es un lenguaje de marcado el cual sirve para la creación
+    de pagina webs, se construye la pagina usando distintas etiquetas (TAGs)
+    que el browser saber dibujar.
+
+    TAGs HTML
+
+    Tag                         Explicación
+    <!DOCTYPE>              Establece el tipo de documento
+    <a>                     Inserta vínculos o marcadores
+    <abbr>                  Explica/expande abreviaciones
+    <acronym>               Explica/expande acrónimos
+    <address>               Muestra información de contacto del autor
+    <applet>                Inserta un applet (Script)
+    <area>                  Define sectores para un mapa de imagen
+    <b>                     Convierte texto en negrita
+    <base>                  Establece la URI base, usada para resolver URIs relativas
+    <basefont>              Establece el tamaño de fuente por defecto para todo el documento
+    <bdo>                   Anula el algoritmo bidireccional para su contenido
+    <big>                   Muestra el texto en estilo de fuente "grande"
+    <blockquote>            Inserta una cita en forma de párrafo
+    <body>                  Actúa como contenedor para toda la parte representable del documento (cuerpo)
+    <br>                    Forza un quiebre de línea
+    <button>                Crea un botón que permite contenido HTML (elementos)
+    <caption>               Establece un título para una tabla
+    <center>                Muestra su contenido centrado
+    <cite>                  Inserta una cita o referencia
+    <code>                  Declara a su contenido como código de computadora
+    <col>                   Establece atributos generales para las columnas de una tabla
+    <colgroup>              Agrupa un número de columnas en una tabla
+    <dd>                    Muestra una definición en una lista de términos y definiciones
+    <del>                   Incluye texto que debería ser borrado o reemplazado (ya no válido)
+    <dfn>                   Asigna una definición a un término
+    <dir>                   Inserta una lista de directorio (árbol)
+    <div>                   Define un bloque de contenido
+    <dl>                    Inserta una lista de términos y definiciones
+    <dt>                    Inserta un término en una lista de términos y definiciones
+    <em>                    Indica énfasis para su contenido
+    <fieldset>              Agrupa controles en un formulario
+    <font>                  Establece el estilo de fuente para su contenido
+    <form>                  Inserta un formulario
+    <frame>                 Inserta un marco simple
+    <frameset>              Inserta un conjunto de marcos
+    <h1>                    Define un encabezado de nivel 1
+    <h2>                    Define un encabezado de nivel 2
+    <h3>                    Define un encabezado de nivel 3
+    <h4>                    Define un encabezado de nivel 4
+    <h5>                    Define un encabezado de nivel 5
+    <h6>                    Define un encabezado de nivel 6
+    <head>                  Encierra el bloque de encabezado del documento (para las declaraciones globales)
+    <hr>                    Dibuja una línea horizontal
+    <html>                  Actúa como contenedor para el documento entero (encabezado y cuerpo)
+    <i>                     Muestra su contenido con estilo de fuente itálica
+    <iframe>                Inserta un marco dentro del contenido del documento
+    <img>                   Inserta una imagen
+    <input>                 Muestra un control de entrada (texto, contraseña, casillas de verificación, etc.)
+    <ins>                   Indica que su contenido ha sido insertado a un texto anterior en una actualización
+    <isindex>               Provee una entrada de una sola línea
+    <kbd>                   Representa texto que es ingresado por el usuario
+    <label>                 Establece una etiqueta para un control en un formulario
+    <legend>                Asigna un título para un "fieldset" (grupo de controles en un formulario)
+    <li>                    Inserta un ítem en una lista (para listas ordenadas y desordenadas)
+    <link>                  Da información relacional acerca del documento al vincularlo con otros recursos
+    <map>                   Define un mapa de imagen del lado cliente
+    <menu>                  Inserta una lista menu
+    <meta>                  Provee información acerca del documento en la forma de variables (nombre y valor)
+    <noframes>              Provee contenido alternativo para marcos, mostrado cuando los mismos no son soportados
+    <noscript>              Provee texto alternativo para scripts, mostrado cuando los mismo no son soportados
+    <object>                Inserta aplicaciones externas (por ejemplo, animaciones /películas Flash)
+    <ol>                    Inserta una lista ordenada
+    <optgroup>              Agrupa las opciones en un control "select"
+    <option>                Define una opción en un control "select"
+    <p>                     Inserta un párrafo
+    <param>                 Establece un parámetro para un objeto insertado
+    <pre>                   Muestra texto pre-formateado, usualmente con fuente de ancho fijo y respetando espacios
+    <q>                     Inserta una cita a nivel de línea
+    <s>                     Muestra texto tachado
+    <samp>                  Representa la salida de un programa
+    <script>                Actúa como contenedor para scripts del lado cliente
+    <select>                Crea un control select (lista desplegable de opciones)
+    <small>                 Muestra text en fuente "pequeña"
+    <span>                  Encierra un trozo de texto (en línea), útil para asignar atributos a su contenido
+    <strike>                Muestra texto tachado
+    <strong>                Indica énfasis fuerte para su contenido
+    <style>                 Contiene código de hojas de estilo que definen atributos visuales para el documento
+    <sub>                   Inserta texto como subíndice
+    <sup>                   Inserta texto como superíndice
+    <table>                 Actúa como contenedor para la información de una tabla
+    <tbody>                 Define un cuerpo en una tabla
+    <td>                    Inserta una celda regular en un tabla
+    <textarea>              Crea una entrada de líneas múltiples
+    <tfoot>                 Define un pie para una tabla
+    <th>                    Inserta una celda de encabezado en una tabla
+    <thead>                 Define un encabezado en una tabla
+    <title>                 Define un título para el documento completo
+    <tr>                    Inserta una fila de celdas en una tabla
+    <tt>                    Muestra texto de máquina de escribir
+    <u>                     Muestra texto subrayado
+    <ul>                    Inserta una lista desordenada
+    <var>                   Indica una instancia de una variable
+-->
+<HTML>
+    <HEAD>
+        <TITLE>Introducción HTML</TITLE>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </HEAD>
+    <BODY>
+        <!--
+            Dentro del tag <BODY> vamos a mencionar las etiquetas que queremos que esten en nuestra
+            pagina.
+        -->
+        
+        <!--
+            La etiqueta <H*> tiene varios niveles del 1 al 6 y nos sirve para poner títulos de distintos
+            niveles ya pre-configurados.
+        -->
+        <H1>Hola mundo! Bienvenido HTML</H1>
+        <H2>Hola mundo! Bienvenido HTML</H2>
+        <H3>Hola mundo! Bienvenido HTML</H3>
+        <H4>Hola mundo! Bienvenido HTML</H4>
+        <H5>Hola mundo! Bienvenido HTML</H5>
+        <H6>Hola mundo! Bienvenido HTML</H6>
+
+        <!--
+            Etiquetas de formato
+            <B>: Texto en negrita
+            <I>: Texto en itálica
+            <U>: Texto subrayado
+            <BR>: Deja un salto de linea
+            <HR>: Dibuja una linea en general para indicar un cambio de tematica
+        -->
+        <B>Esto es negrita</B><BR>
+        <I>Esto es itálica!</I><BR>
+        <U>Esto es Subrayado</U><BR>
+
+        Esto es sin formato                
+        <HR>    
+        <!--
+            La etiqueta <A> sirve para definir links en las paginas
+        -->
+        <A HREF="http://www.google.com">Ir a Google</A>
+        <HR>
+        
+        <!--
+            La etiqueta <TABLE> sirve para dibujar una tabla, asi como cada TAG tiene
+            un propósito especifico, estos cuentan con atributos por ejemplo el TAG <TABLE>
+            tiene el atributo "border" para indicar si posee o no borde.
+        
+            <TR>: Define una fila
+            <TD>: Define una columna, por eso se define dentro del TAG <TR>
+        
+            Propiedad colspan: Indica que la columna se expande por tres.
+        -->
+        <TABLE border="1">
+            <TR>
+                <TD><B>Legajo</B></TD>
+                <TD><B>Nombre</B></TD>
+                <TD><B>Apellido</B></TD>
+            </TR>
+            <TR>
+                <TD>648</TD>
+                <TD>Cosme</TD>
+                <TD>Fulanito</TD>
+            </TR>
+            <TR>
+                <TD colspan="3" align="center">Footer</TD>               
+            </TR>
+        </TABLE>
+        <HR>
+
+        <!--
+            Hay etiquetas de listas.
+        
+            <UL>: Unordered List
+            <OL>: Ordered List
+        
+            Los TAGs <LI>: List Item se definen dentro de las listas y podemos usar distintas propiedades
+        -->
+        <UL>
+            <LI type="circle">Item con circulo</LI>
+            <LI type="square">Item con cuadrado</LI>
+            <LI type="disc">Item con circulo relleno</LI>
+        </UL>
+        <HR>
+        <OL>
+            <LI value="5">Item 5</LI>
+            <LI>Item 6</LI>
+            <LI>Item 7</LI>
+        </OL>
+        <HR>
+        
+        <H1> FORMULARIO </H1>
+        
+        <!--
+            Etiqueta <FORM> nos sirve para definir un formulario que tiene dos propiedades fundamentales
+            action y method
+        
+            action: Indica a que URL va a proseguir, puede ser absoluta o relativa
+            method: Indica el método que viajan los parámetros (POST-GET)
+        
+            GET: Los parámetros son enviados en la URL
+            POST: Los parámetros son enviados ocultos en el header de la petición
+        
+            Tenemos distintas etiquetas para los componentes de nuestro formulario, usamos
+            el TAG <INPUT> y definimos su atributo type el cual deja seleccionar el tipo de componente
+            
+            text: Define una caja de texto
+            checkbox: Un checkbox
+            radio: Define un radio button
+            submit: El botón que hace el submit de la petición
+            reset: Limpia los componentes del formulario
+            hidden: Componente no visible para el usuario que se usa para tener información para el envío
+        -->
+        <FORM action="index.html" method="GET">
+            Marca: <INPUT type="text" name="marca"><BR>
+            Modelo: <INPUT type="text" name="modelo"><BR>
+            Usado: <INPUT type="checkbox" name="usado"><BR>
+            Color:
+            <SELECT name="color">
+                <OPTION value="1">Amarillo</OPTION>
+                <OPTION value="2">Blanco</OPTION>
+                <OPTION value="3">Verde</OPTION>
+            </SELECT> <BR>
+            Cambios: <INPUT type="radio" name="tipo" value="caja_automatica">Automatico<INPUT type="radio" name="tipo" value="caja_manual">Manual
+            <INPUT type="hidden" name="accion" value="insertar">
+            <HR>
+            <INPUT type="submit" value="Enviar datos">
+            <INPUT type="reset" value="Limpiar datos">
+        </FORM>
+    </BODY>
+</HTML>

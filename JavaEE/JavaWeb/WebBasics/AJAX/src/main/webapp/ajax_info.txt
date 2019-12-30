@@ -1,0 +1,3 @@
+AJAX no es un nuevo lenguaje de programacion.
+<BR>
+AJAX es una tecnica para la creacion de paginas WEB rapidas y dinamicas.

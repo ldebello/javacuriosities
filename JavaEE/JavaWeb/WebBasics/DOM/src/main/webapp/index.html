@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Introducción DOM</TITLE>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <SCRIPT type="text/javascript">
+            window.onload = function() {
+                // Numero de enlaces de la pagina
+                var links = document.getElementsByTagName("a");
+                alert("Numero de enlaces = " + links.length);
+
+                // Anchor tag del penúltimo enlace
+                var penultimate = links[links.length - 2];
+                alert("El penúltimo enlace apunta a: " + penultimate.getAttribute('href'));
+
+                // Numero de enlaces que apuntan a http://www.javacuriosities.blogspot.com/
+                var counter = 0;
+                for (var i = 0; i < links.length; i++) {
+                    // Es necesario comprobar los enlaces http://www.javacuriosities.blogspot.com/ y http://www.javacuriosities.blogspot.com// por las diferencias entre navegadores
+                    if (links[i].getAttribute('href') === "http://www.javacuriosities.blogspot.com/" || links[i].getAttribute('href') === "http://www.javacuriosities.blogspot.com//") {
+                        counter++;
+                    }
+                }
+                alert(counter + " enlaces apuntan a http://www.javacuriosities.blogspot.com/");
+
+                // Numero de enlaces del tercer párrafo
+                var paragraphs = document.getElementsByTagName("p");
+                links = paragraphs[2].getElementsByTagName("a");
+                alert("Numero de enlaces del tercer párrafo = " + links.length);
+
+                // Todos los enlaces deben cambiarse por un protocolo más seguro: "https://"
+                var links = document.getElementsByTagName("a");
+                for (var i = 0; i < links.length; i++) {
+                    var previousHref = links[i].getAttribute('href');
+                    var newHref = previousHref.replace('http://', "https://");
+                    // También se puede utilizar la función split()
+                    // var trozos = href_anterior.split('://');
+                    // var nuevo_href = 'https://' + trozos[1];
+                    links[i].setAttribute('href', newHref);
+                }
+            };
+        </SCRIPT>
+    </HEAD>
+
+    <BODY>
+        <p>Lorem ipsum dolor sit amet, <a href="http://www.javacuriosities.blogspot.com/">consectetuer adipiscing elit</a>. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. <a href="http://www.javacuriosities.blogspot.com/2">Fusce porta</a>. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio. Praesent id metus.</p>
+
+        <p>Aenean at nisl. Maecenas egestas dapibus odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consequat auctor diam. <a href="http://www.javacuriosities.blogspot.com/">Ut bibendum blandit est</a>. Curabitur vestibulum. Nunc malesuada porttitor sapien. Aenean a lacus et metus venenatis porta. Suspendisse cursus, sem non dapibus tincidunt, lorem magna porttitor felis, id sodales dolor dolor sed urna. Sed rutrum nulla vitae tellus. Sed quis eros nec lectus tempor lacinia. Aliquam nec lectus nec neque aliquet dictum. Etiam <a href="http://www.javacuriosities.blogspot.com/3">consequat sem quis massa</a>. Donec aliquam euismod diam. In magna massa, mattis id, pellentesque sit amet, porta sit amet, lectus. Curabitur posuere. Aliquam in elit. Fusce condimentum, arcu in scelerisque lobortis, ante arcu scelerisque mi, at cursus mi risus sed tellus.</p>
+
+        <p>Donec sagittis, nibh nec ullamcorper tristique, pede velit feugiat massa, at sollicitudin justo tellus vitae justo. Vestibulum aliquet, nulla sit amet imperdiet suscipit, nunc erat laoreet est, a <a href="http://www.javacuriosities.blogspot.com/">aliquam leo odio sed sem</a>. Quisque eget eros vehicula diam euismod tristique. Ut dui. Donec in metus sed risus laoreet sollicitudin. Proin et nisi non arcu sodales hendrerit. In sem. Cras id augue eu lorem dictum interdum. Donec pretium. Proin <a href="http://www.javacuriosities.blogspot.com/4">egestas</a> adipiscing ligula. Duis iaculis laoreet turpis. Mauris mollis est sit amet diam. Curabitur hendrerit, eros quis malesuada tristique, ipsum odio euismod tortor, a vestibulum nisl mi at odio. <a href="http://www.javacuriosities.blogspot.com/5">Sed non lectus non est pellentesque</a> auctor.</p>
+    </BODY>
+</HTML>

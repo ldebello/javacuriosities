@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Combos dependientes</TITLE>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <SCRIPT type="text/javascript">
+            function cargarCombo() {
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    // Codigo para IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // Codigo para IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                
+                xmlhttp.onreadystatechange = function() {                    
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        // Obtenemos el elemento y llenamos las opciones iniciales
+                        categoriaSelect = document.getElementById("categoria");
+                        categoriaSelect.innerHTML = xmlhttp.responseText;
+                        
+                        // Ejecutamos el evento onchange
+                        categoriaSelect.onchange();
+                    }
+                };
+
+                // Enviamos peticion AJAX por metodo GET
+                xmlhttp.open("GET", "ComboInformation?action=start", true);
+                xmlhttp.send();
+            }
+            
+            function obtenerSubcategoria() {
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    // Codigo para IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // Codigo para IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                
+                xmlhttp.onreadystatechange = function() {                    
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        // Llenamos el combo de subcategorias
+                        subcategoriaSelect = document.getElementById("subcategoria");
+                        subcategoriaSelect.innerHTML = xmlhttp.responseText;
+                    }
+                };
+
+                // Obtenemos el combo de categorias
+                categoriaSelect = document.getElementById("categoria");                
+                
+                // Peticion AJAX por metodo POST
+                xmlhttp.open("POST", "ComboInformation", true);
+                
+                //Como usamos el metodo POST necesitamos esta linea para indicar como viajan los parametros
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                
+                // Obtenemos el valor seleccionado del combo categorias
+                valorSeleccionado = categoriaSelect.options[categoriaSelect.selectedIndex].value;
+                
+                 // Creamos los parametros de envio
+                datos = "action=reload&categoria="+ valorSeleccionado;
+                
+                // Enviamos la peticion y los parametros
+                xmlhttp.send(datos);
+            }
+        </SCRIPT>
+    </HEAD>
+    <BODY onload="cargarCombo();">
+        <SELECT id="categoria" onchange="obtenerSubcategoria();">            
+        </SELECT>
+        <SELECT id="subcategoria">            
+        </SELECT>
+    </BODY>
+</HTML>

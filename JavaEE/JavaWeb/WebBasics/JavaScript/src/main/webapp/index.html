@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Introducción JavaScript</TITLE>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        
+        <SCRIPT type="text/javascript">
+            function onClickButton() {
+                txtDatos = document.getElementById("txtDatos");
+
+                if (txtDatos.value !== "") {
+                    document.getElementById("contenedor").innerHTML = txtDatos.value;
+
+                    var persona = new Persona("Cosme", "Fulanito", 28);
+                    persona.hablar(); // Invocando al método hablar
+                } else {
+                    alert("Complete su nombre");
+                    document.getElementById("contenedor").innerHTML = "Hola Mundo Dinamico";
+
+                    var personaFuturo = new PersonaFuturo("Cosme", "Fulanito", 28);
+                    personaFuturo.teletransportarse(); // Invocando al método teletransportarse
+
+                    personaFuturo.hablar(); // Invocando al método heredado
+                }
+            }
+
+            // Prototipo
+            function Persona(nombre, apellido, edad) {
+                // Variables privadas
+                var _nombreCompleto;
+                
+                this.nombre = nombre;   // Este es un atributo
+                this.apellido = apellido;   // Este es otro atributo
+                this.edad = edad;   // Este es otro atributo
+
+                /*
+                 La palabra reservada this hace que la variable
+                 pertenezca al contexto de la función que
+                 representa la clase, si no se usa la variable es local
+                 y desaparece al terminar la ejecución de la función.
+                 */
+                
+                this.obtenerNombreCompleto = function() {
+                    return _nombreCompleto;
+                };
+            }
+
+            // Todo objeto creado en JavaScript por defecto tiene un atributo llamado prototype
+            Persona.prototype.hablar = function() { // Uso de prototype
+                console.log("Hablando..."); // Escribimos un mensaje en consola
+            };
+
+            // Clase hija
+            function PersonaFuturo(nombre, apellido, planeta) {
+                Persona.call(this, nombre, apellido, -1);
+                this.planeta = planeta;
+                
+                this.teletransportarse = function() {
+                    console.log("Teletransportacion...");
+                };
+            }
+            
+            // Esta forma de herencia se conoce como "prototypal inheritance"
+            PersonaFuturo.prototype = new Persona();
+        </SCRIPT>
+    </HEAD>
+    <BODY>
+        <H1>Contenido Dinamico</H1>
+
+        <!-- Componente para ingresar texto -->
+        <INPUT id="txtDatos" type="text"/>
+
+        <!-- Agregamos un botón que al disparar el evento "onclick" ejecuta la función onClickButton definida por nosotros en código JavaScript -->
+        <BUTTON onclick="onClickButton();">Agregar</BUTTON>
+        
+        <!-- Definimos un area donde iremos cambiando el contenido -->
+        <DIV id="contenedor">
+        </DIV>
+        
+        <A href="formulario.html">Ejemplo validacion formulario</A>
+    </BODY>
+</HTML>

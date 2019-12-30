@@ -79,5 +79,6 @@
 
     <modules>
         <module>Sessions</module>
+        <module>WebBasics</module>
     </modules>
 </project>

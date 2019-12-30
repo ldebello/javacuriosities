@@ -1,0 +1,102 @@
+/*
+    Definimos estilos para el body de la pagina
+*/
+
+body {
+    /* Propiedad color se refiere al color del texto */
+    color: purple;
+    
+    /* 
+        Nos deja definir varias letras para la pagina, son varias
+        en caso de que el usuario no posea las fuentes y se van analizando
+        en cascada por si alguna no es soportada.
+        Se puede definir "family-name" o "generic-family"
+    */
+    font-family: Georgia, "Times New Roman", Times, serif;
+    
+    /* Color de fondo */
+    background: #64da85
+}
+
+/*
+    Indicamos que los TAGs H1 deben tener el texto centrado
+*/
+h1 {
+    text-align: center;
+}
+
+/*
+    Aplicamos estilos sobre el tag con el "id" contenedor
+*/
+#contenedor {
+    /* Configuramos un border */
+    border: thick solid #000;
+    
+    /* Configuramos como debe actuar el componente en caso que los componentes salgan de su espacio */
+    overflow: hidden;
+}
+
+/*
+    Estilo para el tag con "id" izquierda
+*/
+#izquierda {
+    /* Decimos que es un TAG flotante a la izquierda */
+    float: left;
+    /* Definimos su ancho */
+    width: 40%;
+}
+
+/*
+    Estilo para el tag con "id" derecha
+*/
+#derecha {
+    float: right;
+    width: 40%;
+}
+
+/*
+    Definimos el estilo para todos los TAGs H1 que se encuentran
+    contenidos dentro del TAG con "id" derecha.
+    Esto sobrescribe la propiedad de texto centrado que fue definida
+    anteriormente
+*/
+#derecha h1 {   
+    text-align: left;
+}
+
+/*
+    Estilo para el tag con "id" pie_pagina
+*/
+#pie_pagina {
+    /* Indica que no tiene componente flotando a los costados */
+    clear: both;
+}
+
+/*
+    El punto funciona como selector de class, aca definimos el estilo
+    para los TAGs que usen como "class" menu
+*/
+.menu {
+    background: white;
+    /* 
+        Margen es el espacio entre el contenedor y el borde 
+        desde afuera hacia adentro
+        em --> Es una unidad que se usa en base al tamaño del texto
+    */
+    margin: 1em;
+    
+    /* 
+        Margen es el espacio entre el borde y el contenido
+    */
+    padding: 1em;
+    
+}
+
+/*
+    Definimos estilos para los TAGs ADDRESS
+*/
+address {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: thin dotted 
+}

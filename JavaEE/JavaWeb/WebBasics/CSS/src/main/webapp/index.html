@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Introducción CSS</TITLE>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!--
+            Definimos de donde se debe leer el archivo de estilos
+        -->
+        <LINK rel="stylesheet" type="text/css" href="style/estilos.css">
+    </HEAD>
+    <BODY>
+        <H1>Titulo Centrado</H1>
+
+        <!--
+            Usamos la propiedad "id" para luego aplicar estilos
+            sobre ese TAG
+        -->
+        <DIV id="contenedor">
+            <DIV id="izquierda">
+                <!--
+                    Usamos la propiedad "class" para luego aplicar estilos
+                    sobre todos los TAGs que tengan el mismo "class"
+                -->
+                <UL class="menu">
+                    <LI>Inicio</LI>
+                    <LI>Perfil</LI>
+                    <LI>Enlaces</LI>
+                </UL>
+            </DIV>
+
+            <DIV id="derecha">
+                <!-- Contenido Principal -->
+                <H1>Jugando con CSS</H1>
+
+                <P>Pagina con estilo!</P>
+
+            </DIV>
+        </DIV>
+        <DIV id="pie_pagina">
+
+            <!-- Este TAG se puede usar para mostrar información de contacto -->
+            <ADDRESS>
+                Java Curiosities - Avenida Siempre Viva 742<BR>
+                luisdebello.cursos@gmail.com
+            </ADDRESS>
+        </DIV>
+    </BODY>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Introduccion AJAX</TITLE>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!--
+            Definimos de donde se debe leer el archivo que contiene el codigo JavaScript
+        -->
+        <SCRIPT type="text/javascript" src="js/datos.js"> </SCRIPT>
+            
+        <!--
+            Muchas veces en lugar de bajarnos un framework JavaScript e incluir los fuentes en nuestra aplicacion
+            podemos referenciar al framework desde un CDN.
+            Una CDN o Red de Distribución de Contenido es básicamente un conjunto de servidores ubicados en diferentes puntos de una red 
+            que contienen copias locales de ciertos contenidos (vídeos, imágenes, música, documentos, etc.) que están almacenados en otros 
+            servidores generalmente alejados geográficamente, de forma que sea posible servir dichos contenidos de manera más eficiente.
+        -->
+        <SCRIPT src="http://code.jquery.com/jquery-1.10.1.min.js"></SCRIPT>
+        <SCRIPT src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></SCRIPT>
+
+        <!--
+            Otra opcion es incluir el codigo JavaScript dentro del mismo HTML
+        -->
+        <SCRIPT type="text/javascript">
+            function cargarXMLDoc() {
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    // Codigo para IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // Codigo para IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                /* 
+                 * El metodo "onreadystatechange" es responsable de manejar los eventos que se producen. 
+                 * Se invoca cada vez que se produce un cambio en el estado de la petición HTTP. 
+                 * Normalmente es una referencia a una función JavaScript
+                 */
+                xmlhttp.onreadystatechange = function() {
+                    /*
+                     * readyState:
+                     * 0    No inicializado (objeto creado, pero no se ha invocado el método open)
+                     * 1    Cargando (objeto creado, pero no se ha invocado el método send)
+                     * 2    Cargado (se ha invocado el método send, pero el servidor aún no ha respondido)
+                     * 3    Interactivo (se han recibido algunos datos, aunque no se puede emplear la propiedad responseText)
+                     * 4    Completo (se han recibido todos los datos de la respuesta del servidor)
+                     * 
+                     * status:
+                     * El código de estado HTTP devuelto por el servidor.
+                     * 200  Para una respuesta correcta.
+                     * 404  Para "No encontrado".
+                     * 500  Para un error del servidor.
+                     */
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        document.getElementById("contenido").innerHTML = xmlhttp.responseText;
+                    }
+                };
+
+                xmlhttp.open("GET", "ajax_info.txt", true);
+                xmlhttp.send();
+            }
+        </SCRIPT>
+    </HEAD>
+    <BODY>
+        <DIV id="contenido"><H2>AJAX va a cambiar este texto</H2></DIV>
+        <BUTTON type="button" onclick="cargarXMLDoc();">Cambiar Contenido</BUTTON>
+        
+        <BUTTON type="button" onclick="javascript:alert('Hola Mundo');">Mensaje 1</BUTTON>
+        
+        <BUTTON type="button" onclick="helloWorld('Cosme Fulanito');">Mensaje 2</BUTTON>
+        
+        <HR>
+        <A href="combos.html">Combos</A>
+    </BODY>
+</HTML>
