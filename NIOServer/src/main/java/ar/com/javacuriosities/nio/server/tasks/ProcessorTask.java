@@ -21,21 +21,21 @@ import ar.com.javacuriosities.nio.server.message.writer.WriteProxy;
  */
 public class ProcessorTask implements Runnable {
 
-	private Queue<ClientSocket> clientsQueue = null;
+	private Queue<ClientSocket> clientsQueue;
 
-	private MessageBuffer readMessageBuffer = null;  
-	private IMessageReaderFactory messageReaderFactory = null;
+	private MessageBuffer readMessageBuffer;
+	private IMessageReaderFactory messageReaderFactory;
 
 	private Queue<Message> outboundMessageQueue = new LinkedList<>(); 
 
 	private ByteBuffer readByteBuffer = ByteBuffer.allocate(1024 * 1024);
 	private ByteBuffer writeByteBuffer = ByteBuffer.allocate(1024 * 1024);
 	
-	private Selector readSelector = null;
-	private Selector writeSelector = null;
+	private Selector readSelector;
+	private Selector writeSelector;
 
-	private WriteProxy writeProxy = null;
-	private IMessageProcessor messageProcessor = null;
+	private WriteProxy writeProxy;
+	private IMessageProcessor messageProcessor;
 
 	private long nextSocketId = 16 * 1024;
 	private Map<Long, ClientSocket> clientSocketMapId = new HashMap<>();
@@ -49,7 +49,7 @@ public class ProcessorTask implements Runnable {
 		this.clientsQueue = clientsQueue;
 
 		this.readMessageBuffer = readMessageBuffer;
-		
+
 		this.writeProxy = new WriteProxy(writeMessageBuffer, this.outboundMessageQueue);
 
 		this.messageReaderFactory = messageReaderFactory;
@@ -59,6 +59,7 @@ public class ProcessorTask implements Runnable {
 		this.writeSelector = Selector.open();
 	}
 
+	@Override
 	public void run() {
 		while (!Thread.currentThread().isInterrupted()) {
 			try {
@@ -78,13 +79,13 @@ public class ProcessorTask implements Runnable {
 		}
 	}
 
-	public void executeCycle() throws IOException {
+	private void executeCycle() throws IOException {
 		takeNewSockets();
 		readFromSockets();
 		writeToSockets();
 	}
 
-	public void takeNewSockets() throws IOException {
+	private void takeNewSockets() throws IOException {
 		ClientSocket clientSocket = this.clientsQueue.poll();
 
 		while (clientSocket != null) {
@@ -105,7 +106,7 @@ public class ProcessorTask implements Runnable {
 		}
 	}
 
-	public void readFromSockets() throws IOException {
+	private void readFromSockets() throws IOException {
 		int selectorsReady = this.readSelector.selectNow();
 
 		if (selectorsReady > 0) {
@@ -123,7 +124,7 @@ public class ProcessorTask implements Runnable {
 		}
 	}
 
-	public void writeToSockets() throws IOException {
+	private void writeToSockets() throws IOException {
 		// Tomamos todos los mensajes de la "outboundMessageQueue"
 		takeNewOutboundMessages();
 

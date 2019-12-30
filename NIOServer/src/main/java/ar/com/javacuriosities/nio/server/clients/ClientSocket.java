@@ -15,7 +15,7 @@ public class ClientSocket {
 
     public long socketId;
 
-    public SocketChannel  socketChannel = null;
+    public SocketChannel  socketChannel;
     
     public IMessageReader messageReader = null;
     public MessageWriter  messageWriter = null;

@@ -33,12 +33,11 @@ public class HttpUtil {
             return -1;
         }
 
-        // Verificamos contengo un mensaje completo de HTTP
+        // Verificamos los indexes del mensaje HTTP
         int bodyStartIndex = endOfHeader + 1;
         int bodyEndIndex  = bodyStartIndex + httpHeaders.contentLength;
 
 		if (bodyEndIndex <= endIndex) {
-			// Byte array contains a full HTTP request
 			httpHeaders.bodyStartIndex = bodyStartIndex;
 			httpHeaders.bodyEndIndex = bodyEndIndex;
 			return bodyEndIndex;

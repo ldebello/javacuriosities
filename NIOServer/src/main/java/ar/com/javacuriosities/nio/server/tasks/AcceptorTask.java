@@ -11,19 +11,20 @@ import ar.com.javacuriosities.nio.server.clients.ClientSocket;
 /*
  * Esta tarea corre en un thread separado aceptando conexiones
  */
-public class AccepterTask implements Runnable {
+public class AcceptorTask implements Runnable {
 
-	private int port = 0;
+	private int port;
 
 	private ServerSocketChannel serverChannel = null;
 
 	private Queue<ClientSocket> clientsQueue = null;
 
-	public AccepterTask(Queue<ClientSocket> clientsQueue, int port) {
+	public AcceptorTask(Queue<ClientSocket> clientsQueue, int port) {
 		this.port = port;
 		this.clientsQueue = clientsQueue;
 	}
 
+	@Override
 	public void run() {
 		try {
 			this.serverChannel = ServerSocketChannel.open();

@@ -8,7 +8,7 @@ import ar.com.javacuriosities.nio.server.clients.ClientSocket;
 import ar.com.javacuriosities.nio.server.message.MessageBuffer;
 import ar.com.javacuriosities.nio.server.message.processor.IMessageProcessor;
 import ar.com.javacuriosities.nio.server.message.reader.IMessageReaderFactory;
-import ar.com.javacuriosities.nio.server.tasks.AccepterTask;
+import ar.com.javacuriosities.nio.server.tasks.AcceptorTask;
 import ar.com.javacuriosities.nio.server.tasks.ProcessorTask;
 
 /*
@@ -33,7 +33,7 @@ public class NIOServer {
         
     	Queue<ClientSocket> clientsQueue = new ArrayBlockingQueue<ClientSocket>(1024);
 
-        Thread accepter  = new Thread(new AccepterTask(clientsQueue, port));
+        Thread accepter  = new Thread(new AcceptorTask(clientsQueue, port));
         Thread processor = new Thread(new ProcessorTask(clientsQueue, readBuffer, writeBuffer, messageReaderFactory, messageProcessor));
 
         accepter.start();
