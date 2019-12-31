@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             // Recuperamos el nombre de usuario
-            String user = request.getParameter("txtUsuario");
+            String user = request.getParameter("txtUser");
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<form action='WelcomeServlet' method='POST'>");
-            out.println("<input type='hidden' name='txtUsuario' value='" + user + "'>");
+            out.println("<input type='hidden' name='txtUser' value='" + user + "'>");
             out.println("<input type='submit' value='Hidden Form'>");
             out.println("</form>");
             out.println("</body>");

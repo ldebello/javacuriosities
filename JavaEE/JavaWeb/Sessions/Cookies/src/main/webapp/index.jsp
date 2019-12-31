@@ -1,14 +1,14 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<HTML>
-<HEAD>
-    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <TITLE>Cookie Session</TITLE>
-</HEAD>
-<BODY>
-<FORM action="LoginServlet" method="POST">
-    Name:<INPUT type="text" name="txtUsuario"/><BR/>
-    <INPUT type="submit" value="Login"/>
-</FORM>
-</BODY>
-</HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Cookie Session</title>
+</head>
+<body>
+<form action="LoginServlet" method="POST">
+    <label for="txtUser"> Name: </label> <input type="text" id="txtUser" name="txtUser"/> <br/>
+    <input type="submit" value="Login"/>
+</form>
+</body>
+</html>

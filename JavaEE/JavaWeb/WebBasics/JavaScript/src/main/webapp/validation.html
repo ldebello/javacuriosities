@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript">
+        function validation(formulario) {
+            // Comprueba el nombre y arroja un popup
+            if (formulario.nombre.value.length === 0) {
+                formulario.nombre.focus();
+                alert('El nombre esta vacio');
+                return false;
+            }
+
+            // Comprueba el mail y muestra un mensaje al lado del componente
+            if (formulario.email.value.length === 0) {
+                formulario.email.focus();
+                document.getElementById("errorEmail").innerHTML = "El mail esta vació";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<form action="information.jsp" method="POST" onsubmit="return validation(this);">
+    Nombre: <input type="text" name="nombre"/><br/>
+    Edad: <input type="text" name="edad"/><br/>
+    Email: <input type="text" name="email"/> <span id="errorEmail" style="color: red"></span> <br/>
+    <input type="submit" name="Validar"/>
+</form>
+</body>
+</html>

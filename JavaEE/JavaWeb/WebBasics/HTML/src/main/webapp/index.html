@@ -100,133 +100,136 @@
     <ul>                    Inserta una lista desordenada
     <var>                   Indica una instancia de una variable
 -->
-<HTML>
-    <HEAD>
-        <TITLE>Introducción HTML</TITLE>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    </HEAD>
-    <BODY>
-        <!--
-            Dentro del tag <BODY> vamos a mencionar las etiquetas que queremos que esten en nuestra
-            pagina.
-        -->
-        
-        <!--
-            La etiqueta <H*> tiene varios niveles del 1 al 6 y nos sirve para poner títulos de distintos
-            niveles ya pre-configurados.
-        -->
-        <H1>Hola mundo! Bienvenido HTML</H1>
-        <H2>Hola mundo! Bienvenido HTML</H2>
-        <H3>Hola mundo! Bienvenido HTML</H3>
-        <H4>Hola mundo! Bienvenido HTML</H4>
-        <H5>Hola mundo! Bienvenido HTML</H5>
-        <H6>Hola mundo! Bienvenido HTML</H6>
+<html lang="es">
+<head>
+    <title>Introducción HTML</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<!--
+    Dentro del tag <BODY> vamos a mencionar las etiquetas que queremos que esten en nuestra
+    pagina.
+-->
 
-        <!--
-            Etiquetas de formato
-            <B>: Texto en negrita
-            <I>: Texto en itálica
-            <U>: Texto subrayado
-            <BR>: Deja un salto de linea
-            <HR>: Dibuja una linea en general para indicar un cambio de tematica
-        -->
-        <B>Esto es negrita</B><BR>
-        <I>Esto es itálica!</I><BR>
-        <U>Esto es Subrayado</U><BR>
+<!--
+    La etiqueta <H*> tiene varios niveles del 1 al 6 y nos sirve para poner títulos de distintos
+    niveles ya pre-configurados.
+-->
+<h1>Hola mundo! Bienvenido HTML</h1>
+<h2>Hola mundo! Bienvenido HTML</h2>
+<h3>Hola mundo! Bienvenido HTML</h3>
+<h4>Hola mundo! Bienvenido HTML</h4>
+<h5>Hola mundo! Bienvenido HTML</h5>
+<h6>Hola mundo! Bienvenido HTML</h6>
 
-        Esto es sin formato                
-        <HR>    
-        <!--
-            La etiqueta <A> sirve para definir links en las paginas
-        -->
-        <A HREF="http://www.google.com">Ir a Google</A>
-        <HR>
-        
-        <!--
-            La etiqueta <TABLE> sirve para dibujar una tabla, asi como cada TAG tiene
-            un propósito especifico, estos cuentan con atributos por ejemplo el TAG <TABLE>
-            tiene el atributo "border" para indicar si posee o no borde.
-        
-            <TR>: Define una fila
-            <TD>: Define una columna, por eso se define dentro del TAG <TR>
-        
-            Propiedad colspan: Indica que la columna se expande por tres.
-        -->
-        <TABLE border="1">
-            <TR>
-                <TD><B>Legajo</B></TD>
-                <TD><B>Nombre</B></TD>
-                <TD><B>Apellido</B></TD>
-            </TR>
-            <TR>
-                <TD>648</TD>
-                <TD>Cosme</TD>
-                <TD>Fulanito</TD>
-            </TR>
-            <TR>
-                <TD colspan="3" align="center">Footer</TD>               
-            </TR>
-        </TABLE>
-        <HR>
+<!--
+    Etiquetas de formato
+    <B>: Texto en negrita
+    <I>: Texto en itálica
+    <U>: Texto subrayado
+    <BR>: Deja un salto de linea
+    <HR>: Dibuja una linea en general para indicar un cambio de tematica
+-->
+<b>Esto es negrita</b><BR>
+<i>Esto es itálica!</i><BR>
+<u>Esto es Subrayado</u><BR>
 
-        <!--
-            Hay etiquetas de listas.
-        
-            <UL>: Unordered List
-            <OL>: Ordered List
-        
-            Los TAGs <LI>: List Item se definen dentro de las listas y podemos usar distintas propiedades
-        -->
-        <UL>
-            <LI type="circle">Item con circulo</LI>
-            <LI type="square">Item con cuadrado</LI>
-            <LI type="disc">Item con circulo relleno</LI>
-        </UL>
-        <HR>
-        <OL>
-            <LI value="5">Item 5</LI>
-            <LI>Item 6</LI>
-            <LI>Item 7</LI>
-        </OL>
-        <HR>
-        
-        <H1> FORMULARIO </H1>
-        
-        <!--
-            Etiqueta <FORM> nos sirve para definir un formulario que tiene dos propiedades fundamentales
-            action y method
-        
-            action: Indica a que URL va a proseguir, puede ser absoluta o relativa
-            method: Indica el método que viajan los parámetros (POST-GET)
-        
-            GET: Los parámetros son enviados en la URL
-            POST: Los parámetros son enviados ocultos en el header de la petición
-        
-            Tenemos distintas etiquetas para los componentes de nuestro formulario, usamos
-            el TAG <INPUT> y definimos su atributo type el cual deja seleccionar el tipo de componente
-            
-            text: Define una caja de texto
-            checkbox: Un checkbox
-            radio: Define un radio button
-            submit: El botón que hace el submit de la petición
-            reset: Limpia los componentes del formulario
-            hidden: Componente no visible para el usuario que se usa para tener información para el envío
-        -->
-        <FORM action="index.html" method="GET">
-            Marca: <INPUT type="text" name="marca"><BR>
-            Modelo: <INPUT type="text" name="modelo"><BR>
-            Usado: <INPUT type="checkbox" name="usado"><BR>
-            Color:
-            <SELECT name="color">
-                <OPTION value="1">Amarillo</OPTION>
-                <OPTION value="2">Blanco</OPTION>
-                <OPTION value="3">Verde</OPTION>
-            </SELECT> <BR>
-            Cambios: <INPUT type="radio" name="tipo" value="caja_automatica">Automatico<INPUT type="radio" name="tipo" value="caja_manual">Manual
-            <INPUT type="hidden" name="accion" value="insertar">
-            <HR>
-            <INPUT type="submit" value="Enviar datos">
-            <INPUT type="reset" value="Limpiar datos">
-        </FORM>
-    </BODY>
-</HTML>
+Esto es sin formato
+<hr>
+<!--
+    La etiqueta <A> sirve para definir links en las paginas
+-->
+<a HREF="http://www.google.com">Ir a Google</a>
+<hr>
+
+<!--
+    La etiqueta <TABLE> sirve para dibujar una tabla, asi como cada TAG tiene
+    un propósito especifico, estos cuentan con atributos por ejemplo el TAG <TABLE>
+    tiene el atributo "border" para indicar si posee o no borde.
+
+    <TR>: Define una fila
+    <TD>: Define una columna, por eso se define dentro del TAG <TR>
+
+    Propiedad colspan: Indica que la columna se expande por tres.
+-->
+<table border="1">
+    <tr>
+        <td><b>Legajo</b></td>
+        <td><b>Nombre</b></td>
+        <td><b>Apellido</b></td>
+    </tr>
+    <tr>
+        <td>648</td>
+        <td>Cosme</td>
+        <td>Fulanito</td>
+    </tr>
+    <tr>
+        <td colspan="3" align="center">Footer</td>
+    </tr>
+</table>
+<HR>
+
+<!--
+    Hay etiquetas de listas.
+
+    <UL>: Unordered List
+    <OL>: Ordered List
+
+    Los TAGs <LI>: List Item se definen dentro de las listas y podemos usar distintas propiedades
+-->
+<ul>
+    <li type="circle">Item con circulo</li>
+    <li type="square">Item con cuadrado</li>
+    <li type="disc">Item con circulo relleno</li>
+</ul>
+<hr>
+<ol>
+    <li value="5">Item 5</li>
+    <li>Item 6</li>
+    <li>Item 7</li>
+</ol>
+<hr>
+
+<h1> FORMULARIO </h1>
+
+<!--
+    Etiqueta <FORM> nos sirve para definir un formulario que tiene dos propiedades fundamentales
+    action y method
+
+    action: Indica a que URL va a proseguir, puede ser absoluta o relativa
+    method: Indica el método que viajan los parámetros (POST-GET)
+
+    GET: Los parámetros son enviados en la URL
+    POST: Los parámetros son enviados ocultos en el header de la petición
+
+    Tenemos distintas etiquetas para los componentes de nuestro formulario, usamos
+    el TAG <INPUT> y definimos su atributo type el cual deja seleccionar el tipo de componente
+
+    text: Define una caja de texto
+    checkbox: Un checkbox
+    radio: Define un radio button
+    submit: El botón que hace el submit de la petición
+    reset: Limpia los componentes del formulario
+    hidden: Componente no visible para el usuario que se usa para tener información para el envío
+-->
+<form action="index.html" method="GET">
+    <label for="brand">Marca:</label> <input type="text" id="brand" name="brand"/><br/>
+    <label for="model">Modelo:</label> <input type="text" id="model" name="model"/><br/>
+    <label for="used">Usado:</label> <input type="checkbox" id="used" name="used"/><br/>
+    <label for="color">Color:</label>
+    <select id="color" name="color">
+        <option value="1">Amarillo</option>
+        <option value="2">Blanco</option>
+        <option value="3">Verde</option>
+    </select> <br>
+    Caja:
+    <input type="radio" id="r1" name="tipo" value="automatic"/> <label for="r1">Automática</label>
+    <input type="radio" id="r2" id="tipo" name="tipo" value="manuel"/> <label for="r2">Manual</label>
+
+    <input type="hidden" name="action" value="insert">
+    <hr>
+    <input type="submit" value="Enviar datos">
+    <input type="reset" value="Limpiar datos">
+</form>
+</body>
+</html>

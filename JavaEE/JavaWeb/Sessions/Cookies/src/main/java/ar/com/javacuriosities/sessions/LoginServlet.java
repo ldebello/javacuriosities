@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             // Recuperamos el nombre de usuario
-            String user = request.getParameter("txtUsuario");
+            String user = request.getParameter("txtUser");
 
             // Creamos una cookie que vuelve en el response
             // El tamaño maximo es de 4 KB (4096 caracteres) y 20 cookies por Web Server (300 cookies máximas)
@@ -66,7 +66,7 @@ public class LoginServlet extends HttpServlet {
             // la cookie tiene que ser Version 1 (by RFC 2109)
             // por defecto se crean con Version 0 (by Netscape) para asegurar
             // la compatibilidad
-            cookie.setComment("Comentario prueba");
+            cookie.setComment("Testing Comment");
 
             // Agregamos la cookie a la respuesta
             response.addCookie(cookie);

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Combos dinámicos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript">
+        function loadCategory() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // Código para IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // Código para IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    // Obtenemos el elemento y llenamos las opciones iniciales
+                    var categorySelect = document.getElementById("category");
+                    categorySelect.innerHTML = xmlhttp.responseText;
+
+                    // Ejecutamos el evento onchange
+                    categorySelect.onchange();
+                }
+            };
+
+            // Enviamos petición AJAX por método GET
+            xmlhttp.open("GET", "DropdownInformation?action=start", true);
+            xmlhttp.send();
+        }
+
+        function loadSubCategory() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                // Código para IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // Código para IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    // Llenamos el combo de sub-categorías
+                    var subCategorySelect = document.getElementById("subCategory");
+                    subCategorySelect.innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            // Obtenemos el combo de categorías
+            var categorySelect = document.getElementById("category");
+
+            // Petición AJAX por método POST
+            xmlhttp.open("POST", "DropdownInformation", true);
+
+            //Como usamos el método POST necesitamos esta linea para indicar como viajan los parámetros
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            // Obtenemos el valor seleccionado del combo categorías
+            var selectedValue = categorySelect.options[categorySelect.selectedIndex].value;
+
+            // Creamos los parámetros de envío
+            var data = "action=reload&category=" + selectedValue;
+
+            // Enviamos la petición y los parámetros
+            xmlhttp.send(data);
+        }
+    </script>
+</head>
+<body onload="loadCategory();">
+<label for="category">Categoria:</label><select id="category" onchange="loadSubCategory();">
+</select>
+<label for="subCategory">Subcategoria: </label><select id="subCategory">
+</select>
+</body>
+</html>

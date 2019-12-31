@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             // Recuperamos el nombre de usuario
-            String user = request.getParameter("txtUsuario");
+            String user = request.getParameter("txtUser");
             String jwt = createSignedJWT(user, "manager");
 
             Cookie cookie = new Cookie("JWT-SESSION-ID", jwt);

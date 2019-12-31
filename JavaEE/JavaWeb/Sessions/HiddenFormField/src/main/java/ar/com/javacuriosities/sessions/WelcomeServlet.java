@@ -24,7 +24,7 @@ public class WelcomeServlet extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             // Recuperamos el nombre de usuario
-            String user = request.getParameter("txtUsuario");
+            String user = request.getParameter("txtUser");
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");

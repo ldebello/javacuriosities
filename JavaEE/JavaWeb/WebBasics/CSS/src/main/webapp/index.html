@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<HTML>
-    <HEAD>
-        <TITLE>Introducción CSS</TITLE>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="es">
+<head>
+    <title>Introducción CSS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--
+        Definimos de donde se debe leer el archivo de estilos
+    -->
+    <link rel="stylesheet" type="text/css" href="style/styles.css">
+</head>
+<body>
+<h1>Titulo Centrado</h1>
+
+<!--
+    Usamos la propiedad "id" para luego aplicar estilos
+    sobre ese TAG
+-->
+<div id="container">
+    <div id="left">
         <!--
-            Definimos de donde se debe leer el archivo de estilos
+            Usamos la propiedad "class" para luego aplicar estilos
+            sobre todos los TAGs que tengan el mismo "class"
         -->
-        <LINK rel="stylesheet" type="text/css" href="style/estilos.css">
-    </HEAD>
-    <BODY>
-        <H1>Titulo Centrado</H1>
+        <ul class="menu">
+            <li>Inicio</li>
+            <li>Perfil</li>
+            <li>Enlaces</li>
+        </ul>
+    </div>
 
-        <!--
-            Usamos la propiedad "id" para luego aplicar estilos
-            sobre ese TAG
-        -->
-        <DIV id="contenedor">
-            <DIV id="izquierda">
-                <!--
-                    Usamos la propiedad "class" para luego aplicar estilos
-                    sobre todos los TAGs que tengan el mismo "class"
-                -->
-                <UL class="menu">
-                    <LI>Inicio</LI>
-                    <LI>Perfil</LI>
-                    <LI>Enlaces</LI>
-                </UL>
-            </DIV>
+    <div id="right">
+        <!-- Contenido Principal -->
+        <h1>Jugando con CSS</h1>
 
-            <DIV id="derecha">
-                <!-- Contenido Principal -->
-                <H1>Jugando con CSS</H1>
+        <p>Pagina con estilo!</p>
 
-                <P>Pagina con estilo!</P>
+    </div>
+</div>
+<div id="footer">
 
-            </DIV>
-        </DIV>
-        <DIV id="pie_pagina">
-
-            <!-- Este TAG se puede usar para mostrar información de contacto -->
-            <ADDRESS>
-                Java Curiosities - Avenida Siempre Viva 742<BR>
-                luisdebello.cursos@gmail.com
-            </ADDRESS>
-        </DIV>
-    </BODY>
+    <!-- Este TAG se puede usar para mostrar información de contacto -->
+    <address>
+        Java Curiosities - Avenida Siempre Viva 742<BR>
+        luisdebello.cursos@gmail.com
+    </address>
+</div>
+</body>
 </html>
