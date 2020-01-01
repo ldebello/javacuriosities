@@ -6,32 +6,32 @@
 
     <script type="text/javascript">
         function onClickButton() {
-            txtDatos = document.getElementById("txtDatos");
+            var txtData = document.getElementById("txtData");
 
-            if (txtDatos.value !== "") {
-                document.getElementById("contenedor").innerHTML = txtDatos.value;
+            if (txtData.value !== "") {
+                document.getElementById("container").innerHTML = txtData.value;
 
-                var persona = new Persona("Cosme", "Fulanito", 28);
-                persona.hablar(); // Invocando al método hablar
+                var person = new Person("Cosme", "Fulanito", 28);
+                person.talk(); // Invocando al método talk
             } else {
                 alert("Complete su nombre");
-                document.getElementById("contenedor").innerHTML = "Hola Mundo Dinamico";
+                document.getElementById("container").innerHTML = "Hola Mundo Dinamico";
 
-                var personaFuturo = new PersonaFuturo("Cosme", "Fulanito", 28);
-                personaFuturo.teletransportarse(); // Invocando al método teletransportarse
+                var personFromFuture = new FuturistPerson("Cosme", "Fulanito", 28);
+                personFromFuture.teleport(); // Invocando al método teleport
 
-                personaFuturo.hablar(); // Invocando al método heredado
+                personFromFuture.talk(); // Invocando al método heredado
             }
         }
 
         // Prototipo
-        function Persona(nombre, apellido, edad) {
+        function Person(name, lastName, age) {
             // Variables privadas
-            var _nombreCompleto;
+            var _fullName;
 
-            this.nombre = nombre;   // Este es un atributo
-            this.apellido = apellido;   // Este es otro atributo
-            this.edad = edad;   // Este es otro atributo
+            this.name = name;   // Este es un atributo
+            this.lastName = lastName;   // Este es otro atributo
+            this.age = age;   // Este es otro atributo
 
             /*
              La palabra reservada this hace que la variable
@@ -39,42 +39,43 @@
              representa la clase, si no se usa la variable es local
              y desaparece al terminar la ejecución de la función.
              */
+            _fullName = name + " " + lastName;
 
-            this.obtenerNombreCompleto = function () {
-                return _nombreCompleto;
+            this.getFullName = function () {
+                return _fullName;
             };
         }
 
         // Todo objeto creado en JavaScript por defecto tiene un atributo llamado prototype
-        Persona.prototype.hablar = function () { // Uso de prototype
+        Person.prototype.talk = function () { // Uso de prototype
             console.log("Hablando..."); // Escribimos un mensaje en consola
         };
 
         // Clase hija
-        function PersonaFuturo(nombre, apellido, planeta) {
-            Persona.call(this, nombre, apellido, -1);
-            this.planeta = planeta;
+        function FuturistPerson(name, lastName, planet) {
+            Person.call(this, name, lastName, -1);
+            this.planet = planet;
 
-            this.teletransportarse = function () {
-                console.log("Teletransportacion...");
+            this.teleport = function () {
+                console.log("Teletransportación para " + this.getFullName());
             };
         }
 
         // Esta forma de herencia se conoce como "prototypal inheritance"
-        PersonaFuturo.prototype = new Persona();
+        FuturistPerson.prototype = new Person();
     </script>
 </head>
 <body>
 <h1>Contenido Dinámico</h1>
 
 <!-- Componente para ingresar texto -->
-<input id="txtDatos" type="text"/>
+<input id="txtData" type="text"/>
 
 <!-- Agregamos un botón que al disparar el evento "onclick" ejecuta la función onClickButton definida por nosotros en código JavaScript -->
 <button onclick="onClickButton();">Agregar</button>
 
 <!-- Definimos un area donde iremos cambiando el contenido -->
-<div id="contenedor">
+<div id="container">
 </div>
 
 <A href="validation.html">Ejemplo validación formulario</A>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <script type="text/javascript">
-        function validation(formulario) {
+        function validation(form) {
             // Comprueba el nombre y arroja un popup
-            if (formulario.nombre.value.length === 0) {
-                formulario.nombre.focus();
-                alert('El nombre esta vacio');
+            if (form.name.value.length === 0) {
+                form.name.focus();
+                alert('El nombre esta vació');
                 return false;
             }
 
             // Comprueba el mail y muestra un mensaje al lado del componente
-            if (formulario.email.value.length === 0) {
-                formulario.email.focus();
+            if (form.email.value.length === 0) {
+                form.email.focus();
                 document.getElementById("errorEmail").innerHTML = "El mail esta vació";
                 return false;
             }
@@ -25,9 +25,11 @@
 </head>
 <body>
 <form action="information.jsp" method="POST" onsubmit="return validation(this);">
-    Nombre: <input type="text" name="nombre"/><br/>
-    Edad: <input type="text" name="edad"/><br/>
-    Email: <input type="text" name="email"/> <span id="errorEmail" style="color: red"></span> <br/>
+    <label for="name">Nombre:</label> <input type="text" id="name" name="name"/><br/>
+    <label for="age">Edad:</label> <input type="text" id="age" name="age"/><br/>
+    <label for="email">Email:</label> <input type="text" id="email" name="email"/> <span id="errorEmail"
+                                                                                         style="color: red"></span>
+    <br/>
     <input type="submit" name="Validar"/>
 </form>
 </body>

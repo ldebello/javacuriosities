@@ -6,8 +6,8 @@
         <title>Información</title>
     </head>
     <BODY>
-        Nombre: <%= request.getParameter("nombre") %> <BR>
-        Edad: <%= request.getParameter("edad") %> <BR>
-        Mail: <%= request.getParameter("mail") %> <BR>
+        Nombre: <%= request.getParameter("name") %> <BR>
+        Edad: <%= request.getParameter("age") %> <BR>
+        Mail: <%= request.getParameter("email") %> <BR>
     </BODY>
 </html>
