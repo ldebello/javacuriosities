@@ -1,0 +1,4 @@
+= Presentations
+
+* http://www.slideshare.net/luisdebello/sockets-tcp-49338990[Sockets TCP]
+* http://es.slideshare.net/luisdebello/sockets-udp[Sockets UDP]

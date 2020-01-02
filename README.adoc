@@ -1,15 +1,3 @@
 = Java Curiosities
 
 This repository contains several examples and summaries about different Java topics.
-
-== Presentations
-
-You can find some useful presentations in the following URLs
-
-* http://es.slideshare.net/luisdebello/thread-01-49070662[Thread-01]
-* http://es.slideshare.net/luisdebello/thread-02[Thread-02]
-
-* http://www.slideshare.net/luisdebello/sockets-tcp-49338990[Sockets TCP]
-* http://es.slideshare.net/luisdebello/sockets-udp[Sockets UDP]
-
-* http://es.slideshare.net/luisdebello/administracin-de-memoria-en-java[Java Memory Management]

@@ -47,7 +47,8 @@
 		<module>Reflection</module>
 		<module>Annotations</module>
 		<module>DynamicProxies</module>
-      <module>Collections</module>
+      	<module>Collections</module>
         <module>JMX</module>
-    </modules>
+		<module>MemoryManagement</module>
+	</modules>
 </project>
