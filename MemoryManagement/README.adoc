@@ -4,21 +4,21 @@
 
 == Examples
 
-Example 01: Areas de memoria (HelloWorld.java)
-Example 02: Pool de constantes (RuntimeConstantPool.java)
-Example 03: ClassLoader (ClassLoaderDelegation.java)
-Example 04: Ciclo de vida (LifeCycle.java)
-Example 05: SizeOf Primitivos (SizeOfPrimitives.java)
-Example 06: SizeOf Wrappers (SizeOfWrappers.java)
-Example 07: SizeOf Objetos (SizeOfObjects.java)
-Example 08: Shallow y Retained (ShallowVsRetained.java)
-Example 09: Parámetros de memoria (JVMParameters.java)
-Example 10: Visor de areas de memoria (MemoryViewer.java)
-Example 11: GC MXBean Info (GCMXBean.java)
-Example 12: GC output (GCDetails.java)
-Example 13: OOM Native Heap (OOMNativeHeap.java)
-Example 14: OOM Java Heap (OOMJavaHeapSpace.java)
-Example 15: OOM PermGen Space (OOMPermGenSpace.java)
-Example 16: OOM Request Array Size (OOMRequestArraySize.java)
-Example 17: Heap Dump 1 (MainHeapDump.java)
-Example 18: Heap Dump 2 (HeapDumpPath.java)
+Example 01: Areas de memoria (HelloWorld.java) +
+Example 02: Pool de constantes (RuntimeConstantPool.java) +
+Example 03: ClassLoader (ClassLoaderDelegation.java) +
+Example 04: Ciclo de vida (LifeCycle.java) +
+Example 05: SizeOf Primitivos (SizeOfPrimitives.java) +
+Example 06: SizeOf Wrappers (SizeOfWrappers.java) +
+Example 07: SizeOf Objetos (SizeOfObjects.java) +
+Example 08: Shallow y Retained (ShallowVsRetained.java) +
+Example 09: Parámetros de memoria (JVMParameters.java) +
+Example 10: Visor de areas de memoria (MemoryViewer.java) +
+Example 11: GC MXBean Info (GCMXBean.java) +
+Example 12: GC output (GCDetails.java) +
+Example 13: OOM Native Heap (OOMNativeHeap.java) +
+Example 14: OOM Java Heap (OOMJavaHeapSpace.java) +
+Example 15: OOM PermGen Space (OOMPermGenSpace.java) +
+Example 16: OOM Request Array Size (OOMRequestArraySize.java) +
+Example 17: Heap Dump 1 (MainHeapDump.java) +
+Example 18: Heap Dump 2 (HeapDumpPath.java) +
