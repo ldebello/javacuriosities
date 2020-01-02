@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>WebBasics</name>
-    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWeb/WebBasics</url>
+    <name>Servlets</name>
+    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWeb/Servlets</url>
 
     <parent>
         <groupId>ar.com.javacuriosities</groupId>
@@ -13,16 +13,15 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>WebBasics</artifactId>
+    <artifactId>Servlets</artifactId>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>HTML</module>
-        <module>CSS</module>
-        <module>DOM</module>
-        <module>JavaScript</module>
-        <module>AJAX</module>
-        <module>IndexedDB</module>
+        <module>ServletBasics</module>
+        <module>ServletFilter</module>
+        <module>ServletListeners</module>
+        <module>RequestDispatcher</module>
+        <module>Redirect</module>
     </modules>
 </project>

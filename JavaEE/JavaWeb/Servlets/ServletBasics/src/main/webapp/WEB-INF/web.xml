@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+    <display-name>Nombre WebApp</display-name>
+    <description>
+        Descripción de la WebApp
+    </description>
+
+    <servlet>
+        <!-- Devuelve un mensaje descriptivo del Servlet -->
+        <description>Descripción del Servlet</description>
+
+        <!-- servlet-name debe coincidir en la parte de servlet-mapping -->
+        <servlet-name>ServletExample</servlet-name>
+
+        <!-- Clase Java que con su paquete completo -->
+        <servlet-class>ar.com.javacuriosities.servlets.ServletExample</servlet-class>
+
+        <!-- Parámetro para este Servlet -->
+        <init-param>
+            <param-name>User</param-name>
+            <param-value>CosmeFulanito</param-value>
+        </init-param>
+
+        <!-- Indica la prioridad para levantar el Servlet si es un numero negativo recién se levanta bajo demanda -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <!-- Asocia el Servlet a una URL -->
+        <servlet-name>ServletExample</servlet-name>
+
+        <!-- Aquí ponemos el patron para la URL-->
+        <url-pattern>/ServletExample</url-pattern>
+
+        <!-- Se puede poner mas de un element url-pattern de esta forma varias URLs apuntan al mismo Servlet-->
+        <url-pattern>/AlternativeURLPattern</url-pattern>
+    </servlet-mapping>
+
+    <!-- Podemos definir parámetros para el Servlet Context -->
+    <context-param>
+        <param-name>Email</param-name>
+        <param-value>luisdebello.cursos@gmail.com</param-value>
+    </context-param>
+
+    <!-- Podemos definir el timeout de la session -->
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+    <!-- Se usa para definir un listener que es invocado cuando se levanta la aplicación y cuando se destruye la app -->
+    <listener>
+        <listener-class>ar.com.javacuriosities.servlets.ListenerApp</listener-class>
+    </listener>
+
+    <!-- Se usa para definir la pagina por default de la web app -->
+    <welcome-file-list>
+        <welcome-file>
+            index.html
+        </welcome-file>
+    </welcome-file-list>
+</web-app>

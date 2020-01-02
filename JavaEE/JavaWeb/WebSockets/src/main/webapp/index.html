@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Java EE Web Sockets</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript">
+        var wsocket;
+
+        function connect() {
+            wsocket = new WebSocket("ws://localhost:8080/WebSockets/price");
+            wsocket.onmessage = onMessage;
+        }
+
+        function onMessage(evt) {
+            var data = evt.data.split(",");
+            document.getElementById("price").innerHTML = data[0];
+            document.getElementById("volume").innerHTML = data[1];
+        }
+
+        window.addEventListener("load", connect, false);
+    </script>
+</head>
+<body>
+<div>Datos</div>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Precio</th>
+        <th>Volumen</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <td colspan="2">Actualizando en vivo</td>
+    </tr>
+    </tfoot>
+    <tbody>
+    <tr>
+        <td id="price">0.0</td>
+        <td id="volume">-</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

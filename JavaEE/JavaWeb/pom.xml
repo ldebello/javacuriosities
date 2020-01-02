@@ -19,6 +19,10 @@
 
     <properties>
         <tomcat.version>9.0.30</tomcat.version>
+        <containerId>tomcat9x</containerId>
+        <containerURL>
+            http://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/${tomcat.version}/tomcat-${tomcat.version}.zip
+        </containerURL>
     </properties>
 
     <dependencyManagement>
@@ -27,6 +31,24 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>4.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.websocket</groupId>
+                <artifactId>javax.websocket-api</artifactId>
+                <version>1.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.json</groupId>
+                <artifactId>javax.json-api</artifactId>
+                <version>1.1.4</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.ejb</groupId>
+                <artifactId>javax.ejb-api</artifactId>
+                <version>3.2.2</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>
@@ -41,19 +63,17 @@
                     <version>1.7.9</version>
                     <configuration>
                         <container>
-                            <containerId>tomcat9x</containerId>
+                            <containerId>${containerId}</containerId>
                             <zipUrlInstaller>
-                                <url>
-                                    http://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/${tomcat.version}/tomcat-${tomcat.version}.zip
-                                </url>
+                                <url>${containerURL}</url>
                             </zipUrlInstaller>
                             <append>false</append>
                             <log>${project.build.directory}/cargo.log</log>
-                            <output>${project.build.directory}/tomcat9x/container.log</output>
+                            <output>${project.build.directory}/${containerId}/container.log</output>
                         </container>
                         <configuration>
                             <type>standalone</type>
-                            <home>${project.build.directory}/tomcat9x</home>
+                            <home>${project.build.directory}/${containerId}</home>
                             <properties>
                                 <cargo.servlet.port>8080</cargo.servlet.port>
                                 <cargo.logging>high</cargo.logging>
@@ -80,5 +100,7 @@
     <modules>
         <module>Sessions</module>
         <module>WebBasics</module>
+        <module>Servlets</module>
+        <module>WebSockets</module>
     </modules>
 </project>
