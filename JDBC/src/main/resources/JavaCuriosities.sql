@@ -26,8 +26,8 @@ DROP TABLE IF EXISTS `alumnos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `alumnos` (
   `id_alumno` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  `apellido` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `lastName` varchar(100) NOT NULL,
   `dni` varchar(20) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `materias_cursadas` tinyint(3) unsigned DEFAULT '0',
@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `cursos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cursos` (
   `id_curso` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `codigo_curso` int(6) unsigned zerofill NOT NULL,
   `activo` bit(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`id_curso`)
@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `institutos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `institutos` (
   `id_instituto` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `cantidad_personal` int(10) unsigned NOT NULL,
   `barrio` varchar(50) DEFAULT NULL,
   `fecha_apertura` date DEFAULT NULL,

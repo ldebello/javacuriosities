@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<estudiantes> 
-    <estudiante>
-        <nombre>Cosme</nombre>
-        <apellido>Fulanito</apellido>
-        <edad>22</edad>
-    </estudiante>
-    <estudiante>
-        <nombre>Pedro</nombre>
-        <apellido>Picapiedra</apellido>
-        <edad>66</edad>
-    </estudiante>
-    <estudiante>
-        <nombre>Pablo</nombre>
-        <apellido>Marmol</apellido>
-        <edad>11</edad>
-    </estudiante>
-    <estudiante>
-        <nombre>Super</nombre>
-        <apellido>Sonico</apellido>
-        <edad>99</edad>
-    </estudiante>
-</estudiantes>
+<students>
+    <student>
+        <name>Cosme</name>
+        <lastName>Fulanito</lastName>
+        <age>22</age>
+    </student>
+    <student>
+        <name>Pedro</name>
+        <lastName>Picapiedra</lastName>
+        <age>66</age>
+    </student>
+    <student>
+        <name>Pablo</name>
+        <lastName>Marmol</lastName>
+        <age>11</age>
+    </student>
+    <student>
+        <name>Super</name>
+        <lastName>Sonico</lastName>
+        <age>99</age>
+    </student>
+</students>

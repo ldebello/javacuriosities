@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 /**
  * Un cookie es un pequeño bloque de información persistido  para distintos clientes.
@@ -57,7 +58,9 @@ public class LoginServlet extends HttpServlet {
 
             // Creamos una cookie que vuelve en el response
             // El tamaño maximo es de 4 KB (4096 caracteres) y 20 cookies por Web Server (300 cookies máximas)
-            Cookie cookie = new Cookie("user", user);
+            // Si el valor de la cookie tiene espacios o algún carácter especial debemos encodearlo.
+            String cookieEncoded = URLEncoder.encode(user, "UTF-8");
+            Cookie cookie = new Cookie("user", cookieEncoded);
             // Configuramos el tiempo a 30 minutos
             // El valor por default es -1 o sea hasta que el browser se cierre (Non-persistent Cookie)
             cookie.setMaxAge(30 * 60);

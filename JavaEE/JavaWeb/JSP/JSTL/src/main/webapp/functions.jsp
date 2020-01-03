@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page import="java.util.Arrays"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -35,7 +36,7 @@ minúsculas: ${fn:containsIgnoreCase(cadenaTemporal, "probando")}
 05- Convertir el String a minúsculas: ${fn:toLowerCase(cadenaTemporal)}
 <br>
 <c:set var="split" value="${fn:split(cadenaTemporal,' ')}"/>
-06- Dividir un String en un array de String indicando el caracter separador, por ejemplo el espacio: ${split}
+06- Dividir un String en un array de String indicando el carácter separador, por ejemplo el espacio: ${Arrays.toString(split)}
 <br>
 Impresión del array anterior: <%= Arrays.toString((String[]) pageContext.getAttribute("split")) %>
 <br>

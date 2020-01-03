@@ -22,5 +22,6 @@
         <module>JSPDirectives</module>
         <module>JSPImplicitObjects</module>
         <module>JSTL</module>
+        <module>ExpressionLanguage</module>
     </modules>
 </project>

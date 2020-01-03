@@ -9,29 +9,29 @@ import java.util.Objects;
  */
 public class SetElement {
 
-    private String nombre;
+    private String name;
 
-    public SetElement(String nombre) {
-        this.nombre = nombre;
+    public SetElement(String name) {
+        this.name = name;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "SetElement{" + "nombre=" + nombre + '}';
+        return "SetElement{" + "name=" + name + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 29 * hash + (this.nombre != null ? this.nombre.hashCode() : 0);
+        hash = 29 * hash + (this.name != null ? this.name.hashCode() : 0);
         return hash;
     }
 
@@ -54,6 +54,6 @@ public class SetElement {
             return false;
         }
         final SetElement other = (SetElement) obj;
-        return Objects.equals(this.nombre, other.nombre);
+        return Objects.equals(this.name, other.name);
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>ar.com.javacuriosities.jsp.el.servlet.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/HomeServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+    <context-param>
+        <param-name>Email</param-name>
+        <param-value>luisdebello.cursos@gmail.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>AppID</param-name>
+        <param-value>228</param-value>
+    </context-param>
+</web-app>
