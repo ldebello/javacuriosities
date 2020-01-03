@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <servlet>
+        <servlet-name>ServletToJSP</servlet-name>
+        <jsp-file>/login.jsp</jsp-file>
+
+        <init-param>
+            <param-name>DefaultUser</param-name>
+            <param-value>Admin</param-value>
+        </init-param>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletToJSP</servlet-name>
+        <url-pattern>/MyLogin</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>ParameterWebApp</param-name>
+        <param-value>JSP Example</param-value>
+    </context-param>
+</web-app>

@@ -19,5 +19,8 @@
 
     <modules>
         <module>JSPBasics</module>
+        <module>JSPDirectives</module>
+        <module>JSPImplicitObjects</module>
+        <module>JSTL</module>
     </modules>
 </project>
