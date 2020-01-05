@@ -115,5 +115,6 @@
         <module>Servlets</module>
         <module>WebSockets</module>
         <module>JSP</module>
+        <module>Struts</module>
     </modules>
 </project>

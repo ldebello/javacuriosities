@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+    <!-- Esta es la etiqueta que envuelve a todos los objetos del tipo Form -->
+    <form-beans>
+        <form-bean name="strutsForm" type="ar.com.javacuriosities.struts.forms.HelloWorldForm"/>
+        <form-bean name="dataForm" type="ar.com.javacuriosities.struts.forms.DataForm"/>
+
+        <!-- si hubieran mas objetos Form, irían declarados aquí -->
+    </form-beans>
+
+    <global-exceptions>
+        <exception
+                key="error.global.mesage"
+                type="java.lang.Exception"
+                handler="ar.com.javacuriosities.struts.exceptions.MyCustomExceptionHandler"
+                path="/error.jsp"/>
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="genericRedirect" path="generic_redirect.jsp"/>
+    </global-forwards>
+    <!-- Esta es la etiqueta que envuelve a todos los objetos del tipo Action -->
+    <action-mappings>
+
+        <action
+                path="/welcome"
+                name="strutsForm"
+                type="ar.com.javacuriosities.struts.actions.HelloWorldAction">
+            <forward name="welcome" path="/welcome.jsp"/>
+        </action>
+
+        <action
+                path="/data"
+                name="dataForm"
+                type="ar.com.javacuriosities.struts.actions.DataAction"
+                validate="true"
+                input="/data.jsp">
+            <forward name="level1" path="/info1.jsp"/>
+            <forward name="level2" path="/info2.jsp"/>
+        </action>
+
+        <!-- Este action usa wildcards para poder definir el parámetro y la vista a cual ir-->
+        <action
+                path="/*User"
+                type="ar.com.javacuriosities.struts.actions.wildcard.UserAction"
+                parameter="{1}User">
+            <forward name="view" path="/WEB-INF/crud/{1}User.jsp"/>
+        </action>
+
+        <action
+                path="/logic"
+                type="ar.com.javacuriosities.struts.actions.LogicAction">
+            <forward name="logic" path="/logic.jsp"/>
+        </action>
+
+        <action
+                path="/handler"
+                type="ar.com.javacuriosities.struts.actions.ExceptionAction">
+        </action>
+
+        <action
+                path="/language"
+                type="ar.com.javacuriosities.struts.actions.dispatch.LanguageSelectAction"
+                parameter="method"
+                validate="false">
+            <forward name="success" path="/language.jsp"/>
+        </action>
+
+        <action
+                path="/redirect"
+                type="ar.com.javacuriosities.struts.actions.RedirectAction">
+            <forward name="redirect" path="/generic_redirect.jsp" redirect="true"/>
+        </action>
+        <!-- Propiedades del tag 'action' -->
+        <!-- El valor de 'path' debe coincidir con la URL la cual va a atender esta Action -->
+        <!-- El valor de 'name' debe coincidir con la propiedad 'name' de alguno de los bean definidos -->
+        <!-- El valor de 'type' es paquete.Clase que corresponde a la acción que debe ejecutarse -->
+        <!-- El valor de 'parameter' es usado por la Action esto puede variar según que tipo de action usemos -->
+        <!-- El valor de 'validate' indica si es necesario invocar al método validate del ActionForm antes de invocar al objeto Action, siempre y cuando estemos usando Validator Framework -->
+        <!-- El valor de 'input' indica a donde ir si validate devuelve falso -->
+
+        <!-- Propiedades del tag 'forward' -->
+        <!-- El valor de 'name' debe coincidir con el valor utilizado dentro de la clase que se encarga de resolver la Action -->
+        <!-- El valor de 'path' debe coincidir con el archivo al cual quiero redirecciónar el flujo -->
+
+        <!-- si hubieran mas objetos Action, irían declarados aquí -->
+    </action-mappings>
+
+    <!-- Este tag indica donde esta el archivo para I18N -->
+    <message-resources parameter="ApplicationResources" null="false"/>
+
+    <message-resources key="ExtraI18N" parameter="ExtraResources" null="false"/>
+
+    <!-- Propiedades del tag 'message-resources' -->
+    <!-- El valor de 'key' se usa si usamos mas de un archivo -->
+    <!-- El valor de 'parameter' se usa para indicar el nombre del archivo -->
+    <!-- El valor de 'null' indica si debe mostrar NULL si no se encuentra la key o si debe mostrar la Key que se busco -->
+</struts-config>

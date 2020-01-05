@@ -23,5 +23,8 @@
         <module>JSPImplicitObjects</module>
         <module>JSTL</module>
         <module>ExpressionLanguage</module>
+        <module>ExceptionHandling</module>
+        <module>CustomTag</module>
+        <module>ActionTags</module>
     </modules>
 </project>

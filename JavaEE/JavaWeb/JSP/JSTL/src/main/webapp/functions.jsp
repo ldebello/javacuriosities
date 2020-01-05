@@ -52,7 +52,7 @@ Impresión del array anterior: <%= Arrays.toString((String[]) pageContext.getAtt
 11- Devuelve el index donde aparece la primera ocurrencia del substring
 especificado: ${fn:indexOf(cadenaTemporal, 'JSTL')}
 <br>
-12- Une todos los elementos de un array en un String con el separador provisto: ${fn:join(datos, '-')}
+12- Une todos los elements de un array en un String con el separador provisto: ${fn:join(datos, '-')}
 <br>
 13- Devuelve el String resultado de remplazar en el String de entrada todas las ocurrencias del segundo String por el
 tercero: ${fn:replace( cadenaTemporal, "en", "de")}
