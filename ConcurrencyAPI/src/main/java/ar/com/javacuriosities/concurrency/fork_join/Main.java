@@ -34,12 +34,17 @@ import java.util.concurrent.RecursiveTask;
  *  join: esperamos por cada parte a ser resuelta
  *  compose: juntamos los distintos resultados
  * }
- * 
+ *
+ * Importante: Debemos recordar que este framework suele ser mas util para tareas del tipo CPU bound si nos encontramos
+ * intentando ejecutar multiples tareas de IO esto generara que los threads se queden bloqueados y dado que el pool no ofrece
+ * ningún tipo de compensación (Crear nuevos hilos para reemplazar los bloqueados), esto seria un problema sin embargo podemos
+ * mejorar esto si usamos ManagedBlocker el cual nos permite indicar que la tarea es bloqueante y asi permitir al framework crear
+ * nuevos threads.
  */
 public class Main {
 
 	public static void main(String[] args) {
-		// Creamos un arreglo con numeros random
+		// Creamos un arreglo con números random
 		int[] data = new int[1000];
 		
 		Random random = new SecureRandom();
