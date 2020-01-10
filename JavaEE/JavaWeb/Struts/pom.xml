@@ -34,5 +34,8 @@
 
     <modules>
         <module>StrutsBasic</module>
+        <module>StrutsAction</module>
+        <module>StrutsDispatchAction</module>
+        <module>StrutsMappingDispatchAction</module>
     </modules>
 </project>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+    
+    </form-beans>
+    
+    <action-mappings>
+        <action path="/Welcome" forward="/welcome.jsp"/>
+        
+        <action path="/User"
+                parameter="method"
+                type="ar.com.javacuriosities.struts.dispatchaction.UserCRUDAction">
+            <forward name="action" path="/result.jsp" />
+        </action>
+    </action-mappings>
+    
+    <message-resources parameter="ApplicationResource" null="false"/>
+</struts-config>

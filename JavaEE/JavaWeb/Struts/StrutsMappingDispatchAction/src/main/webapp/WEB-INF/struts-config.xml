@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    
+    <global-forwards>
+        <forward name="ok" path="/generation.jsp"/>
+    </global-forwards>
+    
+    <action-mappings>
+        <action path="/Welcome" forward="/welcome.jsp"/>
+        
+        <action
+            path="/xml"
+            type="ar.com.javacuriosities.struts.mappingdispatchaction.CustomMappingDispatchAction"
+            parameter="generateXml"/>
+          
+        <action
+            path="/excel"
+            type="ar.com.javacuriosities.struts.mappingdispatchaction.CustomMappingDispatchAction"
+            parameter="generateExcel"/>
+        
+        <!-- 
+            Usar wildcards nos permite utilizar la parte del wildcard para llamar distintos métodos o hacer forward
+            a distintas vistas que se forman con parte del nombre
+        -->
+        <action
+            path="/*Data"
+            type="ar.com.javacuriosities.struts.mappingdispatchaction.CustomMappingDispatchAction"
+            parameter="generate{1}">
+            <forward name="ok" path="/wildcards/{1}Generation.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <message-resources parameter="ApplicationResource" null="false"/>
+</struts-config>
