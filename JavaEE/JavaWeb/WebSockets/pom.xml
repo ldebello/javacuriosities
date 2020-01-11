@@ -23,6 +23,7 @@
             http://repo.maven.apache.org/maven2/org/apache/tomee/apache-tomee/8.0.0/apache-tomee-8.0.0-plus.zip
         </containerURL>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
