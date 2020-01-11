@@ -26,7 +26,7 @@
         
         <!-- 
             Usar wildcards nos permite utilizar la parte del wildcard para llamar distintos métodos o hacer forward
-            a distintas vistas que se forman con parte del nombre
+            a distintas vistas que se forman con parte del name
         -->
         <action
             path="/*Data"

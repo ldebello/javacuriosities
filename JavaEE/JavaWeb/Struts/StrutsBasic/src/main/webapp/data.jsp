@@ -15,7 +15,7 @@
 <%-- Etiqueta correspondiente a "<form>" transformada a Struts --%>
 <html:form action="data">
 
-    Por favor ingrese su nombre:
+    Por favor ingrese su name:
 
     <%-- Etiqueta correspondiente a "<input type=text>" transformada a Struts --%>
     <html:text property="name"/>

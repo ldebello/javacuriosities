@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="general_template" path="/tiles/layout_default.jsp">
+        <put name="header" value="/template-green/header.jsp" />
+        <put name="footer" value="/template-green/footer.jsp" />
+    </definition>
+</tiles-definitions>

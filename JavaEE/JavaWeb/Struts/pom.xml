@@ -37,5 +37,7 @@
         <module>StrutsAction</module>
         <module>StrutsDispatchAction</module>
         <module>StrutsMappingDispatchAction</module>
+        <module>StrutsTilesFramework</module>
+        <module>StrutsValidatorFramework</module>
     </modules>
 </project>

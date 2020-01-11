@@ -97,6 +97,6 @@
 
     <!-- Propiedades del tag 'message-resources' -->
     <!-- El valor de 'key' se usa si usamos mas de un archivo -->
-    <!-- El valor de 'parameter' se usa para indicar el nombre del archivo -->
+    <!-- El valor de 'parameter' se usa para indicar el name del archivo -->
     <!-- El valor de 'null' indica si debe mostrar NULL si no se encuentra la key o si debe mostrar la Key que se busco -->
 </struts-config>
