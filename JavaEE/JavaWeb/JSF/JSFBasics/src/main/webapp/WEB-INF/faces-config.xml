@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+        version="2.3">
+
+    <application>
+        <locale-config>
+            <default-locale>es</default-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>Bundle</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+
+    <managed-bean>
+        <managed-bean-name>welcomeBean</managed-bean-name>
+        <managed-bean-class>ar.com.javacuriosities.jsf.beans.WelcomeBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+
+        <managed-property>
+            <property-name>lastName</property-name>
+            <value>Fulanito</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>userList</managed-bean-name>
+        <managed-bean-class>ar.com.javacuriosities.jsf.beans.UserList</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>users</property-name>
+            <property-class>java.util.List</property-class>
+            <list-entries>
+                <value>Cosme Fulanito</value>
+                <value>Pedro Picapiedra</value>
+                <value>Super Sonico</value>
+                <value>Homero Simpson</value>
+            </list-entries>
+        </managed-property>
+    </managed-bean>
+
+    <!--
+        Se puede definir varios navigation-rule para cada vista o dentro de uno para la misma vista asignar los navigation-case necesarios
+    -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>nextPage</from-outcome>
+            <to-view-id>/userList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>JSF 2.3</title>
+</h:head>
+<h:body>
+    <H1>Ejemplo I18N</H1>
+    <h:form>
+        <h3><h:outputText value="#{msg['message']}"/></h3>
+
+        <h:panelGrid columns="2">
+            Idioma :
+            <h:selectOneMenu value="#{language.localeCode}" onchange="submit();"
+                             valueChangeListener="#{language.countryLocaleCodeChanged}">
+                <f:selectItems value="#{language.idiomas}"/>
+            </h:selectOneMenu>
+        </h:panelGrid>
+
+    </h:form>
+</h:body>
+</html>
+
+

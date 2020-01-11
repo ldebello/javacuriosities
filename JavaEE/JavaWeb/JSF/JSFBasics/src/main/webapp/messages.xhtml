@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+    <h2>Resource Bundles JSF 2.3</h2>
+    <ol>
+        <!-- Modo normal de acceso -->
+        <li><h:outputText value="#{msg.information}"/></li>
+
+        <!-- Si la KEY tiene un punto debemos usar [] -->
+        <li><h:outputText value="#{msg['information.key1']}"/></li>
+
+        <li><h:outputText value="#{msg['information.key2']}"/></li>
+
+        <!-- Podemos usar escape=false para que no cambie el texto HTML -->
+        <li><h:outputText value="#{msg['information.key2']}" escape="false"/></li>
+
+        <li><h:outputText value="#{msg['information.key3']}"/></li>
+        <li><h:outputText value="#{msg['information.key3']}" escape="false"/></li>
+
+        <!-- Si necesitamos parametros debemos usar el h:outputFormat -->
+        <li>
+            <h:outputFormat value="#{msg['information.parameter1']}">
+                <f:param value="parametro 1"/>
+            </h:outputFormat>
+        </li>
+        <li>
+            <h:outputFormat value="#{msg['information.parameter2']}">
+                <f:param value="parametro 1"/>
+                <f:param value="parametro 2"/>
+            </h:outputFormat>
+        </li>
+    </ol>
+</h:body>
+</html>
+
+
+

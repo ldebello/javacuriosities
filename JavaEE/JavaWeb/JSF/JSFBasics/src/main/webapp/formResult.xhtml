@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>JSF 2.3</title>
+</h:head>
+<h:body>
+    <h:outputText value="#{user.message}"/><BR/>
+    <br/>
+
+    <h:outputText value="Nombre de userName: "/>
+    <h:outputText value="#{user.nick}"/>
+    <br/>
+    <br/>
+
+    <h:selectBooleanCheckbox value="#{user.rememberMe}"/> Recordarme en este equipo
+    <br/>
+    <br/>
+
+    <h:outputText value="Número favorito - selectManyCheckbox"/>
+
+    <h:selectManyCheckbox value="#{user.favouriteNumber}">
+        <f:selectItem itemValue="1" itemLabel="Número - 1"/>
+        <f:selectItem itemValue="2" itemLabel="Número - 2"/>
+        <f:selectItem itemValue="3" itemLabel="Número - 3"/>
+        <f:selectItem itemValue="4" itemLabel="Número - 4"/>
+        <f:selectItem itemValue="5" itemLabel="Número - 5"/>
+    </h:selectManyCheckbox>
+    <br/>
+    <br/>
+
+    <h:outputText value="Café favorito"/>
+
+    <h:selectOneMenu value="#{user.favouriteCoffe}">
+        <f:selectItem itemValue="Cream Latte" itemLabel="Café 1: Cream Latte"/>
+        <f:selectItem itemValue="Super Mocha" itemLabel="Café 2: Super Mocha"/>
+        <f:selectItem itemValue="Vainilla Latte" itemLabel="Café 3: Vainilla Latte"/>
+    </h:selectOneMenu>
+    <br/>
+    <br/>
+</h:body>
+</html>

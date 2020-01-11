@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>JSF 2.3</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:editor value="#{editor.value}"/>
+        <h:commandButton value="Imprimir Contenido" action="#{editor.print()}"/>
+    </h:form>
+
+    <br/>
+    <strong>HTML Escapeado</strong>
+    <br/>
+    <h:outputText value="#{editor.value}"/>
+
+    <br/>
+    <strong>HTML sin escapear</strong>
+    <br/>
+    <h:outputText value="#{editor.value}" escape="false"/>
+</h:body>
+</html>
+
+
