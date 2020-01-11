@@ -19,5 +19,6 @@
 
     <modules>
         <module>JSFBasics</module>
+        <module>JSFAjax</module>
     </modules>
 </project>
