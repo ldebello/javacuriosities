@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>JSF CSS</title>
+
+    <!--
+        Podemos definir estilos en un archivo externo o en
+        el mismo XHTML
+    -->
+    <h:outputStylesheet library="css" name="style.css"/>
+
+    <style type="text/css">
+        #style1 {
+            font-size: 18px;
+            color: blue;
+            text-align: left;
+        }
+
+        .style2 {
+            font-size: 34px;
+            color: green;
+            text-align: left;
+        }
+    </style>
+</h:head>
+<h:body>
+    <p>Parrafo con estilo generico</p>
+    <p id="style1">Parrafo con estilo usando ID</p>
+    <p class="style2">Parrafo con estilo usando Class</p>
+</h:body>
+</html>
+

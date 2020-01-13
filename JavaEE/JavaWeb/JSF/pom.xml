@@ -20,5 +20,9 @@
     <modules>
         <module>JSFBasics</module>
         <module>JSFAjax</module>
+        <module>JSFCSS</module>
+        <module>JSFJavaScript</module>
+        <module>JSFThemes</module>
+        <module>JSFFacelets</module>
     </modules>
 </project>

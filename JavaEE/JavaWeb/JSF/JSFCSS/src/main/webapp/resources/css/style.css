@@ -1,0 +1,10 @@
+root { 
+    display: block;
+}
+
+p { 
+    font-size: 12px;
+    color: black; 
+    font-family: Verdana; 
+}
+

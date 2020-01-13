@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>JSF JavaScript</title>
+
+    <!--
+        Ademas podemos indicar el atributo "target" que indica
+        donde va a ser agregado el JavaScript
+        target="head" – Al comienzo del head
+        target="body" – Al final del body
+        no target= Donde esta el tag
+    -->
+    <h:outputScript library="js" name="module.js"/>
+
+    <!--
+        Podemos incluir el JavaScript directamente en la pagina
+        pero es conveniente usar las secciones CDATA para evitar problemas
+        con los caracteres especiales en XML
+    -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        function confirmationInHtml() {
+            alert('<>JavaScript with CDATA<>');
+        }
+
+        /* ]]> */
+    </script>
+</h:head>
+<h:body>
+    <h:form>
+        <h:commandButton value="Ejecutar 1" onclick="confirmation();"/>
+
+        <h:commandButton value="Ejecutar 2" onclick="confirmationInHtml();"/>
+    </h:form>
+</h:body>
+</html>
+
