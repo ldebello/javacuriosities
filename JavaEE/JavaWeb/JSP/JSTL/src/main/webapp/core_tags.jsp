@@ -53,9 +53,9 @@
 
 <hr/>
 
-<%-- Itera por los empleados de una empresa --%>
+<%-- Itera por los employees de una empresa --%>
 <jsp:useBean id="empresaBean" scope="request" class="ar.com.javacuriosities.jstl.CompanyBean"/>
-<c:forEach var="e" items="${empresaBean.empleados}">
+<c:forEach var="e" items="${empresaBean.employees}">
     <c:out value="${e.name}"/> | <c:out value="${e.lastName}"/><br/>
 </c:forEach>
 

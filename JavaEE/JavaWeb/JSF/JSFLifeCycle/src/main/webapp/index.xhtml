@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Facelet Title</title>
+</h:head>
+<h:body>
+    <h1>Formulario de prueba</h1>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Nombre" for="name"/>
+            <h:inputText id="name" value="#{lifecycleManagedBean.personaForm.name}"/>
+
+            <h:outputLabel value="Correo electrónico" for="email"/>
+            <h:inputText id="email" value="#{lifecycleManagedBean.personaForm.email}">
+                <f:validator validatorId="emailValidator"/>
+            </h:inputText>
+
+            <h:outputLabel value="Sexo"/>
+            <h:panelGroup layout="block">
+                <h:selectOneRadio value="#{lifecycleManagedBean.personaForm.sex}">
+                    <f:selectItem itemLabel="Hombre" itemValue="H"/>
+                    <f:selectItem itemLabel="Mujer" itemValue="M"/>
+                </h:selectOneRadio>
+            </h:panelGroup>
+
+            <h:inputText
+                    value='#{lifecycleManagedBean.personaForm.registerDate}'
+                    id='fecha'
+                    required='true'>
+                <f:convertDateTime pattern='MMM-dd-yyyy'/>
+            </h:inputText> (MMM-dd-yyyy)
+
+        </h:panelGrid>
+        <h:commandButton action="result" value="Enviar"/>
+
+        <h:commandButton value="Ajax Life Cycle" action="ajax"/>
+    </h:form>
+</h:body>
+</html>

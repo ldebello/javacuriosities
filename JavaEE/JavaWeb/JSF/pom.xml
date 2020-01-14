@@ -25,5 +25,8 @@
         <module>JSFThemes</module>
         <module>JSFFacelets</module>
         <module>JSFConverter</module>
+        <module>JSFDataTable</module>
+        <module>JSFLifeCycle</module>
+        <module>JSFValidation</module>
     </modules>
 </project>

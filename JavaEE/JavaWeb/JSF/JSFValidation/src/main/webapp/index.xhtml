@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<!--
+    La idea del ejemplo es mostrar las distintas formas que tenemos para
+    hacer validaciones
+    1. Validaciones Built-in
+    2. Validaciones a nivel de aplicacion (Realizadas en el metodo que es invocado en el action)
+    3. Validaciones personalizadas creando validadores
+    4. Validaciones personalizadas agregando metodos en nuestros backing beans
+-->
+<h:head>
+    <title>JSF Validation</title>
+</h:head>
+<h:body>
+    <h:form id="formulario">
+        Nombre: <h:inputText id="name" value="#{validationData.name}" label="Nombre">
+        <!-- Estos son validadores Built-in -->
+        <f:validateLength minimum="3" maximum="5"/>
+    </h:inputText>
+        <!--
+
+        -->
+        <h:message for="name" style="color:red"/>
+        <br/>
+
+        Edad: <h:inputText id="age" value="#{validationData.age}" label="Edad">
+        <f:validateLongRange minimum="1" maximum="120"/>
+    </h:inputText>
+        <br/>
+
+        Direccion: <h:inputText id="address" value="#{validationData.address}" label="Direccion"/>
+        <h:message for="address" style="color:red"/>
+        <br/>
+
+        Codigo: <h:inputText id="code" value="#{validationData.code}" label="Codigo"
+                             validator="#{validationData.backingBeanValidations}"/>
+        <h:message for="code" style="color:red"/>
+        <br/>
+
+        Email: <h:inputText id="email" value="#{validationData.email}" label="Email">
+        <f:validator validatorId="emailValidator"/>
+    </h:inputText>
+        <br/>
+
+        <!--
+            Con el atributo "immediate" en true nos salteamos la fase de validacion
+        -->
+        <h:commandButton value="Procesar (Sin Validacion)" action="without_validacion" immediate="true"/>
+        <h:commandButton value="Procesar (Con Validacion)" action="#{validationData.applicationLevelValidations()}"/>
+    </h:form>
+
+    <!--
+        El atributo "globalOnly" indica si debe mostrar todos los mensajes
+        o solo aquellos que no esten dirigidos a ningun Client Id
+    -->
+    <hr/>
+    <h:messages style="color:red;margin:8px;"/>
+    <hr/>
+    <h:messages style="color:red;margin:8px;" globalOnly="true"/>
+
+
+</h:body>
+</html>

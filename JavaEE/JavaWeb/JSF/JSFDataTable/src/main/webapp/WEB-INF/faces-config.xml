@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+        version="2.3">
+    <managed-bean>
+        <managed-bean-name>employeeCollection</managed-bean-name>
+        <managed-bean-class>ar.com.javacuriosities.jsf.beans.EmployeeCollectionBean</managed-bean-class>
+
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>employee</managed-bean-name>
+        <managed-bean-class>ar.com.javacuriosities.jsf.beans.EmployeeBean</managed-bean-class>
+
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>employeeCollection</property-name>
+            <property-class>ar.com.javacuriosities.jsf.beans.EmployeeCollectionBean</property-class>
+            <value>#{employeeCollection}</value>
+        </managed-property>
+    </managed-bean>
+
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>remove</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>

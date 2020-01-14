@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Lista de Empleados</title>
+</h:head>
+<h:body>
+    <h:form id="employee_form">
+        <h:outputLabel>DNI:&nbsp;</h:outputLabel>
+        <h:inputText id="dni" value="#{employee.dni}"
+                     required="true"
+                     label="DNI">
+            <f:validateLength maximum="8" minimum="6"/>
+        </h:inputText>
+        <h:outputLabel>Nombre:&nbsp;</h:outputLabel>
+        <h:inputText value="#{employee.name}"
+                     required="true"
+                     label="Nombre"/>
+        <h:outputLabel>Apellido:&nbsp;</h:outputLabel>
+        <h:inputText value="#{employee.lastName}"
+                     required="true"
+                     label="Apellido">
+        </h:inputText>
+        <h:outputLabel>Remuneración:&nbsp;</h:outputLabel>
+        <h:inputText id="salary"
+                     required="true"
+                     label="Remuneración"
+                     value="#{employee.salary}">
+            <f:validateDoubleRange maximum="30000" minimum="3600"/>
+        </h:inputText>
+        <h:commandButton value="Agregar" action="#{employee.add}"/>
+
+        <h2>Lista de employees</h2>
+
+        <h:dataTable value="#{employeeCollection.employees}" var="e">
+            <h:column>
+                <!-- cabecera de la columna -->
+                <f:facet name="header">DNI</f:facet>
+                <!-- valor de una fila para esta columna -->
+                <h:outputText value="#{e.dni}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="#{e.name}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Apellido</f:facet>
+                <h:outputText value="#{e.lastName}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Remuneración</f:facet>
+                <h:outputText value="#{e.salary}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Borrar</f:facet>
+                <h:commandButton value="-" action="#{employee.remove}"/>
+            </h:column>
+        </h:dataTable>
+
+    </h:form>
+
+    <h:messages style="color:red" />
+</h:body>
+</html>
+

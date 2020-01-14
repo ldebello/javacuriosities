@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Facelet Title</title>
+</h:head>
+<h:body>
+    <h2>Result</h2>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputText value="Nombre"/>
+            <h:outputText value="#{lifecycleManagedBean.personaForm.name}"/>
+
+            <h:outputText value="Sexo"/>
+            <h:outputText value="#{lifecycleManagedBean.personaForm.sex}"/>
+
+        </h:panelGrid>
+        <h:commandLink value="Regresar" action="index"/>
+    </h:form>
+</h:body>
+</html>
