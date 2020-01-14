@@ -4,16 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>JSTL</name>
-    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWeb/JSP/JSTL</url>
+    <name>JSFConverter</name>
+    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWeb/JSF/JSFConverter</url>
 
     <parent>
         <groupId>ar.com.javacuriosities</groupId>
-        <artifactId>JSP</artifactId>
+        <artifactId>JSF</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>JSTL</artifactId>
+    <artifactId>JSFConverter</artifactId>
 
     <packaging>war</packaging>
 
@@ -30,21 +30,16 @@
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
+            <groupId>javax.ejb</groupId>
+            <artifactId>javax.ejb-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.18</version>
+            <groupId>javax.faces</groupId>
+            <artifactId>javax.faces-api</artifactId>
         </dependency>
     </dependencies>
 

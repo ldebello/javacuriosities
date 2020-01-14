@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+        version="2.3">
+
+    <!-- 
+        Podemos registrar nuestro propio Converter en el faces-config.xml o 
+        podemos definirlo usando la Annotation @FacesConverter
+    -->
+    <converter>
+        <converter-id>urlConverter</converter-id>
+        <converter-class>ar.com.javacuriosities.jsf.converter.converters.UrlConverter</converter-class>
+    </converter>
+</faces-config>

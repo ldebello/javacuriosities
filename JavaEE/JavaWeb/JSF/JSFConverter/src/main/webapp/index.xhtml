@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<!--
+    Hay 3 tipos de converters que podemos usar:
+
+    <f:converter/>: Agregar un converter a un componente
+        converterId: El Id del converter
+
+    <f:convertDateTime>: Agregar un conversion de fecha a un componente
+        type: date(default), time, or both.
+        dateStyle: default, short, medium, long, or full.
+        timeStyle: default, short, medium, long, or full.
+        pattern: Formatea usando java.text.SimpleDateFormat.
+        locale: Podemos indicar el Locale a usar
+        timeZone: Podemos indicar el Time zone a usar
+
+    DEFAULT	26-Apr-99
+    SHORT	4/26/99
+    MEDIUM	26-Apr-99
+    LONG	April 26, 1999
+    FULL	Monday, April 26, 1999
+
+    <f:convertNumber>: Agregar un conversion de numeros a un componente
+        type: number(default), currency, percent.
+        pattern: Formatea usando java.text.DecimalFormat.
+        maxFractionDigits: Maximo numero de digitos en la parte fraccionaria
+        minFractionDigits: Minimo numero de digitos en la parte fraccionaria
+        maxIntegerDigits: Maximo numero de digitos en la parte entera
+        minIntegerDigits: Minimo numero de digitos en la parte entera
+        integerOnly: True En el caso que solo la parte entera sea convertida
+        groupingUsed: True Si agrupamos numeros cuando son mayor a 1000
+        locale: Podemos indicar el Locale a usar
+        currencyCode: ISO 4217 Para la conversion de monedas
+        currencySymbol: Indicamos el simbolo de la moneda
+-->
+<h:head>
+    <title>JSF Converters</title>
+</h:head>
+<h:body>
+    <h:form>
+        URL: <h:inputText id="urlInput" value="#{userData.data}" label="URL">
+        <f:converter converterId="urlConverter"/>
+    </h:inputText>
+        <h:message for="urlInput" style="color:red"/> <br/>
+
+        Sueldo:
+        <h:inputText id="salary" value="#{userData.salary}" label="Sueldo">
+            <!-- Usamos un convertidor Built-In -->
+            <f:convertNumber minFractionDigits="2"/>
+        </h:inputText>
+        <h:message for="salary" style="color:red"/> <br/>
+
+        <h:commandButton value="submit" action="result"/>
+    </h:form>
+</h:body>
+</html>

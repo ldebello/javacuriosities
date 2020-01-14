@@ -24,5 +24,6 @@
         <module>JSFJavaScript</module>
         <module>JSFThemes</module>
         <module>JSFFacelets</module>
+        <module>JSFConverter</module>
     </modules>
 </project>

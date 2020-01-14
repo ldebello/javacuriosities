@@ -80,7 +80,11 @@
 <hr/>
 
 <h2>Ejemplo URL</h2>
-<c:url value="/coreurleg.jsp" var="url">
+<a href="/core_tags.jsp">URL relativa al server</a>
+<br/>
+<a href="core_tags.jsp">URL relativa a la pagina actual</a>
+<br/>
+<c:url value="/core_tags.jsp" var="url">
     <c:param name="txt" value="datos"/>
 </c:url>
 <br/>
