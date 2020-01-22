@@ -24,8 +24,9 @@ public class PriceEndpoint {
             for (Session session : queue) {
                 session.getBasicRemote().sendText(msg);
             }
-        } catch (IOException ex) {
-            Logger.getLogger(PriceEndpoint.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException e) {
+            // Log and Handle exception
+            e.printStackTrace();
         }
     }
 

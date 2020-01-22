@@ -1,0 +1,32 @@
+= JAXB Annotations
+
+|===
+|Annotation|Descripción
+|@XmlRootElement
+|Mapea una clase o un enum a un elemento XML
+|@XmlAccessorType
+|Indica cuales son las propiedades Javabean a ser serializadas por defecto, tiene cuatro valores posibles +
+- XmlAccessType.FIELD: Cada campo no estático y no transitorio en la clase JAXB acotada será automáticamente serializado a XML, a no ser que sea anotado por @XmlTransient. +
+- XmlAccessType.NONE: Ninguno de los campos o propiedades será serializado a XML a no ser que se especifique con alguna de las anotaciones de JAXB. +
+- XmlAccessType.PROPERTY: Cada par getter/setter en la clase JAXB acotada será automáticamente serializado a XML, a no ser que sea anotado por XmlTransient. +
+- XmlAccessType.PUBLIC_MEMBER: Cada par getter/setter público y cada campo público será automáticamente serializado a XML, a no ser que sea anotado por XmlTransient. Este es el valor por defecto
+|@XmlSeeAlso
+|India a JAXB también realizar el binding de otras clases cuando se hace el mapeo de esta clase. El JAXBContext necesita conocer todas las clases con las cuales va a trabajar
+|@XmlElementWrapper
+|Genera un elemento de envoltura alrededor la representación XML. Esto esta destinado principalmente para ser usado como una envoltura para las colecciones.
+|@XmlElement
+|Mapea una propiedad Javabean a un elemento XML derivado desde el name de la propiedad
+|@XmlElementRef
+|Mapea una propiedad Javabean a un elemento XML derivado desde el tipo de la propiedad
+|@XmlTransient
+|Para Indicar que esta propiedad no debe ser incluida en el XML
+|@XmlType
+|Permite especificar el orden de los elementos
+|@XmlJavaTypeAdapter
+|Permite hacer la conversion entre tipos de datos y de esta forma darle formato al xml generado
+|===
+
+== Reglas
+
+* Todas las clases a las cuales se les realice el binding XML deben tener un constructor vació
+* Se debe especificar solamente una vez la etiqueta XmlElement para una propiedad Javabean, es decir para el atributo o la tupla setter/getter.

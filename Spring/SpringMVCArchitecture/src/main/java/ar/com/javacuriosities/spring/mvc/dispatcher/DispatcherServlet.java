@@ -37,9 +37,11 @@ public class DispatcherServlet extends HttpServlet {
             System.out.println("Step 5 - Response");
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(DispatcherServlet.class.getName()).log(Level.SEVERE, null, ex);
-            throw new ServletException(ex);
+        } catch (Exception e) {
+            // Log and Handle exception
+            e.printStackTrace();
+
+            throw new ServletException(e);
         }
     }
 

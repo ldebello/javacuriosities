@@ -24,7 +24,8 @@ public class IPFilter implements Filter {
             // Invocación al llamado original
             chain.doFilter(request, response);
         } catch (Throwable t) {
-            Logger.getLogger(IPFilter.class.getName()).log(Level.SEVERE, null, t);
+            // Log and Handle exception
+            t.printStackTrace();
             // Deberíamos responder con una pagina de error
         }
                 

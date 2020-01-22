@@ -26,9 +26,9 @@ public class QueryExecutor {
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(QueryExecutor.class.getName()).log(Level.SEVERE,
-                    null, ex);
+        } catch (ClassNotFoundException e) {
+            // Log and Handle exception
+            e.printStackTrace();
         }
     }
 
@@ -53,9 +53,9 @@ public class QueryExecutor {
             }
 
             return resultset;
-        } catch (SQLException ex) {
-            Logger.getLogger(QueryExecutor.class.getName()).log(Level.SEVERE,
-                    null, ex);
+        } catch (SQLException e) {
+            // Log and Handle exception
+            e.printStackTrace();
         }
         return null;
     }

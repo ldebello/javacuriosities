@@ -7,7 +7,7 @@
     
     <application>
         <message-bundle>
-            ar.com.educacionit.validation.resources.MyMessages
+            MyMessages
         </message-bundle>
      </application>
      
