@@ -1,0 +1,83 @@
+= JAX-WS Annotations
+
+|===
+|Annotation|Descripción|Propiedades
+|@WebService
+|La anotación @WebService indica que una clase Java está implementando un servicio Web o indica que una SEI (Service Endpoint Interface) está implementando una interfaz de un servicio Web.
+Esta anotación se puede aplicar a una SEI de cliente o de servidor o la clase de implementación.
+Importante: +
+- Una clase Java que implementa un servicio Web debe especificar la anotación @WebService o @WebServiceProvider. Las dos anotaciones no pueden estar presentes. +
+- Si la anotación hace referencia a una SEI mediante el atributo endpointInterface, la SEI también se debe anotar con la anotación @WebService.
+|name: El nombre de wsdl:portType. El valor por defecto es el nombre de la interfaz o clase Java. (String) +
+targetNamespace: Especifica el espacio de nombres XML o los elementos WSDL y XML generados a partir del servicio Web. El valor por defecto es el espacio de nombres generado a partir del nombre del paquete que contiene el servicio Web. (String) +
+serviceName: Especifica el nombre de servicio del servicio Web: wsdl:service. El valor por defecto es el nombre de la clase Java más Service (String). Nota: No esta permitido en la Interfaz +
+endpointInterface: Especifica el nombre de la interfaz del servicio que define el contrato del servicio web. Si se especifica, se utiliza la interfaz del servicio para determinar el contrato WSDL (String). Nota: No esta permitido en la Interfaz +
+portName: wsdl:portName. El valor por defecto es WebService.name más Port (String). Nota: No esta permitido en la Interfaz +
+wsdlLocation: Especifica la dirección Web del documento WSDL que define el servicio Web. La dirección Web puede ser relativa o absoluta. (String)
+|@WebMethod
+|La anotación @WebMethod indica un método que es una operación de un servicio Web. Aplicamos esta anotación a los métodos de una SEI (Service Endpoint Interface) de cliente o servidor o a una clase de implementación.
+La anotación @WebMethod sólo está soportada en las clases anotadas con la anotación @WebService.
+|operationName: Especifica el nombre de wsdl:operation que coincide con este método. El valor por defecto es el nombre del método Java. (String) +
+action: Define la acción de esta operación. En los enlaces SOAP, este valor determina el valor de la cabecera SOAPAction. El valor por defecto un String vació. (String) +
+exclude: Especifica si se ha de excluir un método del servicio Web. El valor por defecto es false.(Boolean)
+|@Oneway
+|La anotación @Oneway indica un método como una operación unidireccional de servicio Web que sólo tiene un mensaje de entrada y ningún mensaje de salida.
+|
+|@WebParam
+|La anotación @WebParam nos permite definir los parámetros. Aplicamos esta anotación a los métodos de una SEI (Service Endpoint Interface) de cliente o de servidor o a una clase de implementación.
+|name: El nombre del parámetro. Si la operación es una RPC (Remote Procedure Call) y no se especifica el atributo partName, este es el nombre del atributo wsdl:part que representa el parámetro. Si la operación es de estilo documento o si el parámetro se relaciona con una cabecera, -name es el nombre local del elemento XML que representa el parámetro. Este atributo es necesario si la operación es de estilo documento, el estilo de parámetro es BARE, y la modalidad OUT o INOUT. (String) +
+partName: Define el nombre del atributo wsdl:part que representa este parámetro. Sólo se utiliza si la operación es de estilo RPC o si el estilo de documento y el estilo de parámetro es BARE. (String) +
+targetNamespace: Especifica el espacio de nombres XML del elemento XML del parámetro. Se aplica únicamente a los enlaces de documentos cuando el atributo se relaciona con un elemento XML. El valor por defecto es el targetNamespace del servicio Web. (String) +
+mode: El valor representa la dirección en que fluye el parámetro para este método. Los valores válidos son IN, INOUT y OUT. (String) +
+header: Especifica si el parámetro es una cabecera de mensaje y no el cuerpo de un mensaje. El valor por defecto es false. (Boolean)
+|@WebResult
+|La anotación @WebResult permite definir el valor de retorno.
+|name: Especifica el nombre del valor de retorno como figura en el archivo WSDL. Para los enlaces RPC, este es el nombre del atributo wsdl:part que representa el valor de retorno. Para los enlaces de documentos, el parámetro -name es el nombre local del elemento XML que representa el valor de retorno. El valor por omisión es return para enlaces RPC y DOCUMENT/WRAPPED. El valor por omisión es el nombre de método más Response para enlaces DOCUMENT/BARE. (String)  +
+targetNamespace: Especifica el espacio de nombres XML para el valor de retorno. Este parámetro sólo se utiliza si la operación es de estilo RPC o si la operación es de estilo DOCUMENT y el estilo de parámetro es BARE. (String) +
+header: Especifica si el resultado se lleva a cabo en una cabecera. El valor por omisión es false. (Boolean) +
+partName: Especifica el nombre de la parte para el resultado con las operaciones RPC o DOCUMENT/BARE. El valor por omisión es @WebResult.name. (String)
+|@HandlerChain
+|La anotación @HandlerChain asocia el servicio Web con una cadena de handler definida externamente. Podemos configurar la cadena utilizando la anotación @HandlerChain en la SEI o en la clase de implementación.
+Utilizamos uno de los diferentes modos de configurar un handler del extremo del cliente. Podemos configurar un handler del extremo del cliente utilizando la anotación @HandlerChain en la clase de servicio generado o en SEI. Adicionalmente, podemos registrar de forma programática una implementación propia de un HandlerResolver o definir de forma programática la cadena de handlers en el objeto Binding.
+|file: Especifica la ubicación del archivo de la cadena de handlers. La ubicación del archivo es un java.net.URL absoluta con formato externo o una vía de acceso relativa al archivo de clases. (String) +
+name:Especifica el nombre de la cadena de handlers en el archivo de configuración. (String)
+|@SOAPBinding
+|La anotación @SOAPBinding especifica particularidades del binding del servicio Web. Aplicamos esta anotación a los tipos o métodos de una SEI (Service Endpoint Interface) de cliente o de servidor o a una clase de implementación.
+La anotación de nivel de método está limitada en cuanto a lo que puede especificar y sólo se utiliza si la propiedad style es DOCUMENT.
+|style: Define el estilo de codificación para los mensajes enviados a y desde el servicio Web. Los valores válidos son DOCUMENT y RPC. El valor por defecto es DOCUMENT. (String) +
+use: Define el formato utilizado para los mensajes enviados a y desde el servicio Web. El valor por defecto es LITERAL. ENCODED no está soportado en Feature Pack for Web Services. (String) +
+parameterStyle: Determina si los parámetros del método representan todo el cuerpo del mensaje o si los parámetros son elementos envueltos en un elemento de nivel superior con el nombre de la operación. Los valores válidos son WRAPPED o BARE. Sólo puede utilizar el valor BARE con los enlaces de estilo DOCUMENT. El valor por defecto es WRAPPED.(String)
+|@WebFault
+|La anotación @WebFault asocia los errores WSDL con excepciones Java. Se utiliza para capturar el nombre del error durante la serialización del objeto JAXB que se genera a partir de un elemento global al que se hace referencia mediante un mensaje de error WSDL. También se puede utilizar para personalizar las excepciones específicas del servicio web con errores WSDL.
+|name: Especifica el nombre local del elemento XML que representa el error correspondiente en el archivo WSDL. Se debe especificar el valor real. (String) +
+targetNamespace: Especifica el espacio de nombres del elemento XML que representa el error correspondiente del archivo WSDL. (String) +
+faultBean: Especifica el nombre de la clase del bean que representa el error. (String)
+|@BindingType
+|Permite indicar el BindingType a utilizar o sea, podemos indicar si usamos SOAP 1.1 o SOAP 1.2
+|Tenemos 4 posibles valores: +
+- javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_BINDING +
+- javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING +
+- javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_MTOM_BINDING +
+- javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_MTOM_BINDING +
+Si no deseamos usar la anotación podemos definir este valor en el sun-jaxws.xml +
+binding="http://java.sun.com/xml/ns/jaxws/2003/05/soap/bindings/HTTP/"
+|@RequestWrapper
+|Permite especificar la clase Java con la cual se van a mapear los parámetros en el mensaje recibido
+|localName: Indica el nombre del tag del mensaje +
+targetNamespace: Permite indicar el namespace +
+className: Indica la clase Java a mapear, este atributo es obligatorio.
+|@ResponseWrapper
+|Permite especificar la clase Java con la cual se van a mapear los parámetros en el mensaje enviado
+|localName: Indica el nombre del tag del mensaje +
+targetNamespace: Permite indicar el namespace +
+className: Indica la clase Java a mapear, este atributo es obligatorio.
+|===
+
+
+== Reglas
+
+Se aplican las siguientes reglas a los métodos que son contenidos por una clase con anotación @WebService.
+
+* Si la anotación @WebService de una clase de implementación hace referencia a una SEI, la clase de implementación no debe tener ninguna anotación @WebMethod.
+* Todos los métodos públicos de una SEI se consideran métodos expuestos, independientemente de si se ha especificado o no la anotación @WebMethod. Es incorrecto tener una anotación @WebMethod en una SEI que contiene el atributo exclude.
+* Para una clase de implementación que no hace referencia a una SEI, si se especifica la anotación @WebMethod con un valor exclude=true, dicho método no quedara expuesto. Si no se especifica la anotación @WebMethod, todos los métodos públicos quedan expuestos, incluidos los métodos heredados, a excepción de los métodos heredados de java.lang.Object.

@@ -1,0 +1,23 @@
+= SOAP Bindings
+
+Un mensaje SOAP es un envelope que contiene un header y body. A la hora de definir nuestro WS podemos utilizar
+@SOAPBinding para configurar ciertos aspectos. Aunque vamos a ver que hay varias formas posibles de combinar estos atributos solo
+algunas combinaciones son validas para la WS-I (Web Services Interoperability Organization).
+
+== Style
+
+* RPC: Indica que el SOAP Body contiene un XML representando la ejecución de un llamado a un método.
+
+* Document: Indica que el SOAP Body contiene un documento XML que puede ser validado utilizando un schema.
+
+== Use
+
+* Literal: Indica que los datos son convertidos de acuerdo al schema, o sea el SOAP Body no contiene ningún tipo de información acerca de los tipos de dato.
+
+* Encoded: Indica que los datos contienen información o reglas para ser utilizadas al momento de procesarlos. Encoded no es compliance al WS-I
+
+== Parameter Style
+
+* Bare: Indica que el contenido del SOAP Body sera el parámetro de la operación.
+
+* Wrapped: Indica que el contenido del SOAP Body sera un wrapper de los parámetros de la operación.

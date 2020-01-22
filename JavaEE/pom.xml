@@ -21,5 +21,6 @@
 		<module>JavaRMI</module>
 		<module>JavaCORBA</module>
 		<module>JavaRMI-IIOP</module>
-	</modules>
+        <module>JavaWebServices</module>
+    </modules>
 </project>
