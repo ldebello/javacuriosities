@@ -38,6 +38,7 @@
                         <source>src/main/resources/user.xsd</source>
                     </sources>
                     <outputDirectory>${basedir}/src/main/java</outputDirectory>
+                    <clearOutputDir>true</clearOutputDir>
                 </configuration>
             </plugin>
         </plugins>
