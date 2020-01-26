@@ -3,9 +3,9 @@
 |===
 |Annotation|Descripción
 |@XmlRootElement
-|Mapea una clase o un enum a un elemento XML
+|Indicamos que el elemento root del XML tendrá el nombre basado en esa clase o por medio de la propiedad name podemos definir uno especifico.
 |@XmlAccessorType
-|Indica cuales son las propiedades Javabean a ser serializadas por defecto, tiene cuatro valores posibles +
+|Indica cuales son las propiedades a ser serializadas por defecto, tiene cuatro valores posibles +
 - XmlAccessType.FIELD: Cada campo no estático y no transitorio en la clase JAXB acotada será automáticamente serializado a XML, a no ser que sea anotado por @XmlTransient. +
 - XmlAccessType.NONE: Ninguno de los campos o propiedades será serializado a XML a no ser que se especifique con alguna de las anotaciones de JAXB. +
 - XmlAccessType.PROPERTY: Cada par getter/setter en la clase JAXB acotada será automáticamente serializado a XML, a no ser que sea anotado por XmlTransient. +
@@ -15,9 +15,11 @@
 |@XmlElementWrapper
 |Genera un elemento de envoltura alrededor la representación XML. Esto esta destinado principalmente para ser usado como una envoltura para las colecciones.
 |@XmlElement
-|Mapea una propiedad Javabean a un elemento XML derivado desde el name de la propiedad
+|Mapea una propiedad a un elemento XML derivado desde el name de la propiedad
 |@XmlElementRef
-|Mapea una propiedad Javabean a un elemento XML derivado desde el tipo de la propiedad
+|Mapea una propiedad a un elemento XML derivado desde el tipo de la propiedad
+|@XmlAttribute
+|Mapea una propiedad a un atributo del elemento XML.
 |@XmlTransient
 |Para Indicar que esta propiedad no debe ser incluida en el XML
 |@XmlType
@@ -29,4 +31,4 @@
 == Reglas
 
 * Todas las clases a las cuales se les realice el binding XML deben tener un constructor vació
-* Se debe especificar solamente una vez la etiqueta XmlElement para una propiedad Javabean, es decir para el atributo o la tupla setter/getter.
+* Se debe especificar solamente una vez la etiqueta XmlElement para una propiedad, es decir para el atributo o la tupla setter/getter.

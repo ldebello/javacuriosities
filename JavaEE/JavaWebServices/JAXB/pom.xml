@@ -19,5 +19,6 @@
 
     <modules>
         <module>JAXBBasics</module>
+        <module>XJCBasics</module>
     </modules>
 </project>
