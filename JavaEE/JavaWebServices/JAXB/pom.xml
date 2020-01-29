@@ -20,5 +20,6 @@
     <modules>
         <module>JAXBBasics</module>
         <module>XJCBasics</module>
+        <module>SchemaGenBasics</module>
     </modules>
 </project>

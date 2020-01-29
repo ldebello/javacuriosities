@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema elementFormDefault="qualified"
         xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:custom="http://www.javacuriosities/schema"
-        targetNamespace="http://www.javacuriosities/schema">
+        xmlns:custom="http://www.javacuriosities.com.ar/schema"
+        targetNamespace="http://www.javacuriosities.com.ar/schema">
 
     <element name="userRequest" type="custom:UserRequest"/>
     <element name="userResponse" type="custom:UserResponse"/>

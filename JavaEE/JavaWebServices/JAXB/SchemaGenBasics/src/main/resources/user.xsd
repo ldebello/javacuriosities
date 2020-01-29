@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:user="http://www.javacuriosities.com.ar/schema" elementFormDefault="qualified" targetNamespace="http://www.javacuriosities.com.ar/schema" version="1.0">
+
+  <xs:element name="userRequest" type="user:UserRequest"/>
+
+  <xs:element name="userResponse" type="user:UserResponse"/>
+
+  <xs:complexType name="UserRequest">
+    <xs:annotation>
+      <xs:documentation><![CDATA[<p>Java class for UserRequest complex type.
+<p>The following schema fragment specifies the expected content contained within this class.
+<pre>
+&lt;complexType name="UserRequest"&gt;
+  &lt;complexContent&gt;
+    &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+      &lt;sequence&gt;
+        &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+        &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+      &lt;/sequence&gt;
+    &lt;/restriction&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+</pre>]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UserResponse">
+    <xs:annotation>
+      <xs:documentation><![CDATA[<p>Java class for UserResponse complex type.
+<p>The following schema fragment specifies the expected content contained within this class.
+<pre>
+&lt;complexType name="UserResponse"&gt;
+  &lt;complexContent&gt;
+    &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+      &lt;sequence&gt;
+        &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+        &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="gender" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+        &lt;element name="created" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+      &lt;/sequence&gt;
+    &lt;/restriction&gt;
+  &lt;/complexContent&gt;
+&lt;/complexType&gt;
+</pre>]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="gender" type="xs:string"/>
+      <xs:element name="created" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
