@@ -28,3 +28,4 @@ orb.db/
 
 # JAXB
 JAXBObject.xml
+JAXBObject.xsd

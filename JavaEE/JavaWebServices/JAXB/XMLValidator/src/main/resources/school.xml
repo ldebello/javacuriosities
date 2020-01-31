@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<school>
+    <name>JavaCuriosities</name>
+    <students>
+        <student>
+            <name>Cosme Fulanito</name>
+            <birthdate>2000-01-01</birthdate>
+            <regular>true</regular>
+        </student>
+        <student>
+            <name>Pedro Picapiedra</name>
+            <birthdate>2000-01-01</birthdate>
+            <regular>false</regular>
+        </student>
+        <student>
+            <name>Super Sonico</name>
+            <birthdate>2000-01-01</birthdate>
+            <regular>true</regular>
+        </student>
+    </students>
+</school>

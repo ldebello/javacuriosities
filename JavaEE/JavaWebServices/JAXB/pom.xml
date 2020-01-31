@@ -21,5 +21,6 @@
         <module>JAXBBasics</module>
         <module>XJCBasics</module>
         <module>SchemaGenBasics</module>
+        <module>XMLValidator</module>
     </modules>
 </project>
