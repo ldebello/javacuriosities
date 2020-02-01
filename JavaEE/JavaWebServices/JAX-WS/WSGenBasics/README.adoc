@@ -1,0 +1,6 @@
+= wsgen
+
+Es una herramienta incluida en el JDK, la cual nos permite:
+
+* Generar las clases Java para el deployment de nuestro web service.
+* Generar archivos WSDL y XSD de nuestro servicio.

@@ -1,0 +1,3 @@
+= schemagen
+
+Es una herramienta incluida en el JDK, la cual nos permite generar el XSD en base a las clases Java.

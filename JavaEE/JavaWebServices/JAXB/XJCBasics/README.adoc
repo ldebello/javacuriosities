@@ -1,0 +1,3 @@
+= xjc
+
+Es una herramienta incluida en el JDK, la cual nos permite generar las clases Java en base a las XSD.
