@@ -20,5 +20,6 @@
     <modules>
         <module>JAX-WS</module>
         <module>JAXB</module>
+        <module>XML-RPC</module>
     </modules>
 </project>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>XML-RPC</name>
+    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWebServices/XML-RPC</url>
+
+    <parent>
+        <groupId>ar.com.javacuriosities</groupId>
+        <artifactId>JavaWebServices</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>XML-RPC</artifactId>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <xmlrpc.version>3.1.3</xmlrpc.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.xmlrpc</groupId>
+                <artifactId>xmlrpc-server</artifactId>
+                <version>${xmlrpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlrpc</groupId>
+                <artifactId>xmlrpc-client</artifactId>
+                <version>${xmlrpc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>XML-RPC-Server</module>
+        <module>XML-RPC-Client</module>
+    </modules>
+</project>
