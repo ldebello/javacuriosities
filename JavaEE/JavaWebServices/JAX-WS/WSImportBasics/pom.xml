@@ -16,28 +16,30 @@
     <artifactId>WSImportBasics</artifactId>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <keep>true</keep>
-                    <packageName>ar.com.javacurisioties.jaxws.client.gen</packageName>
-                    <wsdlUrls>
-                        <wsdlUrl>http://127.0.0.1:9944/helloWorldImpl?wsdl</wsdlUrl>
-                    </wsdlUrls>
-                    <resourceDestDir>${basedir}/src/main/resources/wsdl</resourceDestDir>
-                    <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
-                </configuration>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>jaxws-maven-plugin</artifactId>
+                    <version>2.6</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>wsimport</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <keep>true</keep>
+                        <packageName>ar.com.javacurisioties.jaxws.client.gen</packageName>
+                        <wsdlUrls>
+                            <wsdlUrl>http://127.0.0.1:9944/helloWorldImpl?wsdl</wsdlUrl>
+                        </wsdlUrls>
+                        <resourceDestDir>${basedir}/src/main/resources/wsdl</resourceDestDir>
+                        <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>

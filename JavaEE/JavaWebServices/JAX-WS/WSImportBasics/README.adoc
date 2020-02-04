@@ -1,0 +1,5 @@
+= wsimport
+
+Es una herramienta incluida en el JDK, la cual nos permite generar el conjunto de clases para consumir un webservice.
+
+Para ejecutar este plugin se puede utilizar `mvn org.codehaus.mojo:jaxws-maven-plugin:wsimport`
