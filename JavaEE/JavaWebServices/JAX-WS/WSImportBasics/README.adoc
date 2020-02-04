@@ -3,3 +3,29 @@
 Es una herramienta incluida en el JDK, la cual nos permite generar el conjunto de clases para consumir un webservice.
 
 Para ejecutar este plugin se puede utilizar `mvn org.codehaus.mojo:jaxws-maven-plugin:wsimport`
+
+
+== Sintaxis
+
+wsimport [options] <wsdl>
+
+* <wsdl> Indica una url que permita acceder al WSDL del servicio web para el que vamos a generar el cliente. Esta url puede ser tanto un recurso local, como un recurso obtenido mediante protocolo http.
+* [options] Es el apartado donde se pueden incluir diferentes opciones que variarán el comportamiento de la herramienta.
+
+A continuación se presenta una lista completa de estas opciones:
+
+* -d <directory> : Indica el directorio de salida donde se dejan las clases compiladas. Si no se utiliza esta opción las clases compiladas se dejarán en el mismo directorio desde el que se llama a wsimport.
+* -b <path> : Añade ficheros XSD adicionales que se puedan necesitar en los binding jaxws/jaxb del servicio web.
+* -B <jaxbOption>
+* -catalog <file> : Especifica un fichero de catálogo que resuelve las referencias a entidades externas. Los formatos de catálogo soportados son: TR9401, XCatalog y OASIS XML Catalog.
+* -extension : Permite extensiones de terceros. Esta funcionalidad no está soportada por la especificación, por lo que el cliente generado puede no ser portable o permitir la interoperabilidad entre plataformas.
+*	-help : Muestra una ayuda con el listado de las opciones.
+* -httpproxy:<host>:<port> : Si para acceder a la URL del WSDL que queremos generar hay que viajar a través de un proxy, con esta opción podremos indicar su configuración. Si no se rellena el puerto, por defecto será el 8080.
+* -keep : Si se incluye esta opción los fuentes que generan los compilados del cliente no se borran.
+* -p : Especifica el paquete java de las clases del cliente generado. Si se indica esta opción no se tendrán en cuenta; ni el nombre de paquete que puede incluirse en el wsdl, ni el nombre de paquete por defecto que se genera cuando no se indica esta opción.
+* -s <directory> : Especifica un directorio donde se guardan los ficheros de código fuente generados.
+* -verbose : Muestra los mensajes del compilador indicando las tareas que está realizando.
+* -version : Muestra un mensaje informativo con la versión de la implementación de referencia que se está utilizando.
+* -wsdllocation <location>
+* -target : Genera el código para la versión JAX-WS indicada. La versión 2.0 genera código compatible con la especificación JAX-WS 2.0.
+* -quiet: Elimina cualquier salida que se pueda generar. Útil para generaciones automatizadas de clientes.

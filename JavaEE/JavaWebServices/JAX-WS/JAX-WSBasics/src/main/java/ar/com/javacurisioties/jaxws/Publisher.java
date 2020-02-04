@@ -5,6 +5,7 @@ import ar.com.javacurisioties.jaxws.bindings.HelloWorldDocumentBare;
 import ar.com.javacurisioties.jaxws.faults.HelloWorldFaults;
 import ar.com.javacurisioties.jaxws.handlers.service.HelloWorldHandlers;
 import ar.com.javacurisioties.jaxws.http_headers.HelloWorldHTTPHeaders;
+import ar.com.javacurisioties.jaxws.mtom.service.HelloWorldMTOM;
 import ar.com.javacurisioties.jaxws.sei.impl.HelloWorldImpl;
 import ar.com.javacurisioties.jaxws.bindings.HelloWorldRPC;
 
@@ -39,5 +40,8 @@ public class Publisher {
 
         // Handlers
         Endpoint.publish("http://127.0.0.1:9977/HelloWorldHandlers", new HelloWorldHandlers());
+
+        // MTOM
+        Endpoint.publish("http://127.0.0.1:9988/HelloWorldMTOM", new HelloWorldMTOM());
     }
 }
