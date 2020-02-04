@@ -1,0 +1,8 @@
+= Java Web Services
+
+== Presentations
+
+* https://www.slideshare.net/luisdebello/java-web-services-introduccion[Introducción]
+* https://www.slideshare.net/luisdebello/java-web-services-soap-binding[SOAP Binding]
+* https://www.slideshare.net/luisdebello/java-web-services-soap-temas-adicionales[SOAP Temas Adicionales]
+* https://www.slideshare.net/luisdebello/java-web-services-rest[REST]

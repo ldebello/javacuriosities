@@ -8,3 +8,12 @@ mvn cargo:run
 ```
 
 http://localhost:8080/${project.name}
+
+== Presentations
+
+* https://www.slideshare.net/luisdebello/java-web-introduccin[Introducción]
+* https://www.slideshare.net/luisdebello/java-web-session[Sessions]
+* https://www.slideshare.net/luisdebello/java-web-servlet[Servlet]
+* https://www.slideshare.net/luisdebello/java-web-jsp[JSP]
+* https://www.slideshare.net/luisdebello/java-web-struts[Struts]
+* https://www.slideshare.net/luisdebello/java-web-jsf[JSF]
