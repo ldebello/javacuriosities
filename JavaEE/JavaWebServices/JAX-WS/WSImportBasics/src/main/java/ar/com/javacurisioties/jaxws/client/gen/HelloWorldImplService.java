@@ -1,5 +1,5 @@
 
-package ar.com.javacurisioties.jaxws.client;
+package ar.com.javacurisioties.jaxws.client.gen;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "HelloWorldImplService", targetNamespace = "http://services.jaxws.javacurisioties.com.ar/", wsdlLocation = "http://127.0.0.1:9944/helloWorldImpl?wsdl")
+@WebServiceClient(name = "HelloWorldImplService", targetNamespace = "http://impl.sei.jaxws.javacurisioties.com.ar/", wsdlLocation = "http://127.0.0.1:9944/helloWorldImpl?wsdl")
 public class HelloWorldImplService
     extends Service
 {
 
     private final static URL HELLOWORLDIMPLSERVICE_WSDL_LOCATION;
     private final static WebServiceException HELLOWORLDIMPLSERVICE_EXCEPTION;
-    private final static QName HELLOWORLDIMPLSERVICE_QNAME = new QName("http://services.jaxws.javacurisioties.com.ar/", "HelloWorldImplService");
+    private final static QName HELLOWORLDIMPLSERVICE_QNAME = new QName("http://impl.sei.jaxws.javacurisioties.com.ar/", "HelloWorldImplService");
 
     static {
         URL url = null;
@@ -69,7 +69,7 @@ public class HelloWorldImplService
      */
     @WebEndpoint(name = "HelloWorldImplPort")
     public HelloWorld getHelloWorldImplPort() {
-        return super.getPort(new QName("http://services.jaxws.javacurisioties.com.ar/", "HelloWorldImplPort"), HelloWorld.class);
+        return super.getPort(new QName("http://impl.sei.jaxws.javacurisioties.com.ar/", "HelloWorldImplPort"), HelloWorld.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class HelloWorldImplService
      */
     @WebEndpoint(name = "HelloWorldImplPort")
     public HelloWorld getHelloWorldImplPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://services.jaxws.javacurisioties.com.ar/", "HelloWorldImplPort"), HelloWorld.class, features);
+        return super.getPort(new QName("http://impl.sei.jaxws.javacurisioties.com.ar/", "HelloWorldImplPort"), HelloWorld.class, features);
     }
 
     private static URL __getWsdlLocation() {

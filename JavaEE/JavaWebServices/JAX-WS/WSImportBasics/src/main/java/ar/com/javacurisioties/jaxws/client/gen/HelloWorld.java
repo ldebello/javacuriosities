@@ -1,5 +1,5 @@
 
-package ar.com.javacurisioties.jaxws.client;
+package ar.com.javacurisioties.jaxws.client.gen;
 
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
@@ -27,14 +27,26 @@ public interface HelloWorld {
 
     /**
      * 
+     * @param arg0
+     */
+    @WebMethod
+    @Oneway
+    @RequestWrapper(localName = "say0", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.gen.Say0")
+    @Action(input = "http://sei.jaxws.javacurisioties.com.ar/HelloWorld/say0")
+    public void say0(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
      * @param parameters
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "say3", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.Say3")
-    @ResponseWrapper(localName = "say3Response", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.Say3Response")
+    @RequestWrapper(localName = "say3", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.gen.Say3")
+    @ResponseWrapper(localName = "say3Response", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.gen.Say3Response")
     @Action(input = "http://sei.jaxws.javacurisioties.com.ar/HelloWorld/say3Request", output = "http://sei.jaxws.javacurisioties.com.ar/HelloWorld/say3Response")
     public String say3(
         @WebParam(name = "parameters", targetNamespace = "")
@@ -48,23 +60,11 @@ public interface HelloWorld {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "say", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.Say")
-    @ResponseWrapper(localName = "sayResponse", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.SayResponse")
+    @RequestWrapper(localName = "say", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.gen.Say")
+    @ResponseWrapper(localName = "sayResponse", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.gen.SayResponse")
     @Action(input = "http://sei.jaxws.javacurisioties.com.ar/HelloWorld/sayRequest", output = "http://sei.jaxws.javacurisioties.com.ar/HelloWorld/sayResponse")
     public String say(
         @WebParam(name = "name", targetNamespace = "")
         String name);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @Oneway
-    @RequestWrapper(localName = "say0", targetNamespace = "http://sei.jaxws.javacurisioties.com.ar/", className = "ar.com.javacurisioties.jaxws.client.Say0")
-    @Action(input = "http://sei.jaxws.javacurisioties.com.ar/HelloWorld/say0")
-    public void say0(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
 
 }

@@ -1,9 +1,12 @@
 package ar.com.javacurisioties.jaxws;
 
-import ar.com.javacurisioties.jaxws.services.HelloWorldDocument;
-import ar.com.javacurisioties.jaxws.services.HelloWorldDocumentBare;
-import ar.com.javacurisioties.jaxws.services.HelloWorldImpl;
-import ar.com.javacurisioties.jaxws.services.HelloWorldRPC;
+import ar.com.javacurisioties.jaxws.bindings.HelloWorldDocument;
+import ar.com.javacurisioties.jaxws.bindings.HelloWorldDocumentBare;
+import ar.com.javacurisioties.jaxws.faults.HelloWorldFaults;
+import ar.com.javacurisioties.jaxws.handlers.service.HelloWorldHandlers;
+import ar.com.javacurisioties.jaxws.http_headers.HelloWorldHTTPHeaders;
+import ar.com.javacurisioties.jaxws.sei.impl.HelloWorldImpl;
+import ar.com.javacurisioties.jaxws.bindings.HelloWorldRPC;
 
 import javax.xml.ws.Endpoint;
 
@@ -20,10 +23,21 @@ import javax.xml.ws.Endpoint;
  */
 public class Publisher {
     public static void main(String[] args) {
+        // Bindings
         Endpoint.publish("http://127.0.0.1:9911/helloWorldRPC", new HelloWorldRPC());
         Endpoint.publish("http://127.0.0.1:9922/helloWorldDocument", new HelloWorldDocument());
         Endpoint.publish("http://127.0.0.1:9933/helloWorldDocumentBare", new HelloWorldDocumentBare());
+
+        // SEI
         Endpoint.publish("http://127.0.0.1:9944/helloWorldImpl", new HelloWorldImpl());
 
+        // Headers
+        Endpoint.publish("http://127.0.0.1:9955/HelloWorldHTTPHeaders", new HelloWorldHTTPHeaders());
+
+        // Faults
+        Endpoint.publish("http://127.0.0.1:9966/HelloWorldFaults", new HelloWorldFaults());
+
+        // Handlers
+        Endpoint.publish("http://127.0.0.1:9977/HelloWorldHandlers", new HelloWorldHandlers());
     }
 }

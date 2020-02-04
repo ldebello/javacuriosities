@@ -30,7 +30,7 @@
                 </executions>
                 <configuration>
                     <keep>true</keep>
-                    <packageName>ar.com.javacurisioties.jaxws.client</packageName>
+                    <packageName>ar.com.javacurisioties.jaxws.client.gen</packageName>
                     <wsdlUrls>
                         <wsdlUrl>http://127.0.0.1:9944/helloWorldImpl?wsdl</wsdlUrl>
                     </wsdlUrls>

@@ -1,14 +1,13 @@
-package ar.com.javacurisioties.jaxws.services;
+package ar.com.javacurisioties.jaxws.bindings;
 
 import ar.com.javacurisioties.jaxws.parameters.SayParameters;
 
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 
-/**
- * Cuando no utilizamos endpointInterface todos los métodos públicos son expuestos.
- */
 @WebService
-public class HelloWorldDocument {
+@SOAPBinding(style = SOAPBinding.Style.RPC)
+public class HelloWorldRPC {
 
     public void say0(String name) {
         System.out.println("Hello " + name);

@@ -1,5 +1,5 @@
 
-package ar.com.javacurisioties.jaxws.client;
+package ar.com.javacurisioties.jaxws.client.gen;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the ar.com.javacurisioties.jaxws.client package. 
+ * generated in the ar.com.javacurisioties.jaxws.client.gen package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -31,7 +31,7 @@ public class ObjectFactory {
     private final static QName _SayResponse_QNAME = new QName("http://sei.jaxws.javacurisioties.com.ar/", "sayResponse");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ar.com.javacurisioties.jaxws.client
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ar.com.javacurisioties.jaxws.client.gen
      * 
      */
     public ObjectFactory() {

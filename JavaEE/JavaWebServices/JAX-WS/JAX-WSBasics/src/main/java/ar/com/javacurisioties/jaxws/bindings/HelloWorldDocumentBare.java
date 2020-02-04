@@ -1,4 +1,4 @@
-package ar.com.javacurisioties.jaxws.services;
+package ar.com.javacurisioties.jaxws.bindings;
 
 import ar.com.javacurisioties.jaxws.parameters.SayParameters;
 

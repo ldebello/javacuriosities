@@ -1,4 +1,4 @@
-package ar.com.javacurisioties.jaxws.services;
+package ar.com.javacurisioties.jaxws.sei.impl;
 
 import ar.com.javacurisioties.jaxws.parameters.SayParameters;
 import ar.com.javacurisioties.jaxws.sei.HelloWorld;
