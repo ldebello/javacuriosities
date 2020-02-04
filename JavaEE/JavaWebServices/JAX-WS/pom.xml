@@ -20,5 +20,6 @@
     <modules>
         <module>JAX-WSBasics</module>
         <module>WSGenBasics</module>
+        <module>WSImportBasics</module>
     </modules>
 </project>

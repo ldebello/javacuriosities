@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>WSImportBasics</name>
+    <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWebServices/JAX-WS/WSImportBasics</url>
+
+    <parent>
+        <groupId>ar.com.javacuriosities</groupId>
+        <artifactId>JAX-WS</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>WSImportBasics</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <keep>true</keep>
+                    <packageName>ar.com.javacurisioties.jaxws.client</packageName>
+                    <wsdlUrls>
+                        <wsdlUrl>http://127.0.0.1:9944/helloWorldImpl?wsdl</wsdlUrl>
+                    </wsdlUrls>
+                    <resourceDestDir>${basedir}/src/main/resources/wsdl</resourceDestDir>
+                    <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
