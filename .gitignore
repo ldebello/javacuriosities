@@ -29,3 +29,6 @@ orb.db/
 # JAXB
 JAXBObject.xml
 JAXBObject.xsd
+
+# MTOM
+mtom.jpg

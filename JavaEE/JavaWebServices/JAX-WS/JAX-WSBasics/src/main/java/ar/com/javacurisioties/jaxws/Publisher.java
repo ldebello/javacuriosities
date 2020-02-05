@@ -2,12 +2,12 @@ package ar.com.javacurisioties.jaxws;
 
 import ar.com.javacurisioties.jaxws.bindings.HelloWorldDocument;
 import ar.com.javacurisioties.jaxws.bindings.HelloWorldDocumentBare;
+import ar.com.javacurisioties.jaxws.bindings.HelloWorldRPC;
 import ar.com.javacurisioties.jaxws.faults.HelloWorldFaults;
 import ar.com.javacurisioties.jaxws.handlers.service.HelloWorldHandlers;
 import ar.com.javacurisioties.jaxws.http_headers.HelloWorldHTTPHeaders;
-import ar.com.javacurisioties.jaxws.mtom.service.HelloWorldMTOM;
+import ar.com.javacurisioties.jaxws.mtom.service.HelloWorldMTOMImpl;
 import ar.com.javacurisioties.jaxws.sei.impl.HelloWorldImpl;
-import ar.com.javacurisioties.jaxws.bindings.HelloWorldRPC;
 
 import javax.xml.ws.Endpoint;
 
@@ -42,6 +42,6 @@ public class Publisher {
         Endpoint.publish("http://127.0.0.1:9977/HelloWorldHandlers", new HelloWorldHandlers());
 
         // MTOM
-        Endpoint.publish("http://127.0.0.1:9988/HelloWorldMTOM", new HelloWorldMTOM());
+        Endpoint.publish("http://127.0.0.1:9988/HelloWorldMTOM", new HelloWorldMTOMImpl());
     }
 }
