@@ -20,7 +20,7 @@
     <properties>
         <containerId>tomee8x</containerId>
         <containerURL>
-            http://repo.maven.apache.org/maven2/org/apache/tomee/apache-tomee/8.0.0/apache-tomee-8.0.0-plus.zip
+            https://repo.maven.apache.org/maven2/org/apache/tomee/apache-tomee/8.0.0/apache-tomee-8.0.0-plus.zip
         </containerURL>
     </properties>
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+    <!--<listener>-->
+        <!--<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>-->
+    <!--</listener>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>JAXWSServlet</servlet-name>-->
+        <!--<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>JAXWSServlet</servlet-name>-->
+        <!--<url-pattern>/peopleWS</url-pattern>-->
+    <!--</servlet-mapping>-->
+</web-app>

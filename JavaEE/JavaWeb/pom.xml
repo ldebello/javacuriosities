@@ -21,7 +21,7 @@
         <tomcat.version>9.0.30</tomcat.version>
         <containerId>tomcat9x</containerId>
         <containerURL>
-            http://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/${tomcat.version}/tomcat-${tomcat.version}.zip
+            https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/${tomcat.version}/tomcat-${tomcat.version}.zip
         </containerURL>
     </properties>
 
