@@ -5,6 +5,20 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
+/*
+ * En este ejemplo este se puede ver como los Handlers son ejecutados cuando se recibe un mensaje
+ *
+ * - Cuando el mensaje llega se ejecutan todos los Handler del tipo SOAPHandler
+ * - Luego se procesan todos los Handler del tipo LogicalHandler
+ * - Luego al enviar la respuesta los handlers son procesados nuevamente pero de manera inversa
+ *
+ * SOAPHandler:
+ * Nos permiten interactuar con el mensaje SOAP
+ *
+ * LogicalHandler:
+ * Solo nos permiten interactuar con el SOAP Payload (O sea el mensaje dentro del SOAP Body)
+ *
+ */
 @WebService
 @HandlerChain(file = "handlers.xml")
 public class HelloWorldHandlers {

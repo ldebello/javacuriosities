@@ -8,5 +8,9 @@
             <handler-name>InflatorHandler</handler-name>
             <handler-class>ar.com.javacurisioties.jaxws.handlers.InflatorHandler</handler-class>
         </handler>
+        <handler>
+            <handler-name>CustomLogicalHandler</handler-name>
+            <handler-class>ar.com.javacurisioties.jaxws.handlers.CustomLogicalHandler</handler-class>
+        </handler>
     </handler-chain>
 </handler-chains>
