@@ -14,4 +14,17 @@
     </parent>
 
     <artifactId>JAX-WSBasics</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>2.3.3-b01</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>rt</artifactId>
+            <version>2.3.3-b01</version>
+        </dependency>
+    </dependencies>
 </project>
