@@ -1,0 +1,26 @@
+= WSIT
+
+WSIT (Web Services Interoperability Technology) es una serie de extensiones al protocolo SOAP.
+
+WSIT implement la especificación WS-I specifications, la cual incluye:
+
+* Metadata
+** WS-MetadataExchange
+** WS-Transfer
+** WS-Policy
+
+* Security
+** WS-Security
+** WS-SecureConversation
+** WS-Trust
+** WS-SecurityPolicy
+
+* Messaging
+** WS-ReliableMessaging
+** WS-RMPolicy
+
+* Transactions
+** WS-Coordination
+** WS-AtomicTransaction
+
+Las definiciones de WSIT se encuentra dentro de WEB-INF en un archivo `wsit-package.service.xml` donde debemos reemplazar `package` and `service` por sus valores correspondientes.

@@ -22,5 +22,6 @@
         <module>WSGenBasics</module>
         <module>WSImportBasics</module>
         <module>JAX-WSTomcat</module>
+        <module>WSIT</module>
     </modules>
 </project>
