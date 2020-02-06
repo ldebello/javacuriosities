@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebService(endpointInterface = "ar.com.javacuriosities.ws.service.PersonService")
-public class PersonServiceImpl implements PersonService {
+@WebService(endpointInterface = "ar.com.javacuriosities.ws.service.PeopleService")
+public class PeopleServiceImpl implements PeopleService {
 
     private static Map<Integer, Person> persons = new HashMap<>();
 

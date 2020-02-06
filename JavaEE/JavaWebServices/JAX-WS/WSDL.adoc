@@ -1,0 +1,11 @@
+= WSDL
+
+El WSDL (Web Service Definition Language) es un archivo que expone la información de nuestro servicio web.
+Esta compuesto por distintas partes:
+
+* Definitions: Es el elemento root de todo WSDL y define cosas como su nombre, namespace, soap protocol, etc.
+* Types: Por medio de XSD (XML Schema Definition), se definen los types de mi servicio.
+* Messages: Nos provee una definición abstracta de los datos transmitidos.
+* Operations y Port Types: El elemento `portType` define cada `operation` y todos los `messages` involucrados.
+* Bindings: Este elemento provee el protocolo, el formato y los posibles `faults`.
+* Services y Ports: El elemento `service` los ports soportados por el webservice, cada `port` tiene un nombre y un `address`.

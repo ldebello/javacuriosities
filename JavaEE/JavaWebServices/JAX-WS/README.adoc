@@ -1,0 +1,7 @@
+= JAX-WS
+
+Es la API que utilizaremos para la construcción de web services SOAP.
+
+* link:WSDL.adoc[WSDL]
+* link:Annotations.adoc[Annotations]
+* link:SOAPBindings.adoc[SOAP Bindings]

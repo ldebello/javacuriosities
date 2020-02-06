@@ -2,6 +2,6 @@
 <endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
     <endpoint
             name="PersonServiceImpl"
-            implementation="ar.com.javacuriosities.ws.service.PersonServiceImpl"
+            implementation="ar.com.javacuriosities.ws.service.PeopleServiceImpl"
             url-pattern="/peopleWS"/>
 </endpoints>
