@@ -1,6 +1,5 @@
 package ar.com.javacuriosities.ws.model;
 
-
 public class Person {
 
     private String name;
