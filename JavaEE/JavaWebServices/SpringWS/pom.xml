@@ -19,5 +19,6 @@
 
     <modules>
         <module>SpringWSServer</module>
+        <module>SpringWSClient</module>
     </modules>
 </project>
