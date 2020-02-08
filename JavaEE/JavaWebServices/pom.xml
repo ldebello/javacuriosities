@@ -22,5 +22,6 @@
         <module>JAXB</module>
         <module>XML-RPC</module>
         <module>SpringWS</module>
+        <module>JAX-RS</module>
     </modules>
 </project>

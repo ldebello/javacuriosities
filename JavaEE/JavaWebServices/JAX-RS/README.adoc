@@ -1,0 +1,5 @@
+= JAX-RS
+
+Es la API que utilizaremos para la construcción de web services REST.
+
+* link:Annotations.adoc[Annotations]

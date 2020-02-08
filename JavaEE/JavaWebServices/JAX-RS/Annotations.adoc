@@ -1,0 +1,22 @@
+= JAX-RS Annotations
+
+|===
+|Annotation|Descripción|Comentarios
+|@Path|Especifica la ruta de acceso relativa para una clase o método|Soportan parámetros y expresiones regulares para los mismos
+|@GET, @PUT, @POST, @DELETE|Especifican el tipo de petición HTTP de un recurso|
+|@Produces|Especifica los tipos MIME producidos|
+- text/plain +
+- text/html +
+- application/xml +
+- application/json
+|@Consumes|Especifica los tipos MIME consumidos|
+|@ApplicationPath|Permite especificar el Endpoint de mi API REST|
+|@PathParam|Permite enlazar parte de la URL a un parámetro|
+|@QueryParam|Permite enlazar los parámetros de la QueryString|/usuarios/consulta?id=1
+|@MatrixParam|Permite enlazar los parámetros de la matriz de HTTP|/libros/2013;autor=CosmeFulanito
+|@CookieParam|Permite enlazar parámetros desde las cookies|
+|@HeaderParam|Permite enlazar los Request Header|
+|@FormParam|Permite enlazar los parámetros de un formulario|
+|@DefaultValue|Permite especificar un valor por defecto|
+|@Context|Permite inyectar algunos objetos|UriInfo, HttpHeaders, Request
+|===

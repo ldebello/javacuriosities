@@ -1,9 +1,13 @@
-= JAXB Annotations
+= JAXB
+
+Esta API nos permite transformar objetos a XML y viceversa.
+
+== Annotations
 
 |===
 |Annotation|Descripción
 |@XmlRootElement
-|Indicamos que el elemento root del XML tendrá el nombre basado en esa clase o por medio de la propiedad name podemos definir uno especifico.
+|Indicamos que el elemento root del XML tendrá el nombre basado en esa clase o por medio de la propiedad nombre podemos definir uno especifico.
 |@XmlAccessorType
 |Indica cuales son las propiedades a ser serializadas por defecto, tiene cuatro valores posibles +
 - XmlAccessType.FIELD: Cada campo no estático y no transitorio en la clase JAXB acotada será automáticamente serializado a XML, a no ser que sea anotado por @XmlTransient. +
@@ -15,7 +19,7 @@
 |@XmlElementWrapper
 |Genera un elemento de envoltura alrededor la representación XML. Esto esta destinado principalmente para ser usado como una envoltura para las colecciones.
 |@XmlElement
-|Mapea una propiedad a un elemento XML derivado desde el name de la propiedad
+|Mapea una propiedad a un elemento XML derivado desde el nombre de la propiedad
 |@XmlElementRef
 |Mapea una propiedad a un elemento XML derivado desde el tipo de la propiedad
 |@XmlAttribute
