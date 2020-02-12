@@ -3,13 +3,13 @@ package ar.com.javacuriosities.rs.model;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Client {
+public class Customer {
 
     private Integer id;
     private String name;
     private Integer age;
 
-    public Client() {
+    public Customer() {
     }
 
     public Integer getId() {
