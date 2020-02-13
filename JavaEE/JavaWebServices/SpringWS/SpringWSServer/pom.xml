@@ -51,9 +51,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <generateDirectory>src/main/generated-sources</generateDirectory>
-                </configuration>
             </plugin>
         </plugins>
     </build>
