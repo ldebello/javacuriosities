@@ -18,18 +18,28 @@
     <packaging>war</packaging>
 
     <properties>
-        <containerId>tomee8x</containerId>
+        <tomcat.version>9.0.30</tomcat.version>
+        <containerId>tomcat9x</containerId>
         <containerURL>
-            https://repo.maven.apache.org/maven2/org/apache/tomee/apache-tomee/8.0.0/apache-tomee-8.0.0-plus.zip
+            https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/${tomcat.version}/tomcat-${tomcat.version}.zip
         </containerURL>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>8.0.1</version>
-            <scope>provided</scope>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>2.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>2.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>2.30</version>
         </dependency>
     </dependencies>
 

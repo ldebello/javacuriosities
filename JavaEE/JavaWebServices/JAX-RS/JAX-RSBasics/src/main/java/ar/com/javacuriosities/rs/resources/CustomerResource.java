@@ -27,6 +27,7 @@ public class CustomerResource {
         return CustomerRepository.getCustomers();
     }
 
+
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})

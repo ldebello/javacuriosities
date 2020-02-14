@@ -8,6 +8,7 @@ import javax.ws.rs.Path;
 @Path("admin")
 public class AdminResource {
 
+
     @Path("customer")
     public CustomerAdmin admin() {
         return new CustomerAdmin();
