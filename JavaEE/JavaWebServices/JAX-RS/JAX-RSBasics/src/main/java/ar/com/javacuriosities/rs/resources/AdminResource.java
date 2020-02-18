@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 public class AdminResource {
 
 
-    @Path("customer")
+    @Path("customers")
     public CustomerAdmin admin() {
         return new CustomerAdmin();
     }
