@@ -1,5 +1,6 @@
 package ar.com.javacuriosities.rs.repository;
 
+import ar.com.javacuriosities.rs.exceptions.CustomerNotFoundException;
 import ar.com.javacuriosities.rs.model.Customer;
 
 import java.util.ArrayList;
@@ -46,7 +47,11 @@ public class CustomerRepository {
     }
 
     public static Customer getCustomer(Integer id) {
-        return customers.get(id);
+        Customer customer = customers.get(id);
+        if (customer == null) {
+            throw new CustomerNotFoundException(String.format("Customer %d not found", id));
+        }
+        return customer;
     }
 
     public static List<Customer> getCustomers() {

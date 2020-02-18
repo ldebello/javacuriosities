@@ -1,5 +1,6 @@
 package ar.com.javacuriosities.rs.resources;
 
+import ar.com.javacuriosities.rs.exceptions.InvalidCustomerException;
 import ar.com.javacuriosities.rs.model.Customer;
 import ar.com.javacuriosities.rs.repository.CustomerRepository;
 
@@ -13,7 +14,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -31,13 +31,8 @@ public class CustomerResource {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Customer getCustomerById(@PathParam("id") String id) {
-        Customer customer = CustomerRepository.getCustomer(Integer.parseInt(id));
-        if (customer == null) {
-            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-                    .entity("Client not found").type(MediaType.TEXT_PLAIN).build());
-        }
-        return customer;
+    public Customer getCustomerById(@PathParam("id") int id) {
+        return CustomerRepository.getCustomer(id);
     }
 
     @GET
@@ -58,6 +53,9 @@ public class CustomerResource {
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Customer create(Customer customer) {
+        if (customer.getAge() < 18) {
+            throw new InvalidCustomerException("Customer cannot be under-age");
+        }
         return CustomerRepository.saveCustomer(customer);
     }
 
@@ -66,6 +64,9 @@ public class CustomerResource {
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Customer update(Customer customer) {
+        if (customer.getId() == null) {
+            throw new RuntimeException("Id is required");
+        }
         return CustomerRepository.updateCustomer(customer);
     }
 
