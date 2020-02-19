@@ -8,6 +8,7 @@
     <url>https://github.com/ldebello/javacuriosities/tree/master/JavaEE/JavaWebServices/JAX-RS</url>
     <modules>
         <module>JAX-RSBasics</module>
+        <module>JAX-RSClient</module>
     </modules>
 
     <parent>
