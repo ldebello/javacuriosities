@@ -23,5 +23,6 @@
         <module>XML-RPC</module>
         <module>SpringWS</module>
         <module>JAX-RS</module>
+        <module>SpringREST</module>
     </modules>
 </project>
