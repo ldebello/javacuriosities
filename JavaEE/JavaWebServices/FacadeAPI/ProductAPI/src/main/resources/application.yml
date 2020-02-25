@@ -1,0 +1,5 @@
+rate-limit:
+  capacity: 15
+  refill:
+    amount: 1
+    interval: 100

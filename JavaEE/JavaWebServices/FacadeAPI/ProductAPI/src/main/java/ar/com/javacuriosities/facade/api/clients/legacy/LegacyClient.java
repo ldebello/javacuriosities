@@ -7,28 +7,38 @@ import ar.com.javacuriosities.facade.api.model.ProductDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Component
 public class LegacyClient {
 
     public List<ProductDTO> getProducts() {
-        ProductsWS_Service productsService = new ProductsWS_Service();
-        ProductsWS productsWSPort = productsService.getProductsWSPort();
-        List<Product> legacyProducts = productsWSPort.products();
-        List<ProductDTO> productDTOS = new ArrayList<>(legacyProducts.size());
+        /*
+         * Fault tolerance (Simple)
+         */
+        try {
+            ProductsWS_Service productsService = new ProductsWS_Service();
+            ProductsWS productsWSPort = productsService.getProductsWSPort();
+            List<Product> legacyProducts = productsWSPort.products();
+            List<ProductDTO> productDTOS = new ArrayList<>(legacyProducts.size());
 
-        for (Product legacyProduct : legacyProducts) {
-            ProductDTO productDTO = new ProductDTO();
+            for (Product legacyProduct : legacyProducts) {
+                ProductDTO productDTO = new ProductDTO();
 
-            productDTO.setName(legacyProduct.getName());
-            productDTO.setCategory(legacyProduct.getCategory());
-            productDTO.setPrice(legacyProduct.getPrice());
+                productDTO.setName(legacyProduct.getName());
+                productDTO.setCategory(legacyProduct.getCategory());
+                productDTO.setPrice(legacyProduct.getPrice());
 
-            productDTO.setBrand("Legacy");
+                productDTO.setBrand("Legacy");
 
-            productDTOS.add(productDTO);
+                productDTOS.add(productDTO);
+            }
+            return productDTOS;
+        } catch (Exception e) {
+            // Log and Handle exception
+            e.printStackTrace();
+            return Collections.emptyList();
         }
-        return productDTOS;
     }
 }
