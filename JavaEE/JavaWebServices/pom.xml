@@ -24,5 +24,6 @@
         <module>SpringWS</module>
         <module>JAX-RS</module>
         <module>SpringREST</module>
+        <module>FacadeAPI</module>
     </modules>
 </project>

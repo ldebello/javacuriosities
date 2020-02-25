@@ -1,0 +1,75 @@
+## YAML Template.
+---
+version: '3.7'
+
+services:
+  legacy_db:
+    image: mysql:5.7
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./LegacyProductAPI/db-init:/docker-entrypoint-initdb.d
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: legacy
+      MYSQL_USER: legacy_user
+      MYSQL_PASSWORD: 123456
+
+  third_party_db:
+    image: postgres:9.6-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./ThirdPartyProductAPI/db-init:/docker-entrypoint-initdb.d
+    ports:
+      - 15432:5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: third_party_user
+      POSTGRES_PASSWORD: 987654
+
+  legacy_system:
+    build:
+      context: ./LegacyProductAPI
+      dockerfile: Dockerfile
+    image: legacy-system-soap:latest
+    ports:
+      - 8081:8080
+    environment:
+      DB_HOST: host.docker.internal:13306
+      DB_USER: legacy_user
+      DB_PASSWORD: 123456
+    depends_on:
+      - legacy_db
+
+  third_party_system:
+    build:
+      context: ./ThirdPartyProductAPI
+      dockerfile: Dockerfile
+    image: third-party-system-rest:latest
+    ports:
+      - 8082:8080
+    environment:
+      DB_HOST: host.docker.internal:15432
+      DB_USER: third_party_user
+      DB_PASSWORD: 987654
+    depends_on:
+      - third_party_db
+
+  facade_system:
+    build:
+      context: ./ProductAPI
+      dockerfile: Dockerfile
+    image: product-facade-api:latest
+    ports:
+      - 8080:8080
+    environment:
+      LEGACY_HOST: host.docker.internal:8081
+      THIRD_PARTY_HOST: host.docker.internal:8082
+    depends_on:
+      - legacy_system
+      - third_party_system
+
+volumes:
+  mysql_data: {}
+  postgres_data: {}
