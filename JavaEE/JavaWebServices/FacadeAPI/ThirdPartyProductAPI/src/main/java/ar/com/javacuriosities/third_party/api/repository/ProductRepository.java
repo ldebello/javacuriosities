@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ProductRepository {
 
-    private static final String URL = "jdbc:postgresql://" + System.getenv("DB_HOST") + "/postgres?useSSL=false&requireSSL=false\";";
+    private static final String URL = "jdbc:postgresql://" + System.getenv("DB_HOST") + "/postgres?useSSL=false&requireSSL=false";
     private static final String USER = System.getenv("DB_USER");
     private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
