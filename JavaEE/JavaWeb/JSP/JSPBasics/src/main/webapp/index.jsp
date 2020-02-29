@@ -26,11 +26,11 @@
         %>
         
          <!-- Aquí estamos invocando un método que fue declarado mas arriba en el tag Declaration -->
-        <H1>Fecha y hora estática: <% out.print(getCurrentDate()); %> </H1>
-        <HR>
+        <h1>Fecha y hora estática: <% out.print(getCurrentDate()); %> </h1>
+        <hr>
         
         <!-- Aquí usamos el tag expression el cual ejecuta un bloque de código Java y lo muestra en el resultado -->
-        <H1>Contador: <%= counter+=1 %> </H1>
-        <HR>
+        <h1>Contador: <%= counter+=1 %> </h1>
+        <hr>
     </body>
 </html>

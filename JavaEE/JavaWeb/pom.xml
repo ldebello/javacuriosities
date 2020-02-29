@@ -135,5 +135,6 @@
         <module>JSF</module>
         <module>WebSockets</module>
         <module>Struts</module>
+        <module>OAuth2Basics</module>
     </modules>
 </project>

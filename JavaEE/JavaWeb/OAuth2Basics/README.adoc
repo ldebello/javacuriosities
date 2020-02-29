@@ -1,0 +1,36 @@
+= OAuth 2
+
+La idea de este ejemplo es explicar los conceptos de OAuth 2 y ver como funciona
+por medio de un ejemplo.
+
+== Introducción
+
+OAuth 2 es un framework de autorización, que permite a las aplicaciones obtener acceso (limitado) a las cuentas de usuario de determinados servicios, como Facebook, GitHub, Twitter, Google+ y muchos más. +
+Consiste en delegar la autenticación de usuario al servicio que gestiona las cuentas, de modo que sea este quien otorgue el acceso para las aplicaciones de terceros. +
+OAuth 2 provee un flujo de autorización para aplicaciones web, aplicaciones móviles e incluso programas de escritorio.
+
+== Roles
+
+Es importante entender los 4 roles definidos por OAuth:
+
+* Client: Es la aplicación que quiere acceder a la cuenta de un usuario, en un servicio determinado. A fin de conseguir ello, debe contar con una autorización del usuario, y esta autorización se debe validar (a través de la API del servicio).
+* Resource Owner: Es el usuario que autoriza a una aplicación, para que pueda acceder a su cuenta. El acceso está limitado en función del "scope" que ha concedido el usuario en la autorización.
+* Resource Server: Es el servidor que almacena las cuentas de usuarios.
+* Authorization Server: Es el servidor que verifica la identidad de los usuarios y emite access `tokens` a la aplicación cliente.
+
+== OAuth Dance
+
+Se definen distintos `authorization grant type` que establecen la forma en la cuales los roles
+interactúan entre si. El ejemplo utilizara `Authorization Code` como `authorization grant` ya que es uno
+de los mas típicos.
+
+== Ejemplo
+
+En este ejemplo estamos construyendo la aplicación cliente, por lo cual el primer paso
+es registrarse con nuestro service provider, en este caso utilizaremos GitHub.
+
+Registrar una nueva aplicación en https://github.com/settings/applications/new[Github]
+utilizando `http://localhost:8080/OAuth2Basics/redirect` como callback url, y salvar el `clientId` y `clientSecret`
+provisto por GitHub.
+
+*Nota:* El código contiene un `clientId` y `clientSecret` pero son inválidos, para ejecutar el ejemplo debemos actualizar los valores en la clase Constants por los generados en el paso previo.

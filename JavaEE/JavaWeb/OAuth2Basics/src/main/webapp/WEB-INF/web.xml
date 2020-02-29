@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <servlet>
+        <servlet-name>OAuthRedirectServlet</servlet-name>
+        <servlet-class>ar.com.javacuriosities.oauth.OAuthRedirectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GitHubFetcherServlet</servlet-name>
+        <servlet-class>ar.com.javacuriosities.oauth.GitHubFetcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OAuthRedirectServlet</servlet-name>
+        <url-pattern>/redirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GitHubFetcherServlet</servlet-name>
+        <url-pattern>/fetcher</url-pattern>
+    </servlet-mapping>
+</web-app>
