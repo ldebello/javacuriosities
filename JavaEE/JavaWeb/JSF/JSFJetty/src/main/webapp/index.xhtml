@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Login</title>
+</h:head>
+<h:body>
+    <h:form id="loginForm">
+        <h:outputText value="Username"/> <br/>
+        <h:inputText value="#{loginView.username}"/> <br/>
+        <h:outputText value="Password"/> <br/>
+        <h:inputSecret value="#{loginView.password}"/> <br/>
+        <h:commandButton value="Login" action="#{loginView.login()}"/> <br/>
+        <h:message for="loginForm"/>
+        <br/>
+    </h:form>
+
+    <br/>
+
+    <h:outputLink value="#{constants.authorizationUrl()}">Login with Mercado Libre!!!</h:outputLink>
+
+</h:body>
+</html>
+

@@ -28,5 +28,6 @@
         <module>JSFDataTable</module>
         <module>JSFLifeCycle</module>
         <module>JSFValidation</module>
+        <module>JSFJetty</module>
     </modules>
 </project>

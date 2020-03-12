@@ -1,0 +1,5 @@
+= JSF Jetty
+
+Para correr este ejemplo solo tienes que ejecutar ```mvn jetty:run```
+
+*Nota:* El código contiene un `clientId` y `clientSecret` pero son inválidos, para ejecutar el ejemplo debemos actualizar los valores en la clase Constants por los generados en nuestra cuenta de Mercado Libre.
