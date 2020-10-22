@@ -15,11 +15,15 @@
 
 	<artifactId>JDBC</artifactId>
 
+	<properties>
+        <mysql.connector.java>8.0.22</mysql.connector.java>
+    </properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.18</version>
+			<version>${mysql.connector.java}</version>
 		</dependency>
 	</dependencies>
 </project>

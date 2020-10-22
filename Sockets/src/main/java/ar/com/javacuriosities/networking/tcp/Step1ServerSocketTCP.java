@@ -65,9 +65,23 @@ import java.net.Socket;
  *
  * Terminología:
  *
- * Segment: Transport Layer Header(TCP/UDP Header) + Data
- * Packet: Network Layer Header(IP Header) + Data
- * Frame: Data Link Header(Ethernet Header) + Data
+ * Segment:
+ * Son manejados por la capa 4 (Transport Layer), el addressing es por medio de los puertos de origen y destino. Esta formado por el TCP/UDP Header y su payload.
+ *
+ * - Estructura
+ * Source Port|Destination Port|Flags (SYN/SYN-ACK/ACK/FIN/FIN-ACK/RST/URG)|Seq #|Ack #|Payload
+ *
+ * Packet:
+ * Son manejados por la capa 3 (Network Layer), el addressing es por medio de las IP de origen y destino. Esta formado por el IP Header y su payload.
+ *
+ * - Estructura
+ * Source IP Address|Destination IP Address|TTL|Others fields|Payload
+ *
+ * Frame:
+ * Son manejados por la capa 2 (Ethernet Layer), el addressing es por medio de las MAC address de origen y destino. Esta formado por el Data Link Header y su payload.
+ *
+ * - Estructura
+ * Source MAC Address|Destination MAC Address|Layer 3 Protocol (TCP/UDP)|Payload
  *
  * MSS (Maximum Segment Size): Es una opción especifica de TCP y sirve para indicar cual debería ser el tamaño maximo del payload de un segmento.
  * Es común ver un valor de 1460 ya que que si a eso le sumamos 20 bytes de TCP Header y 20 bytes de IP Header, nos da un total de 1500 bytes que suele

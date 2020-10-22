@@ -16,16 +16,21 @@
 
     <artifactId>MemoryManagement</artifactId>
 
+    <properties>
+        <forms.version>1.2.1</forms.version>
+        <mysql.connector.java>8.0.22</mysql.connector.java>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.jgoodies</groupId>
             <artifactId>forms</artifactId>
-            <version>1.2.1</version>
+            <version>${forms.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.18</version>
+            <version>${mysql.connector.java}</version>
         </dependency>
     </dependencies>
 </project>

@@ -20,13 +20,14 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <mysql.connector.java>8.0.22</mysql.connector.java>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.18</version>
+            <version>${mysql.connector.java}</version>
         </dependency>
     </dependencies>
 </project>
