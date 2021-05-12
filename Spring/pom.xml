@@ -21,7 +21,7 @@
     <properties>
         <spring.version>5.2.3.RELEASE</spring.version>
         <mysql.connector.java>8.0.22</mysql.connector.java>
-        <spring.old.version>5.2.1.RELEASE</spring.old.version>
+        <spring.old.version>5.2.10.RELEASE</spring.old.version>
         <thymeleaf-spring5.version>3.0.11.RELEASE</thymeleaf-spring5.version>
     </properties>
 
