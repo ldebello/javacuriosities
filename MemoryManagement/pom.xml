@@ -18,7 +18,7 @@
 
     <properties>
         <forms.version>1.2.1</forms.version>
-        <mysql.connector.java>8.0.22</mysql.connector.java>
+        <mysql.connector.java>8.0.28</mysql.connector.java>
     </properties>
 
     <dependencies>
