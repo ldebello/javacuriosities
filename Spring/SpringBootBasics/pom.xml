@@ -19,7 +19,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<mysql.connector.java>8.0.22</mysql.connector.java>
+		<mysql.connector.java>8.0.28</mysql.connector.java>
 	</properties>
 
 	<dependencies>
