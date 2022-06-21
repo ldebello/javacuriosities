@@ -16,7 +16,7 @@
 	<artifactId>JDBC</artifactId>
 
 	<properties>
-        <mysql.connector.java>8.0.22</mysql.connector.java>
+        <mysql.connector.java>8.0.28</mysql.connector.java>
     </properties>
 
 	<dependencies>
