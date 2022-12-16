@@ -19,7 +19,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <spring.version>5.2.10.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <mysql.connector.java>8.0.22</mysql.connector.java>
         <thymeleaf-spring5.version>3.0.11.RELEASE</thymeleaf-spring5.version>
     </properties>
